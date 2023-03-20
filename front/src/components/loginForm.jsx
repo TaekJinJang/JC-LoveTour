@@ -5,18 +5,21 @@ import Form from 'react-bootstrap/Form';
 
 import useInput from '../hooks/useInput';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginAction } from '../reducers';
 
-function loginForm({ setIsLoggedIn }) {
+function loginForm() {
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const [passwordCheck, setPasswordCheck] = useState('');
+
+  const dispatch = useDispatch();
 
   const onSubmitForm = useCallback(() => {
     console.log({
       id,
       password,
     });
-    setIsLoggedIn(true);
+    dispatch(loginAction({ id, password }));
   }, [id, password]);
 
   return (
@@ -27,6 +30,7 @@ function loginForm({ setIsLoggedIn }) {
         <Form.Group className="mb-3" controlId="user-id">
           <Form.Label>관리자 아이디</Form.Label>
           <Form.Control
+            name="user-id"
             type="text"
             placeholder="ID를 입력해주세요. "
             value={id}
@@ -37,6 +41,7 @@ function loginForm({ setIsLoggedIn }) {
         <Form.Group className="mb-3" controlId="user-pw">
           <Form.Label>관리자 비밀번호</Form.Label>
           <Form.Control
+            name="user-pw"
             type="password"
             placeholder="패스워드를 입력해주세요"
             value={password}

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reactLogo from './assets/react.svg';
 import Board from './pages/board';
+import Main from './pages/main';
 import Admin from './pages/admin';
 import React from 'react';
 
@@ -16,7 +17,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Board />} />
+          <Route path="/" exact={true} element={<Main />} />
+          <Route path="/board" element={<Board />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>

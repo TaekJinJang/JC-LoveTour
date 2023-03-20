@@ -11,24 +11,24 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
 // 루트 리듀서를 전달받아 스토어를 생성한다. composeWithDevTools 함수는 Redux DevTools의 기능을
 // 사용할 수 있게 한다. applyMiddleware 함수를 통해 redux-saga 미들웨어를 적용한다.
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
-);
+// const store = createStore(
+//   rootReducer,
+//   composeWithDevTools(applyMiddleware(sagaMiddleware))
+// );
 
 // 주의 //
-sagaMiddleware.run(rootSaga); // 리덕스 사가 미들웨어 실행
+// sagaMiddleware.run(rootSaga); // 리덕스 사가 미들웨어 실행
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+    {/* <Provider store={store}> */}
+    {/* <BrowserRouter> */}
+    <App />
+    {/* </BrowserRouter> */}
+    {/* </Provider> */}
   </React.StrictMode>
 );

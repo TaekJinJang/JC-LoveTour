@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { TextArea } from 'react-bootstrap';
 
-function Board() {
+function board({ setIsLoggedIn }) {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <div>
@@ -20,4 +22,4 @@ function Board() {
     </>
   );
 }
-export default Board;
+export default board;

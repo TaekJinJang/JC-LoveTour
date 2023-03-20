@@ -1,9 +1,10 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import Board from "./pages/Board";
-import React from "react";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import reactLogo from './assets/react.svg';
+import Board from './pages/board';
+import Admin from './pages/admin';
+import React from 'react';
 
 const Container = styled.div`
   margin: 10px auto;
@@ -16,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Board />} />
-          <Route path="/1" element={<Board />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </>

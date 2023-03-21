@@ -45,7 +45,7 @@ function announceBoardWrite() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="text">
-          <Form.Label>제목</Form.Label>
+          <Form.Label>내용</Form.Label>
           <Form.Control
             name="text"
             type="text"

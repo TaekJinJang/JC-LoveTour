@@ -5,7 +5,7 @@ function main() {
   return (
     <>
       <div>
-        <Link to="/board">
+        <Link to="/board/announce">
           <button>게시판</button>
         </Link>
         <Link to="/admin">

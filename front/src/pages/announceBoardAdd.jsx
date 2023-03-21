@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BoardView from '../components/boardView';
+import AnnounceBoardWrite from '../components/Board/announceBoardWrite';
 // import { TextArea } from 'react-bootstrap';
 
-function board() {
+function announceBoardAdd() {
   return (
     <>
-      <BoardView />
+      <AnnounceBoardWrite />
     </>
   );
 }
-export default board;
+export default announceBoardAdd;

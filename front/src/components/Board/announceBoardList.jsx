@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 
-function boardList() {
+function announceBoardList({ post }) {
   const { isLoggedIn } = useSelector((state) => state.user);
   const { mainPosts } = useSelector((state) => state.post);
   return (
@@ -20,15 +20,15 @@ function boardList() {
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>{post.id}</td>
+            <td>{post.title}</td>
+            <td>{post.admin.nickname}</td>
+            <td>{post.date}</td>
+            <td>{post.views}</td>
           </tr>
         </tbody>
       </Table>
     </>
   );
 }
-export default boardList;
+export default announceBoardList;

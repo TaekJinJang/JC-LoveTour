@@ -10,9 +10,7 @@ import { Link } from 'react-router-dom';
 function announceBoardView() {
   const { isLoggedIn } = useSelector((state) => state.user);
   const { mainPosts } = useSelector((state) => state.post);
-  const onWriteBoard = useCallback(() => {
-    <Link to="/add" />;
-  });
+
   return (
     <>
       {isLoggedIn && (

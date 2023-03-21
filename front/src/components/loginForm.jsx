@@ -4,20 +4,22 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import useInput from '../hooks/useInput';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAction, logOutAction } from '../reducers/user';
 
 function loginForm() {
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const { isLoggedIn } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault(); // submit 후 새로고침 막기
+      navigate('/');
       console.log({
         id,
         password,
@@ -28,15 +30,20 @@ function loginForm() {
   );
   const onLogout = useCallback(() => {
     dispatch(logOutAction());
-  });
+  }, []);
 
   return (
     <div>
       <h1>관리자페이지</h1>
       {isLoggedIn ? (
-        <Button variant="danger" onClick={onLogout}>
-          로그아웃
-        </Button>
+        <>
+          <Button variant="danger" onClick={onLogout}>
+            로그아웃
+          </Button>
+          <Link to="/">
+            <Button variant="info">메인페이지 가기</Button>
+          </Link>
+        </>
       ) : (
         <Form onSubmit={onSubmitForm}>
           <Form.Group className="mb-3" controlId="user-id">
@@ -60,13 +67,12 @@ function loginForm() {
               onChange={onChangePassword}
             />
           </Form.Group>
-          <div>
-            {/* <Link to="/"> */}
-            <Button variant="primary" type="submit">
-              로그인
-            </Button>
-            {/* </Link> */}
-          </div>
+
+          {/* <Link to="/"> */}
+          <Button variant="primary" type="submit">
+            로그인
+          </Button>
+          {/* </Link> */}
         </Form>
       )}
     </div>

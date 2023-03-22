@@ -5,6 +5,7 @@ import reactLogo from './assets/react.svg';
 import AnnounceBoard from './pages/announceBoard';
 import AnnounceBoardAdd from './pages/announceBoardAdd';
 import AnnounceBoardDetail from './components/Board/announceBoardDetail';
+import GalleryBoardView from './components/Board/galleryBoardView';
 import Main from './pages/main';
 import Admin from './pages/admin';
 import React from 'react';
@@ -26,6 +27,7 @@ function App() {
             element={<AnnounceBoardDetail />}
           />
           <Route path="/board/announce/add" element={<AnnounceBoardAdd />} />
+          <Route path="/board/gallery" element={<GalleryBoardView />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>

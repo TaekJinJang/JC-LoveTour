@@ -8,6 +8,9 @@ function main() {
         <Link to="/board/announce">
           <button>게시판</button>
         </Link>
+        <Link to="/board/gallery">
+          <button>갤러리</button>
+        </Link>
         <Link to="/admin">
           <button>관리자</button>
         </Link>

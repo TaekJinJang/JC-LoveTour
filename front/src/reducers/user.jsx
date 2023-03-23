@@ -1,5 +1,5 @@
 export const initialState = {
-  logInLoading: true, // 로그인 시도중
+  logInLoading: false, // 로그인 시도중
   logInDone: false,
   logInError: null,
   logOutLoading: false, // 로그아웃 시도중
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: true,
-        user: action.data,
+        user: { ...action.data, nickname: '관리자' },
       };
     case 'LOG_IN_FAILURE':
       return {

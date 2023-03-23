@@ -1,4 +1,11 @@
-import { all, delay, fork, put, takeLatest } from 'redux-saga/effects';
+import {
+  all,
+  delay,
+  fork,
+  put,
+  takeLatest,
+  throttle,
+} from 'redux-saga/effects';
 // import axios from 'axios';
 
 function logInAPI(data) {
@@ -53,7 +60,7 @@ function* logOut() {
 }
 
 function* watchLogIn() {
-  yield takeLatest(LOG_IN_REQUEST, logIn);
+  yield throttle(1000, LOG_IN_REQUEST, logIn);
 }
 
 function* watchLogOut() {

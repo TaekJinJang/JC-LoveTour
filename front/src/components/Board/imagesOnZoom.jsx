@@ -4,22 +4,11 @@ import Carousel from 'react-bootstrap/Carousel';
 import styled from 'styled-components';
 
 function imagesOnZoom() {
-  const Overlay = styled.div`
-    position: fixed;
-    z-index: 5000;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  `;
   // const SlickWrapper = styled(Carousel.Item)`
   //   height: calc(100% - 70px);
   //   background: #090909;
   // `;
-  const ResizeImg = styled.img`
-    height: '400px';
-    width: '300px';
-  `;
+
   return (
     <Carousel fade>
       <Carousel.Item>

@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 import {
   all,
@@ -96,6 +96,6 @@ function* watchRemovePost() {
   yield takeLatest(REMOVE_POST_REQUEST, removePost);
 }
 
-export default function* postSaga() {
-  yield all([fork(watchAddPost), fork(watchLoadPosts), fork(watchRemovePost)]);
+export default function postSaga() {
+  //   yield all([fork(watchAddPost), fork(watchLoadPosts), fork(watchRemovePost)]);
 }

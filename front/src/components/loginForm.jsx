@@ -2,16 +2,17 @@ import React, { useCallback, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Spinner from 'react-bootstrap/Spinner';
 
 import useInput from '../hooks/useInput';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginAction, logOutAction } from '../reducers/user';
+import { logInRequestAction, logOutRequestAction } from '../reducers/user';
 
 function loginForm() {
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const { logInLoading, user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,18 +25,19 @@ function loginForm() {
         id,
         password,
       });
-      dispatch(loginAction({ id, password }));
+      dispatch(logInRequestAction({ id, password }));
     },
     [id, password]
   );
   const onLogout = useCallback(() => {
-    dispatch(logOutAction());
+    dispatch(logOutRequestAction());
   }, []);
 
+  console.log(user);
   return (
     <div>
       <h1>관리자페이지</h1>
-      {isLoggedIn ? (
+      {user ? (
         <>
           <Button variant="danger" onClick={onLogout}>
             로그아웃
@@ -68,11 +70,9 @@ function loginForm() {
             />
           </Form.Group>
 
-          {/* <Link to="/"> */}
           <Button variant="primary" type="submit">
-            로그인
+            {logInLoading ? <Spinner animation="border" size="sm" /> : '로그인'}
           </Button>
-          {/* </Link> */}
         </Form>
       )}
     </div>

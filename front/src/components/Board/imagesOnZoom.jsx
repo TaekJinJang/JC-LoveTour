@@ -3,53 +3,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from 'styled-components';
 
-function imagesOnZoom() {
+function imagesOnZoom({ Images }) {
   // const SlickWrapper = styled(Carousel.Item)`
   //   height: calc(100% - 70px);
   //   background: #090909;
   // `;
-
+  console.log(Images);
   return (
     <Carousel fade>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg"
-          alt="First slide"
-          style={{ width: '400px', height: '700px' }}
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg"
-          alt="Second slide"
-          style={{ width: '400px', height: '700px' }}
-        />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {Images.map((image, index) => (
+        <Carousel.Item key={image.id}>
+          <img
+            className="d-block w-100"
+            src={image.src}
+            alt="First slide"
+            style={{ width: '400px', height: '500px' }}
+          />
+          <Carousel.Caption>
+            <h3>{image.captionTitle}</h3>
+            <p>{image.captionContent}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 }

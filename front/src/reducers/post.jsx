@@ -21,6 +21,30 @@ export const initialState = {
       ],
     },
   ],
+  gallery: [
+    {
+      id: 1,
+      admin: {
+        id: 1,
+        nickname: '관리자',
+      },
+      title: '첫 예시',
+      Images: [
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
+        },
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
+        },
+      ],
+    },
+  ],
   addPostLoading: false, // 게시글 등록 시도중
   addPostDone: false,
   addPostError: null,

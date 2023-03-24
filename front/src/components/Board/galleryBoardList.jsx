@@ -17,7 +17,7 @@ function galleryBoardList({ post }) {
           <Modal.Title>Image Carousel</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <ImagesOnZoom />
+          <ImagesOnZoom Images={post.Images} />
         </Modal.Body>
       </Modal>
 
@@ -29,7 +29,7 @@ function galleryBoardList({ post }) {
         />
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
-          <Card.Text>{post.content}</Card.Text>
+          {/* <Card.Text>{post.content}</Card.Text> */}
           <Button variant="primary" onClick={() => setShowImagesZoom(true)}>
             더 보기
           </Button>

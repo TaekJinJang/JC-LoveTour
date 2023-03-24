@@ -5,11 +5,11 @@ import GalleryBoardList from './galleryBoardList';
 import { useSelector } from 'react-redux';
 
 function galleryBoardView() {
-  const { mainPosts } = useSelector((state) => state.post);
-  console.log(mainPosts);
+  const { gallery } = useSelector((state) => state.post);
+  console.log(gallery);
   return (
     <>
-      {mainPosts.map((post, index) => (
+      {gallery.map((post, index) => (
         <GalleryBoardList key={post.id} post={post} />
       ))}
     </>

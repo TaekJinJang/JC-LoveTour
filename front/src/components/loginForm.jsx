@@ -12,7 +12,9 @@ import { logInRequestAction, logOutRequestAction } from '../reducers/user';
 function loginForm() {
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const { logInLoading, user } = useSelector((state) => state.user);
+  const { logInLoading, logOutLoading, admin } = useSelector(
+    (state) => state.user
+  );
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,14 +35,18 @@ function loginForm() {
     dispatch(logOutRequestAction());
   }, []);
 
-  console.log(user);
+  console.log(admin);
   return (
     <div>
       <h1>관리자페이지</h1>
-      {user ? (
+      {admin ? (
         <>
           <Button variant="danger" onClick={onLogout}>
-            로그아웃
+            {logOutLoading ? (
+              <Spinner animation="border" size="sm" />
+            ) : (
+              '로그아웃'
+            )}
           </Button>
           <Link to="/">
             <Button variant="info">메인페이지 가기</Button>
@@ -48,10 +54,10 @@ function loginForm() {
         </>
       ) : (
         <Form onSubmit={onSubmitForm}>
-          <Form.Group className="mb-3" controlId="user-id">
+          <Form.Group className="mb-3" controlId="admin-id">
             <Form.Label>관리자 아이디</Form.Label>
             <Form.Control
-              name="user-id"
+              name="admin-id"
               type="text"
               placeholder="ID를 입력해주세요. "
               value={id}
@@ -59,10 +65,10 @@ function loginForm() {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="user-pw">
+          <Form.Group className="mb-3" controlId="admin-pw">
             <Form.Label>관리자 비밀번호</Form.Label>
             <Form.Control
-              name="user-pw"
+              name="admin-pw"
               type="password"
               placeholder="패스워드를 입력해주세요"
               value={password}

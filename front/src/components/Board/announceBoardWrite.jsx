@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost } from '../../reducers/post';
+import { ADD_POST_REQUEST } from '../../reducers/post';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -16,11 +16,17 @@ function announceBoardWrite() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const onSubmitForm = useCallback((e) => {
-    e.preventDefault();
-    dispatch(addPost);
-    navigate('/board/announce');
-  }, []);
+  const onSubmitForm = useCallback(
+    (e) => {
+      e.preventDefault();
+      navigate('/board/announce');
+      return dispatch({
+        type: ADD_POST_REQUEST,
+        data: { title: title, content: text },
+      });
+    },
+    [title, text]
+  );
 
   const onClickImageUpload = useCallback(() => {
     imageInput.current.click();

@@ -8,9 +8,10 @@ function announceBoardList({ post }) {
   const navigate = useNavigate();
   const { isLoggedIn } = useSelector((state) => state.user);
   const { mainPosts } = useSelector((state) => state.post);
-  // const boardDetail = useCallback(() => {
-  //   navigate(`/board/announce/{${post.id}`, post);
-  // });
+  const boardDetail = useCallback(() => {
+    console.log(post);
+    navigate(`/board/announce/${post.id}`, { state: { post } });
+  }, [{ post }]);
 
   return (
     <>
@@ -24,9 +25,8 @@ function announceBoardList({ post }) {
             <th>조회수</th>
           </tr>
         </thead>
-        {/* <Link to={`/board/announce/${post.id}`} post={post.id}> */}
         <tbody>
-          <tr>
+          <tr onClick={boardDetail}>
             <td>{post.id}</td>
             <td>{post.title}</td>
             <td>{post.admin.nickname}</td>
@@ -34,7 +34,6 @@ function announceBoardList({ post }) {
             <td>{post.views}</td>
           </tr>
         </tbody>
-        {/* </Link> */}
       </Table>
     </>
   );

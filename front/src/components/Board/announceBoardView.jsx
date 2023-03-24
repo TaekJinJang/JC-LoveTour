@@ -8,12 +8,12 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 function announceBoardView() {
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const { admin } = useSelector((state) => state.user);
   const { mainPosts } = useSelector((state) => state.post);
 
   return (
     <>
-      {isLoggedIn && (
+      {admin && (
         <Link to="/board/announce/add">
           <Button>글쓰기</Button>
         </Link>

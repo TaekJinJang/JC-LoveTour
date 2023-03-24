@@ -2,12 +2,15 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Button from 'react-bootstrap/esm/Button';
 // 아직 수정중
-function announceBoardDetail({ post }) {
-  const { isLoggedIn } = useSelector((state) => state.user);
+function announceBoardDetail() {
+  const { user } = useSelector((state) => state.user);
   const { mainPosts } = useSelector((state) => state.post);
-  console.log({ post });
+  const location = useLocation();
+  const { post } = location.state;
+  console.log(location);
   return (
     <>
       <Table striped bordered hover>
@@ -30,6 +33,7 @@ function announceBoardDetail({ post }) {
           </tr>
         </tbody>
       </Table>
+      <Button variant="danger">삭제</Button>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import produce from 'immer';
 import shortId from 'shortid';
+import faker from 'faker';
 
 export const initialState = {
   mainPosts: [
@@ -38,8 +39,43 @@ export const initialState = {
   loadPostLoading: false, // 게시글 1개 불러오기 시도중
   loadPostDone: false,
   loadPostError: null,
+  incrementViewsLoading: false, // 조회수 + 1 시도중
+  incrementViewsDone: false,
+  incrementViewsError: null,
   imagePaths: [],
 };
+
+const TodayTime = () => {
+  let date = new Date(); // 현재 날짜 및 시간
+  let Year = date.getFullYear(); // 월
+  let Month = date.getMonth() + 1; // 월
+  let Day = date.getDate(); // 일
+
+  return Year + '-' + Month + '-' + Day;
+};
+
+// 더미데이터 faker 라이브러리 사용
+export const generateDummyPost = (number) =>
+  Array(number)
+    .fill()
+    .map(() => ({
+      id: shortId.generate(),
+      admin: {
+        id: shortId.generate(),
+        nickname: faker.name.findName(),
+      },
+      title: faker.name.prefix(),
+      content: faker.lorem.paragraph(),
+      Images: [
+        {
+          src: faker.image.image(),
+        },
+      ],
+      views: 0,
+      date: TodayTime(),
+    }));
+
+initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 
 export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
@@ -60,15 +96,9 @@ export const LOAD_POST_REQUEST = 'LOAD_POST_REQUEST';
 export const LOAD_POST_SUCCESS = 'LOAD_POST_SUCCESS';
 export const LOAD_POST_FAILURE = 'LOAD_POST_FAILURE';
 export const REMOVE_IMAGE = 'REMOVE_IMAGE';
-
-const TodayTime = () => {
-  let date = new Date(); // 현재 날짜 및 시간
-  let Year = date.getFullYear(); // 월
-  let Month = date.getMonth() + 1; // 월
-  let Day = date.getDate(); // 일
-
-  return Year + '-' + Month + '-' + Day;
-};
+export const INCREMENT_VIEWS_REQUEST = 'INCREMENT_VIEWS_REQUEST';
+export const INCREMENT_VIEWS_SUCCESS = 'INCREMENT_VIEWS_SUCCESS';
+export const INCREMENT_VIEWS_FAILURE = 'INCREMENT_VIEWS_FAILURE';
 
 const dummyPost = (data) => ({
   id: shortId.generate(),
@@ -185,6 +215,23 @@ const reducer = (state = initialState, action) =>
       //REMOVE_IMAGE
       case REMOVE_IMAGE:
         draft.imagePaths = draft.imagePaths.filter((v, i) => i !== action.data);
+        break;
+
+      // INCREMENT_VIEWS
+      case INCREMENT_VIEWS_REQUEST:
+        draft.incrementViewsLoading = true;
+        draft.incrementViewsError = null;
+        draft.incrementViewsDone = false;
+        break;
+      case INCREMENT_VIEWS_SUCCESS:
+        draft.mainPosts.find((v) => v.id === action.data.postId).views =
+          action.data.views + 1;
+        draft.incrementViewsLoading = false;
+        draft.incrementViewsDone = true;
+        break;
+      case INCREMENT_VIEWS_FAILURE:
+        draft.incrementViewsLoading = false;
+        draft.incrementViewsError = action.error;
         break;
       default:
         break;

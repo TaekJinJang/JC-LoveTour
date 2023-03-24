@@ -22,12 +22,18 @@ function announceBoardDetail() {
       data: post.id,
     });
   }, []);
+
   const updateBoard = useCallback(() => {
     navigate(`/board/announce/${post.id}/update`, { state: { post } });
   }, []);
-  console.log('0000');
+
   return (
     <>
+      <img
+        src={post.Images[0].src}
+        alt={post.Images[0].src}
+        style={{ width: '300px', height: '200px' }}
+      />
       <Table striped bordered hover>
         <thead>
           <tr>

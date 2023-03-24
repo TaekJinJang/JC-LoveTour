@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_POST_REQUEST } from '../../reducers/post';
+import { ADD_POST_REQUEST, UPLOAD_IMAGES_REQUEST } from '../../reducers/post';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -19,24 +19,52 @@ function announceBoardWrite() {
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
+      if (!text || !text.trim()) {
+        return alert('게시글을 작성하세요');
+      }
+      const formData = new FormData();
+      imagePaths.forEach((p) => {
+        formData.append('image', p);
+      });
+      formData.append('content', text);
+
       navigate('/board/announce');
       return dispatch({
         type: ADD_POST_REQUEST,
         data: { title: title, content: text },
       });
     },
-    [title, text]
+    [title, text, imagePaths]
   );
 
   const onClickImageUpload = useCallback(() => {
     imageInput.current.click();
   }, [imageInput.current]);
 
+  const onChangeImages = useCallback((e) => {
+    console.log('images', e.target.files);
+    const imageFormData = new FormData();
+    [].forEach.call(e.target.files, (f) => {
+      imageFormData.append('image', f);
+    });
+    dispatch({
+      type: UPLOAD_IMAGES_REQUEST,
+      data: imageFormData,
+    });
+    console.log(imageFormData);
+  }, []);
+
   return (
     <>
       <h1>게시판 글쓰기</h1>
-      <Form onSubmit={onSubmitForm}>
-        <input type="file" multiple hidden ref={imageInput} />
+      <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
+        <input
+          type="file"
+          multiple
+          hidden
+          ref={imageInput}
+          onChange={onChangeImages}
+        />
         <Button onClick={onClickImageUpload} variant="info">
           이미지 업로드
         </Button>

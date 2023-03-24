@@ -27,6 +27,9 @@ import {
   UPLOAD_IMAGES_REQUEST,
   UPLOAD_IMAGES_SUCCESS,
   UPLOAD_IMAGES_FAILURE,
+  INCREMENT_VIEWS_REQUEST,
+  INCREMENT_VIEWS_SUCCESS,
+  INCREMENT_VIEWS_FAILURE,
 } from '../reducers/post';
 
 function addPostAPI(data) {
@@ -47,6 +50,28 @@ function* addPost(action) {
     console.error(err);
     yield put({
       type: ADD_POST_FAILURE,
+      data: err.response.data,
+    });
+  }
+}
+function incrementViewsAPI() {
+  return axios.post('/api/post/views');
+}
+
+function* incrementViews(action) {
+  try {
+    // const result = yield call(incrementViewsAPI, action.data);
+    // yield delay(1000);
+
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: INCREMENT_VIEWS_SUCCESS,
+      data: action.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: INCREMENT_VIEWS_FAILURE,
       data: err.response.data,
     });
   }
@@ -150,7 +175,7 @@ function* uploadImages(action) {
 }
 
 function* watchLoadPosts() {
-  yield takeLatest(5000, LOAD_POSTS_REQUEST, loadPosts);
+  yield takeLatest(LOAD_POSTS_REQUEST, loadPosts);
 }
 
 function* watchAddPost() {
@@ -169,10 +194,14 @@ function* watchLoadPost() {
 function* watchUploadImages() {
   yield takeLatest(UPLOAD_IMAGES_REQUEST, uploadImages);
 }
+function* watchIncrementViews() {
+  yield takeLatest(INCREMENT_VIEWS_REQUEST, incrementViews);
+}
 export default function* postSaga() {
   yield all([
+    fork(watchIncrementViews),
     fork(watchAddPost),
-    // fork(watchLoadPosts),
+    fork(watchLoadPosts),
     fork(watchRemovePost),
     fork(watchUpdatePost),
     fork(watchUploadImages),

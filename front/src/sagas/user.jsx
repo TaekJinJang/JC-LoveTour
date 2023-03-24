@@ -25,7 +25,7 @@ function* logIn(action) {
   try {
     console.log('saga logIn');
     // const result = yield call(logInAPI); call은 동기 fork는 비동기
-    yield delay(1000);
+    // yield delay(1000);
     yield put({
       type: LOG_IN_SUCCESS,
       data: action.data, // data: result.data,
@@ -46,7 +46,7 @@ function logOutAPI() {
 function* logOut() {
   try {
     // const result = yield call(logOutAPI);
-    yield delay(1000);
+    // yield delay(1000);
     yield put({
       type: LOG_OUT_SUCCESS,
     });

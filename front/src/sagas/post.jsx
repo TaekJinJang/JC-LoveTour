@@ -15,6 +15,9 @@ import {
   REMOVE_POST_REQUEST,
   REMOVE_POST_FAILURE,
   REMOVE_POST_SUCCESS,
+  UPDATE_POST_REQUEST,
+  UPDATE_POST_FAILURE,
+  UPDATE_POST_SUCCESS,
   LOAD_POSTS_REQUEST,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_FAILURE,
@@ -56,7 +59,7 @@ function removePostAPI(data) {
 function* removePost(action) {
   try {
     // const result = yield call(removePostAPI, action.data);
-    yield delay(1000);
+    // yield delay(1000);
     yield put({
       type: REMOVE_POST_SUCCESS,
       data: action.data,
@@ -65,6 +68,25 @@ function* removePost(action) {
     console.error(err);
     yield put({
       type: REMOVE_POST_FAILURE,
+      data: err.response.data,
+    });
+  }
+}
+function updatePostAPI(data) {
+  return axios.delete('/api/post', data);
+}
+function* updatePost(action) {
+  try {
+    // const result = yield call(updatePostAPI, action.data);
+    // yield delay(1000);
+    yield put({
+      type: UPDATE_POST_SUCCESS,
+      data: action.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: UPDATE_POST_FAILURE,
       data: err.response.data,
     });
   }
@@ -138,6 +160,9 @@ function* watchAddPost() {
 function* watchRemovePost() {
   yield takeLatest(REMOVE_POST_REQUEST, removePost);
 }
+function* watchUpdatePost() {
+  yield takeLatest(UPDATE_POST_REQUEST, updatePost);
+}
 function* watchLoadPost() {
   yield takeLatest(LOAD_POST_REQUEST, loadPost);
 }
@@ -149,6 +174,7 @@ export default function* postSaga() {
     fork(watchAddPost),
     // fork(watchLoadPosts),
     fork(watchRemovePost),
+    fork(watchUpdatePost),
     fork(watchUploadImages),
     fork(watchLoadPost),
   ]);

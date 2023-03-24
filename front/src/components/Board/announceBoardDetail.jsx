@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
-import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
-// 아직 수정중
+import { REMOVE_POST_REQUEST } from '../../reducers/post';
+
 function announceBoardDetail() {
-  const { user } = useSelector((state) => state.user);
-  const { mainPosts } = useSelector((state) => state.post);
+  const { admin } = useSelector((state) => state.user);
+  // const { mainPosts, REMOVE_POST_REQUEST } = useSelector((state) => state.post);
   const location = useLocation();
   const { post } = location.state;
-  console.log(location);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  console.log(post);
+
+  const deleteBoard = useCallback(() => {
+    navigate('/board/announce');
+    return dispatch({
+      type: REMOVE_POST_REQUEST,
+      data: post.id,
+    });
+  }, []);
+  const updateBoard = useCallback(() => {
+    navigate(`/board/announce/${post.id}/update`, { state: { post } });
+  }, []);
+  console.log('0000');
   return (
     <>
       <Table striped bordered hover>
@@ -33,7 +48,16 @@ function announceBoardDetail() {
           </tr>
         </tbody>
       </Table>
-      <Button variant="danger">삭제</Button>
+      {admin && (
+        <>
+          <Button variant="danger" onClick={deleteBoard}>
+            삭제
+          </Button>
+          <Button variant="info" onClick={updateBoard}>
+            수정
+          </Button>
+        </>
+      )}
     </>
   );
 }

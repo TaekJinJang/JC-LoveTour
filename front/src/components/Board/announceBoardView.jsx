@@ -7,6 +7,7 @@ import AnnounceBoardWrite from './announceBoardWrite';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
+import { Alert } from 'bootstrap';
 
 function announceBoardView() {
   const { admin } = useSelector((state) => state.user);
@@ -14,6 +15,7 @@ function announceBoardView() {
   const [searchInput, onChangeSearchInput] = useInput('');
   const navigate = useNavigate();
   const goToSearch = useCallback(() => {
+    if (searchInput === '') return alert('검색어를 입력해주세요');
     navigate(`/board/announce/search/${searchInput}/`, { state: searchInput });
   }, [searchInput]);
 

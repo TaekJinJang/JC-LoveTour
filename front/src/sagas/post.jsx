@@ -153,7 +153,7 @@ function* loadSearchPosts(action) {
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: LOAD_SEARCH_POSTS_SUCCESS,
-      data: action.data, // 게시글 10개 불러오기
+      data: action.data,
     });
   } catch (err) {
     console.error(err);

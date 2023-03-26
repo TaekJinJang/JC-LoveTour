@@ -49,6 +49,9 @@ export const initialState = {
   addPostLoading: false, // 게시글 등록 시도중
   addPostDone: false,
   addPostError: null,
+  searchPostsLoading: false, // 게시글 검색 시도중
+  searchPostsDone: false,
+  searchPostsError: null,
   removePostLoading: false, // 게시글 삭제 시도중
   removePostDone: false,
   removePostError: null,
@@ -100,7 +103,7 @@ export const generateDummyPost = (number) =>
       date: TodayTime(),
     }));
 
-initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
+initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(30));
 
 export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
@@ -117,7 +120,7 @@ export const UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
 export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
 export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
 export const LOAD_POSTS_FAILURE = 'LOAD_POSTS_FAILURE';
-export const LOAD_SEARCH_POSTS_REQUEST = 'LOAD_SEARCH_POSTS_REQUEST'; // state 재사용함 (loadPosts~)
+export const LOAD_SEARCH_POSTS_REQUEST = 'LOAD_SEARCH_POSTS_REQUEST';
 export const LOAD_SEARCH_POSTS_SUCCESS = 'LOAD_SEARCH_POSTS_SUCCESS';
 export const LOAD_SEARCH_POSTS_FAILURE = 'LOAD_SEARCH_POSTS_FAILURE';
 export const LOAD_POST_REQUEST = 'LOAD_POST_REQUEST';
@@ -141,6 +144,7 @@ const dummyPost = (data) => ({
   views: 1,
 });
 
+// 정규표현식을 이용해 게시글 검색
 function createSearchRegex(keyword) {
   const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`\\b${escapedKeyword}\\b`, 'i');
@@ -213,42 +217,42 @@ const reducer = (state = initialState, action) =>
         draft.updatePostLoading = false;
         draft.updatePostError = action.error;
         break;
-      // LOAD_POSTS, LOAD_SEARCH_POSTS
-      case LOAD_SEARCH_POSTS_REQUEST:
-        draft.loadPostsLoading = true;
-        draft.loadPostsError = null;
-        draft.loadPostsDone = false;
-        break;
+      // LOAD_POSTS
+
       case LOAD_POSTS_REQUEST:
         draft.loadPostsLoading = true;
         draft.loadPostsError = null;
         draft.loadPostsDone = false;
         break;
 
-      case LOAD_SEARCH_POSTS_SUCCESS:
-        const regex = createSearchRegex(action.data);
-
-        draft.searchPosts = draft.mainPosts.filter(
-          (post) => regex.test(post.title) || regex.test(post.content)
-        );
-        draft.loadPostsLoading = false;
-        draft.loadPostsDone = true;
-        // draft.mainPosts = draft.mainPosts.concat(action.data);
-        break;
       case LOAD_POSTS_SUCCESS:
         draft.loadPostsLoading = false;
         draft.loadPostsDone = true;
         draft.mainPosts = draft.mainPosts.concat(action.data);
         break;
-      case LOAD_SEARCH_POSTS_FAILURE:
-        draft.loadPostsLoading = false;
-        draft.loadPostsError = action.error;
-        break;
-
       case LOAD_POSTS_FAILURE:
         draft.loadPostsLoading = false;
         draft.loadPostsError = action.error;
         break;
+      // LOAD_SEARCH_POSTS
+      case LOAD_SEARCH_POSTS_REQUEST:
+        draft.searchPostsLoading = true;
+        draft.searchPostsError = null;
+        draft.searchPostsDone = false;
+        break;
+      case LOAD_SEARCH_POSTS_SUCCESS:
+        const regex = createSearchRegex(action.data);
+        draft.searchPosts = draft.mainPosts.filter(
+          (post) => regex.test(post.title) || regex.test(post.content)
+        );
+        draft.searchPostsLoading = false;
+        draft.searchPostsDone = true;
+        break;
+      case LOAD_SEARCH_POSTS_FAILURE:
+        draft.searchPostsLoading = false;
+        draft.searchPostsError = action.error;
+        break;
+
       // LOAD_POST
       case LOAD_POST_REQUEST:
         draft.loadPostLoading = true;

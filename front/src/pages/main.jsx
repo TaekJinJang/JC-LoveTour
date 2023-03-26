@@ -1,10 +1,14 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Header from '../components/Common/header';
 
 function main() {
   return (
     <>
-      <div>
+      <Container>{/* <Header /> */}</Container>
+
+      <Container>
         <Link to="/board/announce">
           <button>게시판</button>
         </Link>
@@ -14,7 +18,7 @@ function main() {
         <Link to="/admin">
           <button>관리자</button>
         </Link>
-      </div>
+      </Container>
     </>
   );
 }

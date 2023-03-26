@@ -7,6 +7,7 @@ import AnnounceBoardAdd from './pages/announceBoardAdd';
 import AnnounceBoardDetail from './components/Board/announceBoardDetail';
 import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
 import GalleryBoardView from './components/Board/galleryBoardView';
+import AnnounceBoardSearch from './components/Board/announceBoardSearch';
 import Main from './pages/main';
 import Admin from './pages/admin';
 import React from 'react';
@@ -32,6 +33,10 @@ function App() {
             element={<AnnounceBoardUpdate />}
           />
           <Route path="/board/announce/add" element={<AnnounceBoardAdd />} />
+          <Route
+            path="/board/announce/search/:search"
+            element={<AnnounceBoardSearch />}
+          />
           <Route path="/board/gallery" element={<GalleryBoardView />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>

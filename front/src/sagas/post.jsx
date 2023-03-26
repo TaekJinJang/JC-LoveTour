@@ -21,6 +21,9 @@ import {
   LOAD_POSTS_REQUEST,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_FAILURE,
+  LOAD_SEARCH_POSTS_REQUEST,
+  LOAD_SEARCH_POSTS_SUCCESS,
+  LOAD_SEARCH_POSTS_FAILURE,
   LOAD_POST_REQUEST,
   LOAD_POST_SUCCESS,
   LOAD_POST_FAILURE,
@@ -135,6 +138,32 @@ function* loadPosts(action) {
     });
   }
 }
+
+function loadSearchPostsAPI(data, lastId) {
+  return axios.get(
+    // 그냥 ${data}로 하면 한글이 되기때문에 에러가 뜸 그래서 encodeURIComponent로 변형시켰다가 decodeURIComponent로 바꿔옴
+    // 나중에 생각
+    `/search/${encodeURIComponent(data)}?lastId=${lastId || 0}`
+  );
+}
+
+function* loadSearchPosts(action) {
+  try {
+    // const result = yield call(loadSearchPostsAPI, action.lastId); // call은 동기 fork는 비동기
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: LOAD_SEARCH_POSTS_SUCCESS,
+      data: action.data, // 게시글 10개 불러오기
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: LOAD_SEARCH_POSTS_FAILURE,
+      error: err.response.data,
+    });
+  }
+}
+
 function loadPostAPI(data) {
   return axios.get(`/post/${data}`);
 }
@@ -191,6 +220,9 @@ function* watchUpdatePost() {
 function* watchLoadPost() {
   yield takeLatest(LOAD_POST_REQUEST, loadPost);
 }
+function* watchLoadSearchPosts() {
+  yield takeLatest(LOAD_SEARCH_POSTS_REQUEST, loadSearchPosts);
+}
 function* watchUploadImages() {
   yield takeLatest(UPLOAD_IMAGES_REQUEST, uploadImages);
 }
@@ -202,6 +234,7 @@ export default function* postSaga() {
     fork(watchIncrementViews),
     fork(watchAddPost),
     fork(watchLoadPosts),
+    fork(watchLoadSearchPosts),
     fork(watchRemovePost),
     fork(watchUpdatePost),
     fork(watchUploadImages),

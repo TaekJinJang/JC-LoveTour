@@ -3,6 +3,7 @@ import shortId from 'shortid';
 import faker from 'faker';
 
 export const initialState = {
+  searchPosts: [],
   mainPosts: [
     {
       id: 1,
@@ -116,6 +117,9 @@ export const UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
 export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
 export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
 export const LOAD_POSTS_FAILURE = 'LOAD_POSTS_FAILURE';
+export const LOAD_SEARCH_POSTS_REQUEST = 'LOAD_SEARCH_POSTS_REQUEST'; // state 재사용함 (loadPosts~)
+export const LOAD_SEARCH_POSTS_SUCCESS = 'LOAD_SEARCH_POSTS_SUCCESS';
+export const LOAD_SEARCH_POSTS_FAILURE = 'LOAD_SEARCH_POSTS_FAILURE';
 export const LOAD_POST_REQUEST = 'LOAD_POST_REQUEST';
 export const LOAD_POST_SUCCESS = 'LOAD_POST_SUCCESS';
 export const LOAD_POST_FAILURE = 'LOAD_POST_FAILURE';
@@ -136,6 +140,11 @@ const dummyPost = (data) => ({
   Images: [],
   views: 1,
 });
+
+function createSearchRegex(keyword) {
+  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`\\b${escapedKeyword}\\b`, 'i');
+}
 
 // 리듀서는 이전 상태를 액션을 통해 다음 상태로 만들어내는 함수 ( 단! 불변성을 지키면서 !!)
 const reducer = (state = initialState, action) =>
@@ -204,17 +213,38 @@ const reducer = (state = initialState, action) =>
         draft.updatePostLoading = false;
         draft.updatePostError = action.error;
         break;
-      // LOAD_POSTS
+      // LOAD_POSTS, LOAD_SEARCH_POSTS
+      case LOAD_SEARCH_POSTS_REQUEST:
+        draft.loadPostsLoading = true;
+        draft.loadPostsError = null;
+        draft.loadPostsDone = false;
+        break;
       case LOAD_POSTS_REQUEST:
         draft.loadPostsLoading = true;
         draft.loadPostsError = null;
         draft.loadPostsDone = false;
+        break;
+
+      case LOAD_SEARCH_POSTS_SUCCESS:
+        const regex = createSearchRegex(action.data);
+
+        draft.searchPosts = draft.mainPosts.filter(
+          (post) => regex.test(post.title) || regex.test(post.content)
+        );
+        draft.loadPostsLoading = false;
+        draft.loadPostsDone = true;
+        // draft.mainPosts = draft.mainPosts.concat(action.data);
         break;
       case LOAD_POSTS_SUCCESS:
         draft.loadPostsLoading = false;
         draft.loadPostsDone = true;
         draft.mainPosts = draft.mainPosts.concat(action.data);
         break;
+      case LOAD_SEARCH_POSTS_FAILURE:
+        draft.loadPostsLoading = false;
+        draft.loadPostsError = action.error;
+        break;
+
       case LOAD_POSTS_FAILURE:
         draft.loadPostsLoading = false;
         draft.loadPostsError = action.error;

@@ -10,7 +10,7 @@ function announceBoardDetail() {
   const { admin } = useSelector((state) => state.user);
   // const { mainPosts, REMOVE_POST_REQUEST } = useSelector((state) => state.post);
   const location = useLocation();
-  const { post } = location.state;
+  const { post } = location?.state;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(post);
@@ -29,11 +29,14 @@ function announceBoardDetail() {
 
   return (
     <>
-      <img
-        src={post.Images[0].src}
-        alt={post.Images[0].src}
-        style={{ width: '300px', height: '200px' }}
-      />
+      {post.Images[0] && (
+        <img
+          src={post.Images[0].src}
+          alt={post.Images[0].src}
+          style={{ width: '300px', height: '200px' }}
+        />
+      )}
+
       <Table striped bordered hover>
         <thead>
           <tr>

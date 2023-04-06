@@ -46,6 +46,20 @@ export const initialState = {
       ],
     },
   ],
+  reservePosts: [
+    {
+      id: 1,
+      user: {
+        name: '장택진',
+        password: 123,
+      },
+      reserveDate: '예약날짜 나옴',
+      content: '첫 번째 예약 내용',
+      phoneNumber: '010-0000-0000',
+      views: 0,
+      date: 0,
+    },
+  ],
   addPostLoading: false, // 게시글 등록 시도중
   addPostDone: false,
   addPostError: null,
@@ -102,12 +116,31 @@ export const generateDummyPost = (number) =>
       views: 0,
       date: TodayTime(),
     }));
-
+export const generateDummyReserve = (number) =>
+  Array(number)
+    .fill()
+    .map(() => ({
+      id: shortId.generate(),
+      user: {
+        name: shortId.generate(),
+        password: 123,
+      },
+      phoneNumber: '010-0000-0000',
+      reserveDate: TodayTime(),
+      content: faker.lorem.paragraph,
+      views: 0,
+      date: TodayTime(),
+    }));
 initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(30));
-
+initialState.reservePosts = initialState.reservePosts.concat(
+  generateDummyReserve(10)
+);
 export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
 export const ADD_POST_FAILURE = 'ADD_POST_FAILURE';
+export const ADD_RESERVE_REQUEST = 'ADD_RESERVE_REQUEST';
+export const ADD_RESERVE_SUCCESS = 'ADD_RESERVE_SUCCESS';
+export const ADD_RESERVE_FAILURE = 'ADD_RESERVE_FAILURE';
 export const REMOVE_POST_REQUEST = 'REMOVE_POST_REQUEST';
 export const REMOVE_POST_SUCCESS = 'REMOVE_POST_SUCCESS';
 export const REMOVE_POST_FAILURE = 'REMOVE_POST_FAILURE';
@@ -154,18 +187,21 @@ function createSearchRegex(keyword) {
 const reducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {
-      // ADD_POST
+      // ADD_POST, ADD_RESERVE
+      case ADD_RESERVE_REQUEST:
       case ADD_POST_REQUEST:
         draft.addPostLoading = true;
         draft.addPostError = null;
         draft.addPostDone = false;
         break;
+      case ADD_RESERVE_SUCCESS:
       case ADD_POST_SUCCESS:
         draft.mainPosts.unshift(dummyPost(action.data));
         draft.addPostLoading = false;
         draft.addPostDone = true;
         draft.imagePaths = [];
         break;
+      case ADD_RESERVE_FAILURE:
       case ADD_POST_FAILURE:
         draft.addPostLoading = false;
         draft.addPostError = action.error;

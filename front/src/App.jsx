@@ -9,6 +9,9 @@ import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
 import GalleryBoardView from './components/Board/galleryBoardView';
 import AnnounceBoardSearch from './components/Board/announceBoardSearch';
 import ReserveBoard from './pages/reserveBoard';
+import ReserveBoardWrite from './components/Board/reserveBoardWrite';
+import ReserveBoardDetail from './components/Board/reserveBoardDetail';
+import ReserveBoardUpdate from './components/Board/reserveBoardUpdate';
 import BoardUI from './components/UI/boardUI';
 import Main from './pages/main';
 import Admin from './pages/admin';
@@ -41,6 +44,15 @@ function App() {
           />
           <Route path="/board/gallery" element={<GalleryBoardView />} />
           <Route path="/board/reserve" element={<ReserveBoard />} />
+          <Route path="/board/reserve/add" element={<ReserveBoardWrite />} />
+          <Route
+            path="/board/reserve/:boardid"
+            element={<ReserveBoardDetail />}
+          />
+          <Route
+            path="/board/reserve/:boardid/update"
+            element={<ReserveBoardUpdate />}
+          />
           <Route path="/admin" element={<Admin />} />
           {/* <Route path="/test" element={<BoardUI />} /> */}
         </Routes>

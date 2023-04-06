@@ -12,12 +12,21 @@ import {
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
   ADD_POST_REQUEST,
+  ADD_RESERVE_SUCCESS,
+  ADD_RESERVE_FAILURE,
+  ADD_RESERVE_REQUEST,
   REMOVE_POST_REQUEST,
   REMOVE_POST_FAILURE,
   REMOVE_POST_SUCCESS,
+  REMOVE_RESERVE_REQUEST,
+  REMOVE_RESERVE_FAILURE,
+  REMOVE_RESERVE_SUCCESS,
   UPDATE_POST_REQUEST,
   UPDATE_POST_FAILURE,
   UPDATE_POST_SUCCESS,
+  UPDATE_RESERVE_REQUEST,
+  UPDATE_RESERVE_FAILURE,
+  UPDATE_RESERVE_SUCCESS,
   LOAD_POSTS_REQUEST,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_FAILURE,
@@ -57,6 +66,28 @@ function* addPost(action) {
     });
   }
 }
+function addReserveAPI(data) {
+  return axios.post('/api/post', data);
+}
+
+function* addReserve(action) {
+  try {
+    // const result = yield call(addPostAPI, action.data);
+    // yield delay(1000);
+
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: ADD_RESERVE_SUCCESS,
+      data: action.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: ADD_RESERVE_FAILURE,
+      data: err.response.data,
+    });
+  }
+}
 function incrementViewsAPI() {
   return axios.post('/api/post/views');
 }
@@ -80,6 +111,26 @@ function* incrementViews(action) {
   }
 }
 
+function removeReserveAPI(data) {
+  return axios.delete('/api/post', data);
+}
+
+function* removeReserve(action) {
+  try {
+    // const result = yield call(removePostAPI, action.data);
+    // yield delay(1000);
+    yield put({
+      type: REMOVE_RESERVE_SUCCESS,
+      data: action.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: REMOVE_RESERVE_FAILURE,
+      data: err.response.data,
+    });
+  }
+}
 function removePostAPI(data) {
   return axios.delete('/api/post', data);
 }
@@ -115,6 +166,25 @@ function* updatePost(action) {
     console.error(err);
     yield put({
       type: UPDATE_POST_FAILURE,
+      data: err.response.data,
+    });
+  }
+}
+function updateReserveAPI(data) {
+  return axios.delete('/api/post', data);
+}
+function* updateReserve(action) {
+  try {
+    // const result = yield call(updateReserveAPI, action.data);
+    // yield delay(1000);
+    yield put({
+      type: UPDATE_RESERVE_SUCCESS,
+      data: action.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: UPDATE_RESERVE_FAILURE,
       data: err.response.data,
     });
   }
@@ -206,16 +276,24 @@ function* uploadImages(action) {
 function* watchLoadPosts() {
   yield takeLatest(LOAD_POSTS_REQUEST, loadPosts);
 }
-
 function* watchAddPost() {
   yield takeLatest(ADD_POST_REQUEST, addPost);
+}
+function* watchAddReserve() {
+  yield takeLatest(ADD_RESERVE_REQUEST, addReserve);
 }
 
 function* watchRemovePost() {
   yield takeLatest(REMOVE_POST_REQUEST, removePost);
 }
+function* watchRemoveReserve() {
+  yield takeLatest(REMOVE_RESERVE_REQUEST, removeReserve);
+}
 function* watchUpdatePost() {
   yield takeLatest(UPDATE_POST_REQUEST, updatePost);
+}
+function* watchUpdateReserve() {
+  yield takeLatest(UPDATE_RESERVE_REQUEST, updateReserve);
 }
 function* watchLoadPost() {
   yield takeLatest(LOAD_POST_REQUEST, loadPost);
@@ -233,10 +311,13 @@ export default function* postSaga() {
   yield all([
     fork(watchIncrementViews),
     fork(watchAddPost),
+    fork(watchAddReserve),
     fork(watchLoadPosts),
     fork(watchLoadSearchPosts),
     fork(watchRemovePost),
+    fork(watchRemoveReserve),
     fork(watchUpdatePost),
+    fork(watchUpdateReserve),
     fork(watchUploadImages),
     fork(watchLoadPost),
   ]);

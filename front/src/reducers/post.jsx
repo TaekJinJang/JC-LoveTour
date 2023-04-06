@@ -56,8 +56,7 @@ export const initialState = {
       reserveDate: '예약날짜 나옴',
       content: '첫 번째 예약 내용',
       phoneNumber: '010-0000-0000',
-      views: 0,
-      date: 0,
+      date: '2023 - 04 - 05',
     },
   ],
   addPostLoading: false, // 게시글 등록 시도중
@@ -127,8 +126,8 @@ export const generateDummyReserve = (number) =>
       },
       phoneNumber: '010-0000-0000',
       reserveDate: TodayTime(),
-      content: faker.lorem.paragraph,
-      views: 0,
+      content: faker.lorem.paragraph(),
+
       date: TodayTime(),
     }));
 initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(30));
@@ -144,9 +143,15 @@ export const ADD_RESERVE_FAILURE = 'ADD_RESERVE_FAILURE';
 export const REMOVE_POST_REQUEST = 'REMOVE_POST_REQUEST';
 export const REMOVE_POST_SUCCESS = 'REMOVE_POST_SUCCESS';
 export const REMOVE_POST_FAILURE = 'REMOVE_POST_FAILURE';
+export const REMOVE_RESERVE_REQUEST = 'REMOVE_RESERVE_REQUEST';
+export const REMOVE_RESERVE_SUCCESS = 'REMOVE_RESERVE_SUCCESS';
+export const REMOVE_RESERVE_FAILURE = 'REMOVE_RESERVE_FAILURE';
 export const UPDATE_POST_REQUEST = 'UPDATE_POST_REQUEST';
 export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
 export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
+export const UPDATE_RESERVE_REQUEST = 'UPDATE_RESERVE_REQUEST';
+export const UPDATE_RESERVE_SUCCESS = 'UPDATE_RESERVE_SUCCESS';
+export const UPDATE_RESERVE_FAILURE = 'UPDATE_RESERVE_FAILURE';
 export const UPLOAD_IMAGES_REQUEST = 'UPLOAD_IMAGES_REQUEST';
 export const UPLOAD_IMAGES_SUCCESS = 'UPLOAD_IMAGES_SUCCESS';
 export const UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
@@ -176,6 +181,18 @@ const dummyPost = (data) => ({
   Images: [],
   views: 1,
 });
+const dummyReserve = (data) => ({
+  id: shortId.generate(),
+  user: {
+    name: data.name,
+    password: data.password,
+  },
+  reserveDate: data.reserveDate,
+  content: data.content,
+  phoneNumber: data.phoneNumber,
+
+  date: TodayTime(),
+});
 
 // 정규표현식을 이용해 게시글 검색
 function createSearchRegex(keyword) {
@@ -195,6 +212,11 @@ const reducer = (state = initialState, action) =>
         draft.addPostDone = false;
         break;
       case ADD_RESERVE_SUCCESS:
+        draft.reservePosts.unshift(dummyReserve(action.data));
+        draft.addPostLoading = false;
+        draft.addPostDone = true;
+        draft.imagePaths = [];
+        break;
       case ADD_POST_SUCCESS:
         draft.mainPosts.unshift(dummyPost(action.data));
         draft.addPostLoading = false;
@@ -205,6 +227,7 @@ const reducer = (state = initialState, action) =>
       case ADD_POST_FAILURE:
         draft.addPostLoading = false;
         draft.addPostError = action.error;
+        break;
       // UPLOAD_IMAGES
       case UPLOAD_IMAGES_REQUEST:
         draft.uploadImagesLoading = true;
@@ -220,26 +243,53 @@ const reducer = (state = initialState, action) =>
         draft.uploadImagesLoading = false;
         draft.uploadImagesError = action.error;
         break;
-      // REMOVE_POST
+      // REMOVE_POST, REMOVE_RESERVE
+      case REMOVE_RESERVE_REQUEST:
       case REMOVE_POST_REQUEST:
         draft.removePostLoading = true;
         draft.removePostDone = false;
         draft.removePostError = null;
+        break;
+      case REMOVE_RESERVE_SUCCESS:
+        draft.reservePosts = draft.reservePosts.filter(
+          (v) => v.id !== action.data
+        );
+        draft.removePostLoading = false;
+        draft.removePostDone = true;
         break;
       case REMOVE_POST_SUCCESS:
         draft.mainPosts = draft.mainPosts.filter((v) => v.id !== action.data);
         draft.removePostLoading = false;
         draft.removePostDone = true;
         break;
+      case REMOVE_RESERVE_FAILURE:
       case REMOVE_POST_FAILURE:
         draft.removePostLoading = false;
         draft.removePostError = action.error;
         break;
-      // UPDATE_POST
+      // UPDATE_POST, UPDATE_RESERVE
+      case UPDATE_RESERVE_REQUEST:
       case UPDATE_POST_REQUEST:
         draft.updatePostLoading = true;
         draft.updatePostDone = false;
         draft.updatePostError = null;
+        break;
+      case UPDATE_RESERVE_SUCCESS:
+        draft.reservePosts.find((v) => v.id === action.data.postId).user.name =
+          action.data.name;
+        draft.reservePosts.find(
+          (v) => v.id === action.data.postId
+        ).user.password = action.data.password;
+        draft.reservePosts.find(
+          (v) => v.id === action.data.postId
+        ).reserveDate = action.data.reserveDate;
+        draft.reservePosts.find(
+          (v) => v.id === action.data.postId
+        ).phoneNumber = action.data.phoneNumber;
+        draft.reservePosts.find((v) => v.id === action.data.postId).content =
+          action.data.content;
+        draft.updatePostLoading = false;
+        draft.updatePostDone = true;
         break;
       case UPDATE_POST_SUCCESS:
         draft.mainPosts.find((v) => v.id === action.data.postId).title =
@@ -249,6 +299,7 @@ const reducer = (state = initialState, action) =>
         draft.updatePostLoading = false;
         draft.updatePostDone = true;
         break;
+      case UPDATE_RESERVE_FAILURE:
       case UPDATE_POST_FAILURE:
         draft.updatePostLoading = false;
         draft.updatePostError = action.error;

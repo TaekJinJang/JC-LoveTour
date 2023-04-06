@@ -1,13 +1,10 @@
 import React, { useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Table from 'react-bootstrap/Table';
 import ReserveBoardList from './reserveBoardList';
 import { useSelector } from 'react-redux';
-import AnnounceBoardWrite from './announceBoardWrite';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
-import { Alert } from 'bootstrap';
 
 function reserveBoardView() {
   const { admin } = useSelector((state) => state.user);

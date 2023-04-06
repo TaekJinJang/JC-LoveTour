@@ -26,7 +26,7 @@ function mainHeader() {
     <>
       <Container>
         {' '}
-        <Row className="j">
+        <Row>
           <Col xs lg="3">
             <img
               className="Image-logo"

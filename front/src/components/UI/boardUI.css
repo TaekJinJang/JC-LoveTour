@@ -1,0 +1,254 @@
+div {
+  display: block;
+}
+
+.container {
+  position: relative;
+  width: 1000px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.side {
+  margin-right: 10px;
+  background-color: #4b7d32;
+  float: left;
+
+  padding-left: 30px;
+  width: 200px;
+  height: 150px;
+
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.list {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  width: 740px;
+}
+
+.side > h1:first-child {
+  color: aliceblue;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.side > h1 {
+  color: aliceblue;
+  margin: 0 auto;
+}
+
+.down_menu {
+  position: absolute;
+  width: 250px;
+  height: auto;
+  left: 15px;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+#lm_list {
+  position: relative;
+  width: 198px;
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+.search_bar {
+  margin-top: 30px;
+  margin-left: 24%;
+  background-color: #e2e2e2;
+  height: 47.05px;
+}
+
+#search {
+  float: right;
+  margin-right: 15px;
+  margin-top: 10px;
+  width: 150px;
+  height: 25px;
+}
+
+.search_button {
+  float: right;
+  margin-right: 15px;
+  margin-top: 10px;
+  height: 30px;
+  width: 50px;
+
+  background: #4b7d32;
+  border: 0;
+  outline: none;
+  font-size: 10px;
+  color: white;
+}
+
+#sch_key {
+  float: right;
+  min-height: 18px;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 30px;
+  padding: 5px 5px;
+}
+
+ul#lm_list > li > a.lm_select {
+  float: left;
+  width: 200px;
+  min-height: 16px;
+  padding: 17px 3px 17px 10px;
+
+  margin: 0;
+  margin-bottom: 10px;
+  background-color: #4b7d32;
+  color: white;
+  font-family: 'NanumGothicWebBold';
+  line-height: 20px;
+  word-spacing: -1px;
+  letter-spacing: -1px;
+
+  padding-left: 25px;
+  text-decoration-line: none;
+}
+
+ul#lm_list > li > a {
+  float: left;
+  width: 200px;
+  min-height: 16px;
+  padding: 17px 3px 17px 10px;
+
+  margin: 0;
+  margin-bottom: 10px;
+  color: #444;
+  font-family: 'NanumGothicWebBold';
+  line-height: 20px;
+  border: 1px solid #f3f3f3;
+  word-spacing: -1px;
+
+  padding-left: 25px;
+  text-decoration-line: none;
+
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}
+
+table {
+  width: 100%;
+  table-layout: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table_form {
+  margin-left: 240px;
+  height: 55px;
+  background-color: #f8f8f8;
+  margin-top: 10px;
+  text-align: center;
+}
+
+th {
+  height: 50px;
+  border: 1px solid #f0f0f0;
+  border-top: none;
+}
+
+thead > tr > th {
+  border-left: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+thead > tr > th:first-child {
+  border-left: none;
+}
+
+tbody > tr {
+  height: 50px;
+}
+
+tbody > tr > td {
+  border-bottom: 1px solid #f2f2f2;
+  border-left: 1px solid #f2f2f2;
+}
+
+tbody > tr > td:first-child {
+  border-left: none;
+}
+
+header {
+  background: #32a57d;
+  height: 50px;
+}
+
+header > nav {
+  margin-left: 6%;
+}
+
+nav > div:first-child {
+  display: inline-block;
+  width: 50px;
+  border-left: 1px solid white;
+}
+
+nav > div:first-child > a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+nav > div {
+  display: inline-block;
+  margin-left: 10px;
+  width: 120px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-right: 1px solid white;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: #f2f2f2;
+  width: 130px;
+  position: absolute;
+  z-index: 1;
+  /*다른 요소들보다 앞에 배치*/
+  text-align: center;
+  border-radius: 5%;
+  left: -13px;
+}
+
+.dropdown-content a {
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

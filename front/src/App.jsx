@@ -54,7 +54,7 @@ function App() {
             element={<ReserveBoardUpdate />}
           />
           <Route path="/admin" element={<Admin />} />
-          {/* <Route path="/test" element={<BoardUI />} /> */}
+          <Route path="/test" element={<BoardUI />} />
         </Routes>
       </BrowserRouter>
     </>

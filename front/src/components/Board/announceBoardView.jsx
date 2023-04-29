@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AnnounceBoardList from './announceBoardList';
 import { useSelector } from 'react-redux';
@@ -10,7 +10,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import Pagination from 'react-js-pagination';
+import '../UI/paging.css';
 import '../UI/boardUI.css';
 
 const Main_title = styled.a`
@@ -153,96 +154,6 @@ const Th = styled.th`
   border-left: 1px solid #f2f2f2;
   border-bottom: 1px solid #f2f2f2;
 `;
-const Input_Tr = styled.tr`
-  height: 50px;
-`;
-const Input_Td = styled.td`
-  border-bottom: 1px solid #f2f2f2;
-  border-left: 1px solid #f2f2f2;
-`;
-const Footer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 150px;
-  margin-top: 80%;
-  background-color: white;
-  padding: 10px;
-`;
-const Footer_container = styled.div`
-  position: relative;
-  width: 100%;
-  margin: 0 120px 0 0;
-  padding: 0;
-`;
-const Footer_navi = styled.div`
-  position: relative;
-  width: 100%;
-  height: 50px;
-  vertical-align: top;
-  border-bottom: 1px solid #909090;
-`;
-const Footer_navi_ul = styled.ul`
-  float: left;
-  margin: 0;
-  height: 50px;
-  vertical-align: top;
-  text-align: center;
-  list-style-type: none;
-`;
-const Footer_navi_li = styled.li`
-  float: left;
-  margin: 0;
-  padding: 15px 20px 0 20px;
-  height: 50px;
-  vertical-align: top;
-  text-align: center;
-  padding-bottom: 20px;
-`;
-const Footer_navi_li_link = styled.a`
-  color: gray;
-
-  text-decoration-line: none;
-  font-family: 'NanumGothicWebBold';
-  font-size: 13px;
-`;
-const Footer_info = styled.div`
-  position: relative;
-  width: 100%;
-  margin-left: 30px;
-  text-align: left;
-  height: 100px;
-`;
-const Footer_info_p = styled.p`
-  font-size: 13px;
-  color: grey;
-  line-height: 20px;
-`;
-const Full_logo = styled.div`
-  background-color: #2da57d;
-  color: white;
-  font-family: 'Malgun Gothic';
-  width: 100%;
-`;
-const In_logo = styled.div`
-  margin-left: 30px;
-  width: 100%;
-`;
-const In_logo_span1 = styled.span`
-  font-size: 200%;
-`;
-const In_logo_span2 = styled.span`
-  font-size: 150%;
-`;
-const Footer_select = styled.select`
-  float: right;
-  margin-right: 10%;
-  margin-top: 10px;
-  background-color: #507d32;
-  height: 30px;
-  color: white;
-  font-size: 13px;
-  padding: 0 10px;
-`;
 
 function announceBoardView() {
   const { admin } = useSelector((state) => state.user);
@@ -253,6 +164,12 @@ function announceBoardView() {
     if (searchInput === '') return alert('검색어를 입력해주세요');
     navigate(`/board/announce/search/${searchInput}/`, { state: searchInput });
   }, [searchInput]);
+
+  const [page, setPage] = useState(1);
+
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
 
   return (
     <>
@@ -364,6 +281,16 @@ function announceBoardView() {
               ))}
             </tbody>
           </Table>
+
+          <Pagination
+            activePage={page}
+            itemsCountPerPage={10}
+            totalItemsCount={450}
+            pageRangeDisplayed={5}
+            prevPageText={'‹'}
+            nextPageText={'›'}
+            onChange={handlePageChange}
+          />
         </Table_form>
       </Nomal_div>
     </>

@@ -85,7 +85,6 @@ export const initialState = {
   incrementViewsError: null,
   imagePaths: [],
 };
-
 const TodayTime = () => {
   let date = new Date(); // 현재 날짜 및 시간
   let Year = date.getFullYear(); // 월
@@ -95,12 +94,13 @@ const TodayTime = () => {
   return Year + '-' + Month + '-' + Day;
 };
 
+let fakerId = 1;
 // 더미데이터 faker 라이브러리 사용
 export const generateDummyPost = (number) =>
   Array(number)
     .fill()
     .map(() => ({
-      id: shortId.generate(),
+      id: (fakerId += 1),
       admin: {
         id: shortId.generate(),
         nickname: faker.name.findName(),
@@ -130,7 +130,7 @@ export const generateDummyReserve = (number) =>
 
       date: TodayTime(),
     }));
-initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(30));
+initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 initialState.reservePosts = initialState.reservePosts.concat(
   generateDummyReserve(10)
 );

@@ -42,6 +42,7 @@ import {
   INCREMENT_VIEWS_REQUEST,
   INCREMENT_VIEWS_SUCCESS,
   INCREMENT_VIEWS_FAILURE,
+  generateDummyPost,
 } from '../reducers/post';
 
 function addPostAPI(data) {
@@ -198,7 +199,7 @@ function* loadPosts(action) {
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: LOAD_POSTS_SUCCESS,
-      data: action.data, // 게시글 10개 불러오기
+      data: generateDummyPost(5), // 게시글 10개 불러오기
     });
   } catch (err) {
     console.error(err);

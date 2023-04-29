@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AnnounceBoardList from './announceBoardList';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
@@ -13,6 +13,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
+import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 const Main_title = styled.a`
   font-size: 130%;
@@ -156,6 +157,12 @@ const Th = styled.th`
 `;
 
 function announceBoardView() {
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch({
+  //     type: LOAD_POSTS_REQUEST,
+  //   });
+  // }, []);
   const { admin } = useSelector((state) => state.user);
   const { mainPosts } = useSelector((state) => state.post);
   const [searchInput, onChangeSearchInput] = useInput('');
@@ -165,10 +172,11 @@ function announceBoardView() {
     navigate(`/board/announce/search/${searchInput}/`, { state: searchInput });
   }, [searchInput]);
 
+  // 페이지네이션
   const [page, setPage] = useState(1);
-
   const handlePageChange = (page) => {
     setPage(page);
+    console.log(page);
   };
 
   return (
@@ -277,7 +285,7 @@ function announceBoardView() {
             </thead>
             <tbody>
               {mainPosts.map((post, index) => (
-                <AnnounceBoardList key={post.id} post={post} />
+                <AnnounceBoardList key={post.id} post={post} page={page} />
               ))}
             </tbody>
           </Table>

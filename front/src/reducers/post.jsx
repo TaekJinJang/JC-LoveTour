@@ -5,46 +5,46 @@ import faker from 'faker';
 export const initialState = {
   searchPosts: [],
   mainPosts: [
-    {
-      id: 1,
-      admin: {
-        id: 1,
-        nickname: '관리자 ',
-      },
-      title: '첫번째 제목입니다.',
-      content: '첫 번째 게시글',
-      views: 0,
-      date: 0,
-      Images: [
-        {
-          src: 'https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg',
-        },
-      ],
-    },
-  ],
-  gallery: [
-    {
-      id: 1,
-      admin: {
-        id: 1,
-        nickname: '관리자',
-      },
-      title: '첫 예시',
-      Images: [
-        {
-          id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '첫이미지 제목',
-          captionContent: '첫이미지 내용',
-        },
-        {
-          id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '2이미지 제목',
-          captionContent: '2이미지 내용',
-        },
-      ],
-    },
+    //   {
+    //     id: 1,
+    //     admin: {
+    //       id: 1,
+    //       nickname: '관리자 ',
+    //     },
+    //     title: '첫번째 제목입니다.',
+    //     content: '첫 번째 게시글',
+    //     views: 0,
+    //     date: 0,
+    //     Images: [
+    //       {
+    //         src: 'https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg',
+    //       },
+    //     ],
+    //   },
+    // ],
+    // gallery: [
+    //   {
+    //     id: 1,
+    //     admin: {
+    //       id: 1,
+    //       nickname: '관리자',
+    //     },
+    //     title: '첫 예시',
+    //     Images: [
+    //       {
+    //         id: shortId.generate(),
+    //         src: 'https://via.placeholder.com/300.png/o0f/fff',
+    //         captionTitle: '첫이미지 제목',
+    //         captionContent: '첫이미지 내용',
+    //       },
+    //       {
+    //         id: shortId.generate(),
+    //         src: 'https://via.placeholder.com/300.png/o0f/fff',
+    //         captionTitle: '2이미지 제목',
+    //         captionContent: '2이미지 내용',
+    //       },
+    //     ],
+    //   },
   ],
   reservePosts: [
     {
@@ -59,6 +59,7 @@ export const initialState = {
       date: '2023 - 04 - 05',
     },
   ],
+  hasMorePosts: true,
   addPostLoading: false, // 게시글 등록 시도중
   addPostDone: false,
   addPostError: null,
@@ -94,7 +95,7 @@ const TodayTime = () => {
   return Year + '-' + Month + '-' + Day;
 };
 
-let fakerId = 1;
+let fakerId = 0;
 // 더미데이터 faker 라이브러리 사용
 export const generateDummyPost = (number) =>
   Array(number)
@@ -105,6 +106,8 @@ export const generateDummyPost = (number) =>
         id: shortId.generate(),
         nickname: faker.name.findName(),
       },
+      count: 50,
+      page: Math.ceil(fakerId / 10),
       title: faker.name.prefix(),
       content: faker.lorem.paragraph(),
       Images: [
@@ -130,7 +133,7 @@ export const generateDummyReserve = (number) =>
 
       date: TodayTime(),
     }));
-initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
+initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(20));
 initialState.reservePosts = initialState.reservePosts.concat(
   generateDummyReserve(10)
 );
@@ -316,9 +319,8 @@ const reducer = (state = initialState, action) =>
         draft.loadPostsLoading = false;
         draft.loadPostsDone = true;
         // draft.mainPosts = draft.mainPosts.concat(action.data);
-        draft.mainPosts = draft.mainPosts.concat(
-          generateDummyPost(action.data)
-        );
+        draft.mainPosts = action.data.concat(draft.mainPosts);
+        draft.hasMorePosts = draft.mainPosts.length < 50;
         break;
       case LOAD_POSTS_FAILURE:
         draft.loadPostsLoading = false;

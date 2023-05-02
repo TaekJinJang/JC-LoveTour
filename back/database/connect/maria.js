@@ -7,3 +7,5 @@ const conn = maria.createConnection({
   password: 'qq160159',
   database: 'jc_lovetour',
 });
+
+module.exports = conn;

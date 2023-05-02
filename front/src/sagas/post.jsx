@@ -46,7 +46,7 @@ import {
 } from '../reducers/post';
 
 function addPostAPI(data) {
-  return axios.post('/api/post', data);
+  return axios.post('/post', { content: data });
 }
 
 function* addPost(action) {

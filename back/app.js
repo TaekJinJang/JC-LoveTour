@@ -16,8 +16,14 @@ const cors = require('cors');
 // app.use(express.json()); // json파일을 req.body에 넣어줌
 
 const app = express(); // 서버
-const maria = require('./database/connect/maria'); // db연결
-maria.connect();
+// const maria = require('./database/connect/maria'); // db연결
+// try {
+//   maria.connect();
+//   console.log('db 연결 성공');
+// } catch (error) {
+//   console.log('오류 발생');
+//   console.log(error);
+// }
 
 app.use(
   cors({

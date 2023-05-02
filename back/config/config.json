@@ -5,7 +5,7 @@
     "database": "jc_lovetour",
     "host": "127.0.0.1",
     "port": "3308",
-    "dialect": "mysql"
+    "dialect": "mariadb"
   },
   "test": {
     "username": "root",
@@ -13,7 +13,7 @@
     "database": "jc_lovetour",
     "host": "127.0.0.1",
     "port": "3308",
-    "dialect": "mysql"
+    "dialect": "mariadb"
   },
   "production": {
     "username": "root",
@@ -21,6 +21,6 @@
     "database": "jc_lovetour",
     "host": "127.0.0.1",
     "port": "3308",
-    "dialect": "mysql"
+    "dialect": "mariadb"
   }
 }

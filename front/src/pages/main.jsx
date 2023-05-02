@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Header from '../components/Common/header';
+
 import Footer from '../components/UI/footer';
 import MainHeader from '../components/UI/mainHeader';
 import MainGrid from '../components/UI/mainGrid';

@@ -5,52 +5,54 @@ import faker from 'faker';
 export const initialState = {
   searchPosts: [],
   mainPosts: [
-    //   {
+    // {
+    //   id: 1,
+    //   admin: {
     //     id: 1,
-    //     admin: {
-    //       id: 1,
-    //       nickname: '관리자 ',
-    //     },
-    //     title: '첫번째 제목입니다.',
-    //     content: '첫 번째 게시글',
-    //     views: 0,
-    //     date: 0,
-    //     Images: [
-    //       {
-    //         src: 'https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg',
-    //       },
-    //     ],
+    //     nickname: '관리자 ',
     //   },
-    // ],
-    // gallery: [
-    //   {
-    //     id: 1,
-    //     admin: {
-    //       id: 1,
-    //       nickname: '관리자',
+    //   title: '첫번째 제목입니다.',
+    //   content: '첫 번째 게시글',
+    //   views: 0,
+    //   date: 0,
+    //   Images: [
+    //     {
+    //       src: 'https://gimg.gilbut.co.kr/book/BN001998/rn_view_BN001998.jpg',
     //     },
-    //     title: '첫 예시',
-    //     Images: [
-    //       {
-    //         id: shortId.generate(),
-    //         src: 'https://via.placeholder.com/300.png/o0f/fff',
-    //         captionTitle: '첫이미지 제목',
-    //         captionContent: '첫이미지 내용',
-    //       },
-    //       {
-    //         id: shortId.generate(),
-    //         src: 'https://via.placeholder.com/300.png/o0f/fff',
-    //         captionTitle: '2이미지 제목',
-    //         captionContent: '2이미지 내용',
-    //       },
-    //     ],
-    //   },
+    //   ],
+    // },
+  ],
+  gallery: [
+    {
+      id: 1,
+      admin: {
+        id: 1,
+        nickname: '관리자',
+      },
+      title: '첫 예시',
+      Images: [
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
+        },
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
+        },
+      ],
+    },
   ],
   reservePosts: [
     {
       id: 1,
       user: {
         name: '장택진',
+        // 휴대폰번호 ++
+        // phoneNumber: '010-0000-0000',
         password: 123,
       },
       reserveDate: '예약날짜 나옴',

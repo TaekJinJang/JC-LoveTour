@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Container,
   Row,
@@ -8,14 +9,103 @@ import {
   Carousel,
   Nav,
 } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 
 import logo from '../../assets/logo.png';
 import map from '../../assets/map.png';
 import one from '../../assets/one.png';
 import two from '../../assets/two.png';
 import three from '../../assets/three.png';
+const All = styled.div`
+  position: relative;
+  height: 89px;
+  box-shadow: 0px 0px 6px 0px rgba(41, 42, 42, 0.15);
+  text-align: center;
+  padding: 20px;
+`;
 
+// 지도 글씨
+const Maptext = styled.div`
+  font-size: 11px;
+  font-weight: bold;
+`;
+
+// 검색창
+const Label = styled.label`
+  position: relative;
+  input {
+    padding: 0 50px 0 20px;
+    height: 45px;
+    line-height: 50px;
+    border: 0;
+    width: 480px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background: #eef0f2;
+    border-radius: 10px;
+  }
+  button {
+    position: absolute;
+    top: 0;
+    right: 7px;
+    bottom: 0px;
+    border-color: #eef0f2;
+    border: none;
+    height: 20px;
+    margin-top: 6px;
+  }
+`;
+const NavUl = styled.ul`
+  list-style: none;
+  padding: auto;
+  padding-left: 0px;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 1;
+  left: 0;
+`;
+
+const NavItem = styled(Nav.Item)`
+  position: relative;
+  margin-right: 65px;
+
+  &:hover ${NavUl} {
+    display: block;
+    color: black;
+  }
+`;
+
+const NavLi = styled(Nav.Link)`
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+  &:hover {
+    color: black;
+  }
+  white-space: nowrap;
+  display: inline-block;
+`;
+
+const NavLi2 = styled(Nav.Link)`
+  &:hover {
+    color: black;
+  }
+  width: 200px;
+  height: 50px;
+  background-color: rgba(17, 17, 17, 0.4);
+  color: white;
+  font-size: 20px;
+  font-family: 'Inter';
+  font-weight: 600;
+  line-height: 30px;
+`;
+
+const Center = styled.nav`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
 function mainHeader() {
   const [index, setIndex] = useState(0);
 
@@ -25,77 +115,91 @@ function mainHeader() {
   return (
     <>
       <Container>
-        {' '}
-        <Row>
-          <Col xs lg="3">
-            <img
-              className="Image-logo"
-              alt="logo"
-              src={logo}
-              width="240"
-              height="52"
-            />
-          </Col>
-
-          <Col md="auto"></Col>
-          <Col xs lg="5">
-            <Stack direction="horizontal" gap={3}>
-              <Form.Control
-                className="me-auto"
-                placeholder="어디로, 어떤 여행을 떠날 예정인가요?"
+        <All>
+          <Row>
+            <Col xs="4">
+              <img alt="logo" src={logo} width="300" height="52" />
+            </Col>
+            <Col xs="auto">
+              <Label>
+                <input
+                  type="text"
+                  placeholder="어디로, 어떤 여행을 떠날 예정인가요?"
+                  title="검색"
+                  autoComplete="on"
+                />
+                <button>
+                  <img src={map} alt="search" width="25" height="25" />
+                </button>
+              </Label>
+            </Col>
+            <Col xs="1">
+              <img
+                className="Image-map"
+                alt="map"
+                src={map}
+                width="25"
+                height=""
               />
-            </Stack>
-          </Col>
+              <Maptext>지도로 보기</Maptext>
+            </Col>
+          </Row>
+        </All>
+      </Container>
+      {/* 메뉴바 */}
+      <Center>
+        <Nav activeKey="/home">
+          <NavItem>
+            <NavLi href="/home">제천 러브투어</NavLi>
+            <NavUl>
+              <NavLi2 href="#">러브투어 소개</NavLi2>
+              <NavLi2 href="#">지원 혜택</NavLi2>
+              <NavLi2 href="#">사진 갤러리</NavLi2>
+              <NavLi2 href="#">영상 갤러리</NavLi2>
+            </NavUl>
+          </NavItem>
 
-          <Col md="auto"></Col>
-          <Col xs lg="2">
-            <img
-              className="Image-map"
-              alt="map"
-              src={map}
-              width="25"
-              height="22"
-            />
-            <div>지도로 보기</div>
-          </Col>
-        </Row>
-        {/* 메뉴바 */}
-        <Nav className="justify-content-center" activeKey="/home">
-          <Nav.Item>
-            <Nav.Link eventKey="link-1">제천 러브투어</Nav.Link>
-            <li>러브투어 소개</li>
-            <li>지원 혜택</li>
-            <li>사진 갤러리</li>
-            <li>영상 갤러리</li>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-2">제천의 이모저모</Nav.Link>
-            <li>관광지</li>
-            <li>전통시장</li>
-            <li>음식</li>
-            <li>숙박</li>
-            <li>축체/행사</li>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-3">테마/코스</Nav.Link>
-            <li>기본코스</li>
-            <li>힐링코스</li>
-            <li>가스트로투어</li>
-            <li>제천시티투어</li>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-4">예약</Nav.Link>
-            <li>예약 신청</li>
-            <li>예약 조회/취소</li>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-5">알림마당</Nav.Link>
-            <li>공지사항</li>
-            <li>자주하는 질문</li>
-            <li>1:1고객센터</li>
-          </Nav.Item>
+          <NavItem>
+            <NavLi eventKey="#">제천의 이모저모</NavLi>
+            <NavUl>
+              <NavLi2 href="#">관광지</NavLi2>
+              <NavLi2 href="#">전통시장</NavLi2>
+              <NavLi2 href="#">음식</NavLi2>
+              <NavLi2 href="#">숙박</NavLi2>
+              <NavLi2 href="#">축제/행사</NavLi2>
+            </NavUl>
+          </NavItem>
+
+          <NavItem>
+            <NavLi eventKey="#">테마/코스</NavLi>
+            <NavUl>
+              <NavLi2 href="#">기본코스</NavLi2>
+              <NavLi2 href="#">힐링코스</NavLi2>
+              <NavLi2 href="#">가스트로투어</NavLi2>
+              <NavLi2 href="#">제천시티투어</NavLi2>
+            </NavUl>
+          </NavItem>
+
+          <NavItem>
+            <NavLi eventKey="#">예약</NavLi>
+            <NavUl>
+              <NavLi2 href="#">예약 신청</NavLi2>
+              <NavLi2 href="#">예약 조회/취소</NavLi2>
+            </NavUl>
+          </NavItem>
+
+          <NavItem>
+            <NavLi eventKey="#">알림마당</NavLi>
+            <NavUl>
+              <NavLi2 href="#">공지사항</NavLi2>
+              <NavLi2 href="#">자주하는 질문</NavLi2>
+              <NavLi2 href="#">1:1고객센터</NavLi2>
+            </NavUl>
+          </NavItem>
         </Nav>
-        {/* 캐러셀 */}
+      </Center>
+      {/* 캐러셀 */}
+      <Container>
         <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
             <img
@@ -106,7 +210,7 @@ function mainHeader() {
             />
             <Carousel.Caption>
               <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <p>첫번째 슬라이드 입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -119,7 +223,7 @@ function mainHeader() {
 
             <Carousel.Caption>
               <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>두번째 슬라이드 입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -132,9 +236,7 @@ function mainHeader() {
 
             <Carousel.Caption>
               <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <p>세번째 슬라이드 입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

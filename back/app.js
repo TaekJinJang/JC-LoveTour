@@ -16,6 +16,9 @@ const cors = require('cors');
 // app.use(express.json()); // json파일을 req.body에 넣어줌
 
 const app = express(); // 서버
+const maria = require('./database/connect/maria'); // db연결
+maria.connect();
+
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)

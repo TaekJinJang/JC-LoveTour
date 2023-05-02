@@ -11,11 +11,13 @@ const sequelize = new Sequelize(
   config.password,
   config
 );
-// db.Comment = require('./comment')(sequelize, Sequelize);
-// db.Hashtag = require('./hashtag')(sequelize, Sequelize);
-// db.Image = require('./image')(sequelize, Sequelize);
-// db.Post = require('./post')(sequelize, Sequelize);
-// db.User = require('./user')(sequelize, Sequelize);
+db.Comment = require('./comment')(sequelize, Sequelize);
+db.Image = require('./image')(sequelize, Sequelize);
+db.Video = require('./video')(sequelize, Sequelize);
+db.Mainpost = require('./mainpost')(sequelize, Sequelize);
+db.Reservepost = require('./reservepost')(sequelize, Sequelize);
+db.Admin = require('./admin')(sequelize, Sequelize);
+db.Gallery = require('./gallery')(sequelize, Sequelize);
 
 //models폴더 안 js들의 associate를 반복문돌면서 다 실행시켜줌
 Object.keys(db).forEach((modelName) => {

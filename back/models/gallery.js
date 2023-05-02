@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       // MySQL에는 gallerys 테이블로 생성됌
       content: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       title: {
         type: DataTypes.STRING(50),
@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Gallery.associate = (db) => {
-    //   db.Gallery.hasMany(db.Comment); // Gallery.addComments, Gallery.getComments
-    //   db.Gallery.hasMany(db.Image); // Gallery.addImages, Gallery.getImages
+    db.Gallery.hasMany(db.Comment); // Gallery.addComments, Gallery.getComments
+    db.Gallery.hasMany(db.Image); // Gallery.addImages, Gallery.getImages
   };
   return Gallery;
 };

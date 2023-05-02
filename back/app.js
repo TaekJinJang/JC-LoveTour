@@ -2,6 +2,15 @@ const express = require('express');
 const postRouter = require('./routes/post');
 const adminRouter = require('./routes/admin');
 const cors = require('cors');
+const db = require('./models');
+const app = express(); // 서버
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log('db 연결 성공');
+  })
+  .catch(console.error);
+// passportConfig();
 
 // app.get -> 가져오다
 // app.post -> 생성하다
@@ -15,7 +24,6 @@ const cors = require('cors');
 // 프론트에서 데이터를 받아올 때
 // app.use(express.json()); // json파일을 req.body에 넣어줌
 
-const app = express(); // 서버
 // const maria = require('./database/connect/maria'); // db연결
 // try {
 //   maria.connect();

@@ -5,15 +5,15 @@ module.exports = (sequelize, DataTypes) => {
       // MySQL에는 images 테이블로 생성됌
       src: {
         type: DataTypes.STRING(200),
-        allowNull: true,
+        allowNull: false, // 필수
       },
       captionTitle: {
         type: DataTypes.STRING(30),
-        allowNull: false,
+        allowNull: true,
       },
       captionContent: {
         type: DataTypes.STRING(50),
-        allowNull: false,
+        allowNull: true,
       },
     },
     {
@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Image.associate = (db) => {
-    db.Image.belongsTo(db.Mainpost);
-    db.Image.belongsTo(db.Gallery);
+    db.Image.belongsTo(db.Mainpost); // Image.MainpostId
+    db.Image.belongsTo(db.Gallery); // Image.GalleryId
   };
   return Image;
 };

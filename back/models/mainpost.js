@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       // MySQL에는 mainposts 테이블로 생성됌
       content: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       title: {
         type: DataTypes.STRING(50),
@@ -26,8 +26,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Mainpost.associate = (db) => {
-    //   db.Mainpost.hasMany(db.Comment); // Mainpost.addComments, Mainpost.getComments
-    //   db.Mainpost.hasMany(db.Image); // Mainpost.addImages, Mainpost.getImages
+    db.Mainpost.hasMany(db.Comment); // Mainpost.addComments, Mainpost.getComments
+    db.Mainpost.hasMany(db.Image); // Mainpost.addImages, Mainpost.getImages
+    db.Mainpost.hasMany(db.Video); // Mainpost.addVideos, Mainpost.getVideos
   };
   return Mainpost;
 };

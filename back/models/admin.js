@@ -5,16 +5,16 @@ module.exports = (sequelize, DataTypes) => {
       // MySQL에는 admins 테이블로 생성됌
       admin_ID: {
         type: DataTypes.STRING(30),
-        allowNull: true, // 필수라는 뜻
+        allowNull: false, // 필수라는 뜻
         unique: true,
       },
       nickname: {
         type: DataTypes.STRING(30),
-        allowNull: true, // 필수라는 뜻
+        allowNull: false, // 필수라는 뜻
       },
       password: {
         type: DataTypes.STRING(100),
-        allowNull: true, // 필수라는 뜻
+        allowNull: false, // 필수라는 뜻
       },
     },
     {

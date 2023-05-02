@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       // MySQL에는 reserveposts 테이블로 생성됌
       content: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       title: {
         type: DataTypes.STRING(50),
@@ -38,8 +38,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Reservepost.associate = (db) => {
-    //   db.Reservepost.hasMany(db.Comment); // Reservepost.addComments, Reservepost.getComments
-    //   db.Reservepost.hasMany(db.Image); // Reservepost.addImages, Reservepost.getImages
+    db.Reservepost.hasMany(db.Comment); // Reservepost.addComments, Reservepost.getComments
   };
   return Reservepost;
 };

@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       // MySQL에는 videos 테이블로 생성됌
       src: {
         type: DataTypes.STRING(200),
-        allowNull: true,
+        allowNull: false,
       },
     },
     {
@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
   );
   Video.associate = (db) => {
     db.Video.belongsTo(db.Mainpost);
-    db.Video.belongsTo(db.Gallery);
   };
   return Video;
 };

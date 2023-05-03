@@ -18,7 +18,8 @@ module.exports = () => {
             // 1.서버에러 2.성공 3.클라이언트 에러
             return done(null, false, { reason: '존재하지 않는 사용자입니다!' });
           }
-          // const result = await bcrypt.compare(password, admin.password); // bcrypt 빼줬음
+          // const result = await bcrypt.compare(password, admin.password);
+          // console.log(await bcrypt.compare(password, admin.password));
           const result = await Admin.findOne({
             where: { password },
           }); // bcrypt 빼줬음

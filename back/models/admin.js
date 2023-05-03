@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       collate: 'utf8_general_ci', // 이걸 해줘야 한글 쓸 수 있음,
     }
   );
+
   Admin.associate = (db) => {};
   return Admin;
 };

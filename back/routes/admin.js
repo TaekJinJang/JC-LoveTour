@@ -26,16 +26,24 @@ router.post('/login', (req, res, next) => {
           return next(loginErr);
         }
         const fullAdminWithoutPassword = await Admin.findOne({
-          where: { id: admin.id },
-          attributes: {
-            exclude: ['password'], // 보안을 위해 비밀번호를 제외하고 프론트로 데이터를 보냄
-          },
+          where: { id: admin_ID },
+          attributes: [admin_ID, nickname, id],
+          // attributes: {
+          //   exclude: ['password'], // 보안을 위해 비밀번호를 제외하고 프론트로 데이터를 보냄
+          // },
         });
 
         return res.status(200).json(fullAdminWithoutPassword);
       });
     }
   )(req, res, next);
+});
+
+router.post('/logout', (req, res) => {
+  console.log(req.user);
+  // req.logout();
+  req.session.destroy();
+  res.send('로그아웃 성공');
 });
 
 module.exports = router;

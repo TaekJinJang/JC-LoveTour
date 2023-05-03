@@ -8,8 +8,8 @@ const db = {};
 const sequelize = new Sequelize(
   config.database,
   config.username,
-  config.password,
-  config
+  config.password
+  // config
 );
 db.Comment = require('./comment')(sequelize, Sequelize);
 db.Image = require('./image')(sequelize, Sequelize);

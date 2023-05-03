@@ -5,12 +5,26 @@ const cors = require('cors');
 const db = require('./models');
 const passportConfig = require('./passport');
 const app = express(); // 서버
+const passport = require('passport');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
+
+// 백에서 프론트로 로그인기능 이후 비밀번호를 통으로 보내주면 해킹에 굉장히 취약하겠죠 ?
+// 그래서 쿠키값을 대신 주는거임, 그럼 브라우저는 앞으로 게시글을 쓰던 뭘 하던 비밀번호를 보내는게 아니고
+// 쿠키값을 보내서 아이디를 확인함 서버가 가지고 있는게 세션, 브라우저로 보내는게 쿠키
+// 근데 세션은 무거워서 아예 다 들고다니진않고 쿠키에다가 세션안에 있는 아이디만 매칭시켜놓고
+// 쿠키값을 받았을 때 세션과 비교해서 데이터를 들고옴
+
+dotenv.config();
+
 db.sequelize
   .sync()
   .then(() => {
     console.log('db 연결 성공');
   })
   .catch(console.error);
+
 passportConfig();
 
 // app.get -> 가져오다
@@ -36,13 +50,24 @@ passportConfig();
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)
-    origin: '*', // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
-    // credentials: true, // 쿠키 전달
+    origin: 'http://localhost:3000', // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
+    credentials: true, // 쿠키 전달
   })
 );
+
+app.use(
+  session({
+    saveUninitialized: false,
+    resave: false,
+    secret: process.env.COOKIE_SECRET,
+  })
+); // 로그인할 때 브라우저랑 서버랑 같은 정보를 가져야하는데 보안을 위해 쿠키,세션으로 암호화
+app.use(cookieParser(process.env.COOKIE_SECRET));
+
 app.use(express.json()); // json파일을 req.body에 넣어줌
 app.use(express.urlencoded({ extended: true })); // form을 submit 했을 때 데이터를 req.body에 넣어줌
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.get('/', (req, res) => {
   res.send('helo express');
 });

@@ -18,7 +18,7 @@ import {
 } from '../reducers/admin';
 
 function logInAPI(data) {
-  return axios.get('/admin/login', {
+  return axios.post('/admin/login', {
     admin_ID: data.id,
     password: data.password,
   });

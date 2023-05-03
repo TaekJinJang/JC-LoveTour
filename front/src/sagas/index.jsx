@@ -4,7 +4,7 @@ import postSaga from './post';
 import userSaga from './user';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3308';
+axios.defaults.baseURL = 'http://localhost:3005';
 axios.defaults.withCredentials = true;
 
 export default function* rootSaga() {

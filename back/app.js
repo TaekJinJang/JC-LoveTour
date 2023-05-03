@@ -3,6 +3,7 @@ const postRouter = require('./routes/post');
 const adminRouter = require('./routes/admin');
 const cors = require('cors');
 const db = require('./models');
+const passportConfig = require('./passport');
 const app = express(); // 서버
 db.sequelize
   .sync()
@@ -10,7 +11,7 @@ db.sequelize
     console.log('db 연결 성공');
   })
   .catch(console.error);
-// passportConfig();
+passportConfig();
 
 // app.get -> 가져오다
 // app.post -> 생성하다
@@ -22,7 +23,6 @@ db.sequelize
 
 // 꼭 라우터 위쪽에 써줘야함
 // 프론트에서 데이터를 받아올 때
-// app.use(express.json()); // json파일을 req.body에 넣어줌
 
 // const maria = require('./database/connect/maria'); // db연결
 // try {
@@ -36,10 +36,12 @@ db.sequelize
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)
-    origin: '*', // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
+    origin: 'http://127.0.0.1:3000/', // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
     credentials: true, // 쿠키 전달
   })
 );
+app.use(express.json()); // json파일을 req.body에 넣어줌
+app.use(express.urlencoded({ extended: true })); // form을 submit 했을 때 데이터를 req.body에 넣어줌
 
 app.get('/', (req, res) => {
   res.send('helo express');

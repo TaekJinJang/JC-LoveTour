@@ -36,11 +36,13 @@ gantt
 
 ## Installation ( 예시 )
 ```
- > git clone https://github.com/ICES-Lab/ICES-HomePage.git
+ > git clone https://github.com/TaekJinJang/JC-LoveTour.git
+ 
+ > cd front
  
  > npm i
  
- > docker pull xorwls150/ices-web-docker:tagname
+ > npm run start
 ```
 
 ## Docker Repositories ( 예시 )

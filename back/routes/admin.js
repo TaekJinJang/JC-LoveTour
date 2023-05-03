@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
+const { Admin } = require('../models');
 
 // 굳이 passport 라이브러리를 사용하는 이유는
 // 나중에 네이버나 구글 로그인으로도 연계가 가능하기에 미리 세팅
@@ -26,8 +27,8 @@ router.post('/login', (req, res, next) => {
           return next(loginErr);
         }
         const fullAdminWithoutPassword = await Admin.findOne({
-          where: { id: admin_ID },
-          attributes: [admin_ID, nickname, id],
+          where: { id: admin.id },
+          attributes: ['admin_ID'],
           // attributes: {
           //   exclude: ['password'], // 보안을 위해 비밀번호를 제외하고 프론트로 데이터를 보냄
           // },
@@ -39,11 +40,15 @@ router.post('/login', (req, res, next) => {
   )(req, res, next);
 });
 
-router.post('/logout', (req, res) => {
-  console.log(req.user);
-  // req.logout();
-  req.session.destroy();
-  res.send('로그아웃 성공');
+router.post('/logout', async (req, res) => {
+  req.logout((err) => {
+    req.session.destroy();
+    if (err) {
+      res.redirect('/');
+    } else {
+      res.status(200).send('server ok: 로그아웃 완료');
+    }
+  });
 });
 
 module.exports = router;

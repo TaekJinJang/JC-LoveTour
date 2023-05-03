@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -12,9 +12,14 @@ import { logInRequestAction, logOutRequestAction } from '../reducers/admin';
 function loginForm() {
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const { logInLoading, logOutLoading, admin } = useSelector(
-    (state) => state.admin
-  );
+  const { logInLoading, logOutLoading, admin, logInError, logInDone } =
+    useSelector((state) => state.admin);
+
+  useEffect(() => {
+    if (logInError) {
+      alert(logInError);
+    }
+  }, [logInError]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,7 +27,6 @@ function loginForm() {
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault(); // submit 후 새로고침 막기
-      navigate('/');
       console.log({
         id,
         password,

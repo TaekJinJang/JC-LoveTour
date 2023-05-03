@@ -200,46 +200,52 @@ function mainHeader() {
       </Center>
       {/* 캐러셀 */}
       <Container>
-        <Carousel activeIndex={index} onSelect={handleSelect}>
-          <Carousel.Item>
-            <img
-              style={{ height: '400px', width: '200px' }}
-              className="d-block w-100"
-              src={one}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>첫번째 슬라이드 입니다.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              style={{ height: '400px', width: '200px' }}
-              className="d-block w-100"
-              src={two}
-              alt="Second slide"
-            />
+        {/* // https://react-bootstrap.github.io/components/carousel/ 에서 Crossfade 로 변경 */}
+    <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          width ={800}
+          height={400}
+          src="https://via.placeholder.com/800x400"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          width ={800}
+          height={400}
+          src="https://via.placeholder.com/800x400"
+          alt="Second slide"
+        />
 
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>두번째 슬라이드 입니다.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              style={{ height: '400px', width: '200px' }}
-              className="d-block w-100"
-              src={three}
-              alt="Third slide"
-            />
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          width ={800}
+          height={400}
+          src="https://via.placeholder.com/800x400"
+          alt="Third slide"
+        />
 
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>세번째 슬라이드 입니다.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
       </Container>
     </>
   );

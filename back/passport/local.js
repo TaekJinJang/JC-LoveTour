@@ -22,7 +22,7 @@ module.exports = () => {
           // console.log(await bcrypt.compare(password, admin.password));
           const result = await Admin.findOne({
             where: { password },
-          }); // bcrypt 빼줬음
+          }); // bcrypt 빼줬음 아니.. 복호화 안했는데 됌....
           if (result) {
             return done(null, admin);
           }

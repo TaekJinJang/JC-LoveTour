@@ -28,10 +28,7 @@ router.post('/login', (req, res, next) => {
         }
         const fullAdminWithoutPassword = await Admin.findOne({
           where: { id: admin.id },
-          attributes: ['admin_ID'],
-          // attributes: {
-          //   exclude: ['password'], // 보안을 위해 비밀번호를 제외하고 프론트로 데이터를 보냄
-          // },
+          attributes: ['admin_ID'], // 보안을 위해 비밀번호를 제외하고 프론트로 데이터를 보냄
         });
 
         return res.status(200).json(fullAdminWithoutPassword);

@@ -36,8 +36,8 @@ passportConfig();
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)
-    origin: 'http://127.0.0.1:3000/', // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
-    credentials: true, // 쿠키 전달
+    origin: '*', // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
+    // credentials: true, // 쿠키 전달
   })
 );
 app.use(express.json()); // json파일을 req.body에 넣어줌

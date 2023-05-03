@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 
 function reserveBoardView() {
-  const { admin } = useSelector((state) => state.user);
+  const { admin } = useSelector((state) => state.admin);
   const { reservePosts } = useSelector((state) => state.post);
   const [searchInput, onChangeSearchInput] = useInput('');
   const navigate = useNavigate();

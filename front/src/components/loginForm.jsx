@@ -7,13 +7,13 @@ import Spinner from 'react-bootstrap/Spinner';
 import useInput from '../hooks/useInput';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logInRequestAction, logOutRequestAction } from '../reducers/user';
+import { logInRequestAction, logOutRequestAction } from '../reducers/admin';
 
 function loginForm() {
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('');
   const { logInLoading, logOutLoading, admin } = useSelector(
-    (state) => state.user
+    (state) => state.admin
   );
 
   const dispatch = useDispatch();

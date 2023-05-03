@@ -284,7 +284,7 @@ function announceBoardView() {
   //     type: LOAD_POSTS_REQUEST,
   //   });
   // }, []);
-  const { admin } = useSelector((state) => state.user);
+  const { admin } = useSelector((state) => state.admin);
   const { mainPosts } = useSelector((state) => state.post);
   const [searchInput, onChangeSearchInput] = useInput('');
   const navigate = useNavigate();

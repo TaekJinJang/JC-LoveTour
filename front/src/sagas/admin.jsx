@@ -15,10 +15,10 @@ import {
   LOG_OUT_REQUEST,
   LOG_OUT_SUCCESS,
   LOG_OUT_FAILURE,
-} from '../reducers/user';
+} from '../reducers/admin';
 
 function logInAPI(data) {
-  return axios.post('/admin/login', {
+  return axios.get('/admin/login', {
     admin_ID: data.id,
     password: data.password,
   });

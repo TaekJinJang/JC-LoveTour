@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/esm/Button';
 import { REMOVE_POST_REQUEST } from '../../reducers/post';
 
 function announceBoardDetail() {
-  const { admin } = useSelector((state) => state.user);
+  const { admin } = useSelector((state) => state.admin);
   // const { mainPosts, REMOVE_POST_REQUEST } = useSelector((state) => state.post);
   const location = useLocation();
   const { post } = location?.state;

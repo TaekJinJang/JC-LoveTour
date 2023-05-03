@@ -18,7 +18,7 @@ const Input_Td = styled.td`
 
 function announceBoardList({ post }) {
   const navigate = useNavigate();
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const { isLoggedIn } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
   const boardDetail = useCallback(() => {
     console.log(post.views);

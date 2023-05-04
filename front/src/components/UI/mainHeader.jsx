@@ -1,69 +1,26 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
-  Carousel, Container, Nav, Form, Button, Figure
-  , Row, Col,
+  Carousel,
+  Container,
+  Nav,
+  Form,
+  Button,
+  Figure,
+  Row,
+  Col,
+  InputGroup,
 } from 'react-bootstrap';
 import logo from '../../assets/logo.png';
 import map from '../../assets/map.png';
-import styled from 'styled-components';
-
-
-const NavUl = styled.ul`
-  list-style: none;
-  padding: auto;
-  padding-left: 0px;
-  display: none;
-  position: absolute;
-  z-index: 1;
-  top: 1;
-  left: 0;
-`;
-
-const NavItem = styled(Nav.Item)`
-  position: relative;
-  margin-right: 65px;
-
-  &:hover ${NavUl} {
-    display: block;
-    color: black;
-  }
-`;
-
-const NavLi = styled(Nav.Link)`
-  color: black;
-  font-weight: 700;
-  font-size: 24px;
-  &:hover {
-    color: black;
-  }
-  white-space: nowrap;
-  display: inline-block;
-`;
-
-const NavLi2 = styled(Nav.Link)`
-  &:hover {
-    color: black;
-  }
-  width: 200px;
-  height: 50px;
-  background-color: rgba(17, 17, 17, 0.4);
-  color: white;
-  font-size: 20px;
-  font-family: 'Inter';
-  font-weight: 600;
-  line-height: 30px;
-`;
-
-const Center = styled.nav`
-  position: relative;
-  display: flex;
-  justify-content: center;
-`;
+// import styled from 'styled-components';
 
 // src 속 뜨지 않던 holder.js -> https://via.placeholder.com/이미지규격 으로 변경시 전부 정상으로 뜸
 // react.svg 사용하지 않았기에 삭제
+
 function MainHeader() {
+  const [showMenu, setShowMenu] = useState(false); // 마우스 호버 상태를 저장하는 상태값
+
   return (
     // header - logo, search, mapicon
     <Container>
@@ -75,11 +32,25 @@ function MainHeader() {
               width={300}
               height={52}
               src={logo}
-              alt="logo" />
+              alt="logo"
+            />
           </Figure>
         </Col>
-        <Col md={6} className='mt-3'>
-          <Form className="d-flex">
+        <Col md={6} className="mt-3">
+          {/* 버튼을 인풋안에 넣었음 */}
+          <InputGroup>
+            <Form.Control
+              type="search"
+              placeholder="어디로, 어떤 여행을 떠나실 예정이신가요?"
+              bg="secondary"
+              aria-label="Search"
+            />
+            <Button variant="outline-secondary">검색</Button>
+          </InputGroup>
+
+          {/* 아래 주석을 풀면 버튼은 인풋 밖으로 나옴 */}
+
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="어디로, 어떤 여행을 떠나실 예정이신가요?"
@@ -87,78 +58,141 @@ function MainHeader() {
               aria-label="Search"
             />
             <Button>
-              Search
+              search
             </Button>
-          </Form>
+          </Form> */}
         </Col>
+
         <Col md={2}>
-          <Figure>
+          <Figure className="text-center">
             <Figure.Image
-              className="mt-2"
+              className="mt-3"
               width={30}
               height={30}
               src={map}
-              alt="map" />
-            <Figure.Caption className='text-dark'>
-              지도로 보기
-            </Figure.Caption>
+              alt="map"
+            />
+            <Figure.Caption className="text-dark">지도로 보기</Figure.Caption>
           </Figure>
         </Col>
       </Row>
-{/* // 메뉴 */}
-{/* 메뉴바 */}
-<Center>
-        <Nav activeKey="/home">
-          <NavItem>
-            <NavLi href="/home">제천 러브투어</NavLi>
-            <NavUl>
-              <NavLi2 href="#">러브투어 소개</NavLi2>
-              <NavLi2 href="#">지원 혜택</NavLi2>
-              <NavLi2 href="#">사진 갤러리</NavLi2>
-              <NavLi2 href="#">영상 갤러리</NavLi2>
-            </NavUl>
-          </NavItem>
+      {/* // 메뉴 */}
 
-          <NavItem>
-            <NavLi eventKey="#">제천의 이모저모</NavLi>
-            <NavUl>
-              <NavLi2 href="#">관광지</NavLi2>
-              <NavLi2 href="#">전통시장</NavLi2>
-              <NavLi2 href="#">음식</NavLi2>
-              <NavLi2 href="#">숙박</NavLi2>
-              <NavLi2 href="#">축제/행사</NavLi2>
-            </NavUl>
-          </NavItem>
+      {/* 메뉴바 */}
+      <Container>
+        <Row>
+          <div>
+            <Nav
+              className="justify-content-center"
+              activeKey="/home"
+              onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
+              onMouseLeave={() => setShowMenu(false)} // 네비게이션에서 마우스를 내렸을 때 상태값 변경
+            >
+              <Col md="auto">
+                <Nav.Item as="li">
+                  <Nav.Link href="/home">제천 러브투어</Nav.Link>
+                  {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
+                    <ul>
+                      <Nav.Link as="a" href="#">
+                        러브투어 소개
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        지원 혜택
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        사진 갤러리
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        영상 갤러리
+                      </Nav.Link>
+                    </ul>
+                  )}
+                </Nav.Item>
+              </Col>
 
-          <NavItem>
-            <NavLi eventKey="#">테마/코스</NavLi>
-            <NavUl>
-              <NavLi2 href="#">기본코스</NavLi2>
-              <NavLi2 href="#">힐링코스</NavLi2>
-              <NavLi2 href="#">가스트로투어</NavLi2>
-              <NavLi2 href="#">제천시티투어</NavLi2>
-            </NavUl>
-          </NavItem>
+              <Col md="auto">
+                <Nav.Item as="li">
+                  <Nav.Link eventKey="#">제천의 이모저모</Nav.Link>
+                  {showMenu && (
+                    <ul>
+                      <Nav.Link as="a" href="#">
+                        관광지
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        전통시장
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        음식
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        숙박
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        축제/행사
+                      </Nav.Link>
+                    </ul>
+                  )}
+                </Nav.Item>
+              </Col>
 
-          <NavItem>
-            <NavLi eventKey="#">예약</NavLi>
-            <NavUl>
-              <NavLi2 href="#">예약 신청</NavLi2>
-              <NavLi2 href="#">예약 조회/취소</NavLi2>
-            </NavUl>
-          </NavItem>
+              <Col md="auto">
+                <Nav.Item as="li">
+                  <Nav.Link eventKey="#">테마/코스</Nav.Link>
+                  {showMenu && (
+                    <ul>
+                      <Nav.Link as="a" href="#">
+                        기본코스
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        힐링코스
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        가스트로투어
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        제천시티투어
+                      </Nav.Link>
+                    </ul>
+                  )}
+                </Nav.Item>
+              </Col>
 
-          <NavItem>
-            <NavLi eventKey="#">알림마당</NavLi>
-            <NavUl>
-              <NavLi2 href="#">공지사항</NavLi2>
-              <NavLi2 href="#">자주하는 질문</NavLi2>
-              <NavLi2 href="#">1:1고객센터</NavLi2>
-            </NavUl>
-          </NavItem>
-        </Nav>
-      </Center>
-{/* // 캐러셀 */}
+              <Col md="auto">
+                <Nav.Item as="li">
+                  <Nav.Link eventKey="#">예약</Nav.Link>
+                  {showMenu && (
+                    <ul>
+                      <Nav.Link as="a" href="#">
+                        예약 신청
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        예약 조회/취소
+                      </Nav.Link>
+                    </ul>
+                  )}
+                </Nav.Item>
+              </Col>
+
+              <Col md="auto">
+                <Nav.Item as="li">
+                  <Nav.Link eventKey="#">알림마당</Nav.Link>
+                  {showMenu && (
+                    <ul>
+                      <Nav.Link as="a" href="#">
+                        공지사항
+                      </Nav.Link>
+                      <Nav.Link as="a" href="#">
+                        자주하는 질문
+                      </Nav.Link>
+                    </ul>
+                  )}
+                </Nav.Item>
+              </Col>
+            </Nav>
+          </div>
+        </Row>
+      </Container>
+      {/* // 캐러셀 */}
       <Row>
         <Container>
           <Carousel>
@@ -172,7 +206,9 @@ function MainHeader() {
               />
               <Carousel.Caption>
                 <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -201,7 +237,8 @@ function MainHeader() {
               <Carousel.Caption>
                 <h3>Third slide label</h3>
                 <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                  Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>

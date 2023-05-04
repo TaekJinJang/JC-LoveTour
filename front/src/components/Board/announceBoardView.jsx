@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AnnounceBoardList from '../../../../../../../../../../JC-LoveTour-master/front/src/components/Board/announceBoardList';
+import AnnounceBoardList from './announceBoardList';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import useInput from '../../../../../../../../../../JC-LoveTour-master/front/src/hooks/useInput';
+import useInput from '../../hooks/useInput';
 import styled from 'styled-components';
 
 import Pagination from 'react-js-pagination';
@@ -13,121 +13,8 @@ import '../UI/boardUI.css';
 import { Container, Nav, Navbar, NavDropdown, Button, Row, Col, ButtonGroup, Card, Stack, Form, Badge } from 'react-bootstrap';
 // 테이블 라이브러리 추가
 import Table from 'react-bootstrap/Table';
-import { LOAD_POSTS_REQUEST } from '../../../../../../../../../../JC-LoveTour-master/front/src/reducers/post';
+import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
-const Nomal_div = styled.div`
-  display: block;
-  margin-top: 15px;
-`;
-const Side_title = styled.div`
-  display: block;
-  margin-right: 10px;
-  background-color: #4b7d32;
-  float: left;
-  min-width: 170px;
-  height: 150px;
-  margin-left: 5px;
-  display: table-cell;
-  text-align: center;
-`;
-const Side_title_text = styled.h1`
-  color: aliceblue;
-  margin: 0 auto;
-  margin-top: 20px;
-  font-size: 2rem;
-`;
-const Board = styled.div`
-  padding: 10px;
-`;
-const Lm_list = styled.ul`
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-
-  position: relative;
-  width: 198px;
-  padding: 0;
-  margin: 0;
-  padding-top: 15px;
-`;
-const Lm_list_item = styled.li`
-  list-style: none;
-`;
-const Lm_list_item_link = styled.a`
-  float: left;
-  width: 170px;
-  min-height: 16px;
-  padding: 17px 3px 17px 10px;
-
-  margin: 0;
-  margin-left: 5px;
-  margin-bottom: 10px;
-  color: #444;
-  font-family: 'NanumGothicWebBold';
-  line-height: 20px;
-  border: 1px solid #f3f3f3;
-  word-spacing: -1px;
-
-  padding-left: 25px;
-  text-decoration-line: none;
-
-  font-weight: bold;
-`;
-const Search_bar = styled.div`
-  margin-top: 30px;
-  margin-right: 10px;
-  margin-left: 17%;
-  margin-left: 175px;
-  background-color: #e2e2e2;
-  height: 50px;
-`;
-const Search_button = styled.button`
-  float: right;
-  margin-right: 15px;
-  margin-top: 10px;
-  height: 30px;
-  width: 50px;
-
-  background: #4b7d32;
-  border: 0;
-  outline: none;
-  font-size: 10px;
-  color: white;
-`;
-const Search_input = styled.input`
-  float: right;
-  margin-right: 15px;
-  margin-top: 10px;
-  width: 150px;
-  height: 25px;
-`;
-const Sel_key = styled.select`
-  float: right;
-  min-height: 18px;
-  margin-top: 10px;
-  margin-right: 10px;
-  height: 30px;
-  padding: 5px 5px;
-`;
-const Table_form = styled.div`
-  margin-left: 185px;
-  height: 55px;
-  margin-right: 20px;
-  margin-top: 10px;
-  text-align: center;
-`;
-
-const Th = styled.th`
-  height: 50px;
-  border: 1px solid #f0f0f0;
-  border-top: none;
-  border-left: 1px solid #f2f2f2;
-  border-bottom: 1px solid #f2f2f2;
-`;
 
 const Footer = styled.div`
   position: relative;
@@ -268,87 +155,7 @@ function announceBoardView() {
             </Container>
           </Navbar>
         </Row>
-
-
-        {/* 줄글 게시판 */}
-        {/* <Col md={9}>
-            <Board>
-              <h1>공지사항</h1>
-              <hr></hr>
-              <Search_bar>
-                {admin && (
-                  <Link to="/board/announce/add">
-                    <Button>글쓰기</Button>
-                  </Link>
-                )}
-                <Search_button onClick={goToSearch}>검색</Search_button>
-                <Search_input
-                  type="text"
-                  value={searchInput}
-                  onChange={onChangeSearchInput}
-                />
-
-                <Sel_key name="sch_key">
-                  <option value="@">글제목</option>
-                  <option value="@">등록일자</option>
-                  <option value="@">작성자</option>
-                </Sel_key>
-              </Search_bar>
-            </Board>
-            <Table_form>
-              <Table>
-                <thead>
-                  <tr>
-                    <Th scope="col" width="10%">
-                      번호
-                    </Th>
-                    <Th scope="col" width="40%">
-                      제목
-                    </Th>
-                    <Th scope="col" width="15%">
-                      작성자
-                    </Th>
-                    <Th scope="col" width="20%">
-                      작성일
-                    </Th>
-                    <Th scope="col" width="10%">
-                      조회수
-                    </Th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {mainPosts.map((post, index) => (
-                    <AnnounceBoardList key={post.id} post={post} page={page} />
-                  ))}
-                </tbody>
-              </Table>
-
-              <Pagination
-                activePage={page}
-                itemsCountPerPage={10}
-                totalItemsCount={450}
-                pageRangeDisplayed={5}
-                prevPageText={'‹'}
-                nextPageText={'›'}
-                onChange={handlePageChange}
-              />
-            </Table_form>
-          </Col>
-        </Row> */}
-
         {/* 사이드바 받은 파일 */}
-        <Row>
-          {/* // 1번 그리드 */}
-          {/* <Col className="bg-green">
-            <ButtonGroup aria-label="Grid 1 Buttons">
-              <Button variant="Success">Button 1</Button>
-              <Button variant="Success">Button 2</Button>
-              <Button variant="Success">Button 3</Button>
-              <Button variant="Success">Button 4</Button>
-              <Button variant="Success">Button 5</Button>
-            </ButtonGroup>
-          </Col> */}
-        </Row>
         {/* // 2번 그리드 여기 아래의 코드가 바로 사이드바 코드 */}
         <Row className="mt-3 ps-1">
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }} >
@@ -359,25 +166,20 @@ function announceBoardView() {
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 1</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 2</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 3</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 4</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 5</Button>
+              <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>공지사항</Button>
+              <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>자주하는 질문</Button>
+              <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>1:1 고객센터</Button>
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>
-
           </Col>
           {/* // 3번 그리드 */}
           <Col md={9}>
-
             <Row>
               <h2>
                 공지사항
               </h2>
               <hr />
             </Row>
-
             <Row className="mt-2">
               <Col className='bg-light border pt-1'>
                 <Col className='mb-1' style={{ float: 'right' }}>
@@ -386,9 +188,8 @@ function announceBoardView() {
                     <Button variant="success" text="white" style={{ width: '130px' }}>검색</Button>
                   </Stack>
                 </Col>
-
                 <Col>
-                {/* 서치바 드롭다운 메뉴 */}
+                  {/* 서치바 드롭다운 메뉴 */}
                   <Form.Select className='me-2' style={{ float: 'right', width: '100px' }}>
                     <option>전체</option>
                     <option value="1">최신순</option>
@@ -396,15 +197,20 @@ function announceBoardView() {
                     <option value="3">왓에버순</option>
                   </Form.Select>
                 </Col>
-
-
+                <Col>
+                {admin && (
+                    <Link to="/board/announce/add">
+                      <Button>글쓰기</Button>
+                    </Link>
+                  )}
+                </Col>
               </Col>
             </Row>
             <Row>
               {/* 게시물 기재 테이블 */}
               <Table striped className='mt-4'>
-              <thead>
-              <tr>
+                <thead>
+                  <tr>
                     <th scope="col" width="10%">
                       번호
                     </th>
@@ -421,15 +227,24 @@ function announceBoardView() {
                       조회수
                     </th>
                   </tr>
-              </thead>
-                
+                </thead>
                 <tbody>
                   {mainPosts.map((post, index) => (
                     <AnnounceBoardList key={post.id} post={post} page={page} />
                   ))}
                 </tbody>
-
               </Table>
+            </Row>
+            <Row>
+            <Pagination
+                  activePage={page}
+                  itemsCountPerPage={10}
+                  totalItemsCount={450}
+                  pageRangeDisplayed={5}
+                  prevPageText={'‹'}
+                  nextPageText={'›'}
+                  onChange={handlePageChange}
+                />
             </Row>
           </Col>
         </Row>

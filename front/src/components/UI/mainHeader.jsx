@@ -8,13 +8,6 @@ import logo from '../../assets/logo.png';
 import map from '../../assets/map.png';
 import styled from 'styled-components';
 
-const All = styled.div`
-  position: relative;
-  height: 89px;
-  box-shadow: 0px 0px 6px 0px rgba(41, 42, 42, 0.15);
-  text-align: center;
-  padding: 20px;
-`;
 
 const NavUl = styled.ul`
   list-style: none;

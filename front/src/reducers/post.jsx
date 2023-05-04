@@ -223,7 +223,7 @@ const reducer = (state = initialState, action) =>
         draft.imagePaths = [];
         break;
       case ADD_POST_SUCCESS:
-        draft.mainPosts.unshift(dummyPost(action.data));
+        draft.mainPosts.unshift(action.data);
         draft.addPostLoading = false;
         draft.addPostDone = true;
         draft.imagePaths = [];

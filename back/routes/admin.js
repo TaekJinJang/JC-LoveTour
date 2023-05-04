@@ -7,6 +7,26 @@ const { Admin } = require('../models');
 // 굳이 passport 라이브러리를 사용하는 이유는
 // 나중에 네이버나 구글 로그인으로도 연계가 가능하기에 미리 세팅
 // 아이디를 받아올땐 bcrypt 라이브러리로 해시화(보안)
+
+router.get('/', async (req, res, next) => {
+  // GET / user
+  try {
+    if (req.admin) {
+      const fullUserWithoutPassword = await Admin.findOne({
+        where: { id: req.admin.id },
+        attributes: ['admin_ID'], // 보안을 위해 비밀번호를 제외하고 프론트로 데이터를 보냄
+      });
+      // 블로그 포스팅 중 조금 수정.
+      res.status(200).json(fullUserWithoutPassword);
+    } else {
+      res.status(200).json(null);
+    }
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
 router.post('/login', (req, res, next) => {
   //POST /user/login
   console.log('gd');

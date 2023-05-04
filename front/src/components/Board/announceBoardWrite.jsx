@@ -290,6 +290,7 @@ function announceBoardWrite() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // 기본적인 버그들, 게시글을 작성하기로해놓ㄱ 다 빈칸으로 두거나 알맞은 형식이 아닐땐 요청을 받지 않게끔
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();

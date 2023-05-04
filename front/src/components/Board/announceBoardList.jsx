@@ -34,7 +34,7 @@ function announceBoardList({ post }) {
       <Input_Tr onClick={boardDetail}>
         <Input_Td>{post.id}</Input_Td>
         <Input_Td>{post.title}</Input_Td>
-        <Input_Td>{post.admin.nickname}</Input_Td>
+        <Input_Td>관리자</Input_Td>
         <Input_Td>{post.date}</Input_Td>
         <Input_Td>{post.views}</Input_Td>
       </Input_Tr>

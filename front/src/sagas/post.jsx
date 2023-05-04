@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import {
   all,
+  call,
   delay,
   fork,
   put,
@@ -46,18 +47,18 @@ import {
 } from '../reducers/post';
 
 function addPostAPI(data) {
-  return axios.post('/post/announce/', { content: data });
+  return axios.post('/post/announce/add', data);
 }
 
 function* addPost(action) {
   try {
-    const result = yield call(addPostAPI, action.data);
+    const result = yield call(addPostAPI, action.data); //call은 동기 fork는 비동기
     // yield delay(1000);
 
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: ADD_POST_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);

@@ -7,6 +7,9 @@ export const initialState = {
   logOutLoading: false, // 로그아웃 시도중
   logOutDone: false,
   logOutError: null,
+  loadMyInfoLoading: false, // 로그인쿠키 시도중
+  loadMyInfoDone: false,
+  loadMyInfoError: null,
   admin: null,
   signUpData: {},
   loginData: {},
@@ -18,6 +21,10 @@ export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
 export const LOG_OUT_REQUEST = 'LOG_OUT_REQUEST';
 export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
 export const LOG_OUT_FAILURE = 'LOG_OUT_FAILURE';
+// 새로고침해도 로그인했던 쿠키가 사라지지 않게 만듦
+export const LOAD_MY_INFO_REQUEST = 'LOAD_MY_INFO_REQUEST';
+export const LOAD_MY_INFO_SUCCESS = 'LOAD_MY_INFO_SUCCESS';
+export const LOAD_MY_INFO_FAILURE = 'LOAD_MY_INFO_FAILURE';
 
 export const logInRequestAction = (data) => {
   // 함수는 컴포넌트에서 불러와야 하니 export를 붙여준다
@@ -65,6 +72,20 @@ const reducer = (state = initialState, action) => {
         draft.logOutLoading = false;
         draft.logOutDone = false;
         draft.logOutError = action.error;
+        break;
+      case LOAD_MY_INFO_REQUEST:
+        draft.loadMyInfoLoading = true;
+        draft.loadMyInfoError = null;
+        draft.loadMyInfoDone = false;
+        break;
+      case LOAD_MY_INFO_SUCCESS:
+        draft.loadMyInfoLoading = false;
+        draft.loadMyInfoDone = true;
+        draft.admin = action.data;
+        break;
+      case LOAD_MY_INFO_FAILURE:
+        draft.loadMyInfoLoading = false;
+        draft.loadMyInfoError = action.error;
         break;
       default:
         break;

@@ -353,11 +353,11 @@ function announceBoardView() {
           <h1>공지사항</h1>
           <hr></hr>
           <Search_bar>
-            {admin && (
-              <Link to="/board/announce/add">
-                <Button>글쓰기</Button>
-              </Link>
-            )}
+            {/* {admin && ( */}
+            <Link to="/board/announce/add">
+              <Button>글쓰기</Button>
+            </Link>
+            {/* )} */}
             <Search_button onClick={goToSearch}>검색</Search_button>
             <Search_input
               type="text"

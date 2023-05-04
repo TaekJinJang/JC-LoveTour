@@ -135,7 +135,7 @@ export const generateDummyReserve = (number) =>
 
       date: TodayTime(),
     }));
-initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(20));
+// initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(20));
 initialState.reservePosts = initialState.reservePosts.concat(
   generateDummyReserve(10)
 );

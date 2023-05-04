@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useCallback } from 'react';
+
+import React, { useCallback, useEffect } from 'react';
 import {
   Container,
   Row,
@@ -11,10 +12,17 @@ import {
   ListGroup,
   Table,
 } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 function mainGrid() {
+  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch({
+  //     type: LOAD_POSTS_REQUEST,
+  //   });
+  // }, []);
   const { mainPosts } = useSelector((state) => state.post);
   const navigate = useNavigate();
   const goToAnnounceBoard = useCallback(() => {
@@ -44,7 +52,7 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">김**님 4월 26일 예약완료</div>
-                      {mainPosts[mainPosts.length - 1].date}
+                      {/* {mainPosts[mainPosts.length - 1].date} */}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -53,7 +61,7 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">장**님 4월 26일 예약완료</div>
-                      {mainPosts[mainPosts.length - 2].date}
+                      {/* {mainPosts[mainPosts.length - 2].date} */}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -62,7 +70,7 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">박**님 4월 26일 예약완료</div>
-                      {mainPosts[mainPosts.length - 3].date}
+                      {/* {mainPosts[mainPosts.length - 3].date} */}
                     </div>
                   </ListGroup.Item>
                 </ListGroup>
@@ -120,9 +128,10 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {mainPosts[mainPosts.length - 1].title}
+                        {/* {mainPosts[mainPosts.length - 1].title} */}
+                        테스트입니다.
                       </div>
-                      {mainPosts[mainPosts.length - 1].date}
+                      {/* {mainPosts[mainPosts.length - 1].date} */}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -131,9 +140,10 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {mainPosts[mainPosts.length - 2].title}
+                        {/* {mainPosts[mainPosts.length - 2].title} */}
+                        테스트입니다.
                       </div>
-                      {mainPosts[mainPosts.length - 2].date}
+                      {/* {mainPosts[mainPosts.length - 2].date} */}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -142,9 +152,10 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {mainPosts[mainPosts.length - 3].title}
+                        {/* {mainPosts[mainPosts.length - 3].title} */}
+                        테스트입니다.
                       </div>
-                      {mainPosts[mainPosts.length - 3].date}
+                      {/* {mainPosts[mainPosts.length - 3].date} */}
                     </div>
                   </ListGroup.Item>
                 </ListGroup>

@@ -1,5 +1,5 @@
 const express = require('express');
-const { Mainpost } = require('../models');
+const { Mainpost, Image, Admin, Comment } = require('../models');
 const router = express.Router();
 
 /*
@@ -17,6 +17,43 @@ const TodayTime = () => {
 
   return Year + '-' + Month + '-' + Day;
 };
+
+// 게시글을 불러오는 과정에서 postId - 1~10 ,11~20 이런식으로 가져오고싶었는데
+// 만약 13번 게시글이 지워졌다면 9개 13,14,15 번 게시글이 지워졌다면 7개밖에 ㅇ못불러오네....
+// 다른 방식을 찾는중 결론적으로는 같은 게시글을 불러올수도, 규격에 맞지 않는 량의 게시물을 불러올수도 있음
+
+router.get('/announce/posts', async (req, res, next) => {
+  // GET /posts
+  try {
+    const where = {};
+    if (parseInt(req.query.lastId, 10)) {
+      // 초기 로딩이 아닐 때
+      where.id = { [Op.lt]: parseInt(req.query.lastId, 10) };
+    }
+    const posts = await Mainpost.findAll({
+      where,
+      //   limit: 10,
+      order: [
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
+      ],
+      include: [
+        { model: Image },
+        {
+          model: Comment, // 댓글 작성자
+          attributes: {
+            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            order: [['createdAt', 'DESC']],
+          },
+        },
+      ],
+    });
+    res.status(200).json(posts);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
 
 router.post('/announce/add', async (req, res, next) => {
   // POST /post/announce/add

@@ -54,6 +54,7 @@ router.get('/announce/posts', async (req, res, next) => {
     next(error);
   }
 });
+// ㅁㄴㅇㅁㄴㅇㅁㄴㅇ
 
 router.post('/announce/add', async (req, res, next) => {
   // POST /post/announce/add

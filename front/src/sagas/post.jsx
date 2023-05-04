@@ -114,12 +114,12 @@ function* incrementViews(action) {
 }
 
 function removeReserveAPI(data) {
-  return axios.delete('/api/post', data);
+  return axios.delete(`/post/reserve/${data}`);
 }
 
 function* removeReserve(action) {
   try {
-    // const result = yield call(removePostAPI, action.data);
+    const result = yield call(removePostAPI, action.data);
     // yield delay(1000);
     yield put({
       type: REMOVE_RESERVE_SUCCESS,
@@ -134,16 +134,16 @@ function* removeReserve(action) {
   }
 }
 function removePostAPI(data) {
-  return axios.delete('/api/post', data);
+  return axios.delete(`/post/announce/${data}`);
 }
 
 function* removePost(action) {
   try {
-    // const result = yield call(removePostAPI, action.data);
-    // yield delay(1000);
+    const result = yield call(removePostAPI, action.data);
+
     yield put({
       type: REMOVE_POST_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);

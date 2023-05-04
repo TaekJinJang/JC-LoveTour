@@ -71,4 +71,18 @@ router.post('/announce/add', async (req, res, next) => {
   }
 });
 
+// 게시글 삭제
+router.delete('/announce/:postId', async (req, res, next) => {
+  // DELETE /post/1
+  try {
+    await Mainpost.destroy({
+      where: { id: req.params.postId },
+    });
+    res.status(200).json({ PostId: parseInt(req.params.postId, 10) });
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
 module.exports = router;

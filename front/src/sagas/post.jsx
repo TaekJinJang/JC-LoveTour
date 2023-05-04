@@ -46,12 +46,12 @@ import {
 } from '../reducers/post';
 
 function addPostAPI(data) {
-  return axios.post('/post', { content: data });
+  return axios.post('/post/announce/', { content: data });
 }
 
 function* addPost(action) {
   try {
-    // const result = yield call(addPostAPI, action.data);
+    const result = yield call(addPostAPI, action.data);
     // yield delay(1000);
 
     yield put({

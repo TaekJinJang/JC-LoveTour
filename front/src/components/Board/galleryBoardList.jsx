@@ -21,7 +21,7 @@ function galleryBoardList({ post }) {
         </Modal.Body>
       </Modal>
 
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '15rem' }}>
         <Card.Img
           variant="top"
           src={post.Images[0].src}

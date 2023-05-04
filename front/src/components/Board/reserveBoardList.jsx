@@ -17,8 +17,8 @@ function reserveBoardList({ post }) {
   const handleShow = () => setShow(true);
 
   const boardDetail = useCallback(() => {
-    console.log(password, post.admin.password);
-    if (post.admin.password == password) {
+    console.log(password, post.user.password);
+    if (post.user.password == password) {
       navigate(`/board/reserve/${post.id}`, { state: { post } });
     } else setShowError(true);
   }, [{ post }]);

@@ -29,7 +29,7 @@ function announceBoardDetail() {
 
   return (
     <>
-      {post.Images[0] && (
+      {post.Images.length > 0 && (
         <img
           src={post.Images[0].src}
           alt={post.Images[0].src}

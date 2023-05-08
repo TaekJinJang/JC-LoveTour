@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
+
   Carousel, Container, Nav, Form, Button, Figure , Row, Col, InputGroup, } from 'react-bootstrap';
 import logo from '../../assets/logo.png';
 import map from '../../assets/map.png';
@@ -43,6 +44,7 @@ function MainHeader() {
 
             {/* 아래 주석을 풀면 버튼은 인풋 밖으로 나옴 */}
             
+
           {/* <Form className="d-flex">
             <Form.Control
               type="search"
@@ -57,12 +59,15 @@ function MainHeader() {
         </Col>
 
         <Col md={2}>
-          <Figure className='text-center'>
+
+          <Figure className="text-center">
+
             <Figure.Image
               className="mt-3"
               width={30}
               height={30}
               src={map}
+
               alt="map" 
               />
             <Figure.Caption className='text-dark'>
@@ -152,6 +157,7 @@ function MainHeader() {
   </Row>
 </Container>
 {/* // 캐러셀 */}
+
       <Row>
         <Container>
           <Carousel>
@@ -165,7 +171,9 @@ function MainHeader() {
               />
               <Carousel.Caption>
                 <h3>First slide label</h3>
+
                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -194,7 +202,9 @@ function MainHeader() {
               <Carousel.Caption>
                 <h3>Third slide label</h3>
                 <p>
+
                   Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -205,4 +215,6 @@ function MainHeader() {
   );
 }
 
+
 export default MainHeader;
+

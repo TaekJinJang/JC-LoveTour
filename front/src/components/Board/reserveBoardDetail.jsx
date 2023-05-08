@@ -40,7 +40,7 @@ function reserveBoardDetail() {
         <tbody>
           <tr>
             <td>{post.id}</td>
-            <td>{post.admin.name}</td>
+            <td>{post.user.name}</td>
             <td>{post.reserveDate}</td>
             <td>{post.date}</td>
             <td>{post.views}</td>

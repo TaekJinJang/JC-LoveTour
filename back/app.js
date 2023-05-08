@@ -10,8 +10,6 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 
-const { admin } = require('./models/admin');
-
 // 백에서 프론트로 로그인기능 이후 비밀번호를 통으로 보내주면 해킹에 굉장히 취약하겠죠 ?
 // 그래서 쿠키값을 대신 주는거임, 그럼 브라우저는 앞으로 게시글을 쓰던 뭘 하던 비밀번호를 보내는게 아니고
 // 쿠키값을 보내서 아이디를 확인함 서버가 가지고 있는게 세션, 브라우저로 보내는게 쿠키

@@ -135,7 +135,7 @@ export const generateDummyReserve = (number) =>
 
       date: TodayTime(),
     }));
-initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(20));
+// initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(20));
 initialState.reservePosts = initialState.reservePosts.concat(
   generateDummyReserve(10)
 );
@@ -223,7 +223,7 @@ const reducer = (state = initialState, action) =>
         draft.imagePaths = [];
         break;
       case ADD_POST_SUCCESS:
-        draft.mainPosts.unshift(dummyPost(action.data));
+        draft.mainPosts.unshift(action.data);
         draft.addPostLoading = false;
         draft.addPostDone = true;
         draft.imagePaths = [];
@@ -263,7 +263,9 @@ const reducer = (state = initialState, action) =>
         draft.removePostDone = true;
         break;
       case REMOVE_POST_SUCCESS:
-        draft.mainPosts = draft.mainPosts.filter((v) => v.id !== action.data);
+        draft.mainPosts = draft.mainPosts.filter(
+          (v) => v.id !== action.data.PostId
+        );
         draft.removePostLoading = false;
         draft.removePostDone = true;
         break;

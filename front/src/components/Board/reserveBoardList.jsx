@@ -17,8 +17,8 @@ function reserveBoardList({ post }) {
   const handleShow = () => setShow(true);
 
   const boardDetail = useCallback(() => {
-    console.log(password, post.admin.password);
-    if (post.admin.password == password) {
+    console.log(password, post.user.password);
+    if (post.user.password == password) {
       navigate(`/board/reserve/${post.id}`, { state: { post } });
     } else setShowError(true);
   }, [{ post }]);
@@ -38,7 +38,7 @@ function reserveBoardList({ post }) {
         <tbody>
           <tr onClick={handleShow}>
             <td>{post.id}</td>
-            <td>{post.admin.name[0]}**님 예약글입니다.</td>
+            <td>{post.user.name[0]}**님 예약글입니다.</td>
             <td>{post.reserveDate}</td>
             <td>{post.date}</td>
             <td></td>

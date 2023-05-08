@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import {
   all,
+  call,
   delay,
   fork,
   put,
@@ -46,18 +47,18 @@ import {
 } from '../reducers/post';
 
 function addPostAPI(data) {
-  return axios.post('/post', { content: data });
+  return axios.post('/post/announce/add', data);
 }
 
 function* addPost(action) {
   try {
-    // const result = yield call(addPostAPI, action.data);
+    const result = yield call(addPostAPI, action.data); //call은 동기 fork는 비동기
     // yield delay(1000);
 
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: ADD_POST_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);
@@ -113,12 +114,12 @@ function* incrementViews(action) {
 }
 
 function removeReserveAPI(data) {
-  return axios.delete('/api/post', data);
+  return axios.delete(`/post/reserve/${data}`);
 }
 
 function* removeReserve(action) {
   try {
-    // const result = yield call(removePostAPI, action.data);
+    const result = yield call(removePostAPI, action.data);
     // yield delay(1000);
     yield put({
       type: REMOVE_RESERVE_SUCCESS,
@@ -133,16 +134,16 @@ function* removeReserve(action) {
   }
 }
 function removePostAPI(data) {
-  return axios.delete('/api/post', data);
+  return axios.delete(`/post/announce/${data}`);
 }
 
 function* removePost(action) {
   try {
-    // const result = yield call(removePostAPI, action.data);
-    // yield delay(1000);
+    const result = yield call(removePostAPI, action.data);
+
     yield put({
       type: REMOVE_POST_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);
@@ -191,15 +192,15 @@ function* updateReserve(action) {
   }
 }
 function loadPostsAPI(lastId) {
-  return axios.get(`/posts?lastId=${lastId || 0}`);
+  return axios.get(`/post/announce/posts?lastId=${lastId || 0}`);
 }
 function* loadPosts(action) {
   try {
-    // const result = yield call(loadPostsAPI, action.lastId); // call은 동기 fork는 비동기
+    const result = yield call(loadPostsAPI, action.lastId); // call은 동기 fork는 비동기
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: LOAD_POSTS_SUCCESS,
-      data: generateDummyPost(5), // 게시글 10개 불러오기
+      data: result.data, // 게시글 10개 불러오기
     });
   } catch (err) {
     console.error(err);

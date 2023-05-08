@@ -10,10 +10,11 @@ import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
 // 사이드바 라이브러리 추가
-import { Container, Nav, Navbar, NavDropdown, Button, Row, Col, ButtonGroup, Card, Stack, Form, Badge } from 'react-bootstrap';
-// 테이블 라이브러리 추가
-import Table from 'react-bootstrap/Table';
+
+import { Container, Nav, Navbar,Table, NavDropdown, Button, Row, Col, ButtonGroup, Card, Stack, Form, Badge } from 'react-bootstrap';
+
 import { LOAD_POSTS_REQUEST } from '../../reducers/post';
+
 
 
 const Footer = styled.div`
@@ -101,7 +102,9 @@ const Footer_select = styled.select`
 `;
 const Tr = styled.tr`
   background-color: #f8f8f8;
+
   
+
 `;
 
 function announceBoardView() {
@@ -130,15 +133,18 @@ function announceBoardView() {
   return (
     <>
       <Container>
+
         <Row className='w-100% p-0'>
           {/* 상단 네비바 수정 부분 */}
           <Navbar bg="success" expand="lg" >
             <Container>
               <Navbar.Brand href="#home"><h4>홈</h4></Navbar.Brand>
+
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
                   <NavDropdown as="h5" title="알림마당" id="basic-nav-dropdown">
+
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
@@ -149,6 +155,8 @@ function announceBoardView() {
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+
+
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
@@ -158,6 +166,7 @@ function announceBoardView() {
         {/* 사이드바 받은 파일 */}
         {/* // 2번 그리드 여기 아래의 코드가 바로 사이드바 코드 */}
         <Row className="mt-3 ps-1">
+
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }} >
             <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body className='bp-0'>
@@ -169,12 +178,15 @@ function announceBoardView() {
               <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>공지사항</Button>
               <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>자주하는 질문</Button>
               <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>1:1 고객센터</Button>
+
+          
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
           {/* // 3번 그리드 */}
           <Col md={9}>
             <Row>
+
               <h2>
                 공지사항
               </h2>
@@ -186,11 +198,14 @@ function announceBoardView() {
                   <Stack direction="horizontal" gap={3}>
                     <Form.Control className="ms-auto" placeholder="Add your item here..." />
                     <Button variant="success" text="white" style={{ width: '130px' }}>검색</Button>
+
                   </Stack>
                 </Col>
                 <Col>
                   {/* 서치바 드롭다운 메뉴 */}
+
                   <Form.Select className='me-2' style={{ float: 'right', width: '100px' }}>
+
                     <option>전체</option>
                     <option value="1">최신순</option>
                     <option value="2">게시글순</option>
@@ -198,7 +213,9 @@ function announceBoardView() {
                   </Form.Select>
                 </Col>
                 <Col>
+
                 {admin && (
+
                     <Link to="/board/announce/add">
                       <Button>글쓰기</Button>
                     </Link>
@@ -208,7 +225,9 @@ function announceBoardView() {
             </Row>
             <Row>
               {/* 게시물 기재 테이블 */}
+
               <Table striped className='mt-4'>
+
                 <thead>
                   <tr>
                     <th scope="col" width="10%">
@@ -236,6 +255,7 @@ function announceBoardView() {
               </Table>
             </Row>
             <Row>
+
             <Pagination
                   activePage={page}
                   itemsCountPerPage={10}
@@ -245,6 +265,7 @@ function announceBoardView() {
                   nextPageText={'›'}
                   onChange={handlePageChange}
                 />
+
             </Row>
           </Col>
         </Row>

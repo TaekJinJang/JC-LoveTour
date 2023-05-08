@@ -1,291 +1,23 @@
-import React, { useCallback, useRef } from 'react';
-import styled from 'styled-components';
+import React, { useCallback, useRef, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { ADD_POST_REQUEST, UPLOAD_IMAGES_REQUEST } from '../../reducers/post';
-
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
-import { useNavigate } from 'react-router-dom';
+import '../UI/paging.css';
+import '../UI/boardUI.css';
+import { Form, Button, Container, Row, Col, Card, Nav, Navbar, NavDropdown, Stack, ButtonGroup, } from 'react-bootstrap';
 
-// 글쓰기 구현 스타일
-const Container = styled.div`
-  max-width: 55%;
-  margin-left: 300px;
-`;
-
-// const Form = styled.form`
-//   display: flex;
-//   flex-direction: column;
-// `;
-
-const InputBox = styled.div`
-  display: flex;
-  /* align-items: center; */
-  margin-bottom: 16px;
-`;
-
-const Box = styled.div`
-  width: 140px;
-  height: 45px;
-  background: #4c7b31;
-  border-radius: 10px;
-  color: white;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Input = styled.input`
-  width: 70%;
-  border: 1px solid #ccc;
-  padding: 8px;
-  font-size: 16px;
-  background: #d9d9d9;
-  margin-left: 21px;
-`;
-
-const Textarea = styled.textarea`
-  height: 350px;
-  width: 70%;
-  border: 1px solid #ccc;
-  padding: 8px;
-  font-size: 16px;
-  background: #d9d9d9;
-  margin-left: 21px;
-`;
-
-// const Button = styled.button`
-//   background-color: #4c7b31;
-//   color: #fff;
-//   border: none;
-//   border-radius: 30px;
-//   padding: 8px 16px;
-//   font-size: 20px;
-//   cursor: pointer;
-//   width: 157px;
-//   height: 41px;
-//   margin-left: 71%;
-// `;
-
-// 글쓰기 구현 스타일 끝
-
-///여기서부터 시작
-const Nomal_div = styled.div`
-  display: block;
-  margin-top: 15px;
-`;
-const Side_title = styled.div`
-  display: block;
-  margin-right: 10px;
-  background-color: #4b7d32;
-  float: left;
-  min-width: 170px;
-  height: 150px;
-  margin-left: 5px;
-  display: table-cell;
-  text-align: center;
-`;
-const Side_title_text = styled.h1`
-  color: aliceblue;
-  margin: 0 auto;
-  margin-top: 20px;
-  font-size: 2rem;
-`;
-const Board = styled.div`
-  padding: 10px;
-  color: #4c7b31;
-  margin-left: 300px;
-`;
-const Lm_list = styled.ul`
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-
-  position: relative;
-  width: 198px;
-  padding: 0;
-  margin: 0;
-  padding-top: 15px;
-`;
-const Lm_list_item = styled.li`
-  list-style: none;
-`;
-const Lm_list_item_link = styled.a`
-  float: left;
-  width: 170px;
-  min-height: 16px;
-  padding: 17px 3px 17px 10px;
-
-  margin: 0;
-  margin-left: 5px;
-  margin-bottom: 10px;
-  color: #444;
-  font-family: 'NanumGothicWebBold';
-  line-height: 20px;
-  border: 1px solid #f3f3f3;
-  word-spacing: -1px;
-
-  padding-left: 25px;
-  text-decoration-line: none;
-
-  font-weight: bold;
-`;
-
-const Footer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 150px;
-  margin-top: 80%;
-  background-color: white;
-  padding: 10px;
-`;
-const Footer_container = styled.div`
-  position: relative;
-  width: 100%;
-  margin: 0 120px 0 0;
-  padding: 0;
-`;
-const Footer_navi = styled.div`
-  position: relative;
-  width: 100%;
-  height: 50px;
-  vertical-align: top;
-  border-bottom: 1px solid #909090;
-`;
-const Footer_navi_ul = styled.ul`
-  float: left;
-  margin: 0;
-  height: 50px;
-  vertical-align: top;
-  text-align: center;
-  list-style-type: none;
-`;
-const Footer_navi_li = styled.li`
-  float: left;
-  margin: 0;
-  padding: 15px 20px 0 20px;
-  height: 50px;
-  vertical-align: top;
-  text-align: center;
-  padding-bottom: 20px;
-`;
-const Footer_navi_li_link = styled.a`
-  color: gray;
-
-  text-decoration-line: none;
-  font-family: 'NanumGothicWebBold';
-  font-size: 13px;
-`;
-const Footer_info = styled.div`
-  position: relative;
-  width: 100%;
-  margin-left: 30px;
-  text-align: left;
-  height: 100px;
-`;
-const Footer_info_p = styled.p`
-  font-size: 13px;
-  color: grey;
-  line-height: 20px;
-`;
-const Full_logo = styled.div`
-  background-color: #2da57d;
-  color: white;
-  font-family: 'Malgun Gothic';
-  width: 100%;
-`;
-const In_logo = styled.div`
-  margin-left: 30px;
-  width: 100%;
-`;
-const In_logo_span1 = styled.span`
-  font-size: 200%;
-`;
-const In_logo_span2 = styled.span`
-  font-size: 150%;
-`;
-const Footer_select = styled.select`
-  float: right;
-  margin-right: 10%;
-  margin-top: 10px;
-  background-color: #507d32;
-  height: 30px;
-  color: white;
-  font-size: 13px;
-  padding: 0 10px;
-`;
-
-//-------
-const NavWrapper = styled.nav`
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  #main_logo {
-    display: inline-block;
-    margin-left: 5%;
-    margin-right: 10px;
-    font-size: 25px;
-    padding-left: 0px;
-    border-left: none;
-  }
-  li {
-    display: inline-block;
-    margin-right: 10px;
-    position: relative;
-    border-left: solid 1px white;
-    padding-left: 20px;
-    height: 50px;
-    padding-top: 10px;
-    bottom: 11px;
-  }
-  .sub_a {
-    display: inline-block;
-    text-decoration: none;
-    color: black;
-    vertical-align: middle;
-    right: 20px;
-  }
-  a {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    vertical-align: middle;
-  }
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-    padding-top: 20px;
-    margin: 0;
-    list-style: none;
-    background-color: #fff;
-    border: 1px solid #ccc;
-  }
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-  .nav_var {
-    background-color: green;
-    height: 50px;
-  }
-`;
 
 function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
+  //날짜 추가
+  const [date, onChangeDate] = useInput('');
+  //작성자 추가
+  const [writer, onChangeWriter] = useInput('');
   const imageInput = useRef();
 
   const dispatch = useDispatch();
@@ -331,20 +63,128 @@ function announceBoardWrite() {
 
   return (
     <>
-      <h1>게시판 글쓰기</h1>
-      <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
-        <input
+    <Container>
+    <Row  className='w-100% p-0'>
+          {/* 상단 네비바 수정 부분 */}
+
+          <Navbar bg="success" expand="lg" >
+            <Container >
+              <Navbar.Brand href="#home"><h3>홈</h3></Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                  <NavDropdown as="h4" title="알림마당" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown as="h4" title="공지사항" id="basic-nav-dropdown" style={{textEmphasisColor:'white'}}>
+                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                  </NavDropdown>
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
+        </Row>
+
+
+
+
+        <Row className="mt-3">
+          <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }} >
+            <Card bg="success" text="white" style={{ height: '150px' }}>
+              <Card.Body>
+                <Card.Title className="my-3 mx-5 h-1" ><h2>알림</h2></Card.Title>
+                <Card.Title className="my-3 mx-5 h-1" style={{ fontWeight: 'bold', height: '100px' }}><h2>마당</h2></Card.Title>
+              </Card.Body>
+            </Card>
+            <ButtonGroup vertical>
+              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 1</Button>
+              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 2</Button>
+              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 3</Button>
+              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 4</Button>
+              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 5</Button>
+              {/* block button 세로 길이 조정 */}
+            </ButtonGroup>
+
+          </Col>
+          
+
+
+        
+          <Col md={9}>
+
+            <Row>
+              <h2>공지사항</h2>
+              <hr/>
+            </Row>
+            
+      
+          <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
+          <input 
           type="file"
           multiple
           hidden
           ref={imageInput}
           onChange={onChangeImages}
-        />
-        <Button onClick={onClickImageUpload} variant="info">
-          이미지 업로드
-        </Button>
-        <Form.Group className="mb-3" controlId="title">
-          <Form.Label>제목</Form.Label>
+          />
+
+
+          
+          {/* 작성날짜 */}
+          {/* as를 통해서 ROW(열)처리를 함, mb-3으로 간격을 두었음 */}
+          <Form.Group as={Row} className="mb-3" controlId="date"> 
+
+          <Col md ={2}>
+            <Card  bg = "success" border="success" text="white">
+              <Card.Title>작성날짜</Card.Title>
+            </Card>
+          </Col>
+        
+          <Col md ={10}>
+          <Form.Control
+            name="date"
+            type="text"
+            placeholder="날짜를 입력하세요 "
+            value={date}
+            onChange={onChangeDate}
+            />
+          </Col>
+          </Form.Group>
+
+          {/* 작성자 */}
+          <Form.Group as={Row} className="mb-3" controlId="writer">
+          <Col md ={2}>
+          <Card  bg = "success" border="success" text="white">
+            <Card.Title>작성자</Card.Title>
+          </Card>
+         </Col>
+
+          <Col md ={10}>
+          <Form.Control
+            name="writer"
+            type="text"
+            placeholder="작성자를 입력하세요 "
+            value={writer}
+            onChange={onChangeWriter}
+          />
+          </Col>
+          </Form.Group>
+
+        {/* 제목 */}
+        <Form.Group as={Row} className="mb-3" controlId="title">
+        <Col md ={2}>
+        
+          <Card  bg = "success" border="success" text="white">
+            <Card.Title>제목</Card.Title>
+          </Card>
+        </Col>
+
+          <Col md ={10}>
           <Form.Control
             name="title"
             type="text"
@@ -352,23 +192,59 @@ function announceBoardWrite() {
             value={title}
             onChange={onChangeTitle}
           />
+          </Col>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="text">
-          <Form.Label>내용</Form.Label>
-          <Form.Control
+
+        {/* 내용 */}
+        <Form.Group as={Row} className="mb-3" controlId="text">
+
+        <Col md ={2}>
+        <Card  bg = "success" border="success" text="white">
+          <Card.Title>내용</Card.Title>
+        </Card>
+        </Col>
+
+          <Col md ={10}>
+          <Form.Control as="textarea" rows={6}
             name="text"
             type="text"
             placeholder="내용을 입력해주세요. "
             value={text}
             onChange={onChangeText}
           />
+          </Col>
         </Form.Group>
-        <div>
-          <Button variant="primary" type="submit">
-            글쓰기
+
+        {/* 이미지 업로드 */}
+        <Form.Group as={Row} className="mb-3" controlId="text">
+        <Col md ={2}>
+
+        <Button onClick={onClickImageUpload} variant="success">
+          이미지
           </Button>
-        </div>
-      </Form>
+          </Col>
+
+        <Col md ={10}>
+          <Form.Control 
+          name="title"
+          type="text"
+          placeholder="이미지 파일 경로 "
+          value={title}
+          onChange={onChangeTitle}
+          />
+          </Col>
+          </Form.Group>
+
+          <Col>
+          <Button variant="success" type="submit">등록</Button>
+          </Col>
+        
+
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+
     </>
   );
 }

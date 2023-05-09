@@ -13,7 +13,6 @@ import {
 } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 function mainGrid() {
   const { mainPosts } = useSelector((state) => state.post);
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ function mainGrid() {
         <Row>
           {/* 예약현황 */}
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '300px' }}>
+            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
               <Card.Header className="d-flex justify-content-between my-card-header">
                 예약 현황
                 <Button variant="outline-primary" className="ml-auto">
@@ -70,7 +69,7 @@ function mainGrid() {
             </Card>
           </Col>
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '300px' }}>
+            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
               <Card.Header className="d-flex justify-content-between">
                 지원 혜택
                 <Button variant="outline-primary" className="ml-auto">
@@ -101,7 +100,7 @@ function mainGrid() {
 
           {/* 공지사항 */}
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '300px' }}>
+            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
               <Card.Header className="d-flex justify-content-between">
                 공지사항
                 <Button
@@ -154,7 +153,10 @@ function mainGrid() {
         </Row>
         <Row>
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '500px' }}>
+            <Figure>
+              <Figure.Image src="https://via.placeholder.com/500x200" />
+            </Figure>
+            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
               <Card.Header className="d-flex justify-content-between">
                 축제/행사
                 <Button variant="outline-primary" className="ml-auto">
@@ -162,9 +164,6 @@ function mainGrid() {
                 </Button>
               </Card.Header>
               <Card.Body>
-                <Figure>
-                  <Figure.Image src="https://via.placeholder.com/500x200" />
-                </Figure>
                 <Table striped>
                   <thead>
                     <tr>
@@ -198,15 +197,17 @@ function mainGrid() {
             </Card>
           </Col>
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '500px' }}>
+            <Card style={{ width: '100%', height: '520px', overflow: 'hidden' }}>
               <Card.Body>
-                <Carousel variant="dark">
+                <Carousel variant="dark" className='mt-3'>
                   <Carousel.Item>
                     <Row>
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 1"
                           />
                         </figure>
@@ -214,7 +215,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 2"
                           />
                         </figure>
@@ -224,7 +227,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 3"
                           />
                         </figure>
@@ -232,7 +237,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 4"
                           />
                         </figure>
@@ -244,7 +251,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 1"
                           />
                         </figure>
@@ -252,7 +261,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 2"
                           />
                         </figure>
@@ -262,7 +273,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 3"
                           />
                         </figure>
@@ -270,7 +283,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 4"
                           />
                         </figure>
@@ -282,7 +297,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 1"
                           />
                         </figure>
@@ -290,7 +307,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 2"
                           />
                         </figure>
@@ -300,7 +319,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 3"
                           />
                         </figure>
@@ -308,7 +329,9 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            src="https://via.placeholder.com/230x230.png"
+                            width={215}
+                            height={215}
+                            src="https://via.placeholder.com/215X215.png"
                             alt="figure 4"
                           />
                         </figure>

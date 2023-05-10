@@ -274,6 +274,15 @@ function announceBoardView() {
                       <Button>글쓰기</Button>
                     </Link>
                   )}
+                  {/* 
+                     ==========================UI 제작시===========================
+                  
+                    <Link to="/board/announce/add">
+                      <Button>글쓰기</Button>
+                    </Link>
+
+                      ============================================================
+                      */}
                 </Col>
               </Col>
             </Row>

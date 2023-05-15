@@ -44,7 +44,6 @@ function announceBoardView() {
   return (
     <>
       <Container>
-
         <Row className='w-100% p-0'>
           {/* 상단 네비바 수정 부분 */}
           <Navbar bg="success" expand="lg" >
@@ -94,6 +93,8 @@ function announceBoardView() {
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
+
+          
           {/* // 3번 그리드 */}
           <Col md={9}>
             <Row>

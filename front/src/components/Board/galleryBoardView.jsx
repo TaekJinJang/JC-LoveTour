@@ -1,26 +1,12 @@
 import React, { useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
-import {
-  Container,
-  Row,
-  Col,
-  ButtonGroup,
-  Button,
-  Card,
-  Stack,
-  Form,
-  Nav, Navbar, NavDropdown
-} from 'react-bootstrap';
+import { Container, Row, Col, ButtonGroup, Button, Card, Stack, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
-  MDBBtn
-} from 'mdb-react-ui-kit';
+// 카드모듈 추가 (설치해야함 npm install mdb-react-ui-kit )
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn } from 'mdb-react-ui-kit';
+
+import Footer from '../UI/footer'; // 푸터 컴포넌트 불러오기
 
 import GalleryBoardList from './galleryBoardList';
 import { useSelector } from 'react-redux';
@@ -60,7 +46,6 @@ function galleryBoardView() {
           </Navbar>
         </Row>
 
-
         {/* 사이드 메뉴 */}
         <Row className="mt-3 ps-1">
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }} >
@@ -79,8 +64,6 @@ function galleryBoardView() {
             </ButtonGroup>
           </Col>
 
-
-
           {/* 수정 진행 중 */}
           <Col md={9}>
             <Row>
@@ -92,7 +75,6 @@ function galleryBoardView() {
                   <Stack direction="horizontal" gap={3}>
                     <Form.Control className="ms-auto" placeholder="Add your item here..." />
                     <Button variant="success" text="white" style={{ width: '130px' }}>검색</Button>
-
                   </Stack>
                 </Col>
                 {/* 서치바 드롭다운 메뉴 통일 */}
@@ -112,40 +94,47 @@ function galleryBoardView() {
                   {/* 추가 하여 수정 필요 */}
                   {/* 방법 구상 필요 */}
                   <Col md={4}>
-                    {/* 카드 모델의 일종 사용 */}
-                    <MDBCard>
-                      <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
-                      <MDBCardBody>
-                        <MDBCardTitle>1 title</MDBCardTitle>
-                        <MDBCardText>
-                          관광지 설명
-                        </MDBCardText>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </Col>
-                  <Col md={4}>
-                    <MDBCard>
-                      <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
-                      <MDBCardBody>
-                        <MDBCardTitle>2 title</MDBCardTitle>
-                        <MDBCardText>
-                          관광지 설명
-                        </MDBCardText>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </Col>
-                  <Col md={4}>
-                    <MDBCard>
-                      <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
-                      <MDBCardBody>
-                        <MDBCardTitle>3 title</MDBCardTitle>
-                        <MDBCardText>
-                          관광지 설명
-                        </MDBCardText>
-                      </MDBCardBody>
-                    </MDBCard>
+                    {/* 카드 모델의 일종 사용 a태그로 감싸서 클릭하면 이동할 수 있도록 함 */}
+                    <a href="@">
+                      <MDBCard>
+                        <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
+                        <MDBCardBody>
+                          <MDBCardTitle>1 title</MDBCardTitle>
+                          <MDBCardText>
+                            관광지 설명
+                          </MDBCardText>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </a>
                   </Col>
 
+                  <Col md={4}>
+                    <a href="@">
+                      <MDBCard>
+                        <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
+                        <MDBCardBody>
+                          <MDBCardTitle>2 title</MDBCardTitle>
+                          <MDBCardText>
+                            관광지 설명
+                          </MDBCardText>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </a>
+                  </Col>
+
+                  <Col md={4}>
+                    <a href="@">
+                      <MDBCard>
+                        <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' alt='...' />
+                        <MDBCardBody>
+                          <MDBCardTitle>3 title</MDBCardTitle>
+                          <MDBCardText>
+                            관광지 설명
+                          </MDBCardText>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </a>
+                  </Col>
 
                 </Row>
               </Col>
@@ -153,6 +142,8 @@ function galleryBoardView() {
           </Col>
         </Row>
       </Container>
+      {/* 임포트한 푸터 삽입 */}
+      <Footer />
     </>
   );
 }

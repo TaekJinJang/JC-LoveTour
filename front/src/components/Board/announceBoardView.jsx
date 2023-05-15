@@ -6,6 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import styled from 'styled-components';
 
+import Footer from '../UI/footer'; // 푸터 컴포넌트 불러오기
+
+
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
@@ -14,98 +17,6 @@ import '../UI/boardUI.css';
 import { Container, Nav, Navbar,Table, NavDropdown, Button, Row, Col, ButtonGroup, Card, Stack, Form, Badge } from 'react-bootstrap';
 
 import { LOAD_POSTS_REQUEST } from '../../reducers/post';
-
-
-
-const Footer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 150px;
-  margin-top: 80%;
-  background-color: white;
-  padding: 10px;
-`;
-const Footer_container = styled.div`
-  position: relative;
-  width: 100%;
-  margin: 0 120px 0 0;
-  padding: 0;
-`;
-const Footer_navi = styled.div`
-  position: relative;
-  width: 100%;
-  height: 50px;
-  vertical-align: top;
-  border-bottom: 1px solid #909090;
-`;
-const Footer_navi_ul = styled.ul`
-  float: left;
-  margin: 0;
-  height: 50px;
-  vertical-align: top;
-  text-align: center;
-  list-style-type: none;
-`;
-const Footer_navi_li = styled.li`
-  float: left;
-  margin: 0;
-  padding: 15px 20px 0 20px;
-  height: 50px;
-  vertical-align: top;
-  text-align: center;
-  padding-bottom: 20px;
-`;
-const Footer_navi_li_link = styled.a`
-  color: gray;
-
-  text-decoration-line: none;
-  font-family: 'NanumGothicWebBold';
-  font-size: 13px;
-`;
-const Footer_info = styled.div`
-  position: relative;
-  width: 100%;
-  margin-left: 30px;
-  text-align: left;
-  height: 100px;
-`;
-const Footer_info_p = styled.p`
-  font-size: 13px;
-  color: grey;
-  line-height: 20px;
-`;
-const Full_logo = styled.div`
-  background-color: #2da57d;
-  color: white;
-  font-family: 'Malgun Gothic';
-  width: 100%;
-`;
-const In_logo = styled.div`
-  margin-left: 30px;
-  width: 100%;
-`;
-const In_logo_span1 = styled.span`
-  font-size: 200%;
-`;
-const In_logo_span2 = styled.span`
-  font-size: 150%;
-`;
-const Footer_select = styled.select`
-  float: right;
-  margin-right: 10%;
-  margin-top: 10px;
-  background-color: #507d32;
-  height: 30px;
-  color: white;
-  font-size: 13px;
-  padding: 0 10px;
-`;
-const Tr = styled.tr`
-  background-color: #f8f8f8;
-
-  
-
-`;
 
 function announceBoardView() {
   const dispatch = useDispatch();
@@ -186,7 +97,6 @@ function announceBoardView() {
           {/* // 3번 그리드 */}
           <Col md={9}>
             <Row>
-
               <h2>
                 공지사항
               </h2>
@@ -227,7 +137,6 @@ function announceBoardView() {
               {/* 게시물 기재 테이블 */}
 
               <Table striped className='mt-4'>
-
                 <thead>
                   <tr>
                     <th scope="col" width="10%">
@@ -247,6 +156,7 @@ function announceBoardView() {
                     </th>
                   </tr>
                 </thead>
+                {/* 이 부분 부터는 리스트 내용을 DB에서 가져오는 부분인가? */}
                 <tbody>
                   {mainPosts.map((post, index) => (
                     <AnnounceBoardList key={post.id} post={post} page={page} />
@@ -255,7 +165,6 @@ function announceBoardView() {
               </Table>
             </Row>
             <Row>
-
             <Pagination
                   activePage={page}
                   itemsCountPerPage={10}
@@ -265,61 +174,12 @@ function announceBoardView() {
                   nextPageText={'›'}
                   onChange={handlePageChange}
                 />
-
             </Row>
           </Col>
         </Row>
       </Container>
-      <Footer>
-        <div>
-          <Footer_container>
-            <Footer_navi>
-              <Footer_navi_ul>
-                <Footer_navi_li>
-                  <Footer_navi_li_link href="/etc/private.html">
-                    개인정보처리방침{' '}
-                  </Footer_navi_li_link>
-                </Footer_navi_li>
-                <Footer_navi_li>
-                  <Footer_navi_li_link href="/etc/copyright.html">
-                    저작권보호정책{' '}
-                  </Footer_navi_li_link>
-                </Footer_navi_li>
-                <Footer_navi_li>
-                  <Footer_navi_li_link href="/etc/agreement.html">
-                    이용약관
-                  </Footer_navi_li_link>
-                </Footer_navi_li>
-              </Footer_navi_ul>
-            </Footer_navi>
-            <Footer_info>
-              <br></br>
-              <Footer_info_p>
-                &#40;12345&#41; 충청북도 제천시 세명로
-              </Footer_info_p>
-              <Footer_info_p>
-                COPYRIGHT jecheon-do.All Right resreved.
-              </Footer_info_p>
-            </Footer_info>
-            <Full_logo>
-              <In_logo>
-                <In_logo_span1>
-                  <b>러브투어</b>
-                </In_logo_span1>
-                <In_logo_span2>
-                  <b>JECHEON</b>
-                </In_logo_span2>
-                <Footer_select>
-                  <option value="null">유관기관1</option>
-                  <option value="null">유관기관2</option>
-                  <option value="null">유관기관3</option>
-                  <option value="null">유관기관4</option>
-                </Footer_select>
-              </In_logo>
-            </Full_logo>
-          </Footer_container>
-        </div>
-      </Footer>
+      {/* 임포트한 푸터 삽입 */}
+      <Footer />
     </>
   );
 }

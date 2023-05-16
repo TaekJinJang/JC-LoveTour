@@ -1,6 +1,7 @@
 const express = require('express');
 const { Mainpost, Image, Admin, Comment } = require('../models');
 const router = express.Router();
+const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 
 /*
 브라우저,사용자는 믿을게 못되기때문에 꼭 백엔드에서 1차적으로 정상적인 접근이 맞는지 확인해주고
@@ -55,7 +56,7 @@ router.get('/announce/posts', async (req, res, next) => {
   }
 });
 
-router.post('/announce/add', async (req, res, next) => {
+router.post('/announce/add', isLoggedIn, async (req, res, next) => {
   // POST /post/announce/add
   try {
     const post = await Mainpost.create({

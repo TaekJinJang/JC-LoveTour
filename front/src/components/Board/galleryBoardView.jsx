@@ -27,6 +27,8 @@ const GreenCol = styled(Col)`
 
 function galleryBoardView() {
   const { gallery } = useSelector((state) => state.post);
+
+
   return (
     <>
       <Container>

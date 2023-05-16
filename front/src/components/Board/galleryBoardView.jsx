@@ -16,6 +16,9 @@ import {
 import GalleryBoardList from './galleryBoardList';
 import { useSelector } from 'react-redux';
 
+//공통부분
+import Footer from '../UI/footer';
+
 const GreenCol = styled(Col)`
   background-color: green;
 `;
@@ -109,6 +112,7 @@ function galleryBoardView() {
             </Row>
           </Col>
         </Row>
+        <Footer />
       </Container>
     </>
   );

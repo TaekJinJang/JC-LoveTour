@@ -28,18 +28,18 @@ function Footer() {
   }, []);
   return (
     <footer className="bg-light py-3">
-      <Container>
+      <Container >
         <Row>
           <Col sm={9}>
             <Row className="mb-4 mt-2">
-              <Col sm={3} style={{ fontSize: '12px' }}>
+              <Col sm={2} style={{ fontSize: '12px' }}>
                 개인정보처리방침
               </Col>
               <Col sm={3} style={{ fontSize: '12px' }}>
                 영상정보처리기기전리방침
               </Col>
-              <Col sm={3} style={{ fontSize: '12px' }}>
-                저작권 보호{' '}
+              <Col sm={2} style={{ fontSize: '12px' }}>
+                저작권 보호
               </Col>
             </Row>
             <Row>
@@ -54,7 +54,7 @@ function Footer() {
             </Row>
           </Col>
           <Col sm={3} className="d-flex justify-content-end">
-            <Image
+            <Image style={{opacity: '0.5'}}
               className="mt-1"
               width={500}
               height={130}

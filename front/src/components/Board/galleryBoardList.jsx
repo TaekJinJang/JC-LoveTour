@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ImagesOnZoom from './imagesOnZoom';
 import Modal from 'react-bootstrap/Modal';
+import { Col } from 'react-bootstrap';
 
 function galleryBoardList({ post }) {
   const [showImagesZoom, setShowImagesZoom] = useState(false);
@@ -11,30 +12,37 @@ function galleryBoardList({ post }) {
 
   return (
     <>
-      {/* 이미지 캐러셀 */}
-      <Modal show={showImagesZoom} onHide={handleClose} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Image Carousel</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <ImagesOnZoom Images={post.Images} />
-        </Modal.Body>
-      </Modal>
+      <Col md={4}>
 
-      <Card style={{ width: '15rem' }}>
-        <Card.Img
-          variant="top"
-          src={post.Images[0].src}
-          alt={post.Images[0].src}
-        />
-        <Card.Body>
-          <Card.Title>{post.title}</Card.Title>
-          {/* <Card.Text>{post.content}</Card.Text> */}
-          <Button variant="primary" onClick={() => setShowImagesZoom(true)}>
-            더 보기
-          </Button>
-        </Card.Body>
-      </Card>
+        {/* 이미지 캐러셀 */}
+        <Modal show={showImagesZoom} onHide={handleClose} size="lg" centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Image Carousel</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <ImagesOnZoom Images={post.Images} />
+          </Modal.Body>
+        </Modal>
+
+        <Card style={{ width: '15rem' }} className='mb-3'>
+          <Card.Img
+            variant="top"
+            width={230}
+            height={230}
+            src={post.Images[0].src}
+            alt={post.Images[0].src}
+          />
+          <Card.Body>
+            <Card.Title className='text-center mt-1 mb-4'><h4>{post.title}</h4></Card.Title>
+{/*             <Card.Text>{post.content}</Card.Text>*/}
+            <Card.Text style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', color: 'gray'}}><p>sdfsasdfadfadfasdfadfadfafddfasdf</p></Card.Text>
+            <Button variant="primary" onClick={() => setShowImagesZoom(true)}>
+              더 보기
+            </Button>
+          </Card.Body>
+        </Card>
+      </Col>
+
       {/* <ImagesOnZoom /> */}
     </>
   );

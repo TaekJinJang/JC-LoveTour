@@ -11,6 +11,9 @@ import Footer from '../UI/footer'; // 푸터 컴포넌트 불러오기
 import GalleryBoardList from './galleryBoardList';
 import { useSelector } from 'react-redux';
 
+//공통부분
+import Footer from '../UI/footer';
+
 const GreenCol = styled(Col)`
   background-color: green;
 `;
@@ -141,6 +144,7 @@ function galleryBoardView() {
             </Row>
           </Col>
         </Row>
+        <Footer />
       </Container>
       {/* 임포트한 푸터 삽입 */}
       <Footer />

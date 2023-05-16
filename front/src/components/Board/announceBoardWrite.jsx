@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState} from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,8 +7,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
-import { Form, Button, Container, Row, Col, Card, Nav, Navbar, NavDropdown, Stack, ButtonGroup, } from 'react-bootstrap';
-
+import {
+  Form,
+  Button,
+  Container,
+  Row,
+  Col,
+  Card,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Stack,
+  ButtonGroup,
+} from 'react-bootstrap';
 
 function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
@@ -63,27 +74,50 @@ function announceBoardWrite() {
 
   return (
     <>
-    <Container>
-    <Row  className='w-100% p-0'>
+      <Container>
+        <Row className="w-100% p-0">
           {/* 상단 네비바 수정 부분 */}
 
-          <Navbar bg="success" expand="lg" >
-            <Container >
-              <Navbar.Brand href="#home"><h3>홈</h3></Navbar.Brand>
+          <Navbar bg="success" expand="lg">
+            <Container>
+              <Navbar.Brand href="#home">
+                <h3>홈</h3>
+              </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <NavDropdown as="h4" title="알림마당" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.1">
+                      Action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      Another action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      Something
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">
+                      Separated link
+                    </NavDropdown.Item>
                   </NavDropdown>
-                  <NavDropdown as="h4" title="공지사항" id="basic-nav-dropdown" style={{textEmphasisColor:'white'}}>
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                  <NavDropdown
+                    as="h4"
+                    title="공지사항"
+                    id="basic-nav-dropdown"
+                    style={{ textEmphasisColor: 'white' }}
+                  >
+                    <NavDropdown.Item href="#action/3.1">
+                      Action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      Another action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      Something
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">
+                      Separated link
+                    </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
@@ -91,160 +125,188 @@ function announceBoardWrite() {
           </Navbar>
         </Row>
 
-
-
-
         <Row className="mt-3">
-          <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }} >
+          <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
             <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body>
-                <Card.Title className="my-3 mx-5 h-1" ><h2>알림</h2></Card.Title>
-                <Card.Title className="my-3 mx-5 h-1" style={{ fontWeight: 'bold', height: '100px' }}><h2>마당</h2></Card.Title>
+                <Card.Title className="my-3 mx-5 h-1">
+                  <h2>알림</h2>
+                </Card.Title>
+                <Card.Title
+                  className="my-3 mx-5 h-1"
+                  style={{ fontWeight: 'bold', height: '100px' }}
+                >
+                  <h2>마당</h2>
+                </Card.Title>
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 1</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 2</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 3</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 4</Button>
-              <Button variant="outline-success" className="mb-2 p-2" size="lg" block>Block Button 5</Button>
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2"
+                size="lg"
+                block="true"
+              >
+                Block Button 1
+              </Button>
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2"
+                size="lg"
+                block="true"
+              >
+                Block Button 2
+              </Button>
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2"
+                size="lg"
+                block="true"
+              >
+                Block Button 3
+              </Button>
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2"
+                size="lg"
+                block="true"
+              >
+                Block Button 4
+              </Button>
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2"
+                size="lg"
+                block="true"
+              >
+                Block Button 5
+              </Button>
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>
-
           </Col>
-          
 
-
-        
           <Col md={9}>
-
             <Row>
               <h2>공지사항</h2>
-              <hr/>
+              <hr />
             </Row>
-            
-      
-          <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
-          <input 
-          type="file"
-          multiple
-          hidden
-          ref={imageInput}
-          onChange={onChangeImages}
-          />
 
+            <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
+              <input
+                type="file"
+                multiple
+                hidden
+                ref={imageInput}
+                onChange={onChangeImages}
+              />
 
-          
-          {/* 작성날짜 */}
-          {/* as를 통해서 ROW(열)처리를 함, mb-3으로 간격을 두었음 */}
-          <Form.Group as={Row} className="mb-3" controlId="date"> 
+              {/* 작성날짜 */}
+              {/* as를 통해서 ROW(열)처리를 함, mb-3으로 간격을 두었음 */}
+              <Form.Group as={Row} className="mb-3" controlId="date">
+                <Col md={2}>
+                  <Card bg="success" border="success" text="white">
+                    <Card.Title>작성날짜</Card.Title>
+                  </Card>
+                </Col>
 
-          <Col md ={2}>
-            <Card  bg = "success" border="success" text="white">
-              <Card.Title>작성날짜</Card.Title>
-            </Card>
-          </Col>
-        
-          <Col md ={10}>
-          <Form.Control
-            name="date"
-            type="text"
-            placeholder="날짜를 입력하세요 "
-            value={date}
-            onChange={onChangeDate}
-            />
-          </Col>
-          </Form.Group>
+                <Col md={10}>
+                  <Form.Control
+                    name="date"
+                    type="text"
+                    placeholder="날짜를 입력하세요 "
+                    value={date}
+                    onChange={onChangeDate}
+                  />
+                </Col>
+              </Form.Group>
 
-          {/* 작성자 */}
-          <Form.Group as={Row} className="mb-3" controlId="writer">
-          <Col md ={2}>
-          <Card  bg = "success" border="success" text="white">
-            <Card.Title>작성자</Card.Title>
-          </Card>
-         </Col>
+              {/* 작성자 */}
+              <Form.Group as={Row} className="mb-3" controlId="writer">
+                <Col md={2}>
+                  <Card bg="success" border="success" text="white">
+                    <Card.Title>작성자</Card.Title>
+                  </Card>
+                </Col>
 
-          <Col md ={10}>
-          <Form.Control
-            name="writer"
-            type="text"
-            placeholder="작성자를 입력하세요 "
-            value={writer}
-            onChange={onChangeWriter}
-          />
-          </Col>
-          </Form.Group>
+                <Col md={10}>
+                  <Form.Control
+                    name="writer"
+                    type="text"
+                    placeholder="작성자를 입력하세요 "
+                    value={writer}
+                    onChange={onChangeWriter}
+                  />
+                </Col>
+              </Form.Group>
 
-        {/* 제목 */}
-        <Form.Group as={Row} className="mb-3" controlId="title">
-        <Col md ={2}>
-        
-          <Card  bg = "success" border="success" text="white">
-            <Card.Title>제목</Card.Title>
-          </Card>
-        </Col>
+              {/* 제목 */}
+              <Form.Group as={Row} className="mb-3" controlId="title">
+                <Col md={2}>
+                  <Card bg="success" border="success" text="white">
+                    <Card.Title>제목</Card.Title>
+                  </Card>
+                </Col>
 
-          <Col md ={10}>
-          <Form.Control
-            name="title"
-            type="text"
-            placeholder="제목을 입력해주세요. "
-            value={title}
-            onChange={onChangeTitle}
-          />
-          </Col>
-        </Form.Group>
+                <Col md={10}>
+                  <Form.Control
+                    name="title"
+                    type="text"
+                    placeholder="제목을 입력해주세요. "
+                    value={title}
+                    onChange={onChangeTitle}
+                  />
+                </Col>
+              </Form.Group>
 
-        {/* 내용 */}
-        <Form.Group as={Row} className="mb-3" controlId="text">
+              {/* 내용 */}
+              <Form.Group as={Row} className="mb-3" controlId="text">
+                <Col md={2}>
+                  <Card bg="success" border="success" text="white">
+                    <Card.Title>내용</Card.Title>
+                  </Card>
+                </Col>
 
-        <Col md ={2}>
-        <Card  bg = "success" border="success" text="white">
-          <Card.Title>내용</Card.Title>
-        </Card>
-        </Col>
+                <Col md={10}>
+                  <Form.Control
+                    as="textarea"
+                    rows={6}
+                    name="text"
+                    type="text"
+                    placeholder="내용을 입력해주세요. "
+                    value={text}
+                    onChange={onChangeText}
+                  />
+                </Col>
+              </Form.Group>
 
-          <Col md ={10}>
-          <Form.Control as="textarea" rows={6}
-            name="text"
-            type="text"
-            placeholder="내용을 입력해주세요. "
-            value={text}
-            onChange={onChangeText}
-          />
-          </Col>
-        </Form.Group>
+              {/* 이미지 업로드 */}
+              <Form.Group as={Row} className="mb-3" controlId="text">
+                <Col md={2}>
+                  <Button onClick={onClickImageUpload} variant="success">
+                    이미지
+                  </Button>
+                </Col>
 
-        {/* 이미지 업로드 */}
-        <Form.Group as={Row} className="mb-3" controlId="text">
-        <Col md ={2}>
+                <Col md={10}>
+                  <Form.Control
+                    name="title"
+                    type="text"
+                    placeholder="이미지 파일 경로 "
+                    value={title}
+                    onChange={onChangeTitle}
+                  />
+                </Col>
+              </Form.Group>
 
-        <Button onClick={onClickImageUpload} variant="success">
-          이미지
-          </Button>
-          </Col>
-
-        <Col md ={10}>
-          <Form.Control 
-          name="title"
-          type="text"
-          placeholder="이미지 파일 경로 "
-          value={title}
-          onChange={onChangeTitle}
-          />
-          </Col>
-          </Form.Group>
-
-          <Col>
-          <Button variant="success" type="submit">등록</Button>
-          </Col>
-        
-
+              <Col>
+                <Button variant="success" type="submit">
+                  등록
+                </Button>
+              </Col>
             </Form>
           </Col>
         </Row>
       </Container>
-
     </>
   );
 }

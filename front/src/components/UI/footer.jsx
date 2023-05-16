@@ -49,7 +49,7 @@ function Footer() {
           </Col>
         </Row>
         <Row>
-          <Col sm={3} style={{ backgroundColor: 'green' }}>
+          <Col sm={3} style={{ backgroundColor: '#2da57d' }}>
             <p style={{ fontSize: '20px', color: 'white', marginTop: '7px' }}>
               <b style={{ fontSize: '30px' }}>러브투어</b>JECHEON
             </p>
@@ -57,7 +57,7 @@ function Footer() {
           <Col
             sm={9}
             className="d-flex justify-content-end"
-            style={{ backgroundColor: 'green' }}
+            style={{ backgroundColor: '#2da57d' }}
           >
             <DropdownButton
               className="me-5 pe-3 DropdownButton float-right"

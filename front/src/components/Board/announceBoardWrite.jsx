@@ -204,8 +204,8 @@ function announceBoardWrite() {
               {/* as를 통해서 ROW(열)처리를 함, mb-3으로 간격을 두었음 */}
               <Form.Group as={Row} className="mb-3" controlId="date">
                 <Col md={2}>
-                  <Card bg="success" border="success" text="white">
-                    <Card.Title>작성날짜</Card.Title>
+                  <Card className="text-center" bg="success" border="success" text="white">
+                    <Card.Header style={{ height: '35px' }}>작성날짜</Card.Header>
                   </Card>
                 </Col>
 
@@ -216,6 +216,7 @@ function announceBoardWrite() {
                     placeholder="날짜를 입력하세요 "
                     value={date}
                     onChange={onChangeDate}
+                    style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
               </Form.Group>
@@ -223,8 +224,8 @@ function announceBoardWrite() {
               {/* 작성자 */}
               <Form.Group as={Row} className="mb-3" controlId="writer">
                 <Col md={2}>
-                  <Card bg="success" border="success" text="white">
-                    <Card.Title>작성자</Card.Title>
+                  <Card className="text-center" bg="success" border="success" text="white">
+                    <Card.Header style={{ height: '35px' }}>작성자</Card.Header>
                   </Card>
                 </Col>
 
@@ -235,6 +236,7 @@ function announceBoardWrite() {
                     placeholder="작성자를 입력하세요 "
                     value={writer}
                     onChange={onChangeWriter}
+                    style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
               </Form.Group>
@@ -242,8 +244,8 @@ function announceBoardWrite() {
               {/* 제목 */}
               <Form.Group as={Row} className="mb-3" controlId="title">
                 <Col md={2}>
-                  <Card bg="success" border="success" text="white">
-                    <Card.Title>제목</Card.Title>
+                  <Card className="text-center" bg="success" border="success" text="white">
+                    <Card.Header style={{ height: '35px' }}>제목</Card.Header>
                   </Card>
                 </Col>
 
@@ -254,6 +256,7 @@ function announceBoardWrite() {
                     placeholder="제목을 입력해주세요. "
                     value={title}
                     onChange={onChangeTitle}
+                    style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
               </Form.Group>
@@ -261,8 +264,8 @@ function announceBoardWrite() {
               {/* 내용 */}
               <Form.Group as={Row} className="mb-3" controlId="text">
                 <Col md={2}>
-                  <Card bg="success" border="success" text="white">
-                    <Card.Title>내용</Card.Title>
+                  <Card className="text-center" bg="success" border="success" text="white">
+                    <Card.Header style={{ height: '35px' }}>내용</Card.Header>
                   </Card>
                 </Col>
 
@@ -272,9 +275,10 @@ function announceBoardWrite() {
                     rows={6}
                     name="text"
                     type="text"
-                    placeholder="내용을 입력해주세요. "
+                    placeholder="내용을 입력해주세요."
                     value={text}
                     onChange={onChangeText}
+                    style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
               </Form.Group>
@@ -282,7 +286,8 @@ function announceBoardWrite() {
               {/* 이미지 업로드 */}
               <Form.Group as={Row} className="mb-3" controlId="text">
                 <Col md={2}>
-                  <Button onClick={onClickImageUpload} variant="success">
+                  <Button onClick={onClickImageUpload} variant="success"
+                  style={{ width: '98px'}}>
                     이미지
                   </Button>
                 </Col>
@@ -294,12 +299,14 @@ function announceBoardWrite() {
                     placeholder="이미지 파일 경로 "
                     value={title}
                     onChange={onChangeTitle}
+                    style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
               </Form.Group>
 
-              <Col>
-                <Button variant="success" type="submit">
+              <Col className="d-flex justify-content-end">
+                <Button variant="success" type="submit"
+                style={{ width: '100px', borderRadius: '30px' }}>
                   등록
                 </Button>
               </Col>

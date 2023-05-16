@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Container,
   Row,
@@ -9,8 +9,16 @@ import {
 } from 'react-bootstrap';
 import footerlogo from '../../assets/footerlogo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch } from 'react-redux';
+import { LOAD_MY_INFO_REQUEST } from '../../reducers/admin';
 
 function Footer() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({
+      type: LOAD_MY_INFO_REQUEST,
+    });
+  }, []);
   return (
     <footer className="bg-light py-3">
       <Container>

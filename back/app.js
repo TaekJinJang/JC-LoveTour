@@ -47,6 +47,9 @@ passportConfig();
 //   console.log(error);
 // }
 
+app.use(express.json()); // json파일을 req.body에 넣어줌
+app.use(express.urlencoded({ extended: true })); // form을 submit 했을 때 데이터를 req.body에 넣어줌
+
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)
@@ -63,9 +66,6 @@ app.use(
   })
 ); // 로그인할 때 브라우저랑 서버랑 같은 정보를 가져야하는데 보안을 위해 쿠키,세션으로 암호화
 app.use(cookieParser(process.env.COOKIE_SECRET));
-
-app.use(express.json()); // json파일을 req.body에 넣어줌
-app.use(express.urlencoded({ extended: true })); // form을 submit 했을 때 데이터를 req.body에 넣어줌
 app.use(passport.initialize());
 app.use(passport.session());
 

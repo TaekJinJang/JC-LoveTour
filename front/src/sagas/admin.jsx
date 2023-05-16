@@ -65,7 +65,7 @@ function* logOut() {
 }
 
 function loadMyInfoAPI() {
-  return axios.get('/user');
+  return axios.get('/admin');
 }
 function* loadMyInfo() {
   try {

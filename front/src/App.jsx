@@ -6,7 +6,7 @@ import AnnounceBoard from './pages/announceBoard';
 import AnnounceBoardAdd from './pages/announceBoardAdd';
 import AnnounceBoardDetail from './components/Board/announceBoardDetail';
 import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
-import GalleryBoardView from './components/Board/galleryBoardView';
+import GalleryBoard from './pages/galleryBoard';
 import AnnounceBoardSearch from './components/Board/announceBoardSearch';
 import ReserveBoard from './pages/reserveBoard';
 import ReserveBoardWrite from './components/Board/reserveBoardWrite';
@@ -42,7 +42,7 @@ function App() {
             path="/board/announce/search/:search"
             element={<AnnounceBoardSearch />}
           />
-          <Route path="/board/gallery" element={<GalleryBoardView />} />
+          <Route path="/board/gallery" element={<GalleryBoard />} />
           <Route path="/board/reserve" element={<ReserveBoard />} />
           <Route path="/board/reserve/add" element={<ReserveBoardWrite />} />
           <Route

@@ -1,19 +1,19 @@
 import React, { useCallback, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AnnounceBoardView from '../components/Board/announceBoardView';
+import GalleryBoardView from '../components/Board/galleryBoardView';
 import Header from '../components/UI/header';
 // import { TextArea } from 'react-bootstrap';
 
 // 공통부분 
 import Footer from '../components/UI/footer';
 
-function announceBoard() {
+function galleryBoard() {
   return (
     <>
     <Header/>
-      <AnnounceBoardView />
+      <GalleryBoardView />
       <Footer />
     </>
   );
 }
-export default announceBoard;
+export default galleryBoard;

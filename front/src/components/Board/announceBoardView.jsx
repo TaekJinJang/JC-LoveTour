@@ -6,13 +6,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import styled from 'styled-components';
 
+// 공통부분 
+import Footer from '../UI/footer';
+
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
-
-// 공통부분
-import Footer from '../UI/footer';
-
 // 사이드바 라이브러리 추가
 
 import {
@@ -191,7 +190,7 @@ function announceBoardView() {
                       <Button>글쓰기</Button>
                     </Link>
                   )}
-                  
+                  {/* 
                      ==========================UI 제작시===========================
                   
                     <Link to="/board/announce/add">
@@ -199,7 +198,7 @@ function announceBoardView() {
                     </Link>
 
                       ============================================================
-                     
+                      */}
                 </Col>
               </Col>
             </Row>
@@ -247,7 +246,7 @@ function announceBoardView() {
           </Col>
         </Row>
       </Container>
-      <Footer />
+      
     </>
   );
 }

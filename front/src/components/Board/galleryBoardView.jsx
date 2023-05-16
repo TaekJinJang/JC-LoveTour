@@ -184,7 +184,6 @@ function galleryBoardView() {
             </Row>
           </Col>
         </Row>
-        <Footer />
       </Container>
     </>
   );

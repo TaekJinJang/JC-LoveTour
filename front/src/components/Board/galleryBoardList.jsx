@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ImagesOnZoom from './imagesOnZoom';
 import Modal from 'react-bootstrap/Modal';
+import { Col } from 'react-bootstrap';
 
 function galleryBoardList({ post }) {
   const [showImagesZoom, setShowImagesZoom] = useState(false);
@@ -11,6 +12,8 @@ function galleryBoardList({ post }) {
 
   return (
     <>
+                      <Col md={4}>
+                 
       {/* 이미지 캐러셀 */}
       <Modal show={showImagesZoom} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
@@ -35,6 +38,8 @@ function galleryBoardList({ post }) {
           </Button>
         </Card.Body>
       </Card>
+      </Col>
+      
       {/* <ImagesOnZoom /> */}
     </>
   );

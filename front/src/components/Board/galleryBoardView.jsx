@@ -171,12 +171,12 @@ function galleryBoardView() {
                 </Form.Select>
               </Col>
             </Row>            
-            <Row className="mt-2">
-                  <Col md={3}>
+            <Row className="mt-2" >
+
                     {gallery.map((post, index) => (
                       <GalleryBoardList key={post.id} post={post} />
                     ))}
-                  </Col>
+
             </Row>
           </Col>
         </Row>

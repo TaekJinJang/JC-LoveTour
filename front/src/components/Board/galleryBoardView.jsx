@@ -134,10 +134,10 @@ function galleryBoardView() {
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
-        </Row>
+        {/* </Row>
         <Row className="mt-4">
-          <Col md={3} className="d-grid gap-2"></Col>
-          {/* 수정 진행 중 */}
+          <Col md={3} className="d-grid gap-2"></Col> */}
+          {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
               <h2>사진 갤러리</h2>
@@ -170,17 +170,13 @@ function galleryBoardView() {
                   <option value="3">왓에버순</option>
                 </Form.Select>
               </Col>
-            </Row>
-            <Row className="mt-4">
-              <Col>
-                <Row>
-                  <Col md={4}>
+            </Row>            
+            <Row className="mt-2">
+                  <Col md={3}>
                     {gallery.map((post, index) => (
                       <GalleryBoardList key={post.id} post={post} />
                     ))}
                   </Col>
-                </Row>
-              </Col>
             </Row>
           </Col>
         </Row>

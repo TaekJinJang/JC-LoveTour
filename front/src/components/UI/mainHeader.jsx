@@ -5,6 +5,8 @@ import {
   Carousel, Container, Nav, Form, Button, Figure , Row, Col, InputGroup, } from 'react-bootstrap';
 import logo from '../../assets/logo.png';
 import map from '../../assets/map.png';
+import search from '../../assets/search.png';
+
 // import styled from 'styled-components';
 
 
@@ -20,57 +22,75 @@ function MainHeader() {
       <Row bg="light">
         <Col md={4}>
           <Figure>
+            <a href="/">
             <Figure.Image
               className="me-2 mt-1"
               width={300}
               height={52}
               src={logo}
               alt="logo" />
+          </a>
           </Figure>
         </Col>
         <Col md={6} className='mt-3'>
 
           {/* 버튼을 인풋안에 넣었음 */}
-          <InputGroup>
- 
+          {/* <InputGroup>
           <Form.Control
               type="search"
               placeholder="어디로, 어떤 여행을 떠나실 예정이신가요?"
-              bg="secondary"
               aria-label="Search"
+              style={{ backgroundColor: '#D9D9D9' }}
             />
-            <Button variant='outline-secondary'>검색</Button>
-          </InputGroup>
+            <Figure className="m-0 me-2 mt-1">
+            <Figure.Image
+            style={{ backgroundColor: '#D9D9D9' }}
+              width={30}
+              height={30}
+              src={search}
+              alt="search"/>
+              </Figure>
+          </InputGroup> */}
 
             {/* 아래 주석을 풀면 버튼은 인풋 밖으로 나옴 */}
-            
-
-          {/* <Form className="d-flex">
+          <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="어디로, 어떤 여행을 떠나실 예정이신가요?"
-              className="me-2"
+              className="me-2 mt-1"
               aria-label="Search"
-            />
-            <Button>
-              search
-            </Button>
-          </Form> */}
+              style={{ backgroundColor: '#D9D9D9' }}
+              />
+              <Button
+              variant= "none"
+              className="me-2 mt-1"
+          style={{
+              backgroundColor: '#D9D9D9',
+              backgroundImage: `url(${search})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              width: '30px',
+              height: '30px',
+              padding: 0,
+              border: 'none',}}
+          />
+          </Form>
         </Col>
 
         <Col md={2}>
 
           <Figure className="text-center">
 
+            <a href="/">
             <Figure.Image
               className="mt-3"
               width={30}
               height={30}
               src={map}
-
               alt="map" 
               />
-            <Figure.Caption className='text-dark'>
+              </a>
+            <Figure.Caption className='text-dark' style={{fontSize: '12px'}}>
               지도로 보기
             </Figure.Caption>
           </Figure>
@@ -79,16 +99,17 @@ function MainHeader() {
 {/* // 메뉴 */}
 
 {/* 메뉴바 */}
-<Container>
+<Container  style={{ zIndex: '30'}}>
   <Row>
     <div>
         <Nav className="justify-content-center" activeKey="/home" 
         onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
         onMouseLeave={() => setShowMenu(false)} // 네비게이션에서 마우스를 내렸을 때 상태값 변경
-          > 
+        > 
           <Col md='auto'>
-            <Nav.Item as='li'>
-            <Nav.Link href="/home">제천 러브투어</Nav.Link>
+            <Nav.Item as='li' className='text-dark'>
+            <Nav.Link href="/" style={{ color: 'black' }}>제천 러브투어</Nav.Link>
+           
             {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
             <ul>
               <Nav.Link as='a' href="#">러브투어 소개</Nav.Link>
@@ -143,10 +164,10 @@ function MainHeader() {
 
           <Col md='auto'>
           <Nav.Item as='li'>
-            <Nav.Link eventKey="#">알림마당</Nav.Link>
+            <Nav.Link eventKey="/board/announce">알림마당</Nav.Link>
             {showMenu && (
             <ul>
-              <Nav.Link as='a' href="#">공지사항</Nav.Link>
+              <Nav.Link as='a' href="/board/announce">공지사항</Nav.Link>
               <Nav.Link as='a' href="#">자주하는 질문</Nav.Link>
             </ul>
             )}
@@ -158,8 +179,7 @@ function MainHeader() {
 </Container>
 {/* // 캐러셀 */}
 
-      <Row>
-        <Container>
+        <Container style={{ zIndex: '20'}}>
           <Carousel>
             <Carousel.Item>
               <img
@@ -210,7 +230,6 @@ function MainHeader() {
             </Carousel.Item>
           </Carousel>
         </Container>
-      </Row>
     </Container>
   );
 }

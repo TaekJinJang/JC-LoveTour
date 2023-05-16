@@ -274,7 +274,7 @@ function announceBoardView() {
                       <Button>글쓰기</Button>
                     </Link>
                   )}
-                  {/* 
+                  
                      ==========================UI 제작시===========================
                   
                     <Link to="/board/announce/add">
@@ -282,7 +282,7 @@ function announceBoardView() {
                     </Link>
 
                       ============================================================
-                      */}
+                     
                 </Col>
               </Col>
             </Row>

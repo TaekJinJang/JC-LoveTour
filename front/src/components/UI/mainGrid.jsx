@@ -360,7 +360,7 @@ function mainGrid() {
         </Row>
         <Row>
           <Col>
-            <Card className='mt-2'>
+            <Card className='mt-3'>
               <Card.Body>
                 <Row>
                   <Col>

@@ -21,6 +21,9 @@ import {
   ButtonGroup,
 } from 'react-bootstrap';
 
+import Footer from '../UI/footer';
+
+
 function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
   const [title, onChangeTitle] = useInput('');
@@ -313,6 +316,8 @@ function announceBoardWrite() {
             </Form>
           </Col>
         </Row>
+        <Footer />
+
       </Container>
     </>
   );

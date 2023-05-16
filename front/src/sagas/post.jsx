@@ -260,11 +260,11 @@ function uploadImagesAPI(data) {
 }
 function* uploadImages(action) {
   try {
-    // const result = yield call(uploadImagesAPI, action.data); // call은 동기 fork는 비동기
+    const result = yield call(uploadImagesAPI, action.data); // call은 동기 fork는 비동기
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: UPLOAD_IMAGES_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);
@@ -309,6 +309,7 @@ function* watchUploadImages() {
 function* watchIncrementViews() {
   yield takeLatest(INCREMENT_VIEWS_REQUEST, incrementViews);
 }
+
 export default function* postSaga() {
   yield all([
     fork(watchIncrementViews),

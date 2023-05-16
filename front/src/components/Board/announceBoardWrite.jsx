@@ -2,7 +2,11 @@ import React, { useCallback, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_POST_REQUEST, UPLOAD_IMAGES_REQUEST } from '../../reducers/post';
+import {
+  ADD_POST_REQUEST,
+  REMOVE_IMAGE,
+  UPLOAD_IMAGES_REQUEST,
+} from '../../reducers/post';
 import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import '../UI/paging.css';
@@ -25,10 +29,7 @@ function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
-  //날짜 추가
-  const [date, onChangeDate] = useInput('');
-  //작성자 추가
-  const [writer, onChangeWriter] = useInput('');
+
   const imageInput = useRef();
 
   const dispatch = useDispatch();
@@ -44,12 +45,13 @@ function announceBoardWrite() {
       imagePaths.forEach((p) => {
         formData.append('image', p);
       });
+      formData.append('title', title);
       formData.append('content', text);
-
+      console.log(formData);
       navigate('/board/announce');
       return dispatch({
         type: ADD_POST_REQUEST,
-        data: { title: title, content: text },
+        data: formData,
       });
     },
     [title, text, imagePaths]
@@ -71,6 +73,12 @@ function announceBoardWrite() {
     });
     console.log(imageFormData);
   }, []);
+  const onRemoveImage = useCallback((index) => () => {
+    dispatch({
+      type: REMOVE_IMAGE,
+      data: index,
+    });
+  });
 
   return (
     <>
@@ -192,59 +200,15 @@ function announceBoardWrite() {
             </Row>
 
             <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
-              <input
-                type="file"
-                multiple
-                hidden
-                ref={imageInput}
-                onChange={onChangeImages}
-              />
-
-              {/* 작성날짜 */}
-              {/* as를 통해서 ROW(열)처리를 함, mb-3으로 간격을 두었음 */}
-              <Form.Group as={Row} className="mb-3" controlId="date">
-                <Col md={2}>
-                  <Card className="text-center" bg="success" border="success" text="white">
-                    <Card.Header style={{ height: '35px' }}>작성날짜</Card.Header>
-                  </Card>
-                </Col>
-
-                <Col md={10}>
-                  <Form.Control
-                    name="date"
-                    type="text"
-                    placeholder="날짜를 입력하세요 "
-                    value={date}
-                    onChange={onChangeDate}
-                    style={{ backgroundColor: '#D9D9D9' }}
-                  />
-                </Col>
-              </Form.Group>
-
-              {/* 작성자 */}
-              <Form.Group as={Row} className="mb-3" controlId="writer">
-                <Col md={2}>
-                  <Card className="text-center" bg="success" border="success" text="white">
-                    <Card.Header style={{ height: '35px' }}>작성자</Card.Header>
-                  </Card>
-                </Col>
-
-                <Col md={10}>
-                  <Form.Control
-                    name="writer"
-                    type="text"
-                    placeholder="작성자를 입력하세요 "
-                    value={writer}
-                    onChange={onChangeWriter}
-                    style={{ backgroundColor: '#D9D9D9' }}
-                  />
-                </Col>
-              </Form.Group>
-
               {/* 제목 */}
               <Form.Group as={Row} className="mb-3" controlId="title">
                 <Col md={2}>
-                  <Card className="text-center" bg="success" border="success" text="white">
+                  <Card
+                    className="text-center"
+                    bg="success"
+                    border="success"
+                    text="white"
+                  >
                     <Card.Header style={{ height: '35px' }}>제목</Card.Header>
                   </Card>
                 </Col>
@@ -264,7 +228,12 @@ function announceBoardWrite() {
               {/* 내용 */}
               <Form.Group as={Row} className="mb-3" controlId="text">
                 <Col md={2}>
-                  <Card className="text-center" bg="success" border="success" text="white">
+                  <Card
+                    className="text-center"
+                    bg="success"
+                    border="success"
+                    text="white"
+                  >
                     <Card.Header style={{ height: '35px' }}>내용</Card.Header>
                   </Card>
                 </Col>
@@ -286,27 +255,47 @@ function announceBoardWrite() {
               {/* 이미지 업로드 */}
               <Form.Group as={Row} className="mb-3" controlId="text">
                 <Col md={2}>
-                  <Button onClick={onClickImageUpload} variant="success"
-                  style={{ width: '98px'}}>
+                  <Button
+                    onClick={onClickImageUpload}
+                    variant="success"
+                    style={{ width: '98px' }}
+                  >
                     이미지
                   </Button>
                 </Col>
 
                 <Col md={10}>
                   <Form.Control
-                    name="title"
-                    type="text"
-                    placeholder="이미지 파일 경로 "
-                    value={title}
-                    onChange={onChangeTitle}
+                    name="image"
+                    type="file"
+                    ref={imageInput}
+                    multiple
+                    onChange={onChangeImages}
                     style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
               </Form.Group>
+              <div>
+                {imagePaths.map((v, i) => (
+                  <div key={v} style={{ display: 'inline-block' }}>
+                    <img
+                      src={`http://localhost:3005/${v}`}
+                      style={{ width: '200px' }}
+                      alt={v}
+                    />
+                    <div>
+                      <Button onClick={onRemoveImage(i)}>제거</Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
               <Col className="d-flex justify-content-end">
-                <Button variant="success" type="submit"
-                style={{ width: '100px', borderRadius: '30px' }}>
+                <Button
+                  variant="success"
+                  type="submit"
+                  style={{ width: '100px', borderRadius: '30px' }}
+                >
                   등록
                 </Button>
               </Col>

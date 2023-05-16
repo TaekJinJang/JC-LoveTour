@@ -14,18 +14,11 @@ import {
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 function mainGrid() {
   const { mainPosts } = useSelector((state) => state.post);
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (mainPosts.length === 0) {
-      dispatch({
-        type: LOAD_POSTS_REQUEST,
-      });
-    }
-  }, [mainPosts]);
+
   const navigate = useNavigate();
   const goToAnnounceBoard = useCallback(() => {
     navigate('/board/announce');
@@ -33,7 +26,7 @@ function mainGrid() {
   const goToAnnounceBoardDetail = useCallback((postId) => {
     navigate(`/board/announce/${postId}`);
   }, []);
-  console.log(mainPosts);
+
   return (
     <>
       <Container>

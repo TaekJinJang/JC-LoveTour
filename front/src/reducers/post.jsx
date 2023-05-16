@@ -45,6 +45,72 @@ export const initialState = {
         },
       ],
     },
+    {
+      id: 1,
+      admin: {
+        id: 1,
+        nickname: '관리자',
+      },
+      title: '첫 예시',
+      Images: [
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
+        },
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
+        },
+      ],
+    },
+    {
+      id: 1,
+      admin: {
+        id: 1,
+        nickname: '관리자',
+      },
+      title: '첫 예시',
+      Images: [
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
+        },
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
+        },
+      ],
+    },
+    {
+      id: 1,
+      admin: {
+        id: 1,
+        nickname: '관리자',
+      },
+      title: '첫 예시',
+      Images: [
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
+        },
+        {
+          id: shortId.generate(),
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
+        },
+      ],
+    },
   ],
   reservePosts: [
     {
@@ -136,7 +202,7 @@ export const generateDummyReserve = (number) =>
       date: TodayTime(),
     }));
 // ===================================== UI 제작 시 ===================================
-//initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
+// initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 // ====================================================================================
 initialState.reservePosts = initialState.reservePosts.concat(
   generateDummyReserve(10)
@@ -249,6 +315,10 @@ const reducer = (state = initialState, action) =>
       case UPLOAD_IMAGES_FAILURE:
         draft.uploadImagesLoading = false;
         draft.uploadImagesError = action.error;
+        break;
+      //REMOVE_IMAGE
+      case REMOVE_IMAGE:
+        draft.imagePaths = draft.imagePaths.filter((v, i) => i !== action.data);
         break;
       // REMOVE_POST, REMOVE_RESERVE
       case REMOVE_RESERVE_REQUEST:

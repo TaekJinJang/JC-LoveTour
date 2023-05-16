@@ -9,6 +9,7 @@ const passport = require('passport');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // 백에서 프론트로 로그인기능 이후 비밀번호를 통으로 보내주면 해킹에 굉장히 취약하겠죠 ?
 // 그래서 쿠키값을 대신 주는거임, 그럼 브라우저는 앞으로 게시글을 쓰던 뭘 하던 비밀번호를 보내는게 아니고
@@ -49,6 +50,7 @@ passportConfig();
 
 app.use(express.json()); // json파일을 req.body에 넣어줌
 app.use(express.urlencoded({ extended: true })); // form을 submit 했을 때 데이터를 req.body에 넣어줌
+app.use('/', express.static(path.join(__dirname, 'uploads'))); //프론트서버로 이미지파일을 같이 보내줌
 
 app.use(
   cors({

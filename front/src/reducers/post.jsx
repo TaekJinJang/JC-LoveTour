@@ -438,6 +438,7 @@ const reducer = (state = initialState, action) =>
         draft.loadPostLoading = false;
         draft.loadPostError = action.error;
         break;
+
       //REMOVE_IMAGE
       case REMOVE_IMAGE:
         draft.imagePaths = draft.imagePaths.filter((v, i) => i !== action.data);
@@ -450,8 +451,10 @@ const reducer = (state = initialState, action) =>
         draft.incrementViewsDone = false;
         break;
       case INCREMENT_VIEWS_SUCCESS:
-        draft.mainPosts.find((v) => v.id === action.data.postId).views =
-          action.data.views + 1;
+        // draft.mainPosts.find((v) => v.id === action.data.postId).views =
+        //   action.data.views + 1;
+        // draft.mainPosts.find((v) => v.id !== action.data.PostId);
+        // console.log(draft.mainPosts.find((v) => v.id !== action.data.PostId));
         draft.incrementViewsLoading = false;
         draft.incrementViewsDone = true;
         break;

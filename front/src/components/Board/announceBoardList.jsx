@@ -25,7 +25,7 @@ function announceBoardList({ post }) {
     navigate(`/board/announce/${post.id}`, { state: { post } });
     return dispatch({
       type: INCREMENT_VIEWS_REQUEST,
-      data: { postId: post.id, views: post.views },
+      data: post.id,
     });
   }, [{ post }]);
 

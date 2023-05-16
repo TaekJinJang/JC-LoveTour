@@ -126,9 +126,27 @@ router.get('/announce/posts', async (req, res, next) => {
     next(error);
   }
 });
+//조회수 증가
+router.patch('/announce/:postId/views', async (req, res, next) => {
+  // PATCH /post/1/views
+  try {
+    const post = await Mainpost.findOne({
+      where: { id: req.params.postId },
+    });
+    if (!post) {
+      return res.status(403).send('존재하지 않는 게시글입니다.');
+    }
+    post.views += 1;
+    await post.save();
 
+    res.json({ views: post.views });
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
 // 게시글 삭제
-router.delete('/announce/:postId', async (req, res, next) => {
+router.delete('/announce/:postId', isLoggedIn, async (req, res, next) => {
   // DELETE /post/1
   try {
     await Mainpost.destroy({

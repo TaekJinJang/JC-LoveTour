@@ -90,19 +90,19 @@ function* addReserve(action) {
     });
   }
 }
-function incrementViewsAPI() {
-  return axios.post('/api/post/views');
+function incrementViewsAPI(data) {
+  return axios.patch(`/post/announce/${data}/views`);
 }
 
 function* incrementViews(action) {
   try {
-    // const result = yield call(incrementViewsAPI, action.data);
+    const result = yield call(incrementViewsAPI, action.data);
     // yield delay(1000);
 
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: INCREMENT_VIEWS_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);

@@ -1,17 +1,17 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import AnnounceBoardList from './announceBoardList';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import useInput from '../../hooks/useInput';
-import styled from 'styled-components';
+import React, { useCallback, useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AnnounceBoardList from "./announceBoardList";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import useInput from "../../hooks/useInput";
+import styled from "styled-components";
 
-// 공통부분 
-import Footer from '../UI/footer';
+// 공통부분
+import Footer from "../UI/footer";
 
-import Pagination from 'react-js-pagination';
-import '../UI/paging.css';
-import '../UI/boardUI.css';
+import Pagination from "react-js-pagination";
+import "../UI/paging.css";
+import "../UI/boardUI.css";
 // 사이드바 라이브러리 추가
 
 import {
@@ -28,9 +28,9 @@ import {
   Stack,
   Form,
   Badge,
-} from 'react-bootstrap';
+} from "react-bootstrap";
 
-import { LOAD_POSTS_REQUEST } from '../../reducers/post';
+import { LOAD_POSTS_REQUEST } from "../../reducers/post";
 
 function announceBoardView() {
   const dispatch = useDispatch();
@@ -41,10 +41,10 @@ function announceBoardView() {
   // }, []);
   const { admin } = useSelector((state) => state.admin);
   const { mainPosts } = useSelector((state) => state.post);
-  const [searchInput, onChangeSearchInput] = useInput('');
+  const [searchInput, onChangeSearchInput] = useInput("");
   const navigate = useNavigate();
   const goToSearch = useCallback(() => {
-    if (searchInput === '') return alert('검색어를 입력해주세요');
+    if (searchInput === "") return alert("검색어를 입력해주세요");
     navigate(`/board/announce/search/${searchInput}/`, { state: searchInput });
   }, [searchInput]);
 
@@ -58,8 +58,8 @@ function announceBoardView() {
   return (
     <>
       <Container>
+        {/* 상단 네비바 수정 부분 */}
         <Row className="w-100% p-0">
-          {/* 상단 네비바 수정 부분 */}
           <Navbar bg="success" expand="lg">
             <Container>
               <Navbar.Brand href="#home">
@@ -70,32 +70,16 @@ function announceBoardView() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
                   <NavDropdown as="h5" title="알림마당" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown as="h5" title="공지사항" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
@@ -105,43 +89,25 @@ function announceBoardView() {
         {/* 사이드바 받은 파일 */}
         {/* // 2번 그리드 여기 아래의 코드가 바로 사이드바 코드 */}
         <Row className="mt-3 ps-1">
-          <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white" style={{ height: '150px' }}>
+          <Col md={3} className="d-grid gap-2 ms" style={{ height: "100%" }}>
+            <Card bg="success" text="white" style={{ height: "150px" }}>
               <Card.Body className="bp-0">
                 <Card.Title className="my-3 mx-5 h-1">
                   <h2>알림</h2>
                 </Card.Title>
-                <Card.Title
-                  className="my-3 mx-5 h-1 bp-0"
-                  style={{ fontWeight: 'bold', height: '100px' }}
-                >
+                <Card.Title className="my-3 mx-5 h-1 bp-0" style={{ fontWeight: "bold", height: "100px" }}>
                   <h2>마당</h2>
                 </Card.Title>
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
-              <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
-                size="lg"
-                block="true"
-              >
+              <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block="true">
                 공지사항
               </Button>
-              <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
-                size="lg"
-                block="true"
-              >
+              <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block="true">
                 자주하는 질문
               </Button>
-              <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
-                size="lg"
-                block="true"
-              >
+              <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block="true">
                 1:1 고객센터
               </Button>
 
@@ -156,17 +122,10 @@ function announceBoardView() {
             </Row>
             <Row className="mt-2">
               <Col className="bg-light border pt-1">
-                <Col className="mb-1" style={{ float: 'right' }}>
+                <Col className="mb-1" style={{ float: "right" }}>
                   <Stack direction="horizontal" gap={3}>
-                    <Form.Control
-                      className="ms-auto"
-                      placeholder="Add your item here..."
-                    />
-                    <Button
-                      variant="success"
-                      text="white"
-                      style={{ width: '130px' }}
-                    >
+                    <Form.Control className="ms-auto" placeholder="Add your item here..." />
+                    <Button variant="success" text="white" style={{ width: "130px" }}>
                       검색
                     </Button>
                   </Stack>
@@ -174,10 +133,7 @@ function announceBoardView() {
                 <Col>
                   {/* 서치바 드롭다운 메뉴 */}
 
-                  <Form.Select
-                    className="me-2"
-                    style={{ float: 'right', width: '100px' }}
-                  >
+                  <Form.Select className="me-2" style={{ float: "right", width: "100px" }}>
                     <option>전체</option>
                     <option value="1">최신순</option>
                     <option value="2">게시글순</option>
@@ -185,20 +141,19 @@ function announceBoardView() {
                   </Form.Select>
                 </Col>
                 <Col>
-                  {admin && (
+                  {/* {admin && (
                     <Link to="/board/announce/add">
                       <Button>글쓰기</Button>
                     </Link>
-                  )}
-                  {/* 
-                     ==========================UI 제작시===========================
-                  
-                    <Link to="/board/announce/add">
-                      <Button>글쓰기</Button>
-                    </Link>
+                  )} */}
 
-                      ============================================================
-                      */}
+                  {/* ==========================UI 제작시=========================== */}
+
+                  <Link to="/board/announce/add">
+                    <Button variant="success">글쓰기</Button>
+                  </Link>
+
+                  {/* ============================================================ */}
                 </Col>
               </Col>
             </Row>
@@ -238,15 +193,14 @@ function announceBoardView() {
                 itemsCountPerPage={10}
                 totalItemsCount={450}
                 pageRangeDisplayed={5}
-                prevPageText={'‹'}
-                nextPageText={'›'}
+                prevPageText={"‹"}
+                nextPageText={"›"}
                 onChange={handlePageChange}
               />
             </Row>
           </Col>
         </Row>
       </Container>
-      
     </>
   );
 }

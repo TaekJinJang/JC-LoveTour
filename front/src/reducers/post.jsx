@@ -301,6 +301,7 @@ const reducer = (state = initialState, action) =>
         draft.addPostLoading = false;
         draft.addPostError = action.error;
         break;
+
       // UPLOAD_IMAGES
       case UPLOAD_IMAGES_REQUEST:
         draft.uploadImagesLoading = true;
@@ -437,11 +438,6 @@ const reducer = (state = initialState, action) =>
       case LOAD_POST_FAILURE:
         draft.loadPostLoading = false;
         draft.loadPostError = action.error;
-        break;
-
-      //REMOVE_IMAGE
-      case REMOVE_IMAGE:
-        draft.imagePaths = draft.imagePaths.filter((v, i) => i !== action.data);
         break;
 
       // INCREMENT_VIEWS

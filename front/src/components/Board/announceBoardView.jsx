@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import styled from 'styled-components';
 
-// 공통부분 
+// 공통부분
 import Footer from '../UI/footer';
 
 import Pagination from 'react-js-pagination';
@@ -236,7 +236,7 @@ function announceBoardView() {
               <Pagination
                 activePage={page}
                 itemsCountPerPage={10}
-                totalItemsCount={450}
+                totalItemsCount={mainPosts.length}
                 pageRangeDisplayed={5}
                 prevPageText={'‹'}
                 nextPageText={'›'}
@@ -246,7 +246,6 @@ function announceBoardView() {
           </Col>
         </Row>
       </Container>
-      
     </>
   );
 }

@@ -86,6 +86,7 @@ function MainHeader() {
       <Container>
         <Row>
           <Nav
+            style={{zIndex: "20", position: "absolute"}}
             className="justify-content-center"
             activeKey="/home"
             onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
@@ -254,7 +255,7 @@ function MainHeader() {
       {/* // 캐러셀 */}
       <div style={{ position: "relative", zIndex: "1 !important" }}>
         <Container>
-          <Carousel>
+          <Carousel style={{zIndex: "10", marginTop: "70px"}}>
             <Carousel.Item>
               <img
                 className="d-block w-100"

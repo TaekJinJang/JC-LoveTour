@@ -9,6 +9,7 @@ function announceBoardAdd() {
     <>
       <Header/>
       <AnnounceBoardWrite />
+      <Footer />
     </>
   );
 }

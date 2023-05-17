@@ -255,7 +255,7 @@ function MainHeader() {
       {/* // 캐러셀 */}
       <div style={{ position: "relative", zIndex: "1 !important" }}>
         <Container>
-          <Carousel style={{zIndex: "10", marginTop: "60px"}}>
+          <Carousel style={{zIndex: "10", marginTop: "70px"}}>
             <Carousel.Item>
               <img
                 className="d-block w-100"

@@ -10,7 +10,6 @@ import "../UI/boardUI.css";
 import { Form, Button, Container, Row, Col, Card, Nav, Navbar, NavDropdown, Stack, ButtonGroup } from "react-bootstrap";
 import Footer from "../UI/footer";
 
-import Footer from '../UI/footer';
 
 
 function announceBoardWrite() {

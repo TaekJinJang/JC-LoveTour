@@ -1,6 +1,6 @@
-import produce from 'immer';
-import shortId from 'shortid';
-import faker from 'faker';
+import produce from "immer";
+import shortId from "shortid";
+import faker from "faker";
 
 export const initialState = {
   searchPosts: [],
@@ -27,21 +27,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: '관리자',
+        nickname: "관리자",
       },
-      title: '첫 예시',
+      title: "첫 예시",
       Images: [
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '첫이미지 제목',
-          captionContent: '첫이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "첫이미지 제목",
+          captionContent: "첫이미지 내용",
         },
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '2이미지 제목',
-          captionContent: '2이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "2이미지 제목",
+          captionContent: "2이미지 내용",
         },
       ],
     },
@@ -49,21 +49,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: '관리자',
+        nickname: "관리자",
       },
-      title: '첫 예시',
+      title: "첫 예시",
       Images: [
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '첫이미지 제목',
-          captionContent: '첫이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "첫이미지 제목",
+          captionContent: "첫이미지 내용",
         },
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '2이미지 제목',
-          captionContent: '2이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "2이미지 제목",
+          captionContent: "2이미지 내용",
         },
       ],
     },
@@ -71,21 +71,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: '관리자',
+        nickname: "관리자",
       },
-      title: '첫 예시',
+      title: "첫 예시",
       Images: [
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '첫이미지 제목',
-          captionContent: '첫이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "첫이미지 제목",
+          captionContent: "첫이미지 내용",
         },
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '2이미지 제목',
-          captionContent: '2이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "2이미지 제목",
+          captionContent: "2이미지 내용",
         },
       ],
     },
@@ -93,21 +93,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: '관리자',
+        nickname: "관리자",
       },
-      title: '첫 예시',
+      title: "첫 예시",
       Images: [
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '첫이미지 제목',
-          captionContent: '첫이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "첫이미지 제목",
+          captionContent: "첫이미지 내용",
         },
         {
           id: shortId.generate(),
-          src: 'https://via.placeholder.com/300.png/o0f/fff',
-          captionTitle: '2이미지 제목',
-          captionContent: '2이미지 내용',
+          src: "https://via.placeholder.com/300.png/o0f/fff",
+          captionTitle: "2이미지 제목",
+          captionContent: "2이미지 내용",
         },
       ],
     },
@@ -116,15 +116,15 @@ export const initialState = {
     {
       id: 1,
       user: {
-        name: '장택진',
+        name: "장택진",
         // 휴대폰번호 ++
         // phoneNumber: '010-0000-0000',
         password: 123,
       },
-      reserveDate: '예약날짜 나옴',
-      content: '첫 번째 예약 내용',
-      phoneNumber: '010-0000-0000',
-      date: '2023 - 04 - 05',
+      reserveDate: "예약날짜 나옴",
+      content: "첫 번째 예약 내용",
+      phoneNumber: "010-0000-0000",
+      date: "2023 - 04 - 05",
     },
   ],
   hasMorePosts: true,
@@ -160,7 +160,7 @@ const TodayTime = () => {
   let Month = date.getMonth() + 1; // 월
   let Day = date.getDate(); // 일
 
-  return Year + '-' + Month + '-' + Day;
+  return Year + "-" + Month + "-" + Day;
 };
 
 let fakerId = 0;
@@ -195,52 +195,50 @@ export const generateDummyReserve = (number) =>
         name: shortId.generate(),
         password: 123,
       },
-      phoneNumber: '010-0000-0000',
+      phoneNumber: "010-0000-0000",
       reserveDate: TodayTime(),
       content: faker.lorem.paragraph(),
 
       date: TodayTime(),
     }));
 // ===================================== UI 제작 시 ===================================
-// initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
+initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 // ====================================================================================
-initialState.reservePosts = initialState.reservePosts.concat(
-  generateDummyReserve(10)
-);
-export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
-export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
-export const ADD_POST_FAILURE = 'ADD_POST_FAILURE';
-export const ADD_RESERVE_REQUEST = 'ADD_RESERVE_REQUEST';
-export const ADD_RESERVE_SUCCESS = 'ADD_RESERVE_SUCCESS';
-export const ADD_RESERVE_FAILURE = 'ADD_RESERVE_FAILURE';
-export const REMOVE_POST_REQUEST = 'REMOVE_POST_REQUEST';
-export const REMOVE_POST_SUCCESS = 'REMOVE_POST_SUCCESS';
-export const REMOVE_POST_FAILURE = 'REMOVE_POST_FAILURE';
-export const REMOVE_RESERVE_REQUEST = 'REMOVE_RESERVE_REQUEST';
-export const REMOVE_RESERVE_SUCCESS = 'REMOVE_RESERVE_SUCCESS';
-export const REMOVE_RESERVE_FAILURE = 'REMOVE_RESERVE_FAILURE';
-export const UPDATE_POST_REQUEST = 'UPDATE_POST_REQUEST';
-export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
-export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
-export const UPDATE_RESERVE_REQUEST = 'UPDATE_RESERVE_REQUEST';
-export const UPDATE_RESERVE_SUCCESS = 'UPDATE_RESERVE_SUCCESS';
-export const UPDATE_RESERVE_FAILURE = 'UPDATE_RESERVE_FAILURE';
-export const UPLOAD_IMAGES_REQUEST = 'UPLOAD_IMAGES_REQUEST';
-export const UPLOAD_IMAGES_SUCCESS = 'UPLOAD_IMAGES_SUCCESS';
-export const UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
-export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
-export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
-export const LOAD_POSTS_FAILURE = 'LOAD_POSTS_FAILURE';
-export const LOAD_SEARCH_POSTS_REQUEST = 'LOAD_SEARCH_POSTS_REQUEST';
-export const LOAD_SEARCH_POSTS_SUCCESS = 'LOAD_SEARCH_POSTS_SUCCESS';
-export const LOAD_SEARCH_POSTS_FAILURE = 'LOAD_SEARCH_POSTS_FAILURE';
-export const LOAD_POST_REQUEST = 'LOAD_POST_REQUEST';
-export const LOAD_POST_SUCCESS = 'LOAD_POST_SUCCESS';
-export const LOAD_POST_FAILURE = 'LOAD_POST_FAILURE';
-export const REMOVE_IMAGE = 'REMOVE_IMAGE';
-export const INCREMENT_VIEWS_REQUEST = 'INCREMENT_VIEWS_REQUEST';
-export const INCREMENT_VIEWS_SUCCESS = 'INCREMENT_VIEWS_SUCCESS';
-export const INCREMENT_VIEWS_FAILURE = 'INCREMENT_VIEWS_FAILURE';
+initialState.reservePosts = initialState.reservePosts.concat(generateDummyReserve(10));
+export const ADD_POST_REQUEST = "ADD_POST_REQUEST";
+export const ADD_POST_SUCCESS = "ADD_POST_SUCCESS";
+export const ADD_POST_FAILURE = "ADD_POST_FAILURE";
+export const ADD_RESERVE_REQUEST = "ADD_RESERVE_REQUEST";
+export const ADD_RESERVE_SUCCESS = "ADD_RESERVE_SUCCESS";
+export const ADD_RESERVE_FAILURE = "ADD_RESERVE_FAILURE";
+export const REMOVE_POST_REQUEST = "REMOVE_POST_REQUEST";
+export const REMOVE_POST_SUCCESS = "REMOVE_POST_SUCCESS";
+export const REMOVE_POST_FAILURE = "REMOVE_POST_FAILURE";
+export const REMOVE_RESERVE_REQUEST = "REMOVE_RESERVE_REQUEST";
+export const REMOVE_RESERVE_SUCCESS = "REMOVE_RESERVE_SUCCESS";
+export const REMOVE_RESERVE_FAILURE = "REMOVE_RESERVE_FAILURE";
+export const UPDATE_POST_REQUEST = "UPDATE_POST_REQUEST";
+export const UPDATE_POST_SUCCESS = "UPDATE_POST_SUCCESS";
+export const UPDATE_POST_FAILURE = "UPDATE_POST_FAILURE";
+export const UPDATE_RESERVE_REQUEST = "UPDATE_RESERVE_REQUEST";
+export const UPDATE_RESERVE_SUCCESS = "UPDATE_RESERVE_SUCCESS";
+export const UPDATE_RESERVE_FAILURE = "UPDATE_RESERVE_FAILURE";
+export const UPLOAD_IMAGES_REQUEST = "UPLOAD_IMAGES_REQUEST";
+export const UPLOAD_IMAGES_SUCCESS = "UPLOAD_IMAGES_SUCCESS";
+export const UPLOAD_IMAGES_FAILURE = "UPLOAD_IMAGES_FAILURE";
+export const LOAD_POSTS_REQUEST = "LOAD_POSTS_REQUEST";
+export const LOAD_POSTS_SUCCESS = "LOAD_POSTS_SUCCESS";
+export const LOAD_POSTS_FAILURE = "LOAD_POSTS_FAILURE";
+export const LOAD_SEARCH_POSTS_REQUEST = "LOAD_SEARCH_POSTS_REQUEST";
+export const LOAD_SEARCH_POSTS_SUCCESS = "LOAD_SEARCH_POSTS_SUCCESS";
+export const LOAD_SEARCH_POSTS_FAILURE = "LOAD_SEARCH_POSTS_FAILURE";
+export const LOAD_POST_REQUEST = "LOAD_POST_REQUEST";
+export const LOAD_POST_SUCCESS = "LOAD_POST_SUCCESS";
+export const LOAD_POST_FAILURE = "LOAD_POST_FAILURE";
+export const REMOVE_IMAGE = "REMOVE_IMAGE";
+export const INCREMENT_VIEWS_REQUEST = "INCREMENT_VIEWS_REQUEST";
+export const INCREMENT_VIEWS_SUCCESS = "INCREMENT_VIEWS_SUCCESS";
+export const INCREMENT_VIEWS_FAILURE = "INCREMENT_VIEWS_FAILURE";
 
 const dummyPost = (data) => ({
   id: shortId.generate(),
@@ -248,7 +246,7 @@ const dummyPost = (data) => ({
   content: data.content,
   admin: {
     id: 1,
-    nickname: '관리자',
+    nickname: "관리자",
   },
   date: TodayTime(),
   Images: [],
@@ -269,8 +267,8 @@ const dummyReserve = (data) => ({
 
 // 정규표현식을 이용해 게시글 검색
 function createSearchRegex(keyword) {
-  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`\\b${escapedKeyword}\\b`, 'i');
+  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`\\b${escapedKeyword}\\b`, "i");
 }
 
 // 리듀서는 이전 상태를 액션을 통해 다음 상태로 만들어내는 함수 ( 단! 불변성을 지키면서 !!)
@@ -329,16 +327,12 @@ const reducer = (state = initialState, action) =>
         draft.removePostError = null;
         break;
       case REMOVE_RESERVE_SUCCESS:
-        draft.reservePosts = draft.reservePosts.filter(
-          (v) => v.id !== action.data
-        );
+        draft.reservePosts = draft.reservePosts.filter((v) => v.id !== action.data);
         draft.removePostLoading = false;
         draft.removePostDone = true;
         break;
       case REMOVE_POST_SUCCESS:
-        draft.mainPosts = draft.mainPosts.filter(
-          (v) => v.id !== action.data.PostId
-        );
+        draft.mainPosts = draft.mainPosts.filter((v) => v.id !== action.data.PostId);
         draft.removePostLoading = false;
         draft.removePostDone = true;
         break;
@@ -355,27 +349,17 @@ const reducer = (state = initialState, action) =>
         draft.updatePostError = null;
         break;
       case UPDATE_RESERVE_SUCCESS:
-        draft.reservePosts.find((v) => v.id === action.data.postId).user.name =
-          action.data.name;
-        draft.reservePosts.find(
-          (v) => v.id === action.data.postId
-        ).user.password = action.data.password;
-        draft.reservePosts.find(
-          (v) => v.id === action.data.postId
-        ).reserveDate = action.data.reserveDate;
-        draft.reservePosts.find(
-          (v) => v.id === action.data.postId
-        ).phoneNumber = action.data.phoneNumber;
-        draft.reservePosts.find((v) => v.id === action.data.postId).content =
-          action.data.content;
+        draft.reservePosts.find((v) => v.id === action.data.postId).user.name = action.data.name;
+        draft.reservePosts.find((v) => v.id === action.data.postId).user.password = action.data.password;
+        draft.reservePosts.find((v) => v.id === action.data.postId).reserveDate = action.data.reserveDate;
+        draft.reservePosts.find((v) => v.id === action.data.postId).phoneNumber = action.data.phoneNumber;
+        draft.reservePosts.find((v) => v.id === action.data.postId).content = action.data.content;
         draft.updatePostLoading = false;
         draft.updatePostDone = true;
         break;
       case UPDATE_POST_SUCCESS:
-        draft.mainPosts.find((v) => v.id === action.data.postId).title =
-          action.data.title;
-        draft.mainPosts.find((v) => v.id === action.data.postId).content =
-          action.data.content;
+        draft.mainPosts.find((v) => v.id === action.data.postId).title = action.data.title;
+        draft.mainPosts.find((v) => v.id === action.data.postId).content = action.data.content;
         draft.updatePostLoading = false;
         draft.updatePostDone = true;
         break;
@@ -411,9 +395,7 @@ const reducer = (state = initialState, action) =>
         break;
       case LOAD_SEARCH_POSTS_SUCCESS:
         const regex = createSearchRegex(action.data);
-        draft.searchPosts = draft.mainPosts.filter(
-          (post) => regex.test(post.title) || regex.test(post.content)
-        );
+        draft.searchPosts = draft.mainPosts.filter((post) => regex.test(post.title) || regex.test(post.content));
         draft.searchPostsLoading = false;
         draft.searchPostsDone = true;
         break;
@@ -432,7 +414,7 @@ const reducer = (state = initialState, action) =>
         draft.loadPostLoading = false;
         draft.loadPostDone = true;
         draft.singlePost = action.data;
-        console.log('erroralert:', draft.singlePost);
+        console.log("erroralert:", draft.singlePost);
 
         break;
       case LOAD_POST_FAILURE:

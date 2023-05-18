@@ -1,11 +1,21 @@
 import React, { useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/esm/Button";
+
 import { REMOVE_POST_REQUEST } from "../../reducers/post";
-import { Row, Col, ButtonGroup, Card, Container } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  ButtonGroup,
+  Card,
+  Container,
+  Nav,
+  Navbar,
+  Table,
+  NavDropdown,
+  Button,
+} from "react-bootstrap";
 
 import Pagination from "react-js-pagination";
 import "../UI/paging.css";
@@ -35,8 +45,53 @@ function announceBoardDetail() {
 
   return (
     <>
-      <Container className="mt-2">
-        <Row className="mt-3 ps-1">
+      <Container style={{ width: "100%" }}>
+        <Row
+          style={{ width: "100%", marginLeft: 0, marginRight: 0, padding: 0 }}
+        >
+          <Navbar bg="success" expand="lg">
+            <Container>
+              <Navbar.Brand href="#home">
+                <h4>홈</h4>
+              </Navbar.Brand>
+
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav>
+                  <NavDropdown as="h5" title="알림마당" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">
+                      Action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      Another action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      Something
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">
+                      Separated link
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown as="h5" title="공지사항" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1">
+                      Action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      Another action
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      Something
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">
+                      Separated link
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
+        </Row>
+        <Row className="mt-3 ps-1 mt-2">
           <Col md={3} className="d-grid gap-2 ms" style={{ height: "100%" }}>
             <Card bg="success" text="white" style={{ height: "150px" }}>
               <Card.Body className="bp-0">
@@ -90,7 +145,14 @@ function announceBoardDetail() {
           </Col>
           {/* // 3번 그리드 */}
           <Col md={9}>
-            <Row>
+            <Row
+              style={{
+                width: "100%",
+                marginLeft: 0,
+                marginRight: 0,
+                padding: 0,
+              }}
+            >
               <h2>사진 갤러리</h2>
               <hr />
               <div className="w-100% p-0">

@@ -86,7 +86,9 @@ function MainHeader() {
       <Container>
         <Row>
           <Nav
-            style={{zIndex: "20", position: "absolute"}}
+
+            style={{ zIndex: "20", position: "absolute" }}
+
             className="justify-content-center"
             activeKey="/home"
             onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
@@ -107,7 +109,7 @@ function MainHeader() {
                 </Nav.Link>
 
                 {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                  <ul style={{ position: "relative", zIndex: "4" }}>
+                  <ul>
                     <Nav.Link as="a" href="#">
                       러브투어 소개
                     </Nav.Link>
@@ -253,6 +255,7 @@ function MainHeader() {
         </Row>
       </Container>
       {/* // 캐러셀 */}
+
       <div style={{ position: "relative", zIndex: "1 !important" }}>
         <Container>
           <Carousel style={{zIndex: "10", marginTop: "70px"}}>
@@ -267,40 +270,54 @@ function MainHeader() {
               <Carousel.Caption>
                 <h3>First slide label</h3>
 
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                width={800}
-                height={400}
-                src="https://via.placeholder.com/800x400"
-                alt="Second slide"
-              />
 
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                width={800}
-                height={400}
-                src="https://via.placeholder.com/800x400"
-                alt="Third slide"
-              />
 
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </Container>
-      </div>
+      <Container>
+        <Carousel style={{ zIndex: "10", marginTop: "60px" }}>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              width={800}
+              height={400}
+              src="https://via.placeholder.com/800x400"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>First slide label</h3>
+
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              width={800}
+              height={400}
+              src="https://via.placeholder.com/800x400"
+              alt="Second slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              width={800}
+              height={400}
+              src="https://via.placeholder.com/800x400"
+              alt="Third slide"
+            />
+
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </Container>
     </Container>
   );
 }

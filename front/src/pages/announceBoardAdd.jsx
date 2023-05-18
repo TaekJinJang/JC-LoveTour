@@ -5,6 +5,7 @@ import AnnounceBoardWrite from '../components/Board/announceBoardWrite';
 import Header from '../components/UI/header';
 import Footer from '../components/UI/footer';
 
+
 function announceBoardAdd() {
   return (
     <>
@@ -13,5 +14,6 @@ function announceBoardAdd() {
       <Footer />
     </>
   );
+
 }
 export default announceBoardAdd;

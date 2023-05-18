@@ -154,15 +154,15 @@ function* removePost(action) {
   }
 }
 function updatePostAPI(data) {
-  return axios.delete('/api/post', data);
+  return axios.patch(`/post/announce/${data.PostId}/update`, data);
 }
 function* updatePost(action) {
   try {
-    // const result = yield call(updatePostAPI, action.data);
+    const result = yield call(updatePostAPI, action.data);
     // yield delay(1000);
     yield put({
       type: UPDATE_POST_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);

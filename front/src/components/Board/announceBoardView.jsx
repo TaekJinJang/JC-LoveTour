@@ -35,11 +35,11 @@ import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 function announceBoardView() {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch({
-  //     type: LOAD_POSTS_REQUEST,
-  //   });
-  // }, []);
+  useEffect(() => {
+    dispatch({
+      type: LOAD_POSTS_REQUEST,
+    });
+  }, []);
   const { admin } = useSelector((state) => state.admin);
   const { mainPosts } = useSelector((state) => state.post);
   const [searchInput, onChangeSearchInput] = useInput('');

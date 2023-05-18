@@ -145,20 +145,27 @@ router.patch('/announce/:postId/views', async (req, res, next) => {
     next(error);
   }
 });
+
 //게시글 수정
 router.patch('/announce/:postId/update', isLoggedIn, async (req, res, next) => {
-  // PATCH /post/1/views
+  // PATCH /post/1/update
   try {
     const post = await Mainpost.findOne({
-      where: { id: req.params.postId },
+      where: { id: req.body.postId },
     });
+    await Mainpost.update(
+      { title: req.body.title, content: req.body.content },
+      { where: { id: req.body.postId } }
+    );
     if (!post) {
       return res.status(403).send('존재하지 않는 게시글입니다.');
     }
-    post.views += 1;
-    await post.save();
 
-    res.json({ views: post.views });
+    res.json({
+      PostId: req.body.PostId,
+      title: req.body.title,
+      content: req.body.content,
+    });
   } catch (error) {
     console.error(error);
     next(error);

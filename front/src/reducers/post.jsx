@@ -202,7 +202,7 @@ export const generateDummyReserve = (number) =>
       date: TodayTime(),
     }));
 // ===================================== UI 제작 시 ===================================
-// initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
+ initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 // ====================================================================================
 initialState.reservePosts = initialState.reservePosts.concat(
   generateDummyReserve(10)

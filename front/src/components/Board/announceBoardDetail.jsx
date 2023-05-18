@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import { REMOVE_POST_REQUEST } from '../../reducers/post';
-
+import { Container } from 'react-bootstrap';
 
 
 function announceBoardDetail() {
@@ -31,11 +31,12 @@ function announceBoardDetail() {
 
   return (
     <>
-    <h2>사진갤러리</h2>
+    <Container>
+      <h2>사진갤러리</h2>
     <hr />
     <div className="w-100% p-0">
       {/* 제목은 나중에 수정 */}
-      <h2>청풍랜드</h2>
+      <h2>{post.title}</h2>
       <div style={{ float: 'right' }}>
         <span>작성일: </span>
         <span>{post.date} </span>
@@ -57,6 +58,10 @@ function announceBoardDetail() {
             style={{ width: '300px', height: '200px' }}
           />
         ))}
+
+    <div className="w-100% p-0">
+      {post.content}
+    </div>
 
       {/* <Table striped bordered hover>
         <thead>
@@ -88,6 +93,7 @@ function announceBoardDetail() {
           </Button>
         </>
       )}
+    </Container>
     </>
   );
 }

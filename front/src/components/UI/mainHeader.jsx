@@ -1,10 +1,20 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel, Container, Nav, Form, Button, Figure, Row, Col, InputGroup } from "react-bootstrap";
-import logo from "../../assets/logo.png";
-import map from "../../assets/map.png";
-import search from "../../assets/search.png";
-import { fa } from "faker/lib/locales";
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  Carousel,
+  Container,
+  Nav,
+  Form,
+  Button,
+  Figure,
+  Row,
+  Col,
+  InputGroup,
+} from 'react-bootstrap';
+import logo from '../../assets/logo.png';
+import map from '../../assets/map.png';
+import search from '../../assets/search.png';
+import { fa } from 'faker/lib/locales';
 
 // import styled from 'styled-components';
 
@@ -21,7 +31,13 @@ function MainHeader() {
         <Col md={4}>
           <Figure>
             <a href="/">
-              <Figure.Image className="me-2 mt-1" width={300} height={52} src={logo} alt="logo" />
+              <Figure.Image
+                className="me-2 mt-1"
+                width={300}
+                height={52}
+                src={logo}
+                alt="logo"
+              />
             </a>
           </Figure>
         </Col>
@@ -51,19 +67,19 @@ function MainHeader() {
               placeholder="어디로, 어떤 여행을 떠나실 예정이신가요?"
               className="me-2 mt-1"
               aria-label="Search"
-              style={{ backgroundColor: "#D9D9D9" }}
+              style={{ backgroundColor: '#D9D9D9' }}
             />
             <Button
               variant="none"
               className="me-2 mt-1"
               style={{
                 backgroundImage: `url(${search})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                width: "40px",
-                height: "40px",
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                width: '40px',
+                height: '40px',
                 padding: 0,
-                border: "none",
+                border: 'none',
               }}
             />
           </Form>
@@ -72,9 +88,15 @@ function MainHeader() {
         <Col md={2}>
           <Figure className="text-center">
             <a href="/">
-              <Figure.Image className="mt-3" width={30} height={30} src={map} alt="map" />
+              <Figure.Image
+                className="mt-3"
+                width={30}
+                height={30}
+                src={map}
+                alt="map"
+              />
             </a>
-            <Figure.Caption className="text-dark" style={{ fontSize: "12px" }}>
+            <Figure.Caption className="text-dark" style={{ fontSize: '12px' }}>
               지도로 보기
             </Figure.Caption>
           </Figure>
@@ -86,9 +108,7 @@ function MainHeader() {
       <Container>
         <Row>
           <Nav
-
-            style={{ zIndex: "20", position: "absolute" }}
-
+            style={{ zIndex: '20', position: 'absolute' }}
             className="justify-content-center"
             activeKey="/home"
             onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
@@ -97,14 +117,22 @@ function MainHeader() {
             <Col
               md="auto"
               style={{
-                fontSize: "20px",
-                display: "flex",
-                justifyContent: "center",
-                fontWeight: "bold",
+                fontSize: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                fontWeight: 'bold',
               }}
             >
               <Nav.Item as="li">
-                <Nav.Link href="/" style={{ color: "black", fontWeight: "bold", fontSize: "22px", width: "195px" }}>
+                <Nav.Link
+                  href="/"
+                  style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    fontSize: '22px',
+                    width: '195px',
+                  }}
+                >
                   제천 러브투어
                 </Nav.Link>
 
@@ -130,14 +158,22 @@ function MainHeader() {
             <Col
               md="auto"
               style={{
-                fontSize: "20px",
-                display: "flex",
-                justifyContent: "center",
-                fontWeight: "bold",
+                fontSize: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                fontWeight: 'bold',
               }}
             >
               <Nav.Item as="li">
-                <Nav.Link href="/" style={{ color: "black", fontWeight: "bold", fontSize: "22px", width: "195px" }}>
+                <Nav.Link
+                  href="/"
+                  style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    fontSize: '22px',
+                    width: '195px',
+                  }}
+                >
                   제천의 이모저모
                 </Nav.Link>
                 {showMenu && (
@@ -165,14 +201,22 @@ function MainHeader() {
             <Col
               md="auto"
               style={{
-                fontSize: "20px",
-                display: "flex",
-                justifyContent: "center",
-                fontWeight: "bold",
+                fontSize: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                fontWeight: 'bold',
               }}
             >
               <Nav.Item as="li">
-                <Nav.Link href="/" style={{ color: "black", fontWeight: "bold", fontSize: "22px", width: "195px" }}>
+                <Nav.Link
+                  href="/"
+                  style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    fontSize: '22px',
+                    width: '195px',
+                  }}
+                >
                   테마/코스
                 </Nav.Link>
                 {showMenu && (
@@ -197,16 +241,21 @@ function MainHeader() {
             <Col
               md="auto"
               style={{
-                fontSize: "20px",
-                display: "flex",
-                justifyContent: "center",
-                fontWeight: "bold",
+                fontSize: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                fontWeight: 'bold',
               }}
             >
               <Nav.Item as="li">
                 <Nav.Link
                   href="/board/reserve"
-                  style={{ color: "black", fontWeight: "bold", fontSize: "22px", width: "195px" }}
+                  style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    fontSize: '22px',
+                    width: '195px',
+                  }}
                 >
                   예약
                 </Nav.Link>
@@ -226,16 +275,21 @@ function MainHeader() {
             <Col
               md="auto"
               style={{
-                fontSize: "20px",
-                display: "flex",
-                justifyContent: "center",
-                fontWeight: "bold",
+                fontSize: '20px',
+                display: 'flex',
+                justifyContent: 'center',
+                fontWeight: 'bold',
               }}
             >
               <Nav.Item as="li">
                 <Nav.Link
                   href="/board/announce"
-                  style={{ color: "black", fontWeight: "bold", fontSize: "22px", width: "195px" }}
+                  style={{
+                    color: 'black',
+                    fontWeight: 'bold',
+                    fontSize: '22px',
+                    width: '195px',
+                  }}
                 >
                   알림마당
                 </Nav.Link>
@@ -256,7 +310,7 @@ function MainHeader() {
       </Container>
       {/* // 캐러셀 */}
 
-      <div style={{ position: "relative", zIndex: "1 !important" }}>
+      {/* <div style={{ position: "relative", zIndex: "1 !important" }}>
         <Container>
           <Carousel style={{zIndex: "10", marginTop: "70px"}}>
             <Carousel.Item>
@@ -268,12 +322,10 @@ function MainHeader() {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h3>First slide label</h3>
-
-
+                <h3>First slide label</h3> */}
 
       <Container>
-        <Carousel style={{ zIndex: "10", marginTop: "60px" }}>
+        <Carousel style={{ zIndex: '10', marginTop: '60px' }}>
           <Carousel.Item>
             <img
               className="d-block w-100"
@@ -313,7 +365,9 @@ function MainHeader() {
 
             <Carousel.Caption>
               <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <p>
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              </p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

@@ -86,7 +86,9 @@ function MainHeader() {
       <Container>
         <Row>
           <Nav
+
             style={{ zIndex: "20", position: "absolute" }}
+
             className="justify-content-center"
             activeKey="/home"
             onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
@@ -253,6 +255,22 @@ function MainHeader() {
         </Row>
       </Container>
       {/* // 캐러셀 */}
+
+      <div style={{ position: "relative", zIndex: "1 !important" }}>
+        <Container>
+          <Carousel style={{zIndex: "10", marginTop: "70px"}}>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                width={800}
+                height={400}
+                src="https://via.placeholder.com/800x400"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+
+
 
       <Container>
         <Carousel style={{ zIndex: "10", marginTop: "60px" }}>

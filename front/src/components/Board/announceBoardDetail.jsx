@@ -114,6 +114,7 @@ function announceBoardDetail() {
                     key={index}
                     src={`http://localhost:3005/${image.src}`}
                     alt={`http://localhost:3005/${image.src}`}
+                    // 사진 크기는 수정 해야함
                     style={{ width: "300px", height: "200px" }}
                   />
                 ))}

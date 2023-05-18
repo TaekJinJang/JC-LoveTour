@@ -129,16 +129,16 @@ function MainHeader() {
                                     marginTop: '11px',
                                 }}
                             >
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     러브투어 소개
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     지원 혜택
                                 </Nav.Link>
-                                <Nav.Link as="a" href="/board/gallery">
+                                <Nav.Link as="a" href="/board/gallery" style={{ color: 'white' }}>
                                     사진 갤러리
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     영상 갤러리
                                 </Nav.Link>
                             </ul>
@@ -162,7 +162,7 @@ function MainHeader() {
                                 color: 'black',
                                 fontWeight: 'bold',
                                 fontSize: '22px',
-                                width: '194px',
+                                width: '200px',
                             }}
                         >
                             제천의 이모저모
@@ -175,19 +175,19 @@ function MainHeader() {
                                     marginTop: '11px',
                                 }}
                             >
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     관광지
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     전통시장
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     음식
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     숙박
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     축제/행사
                                 </Nav.Link>
                             </ul>
@@ -211,7 +211,7 @@ function MainHeader() {
                                 color: 'black',
                                 fontWeight: 'bold',
                                 fontSize: '22px',
-                                width: '175px',
+                                width: '183px',
                             }}
                         >
                             테마/코스
@@ -224,16 +224,16 @@ function MainHeader() {
                                     marginTop: '11px',
                                 }}
                             >
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     기본코스
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     힐링코스
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     가스트로투어
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     제천시티투어
                                 </Nav.Link>
                             </ul>
@@ -257,7 +257,7 @@ function MainHeader() {
                                 color: 'black',
                                 fontWeight: 'bold',
                                 fontSize: '22px',
-                                width: '170px',
+                                width: '183px',
                             }}
                         >
                             예약
@@ -270,10 +270,10 @@ function MainHeader() {
                                     marginTop: '11px',
                                 }}
                             >
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     예약 신청
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     예약 조회/취소
                                 </Nav.Link>
                             </ul>
@@ -297,7 +297,7 @@ function MainHeader() {
                                 color: 'black',
                                 fontWeight: 'bold',
                                 fontSize: '22px',
-                                width: '190px',
+                                width: '200px',
                             }}
                         >
                             알림마당
@@ -310,10 +310,10 @@ function MainHeader() {
                                     marginTop: '11px',
                                 }}
                             >
-                                <Nav.Link as="a" href="/board/announce">
+                                <Nav.Link as="a" href="/board/announce" style={{ color: 'white' }}>
                                     공지사항
                                 </Nav.Link>
-                                <Nav.Link as="a" href="#">
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     자주하는 질문
                                 </Nav.Link>
                             </ul>

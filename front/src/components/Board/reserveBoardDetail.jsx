@@ -34,16 +34,16 @@ function reserveBoardDetail() {
             <th>예약자명</th>
             <th>예약일</th>
             <th>작성일</th>
-            <th>조회수</th>
+            <th>내용</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{post.id}</td>
-            <td>{post.user.name}</td>
+            <td>{post.name}</td>
             <td>{post.reserveDate}</td>
             <td>{post.date}</td>
-            <td>{post.views}</td>
+            <td>{post.content}</td>
           </tr>
         </tbody>
       </Table>

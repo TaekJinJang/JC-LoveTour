@@ -28,9 +28,15 @@ import {
   UPDATE_RESERVE_REQUEST,
   UPDATE_RESERVE_FAILURE,
   UPDATE_RESERVE_SUCCESS,
+  LOAD_ALL_POSTS_REQUEST,
+  LOAD_ALL_POSTS_SUCCESS,
+  LOAD_ALL_POSTS_FAILURE,
   LOAD_POSTS_REQUEST,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_FAILURE,
+  LOAD_RESERVE_POSTS_REQUEST,
+  LOAD_RESERVE_POSTS_SUCCESS,
+  LOAD_RESERVE_POSTS_FAILURE,
   LOAD_SEARCH_POSTS_REQUEST,
   LOAD_SEARCH_POSTS_SUCCESS,
   LOAD_SEARCH_POSTS_FAILURE,
@@ -69,18 +75,18 @@ function* addPost(action) {
   }
 }
 function addReserveAPI(data) {
-  return axios.post('/api/post', data);
+  return axios.post('/post/reserve/add', data);
 }
 
 function* addReserve(action) {
   try {
-    // const result = yield call(addPostAPI, action.data);
+    const result = yield call(addReserveAPI, action.data);
     // yield delay(1000);
 
     yield put({
       // put은 dispatch라고 생각하는게 편함
       type: ADD_RESERVE_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);
@@ -154,15 +160,15 @@ function* removePost(action) {
   }
 }
 function updatePostAPI(data) {
-  return axios.delete('/api/post', data);
+  return axios.patch(`/post/announce/${data.PostId}/update`, data);
 }
 function* updatePost(action) {
   try {
-    // const result = yield call(updatePostAPI, action.data);
+    const result = yield call(updatePostAPI, action.data);
     // yield delay(1000);
     yield put({
       type: UPDATE_POST_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);
@@ -206,6 +212,44 @@ function* loadPosts(action) {
     console.error(err);
     yield put({
       type: LOAD_POSTS_FAILURE,
+      error: err.response.data,
+    });
+  }
+}
+function loadReservePostsAPI(lastId) {
+  return axios.get(`/post/reserve/posts?lastId=${lastId || 0}`);
+}
+function* loadReservePosts(action) {
+  try {
+    const result = yield call(loadReservePostsAPI, action.lastId); // call은 동기 fork는 비동기
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: LOAD_RESERVE_POSTS_SUCCESS,
+      data: result.data, // 모든 게시글
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: LOAD_RESERVE_POSTS_FAILURE,
+      error: err.response.data,
+    });
+  }
+}
+function loadAllPostsAPI() {
+  return axios.get(`/post/all/posts`);
+}
+function* loadAllPosts() {
+  try {
+    const result = yield call(loadAllPostsAPI); // call은 동기 fork는 비동기
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: LOAD_ALL_POSTS_SUCCESS,
+      data: result.data, // 게시글 10개 불러오기
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: LOAD_ALL_POSTS_FAILURE,
       error: err.response.data,
     });
   }
@@ -275,8 +319,14 @@ function* uploadImages(action) {
   }
 }
 
+function* watchAllLoadPosts() {
+  yield takeLatest(LOAD_ALL_POSTS_REQUEST, loadAllPosts);
+}
 function* watchLoadPosts() {
   yield takeLatest(LOAD_POSTS_REQUEST, loadPosts);
+}
+function* watchReserveLoadPosts() {
+  yield takeLatest(LOAD_RESERVE_POSTS_REQUEST, loadReservePosts);
 }
 function* watchAddPost() {
   yield takeLatest(ADD_POST_REQUEST, addPost);
@@ -315,7 +365,9 @@ export default function* postSaga() {
     fork(watchIncrementViews),
     fork(watchAddPost),
     fork(watchAddReserve),
+    fork(watchAllLoadPosts),
     fork(watchLoadPosts),
+    fork(watchReserveLoadPosts),
     fork(watchLoadSearchPosts),
     fork(watchRemovePost),
     fork(watchRemoveReserve),

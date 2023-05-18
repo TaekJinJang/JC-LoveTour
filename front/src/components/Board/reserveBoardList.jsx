@@ -38,7 +38,7 @@ function reserveBoardList({ post }) {
         <tbody>
           <tr onClick={handleShow}>
             <td>{post.id}</td>
-            <td>{post.user.name[0]}**님 예약글입니다.</td>
+            <td>{post.name[0]}**님 예약글입니다.</td>
             <td>{post.reserveDate}</td>
             <td>{post.date}</td>
             <td></td>

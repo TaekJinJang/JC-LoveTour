@@ -113,19 +113,19 @@ export const initialState = {
     },
   ],
   reservePosts: [
-    {
-      id: 1,
-      user: {
-        name: '장택진',
-        // 휴대폰번호 ++
-        // phoneNumber: '010-0000-0000',
-        password: 123,
-      },
-      reserveDate: '예약날짜 나옴',
-      content: '첫 번째 예약 내용',
-      phoneNumber: '010-0000-0000',
-      date: '2023 - 04 - 05',
-    },
+    // {
+    //   id: 1,
+    //   user: {
+    //     name: '장택진',
+    //     // 휴대폰번호 ++
+    //     // phoneNumber: '010-0000-0000',
+    //     password: 123,
+    //   },
+    //   reserveDate: '예약날짜 나옴',
+    //   content: '첫 번째 예약 내용',
+    //   phoneNumber: '010-0000-0000',
+    //   date: '2023 - 04 - 05',
+    // },
   ],
   hasMorePosts: true,
   addPostLoading: false, // 게시글 등록 시도중
@@ -146,6 +146,9 @@ export const initialState = {
   loadPostsLoading: false, // 게시글 불러오기 시도중
   loadPostsDone: false,
   loadPostsError: null,
+  loadAllPostsLoading: false, // 모든 게시글 불러오기 시도중
+  loadAllPostsDone: false,
+  loadAllPostsError: null,
   loadPostLoading: false, // 게시글 1개 불러오기 시도중
   loadPostDone: false,
   loadPostError: null,
@@ -191,10 +194,8 @@ export const generateDummyReserve = (number) =>
     .fill()
     .map(() => ({
       id: shortId.generate(),
-      user: {
-        name: shortId.generate(),
-        password: 123,
-      },
+      name: '박동준',
+      password: 123,
       phoneNumber: '010-0000-0000',
       reserveDate: TodayTime(),
       content: faker.lorem.paragraph(),
@@ -231,6 +232,12 @@ export const UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
 export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
 export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
 export const LOAD_POSTS_FAILURE = 'LOAD_POSTS_FAILURE';
+export const LOAD_ALL_POSTS_REQUEST = 'LOAD_ALL_POSTS_REQUEST';
+export const LOAD_ALL_POSTS_SUCCESS = 'LOAD_ALL_POSTS_SUCCESS';
+export const LOAD_ALL_POSTS_FAILURE = 'LOAD_ALL_POSTS_FAILURE';
+export const LOAD_RESERVE_POSTS_REQUEST = 'LOAD_RESERVE_POSTS_REQUEST';
+export const LOAD_RESERVE_POSTS_SUCCESS = 'LOAD_RESERVE_POSTS_SUCCESS';
+export const LOAD_RESERVE_POSTS_FAILURE = 'LOAD_RESERVE_POSTS_FAILURE';
 export const LOAD_SEARCH_POSTS_REQUEST = 'LOAD_SEARCH_POSTS_REQUEST';
 export const LOAD_SEARCH_POSTS_SUCCESS = 'LOAD_SEARCH_POSTS_SUCCESS';
 export const LOAD_SEARCH_POSTS_FAILURE = 'LOAD_SEARCH_POSTS_FAILURE';
@@ -285,7 +292,8 @@ const reducer = (state = initialState, action) =>
         draft.addPostDone = false;
         break;
       case ADD_RESERVE_SUCCESS:
-        draft.reservePosts.unshift(dummyReserve(action.data));
+        // draft.reservePosts.unshift(dummyReserve(action.data));
+        draft.reservePosts.unshift(action.data);
         draft.addPostLoading = false;
         draft.addPostDone = true;
         draft.imagePaths = [];
@@ -384,9 +392,10 @@ const reducer = (state = initialState, action) =>
         draft.updatePostLoading = false;
         draft.updatePostError = action.error;
         break;
-      // LOAD_POSTS
 
+      // LOAD_POSTS , LOAD_RESERVE_POSTS
       case LOAD_POSTS_REQUEST:
+      case LOAD_RESERVE_POSTS_REQUEST:
         draft.loadPostsLoading = true;
         draft.loadPostsError = null;
         draft.loadPostsDone = false;
@@ -395,13 +404,39 @@ const reducer = (state = initialState, action) =>
       case LOAD_POSTS_SUCCESS:
         draft.loadPostsLoading = false;
         draft.loadPostsDone = true;
-        // draft.mainPosts = draft.mainPosts.concat(action.data);
-        draft.mainPosts = action.data.concat(draft.mainPosts);
-        draft.hasMorePosts = draft.mainPosts.length < 50;
+        draft.mainPosts = draft.mainPosts.concat(action.data);
+        // draft.mainPosts = action.data;
+        break;
+      case LOAD_RESERVE_POSTS_SUCCESS:
+        draft.loadPostsLoading = false;
+        draft.loadPostsDone = true;
+        draft.reservePosts = draft.reservePosts.concat(action.data);
+        // draft.reservePosts = action.data;
         break;
       case LOAD_POSTS_FAILURE:
+      case LOAD_RESERVE_POSTS_FAILURE:
         draft.loadPostsLoading = false;
         draft.loadPostsError = action.error;
+        break;
+
+      // LOAD_ALL_POSTS
+      case LOAD_ALL_POSTS_REQUEST:
+        draft.loadAllPostsLoading = true;
+        draft.loadAllPostsError = null;
+        draft.loadAllPostsDone = false;
+        break;
+
+      case LOAD_ALL_POSTS_SUCCESS:
+        draft.loadAllPostsLoading = false;
+        draft.loadAllPostsDone = true;
+        draft.mainPosts = action.data.mainPosts.concat(draft.mainPosts);
+        draft.reservePosts = action.data.reservePosts.concat(
+          draft.reservePosts
+        );
+        break;
+      case LOAD_ALL_POSTS_FAILURE:
+        draft.loadAllPostsLoading = false;
+        draft.loadAllPostsError = action.error;
         break;
       // LOAD_SEARCH_POSTS
       case LOAD_SEARCH_POSTS_REQUEST:

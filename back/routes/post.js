@@ -1,5 +1,5 @@
 const express = require('express');
-const { Mainpost, Image, Admin, Comment } = require('../models');
+const { Mainpost, Reservepost, Image, Admin, Comment } = require('../models');
 const router = express.Router();
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const multer = require('multer');
@@ -93,6 +93,31 @@ router.post(
     }
   }
 );
+router.post(
+  //예약페이지 add
+  '/reserve/add',
+  async (req, res, next) => {
+    // POST /post/reserve/add
+    try {
+      const post = await Reservepost.create({
+        name: req.body.name,
+        password: req.body.password,
+        content: req.body.content,
+        date: TodayTime(),
+        reserveDate: req.body.reserveDate,
+        phoneNumber: req.body.phoneNumber,
+      });
+      // const fullPost = await Reservepost.findOne({
+      //   where: { id: post.id },
+      //   include: [{ model: Image }],
+      // });
+      res.status(201).json(post);
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  }
+);
 
 router.get('/announce/posts', async (req, res, next) => {
   // GET /posts
@@ -103,8 +128,8 @@ router.get('/announce/posts', async (req, res, next) => {
       where.id = { [Op.lt]: parseInt(req.query.lastId, 10) };
     }
     const posts = await Mainpost.findAll({
-      where,
       //   limit: 10,
+      where,
       order: [
         ['createdAt', 'DESC'],
         [Comment, 'createdAt', 'DESC'], // 내림차순
@@ -121,6 +146,84 @@ router.get('/announce/posts', async (req, res, next) => {
       ],
     });
     res.status(200).json(posts);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+router.get('/reserve/posts', async (req, res, next) => {
+  // GET /posts
+  try {
+    const where = {};
+    if (parseInt(req.query.lastId, 10)) {
+      // 초기 로딩이 아닐 때
+      where.id = { [Op.lt]: parseInt(req.query.lastId, 10) };
+    }
+    const posts = await Reservepost.findAll({
+      //   limit: 10,
+      where,
+      order: [
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
+      ],
+      include: [
+        {
+          model: Comment, // 댓글 작성자
+          attributes: {
+            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            order: [['createdAt', 'DESC']],
+          },
+        },
+      ],
+    });
+    res.status(200).json(posts);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+// 모든 게시글 다 가져오기
+router.get('/all/posts', async (req, res, next) => {
+  // GET /post/all/posts
+  try {
+    const mainPosts = await Mainpost.findAll({
+      limit: 10,
+      order: [
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
+      ],
+      include: [
+        { model: Image },
+        {
+          model: Comment, // 댓글 작성자
+          attributes: {
+            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            order: [['createdAt', 'DESC']],
+          },
+        },
+      ],
+    });
+    const reservePosts = await Reservepost.findAll({
+      limit: 10,
+      order: [
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
+      ],
+      include: [
+        {
+          model: Comment, // 댓글 작성자
+          attributes: {
+            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            order: [['createdAt', 'DESC']],
+          },
+        },
+      ],
+    });
+    const allPosts = {
+      mainPosts: mainPosts,
+      reservePosts: reservePosts,
+    };
+    res.status(200).json(allPosts);
   } catch (error) {
     console.error(error);
     next(error);

@@ -1,7 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 import { useDispatch, useSelector } from 'react-redux';
 import {
   ADD_POST_REQUEST,
@@ -309,10 +308,8 @@ function announceBoardWrite() {
             </Form>
           </Col>
         </Row>
-
+        <Footer />
       </Container>
-
-      <Footer />
     </>
   );
 }

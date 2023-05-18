@@ -19,7 +19,6 @@ function announceBoardUpdate() {
   const imageInput = useRef();
   const { mainPosts } = useSelector((state) => state.post);
 
-  console.log(mainPosts);
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();

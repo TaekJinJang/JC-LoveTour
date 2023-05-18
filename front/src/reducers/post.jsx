@@ -203,7 +203,7 @@ export const generateDummyReserve = (number) =>
       date: TodayTime(),
     }));
 // ===================================== UI 제작 시 ===================================
- initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
+//  initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 // ====================================================================================
 initialState.reservePosts = initialState.reservePosts.concat(
   generateDummyReserve(10)
@@ -410,8 +410,8 @@ const reducer = (state = initialState, action) =>
       case LOAD_RESERVE_POSTS_SUCCESS:
         draft.loadPostsLoading = false;
         draft.loadPostsDone = true;
-        draft.reservePosts = draft.reservePosts.concat(action.data);
-        // draft.reservePosts = action.data;
+        // draft.reservePosts = draft.reservePosts.concat(action.data);
+        draft.reservePosts = action.data;
         break;
       case LOAD_POSTS_FAILURE:
       case LOAD_RESERVE_POSTS_FAILURE:

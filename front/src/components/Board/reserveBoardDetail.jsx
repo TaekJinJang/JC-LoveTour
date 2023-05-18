@@ -47,16 +47,15 @@ function reserveBoardDetail() {
           </tr>
         </tbody>
       </Table>
-      {admin && (
-        <>
-          <Button variant="danger" onClick={deleteBoard}>
-            삭제
-          </Button>
-          <Button variant="info" onClick={updateBoard}>
-            수정
-          </Button>
-        </>
-      )}
+
+      <>
+        <Button variant="danger" onClick={deleteBoard}>
+          삭제
+        </Button>
+        <Button variant="info" onClick={updateBoard}>
+          수정
+        </Button>
+      </>
     </>
   );
 }

@@ -33,7 +33,9 @@ function mainGrid() {
         <Row>
           {/* 예약현황 */}
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+            <Card
+              style={{ width: '100%', height: '300px', overflow: 'hidden' }}
+            >
               <Card.Header className="d-flex justify-content-between my-card-header">
                 예약 현황
                 <Button variant="outline-primary" className="ml-auto">
@@ -74,7 +76,9 @@ function mainGrid() {
             </Card>
           </Col>
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+            <Card
+              style={{ width: '100%', height: '300px', overflow: 'hidden' }}
+            >
               <Card.Header className="d-flex justify-content-between">
                 지원 혜택
                 <Button variant="outline-primary" className="ml-auto">
@@ -105,7 +109,9 @@ function mainGrid() {
 
           {/* 공지사항 */}
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+            <Card
+              style={{ width: '100%', height: '300px', overflow: 'hidden' }}
+            >
               <Card.Header className="d-flex justify-content-between">
                 공지사항
                 <Button
@@ -124,10 +130,9 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {/* {mainPosts[mainPosts.length - 1].title} */}
-                        테스트입니다.
+                        {mainPosts[mainPosts.length - 1].title}
                       </div>
-                      {/* {mainPosts[mainPosts.length - 1].date} */}
+                      {mainPosts[mainPosts.length - 1].date}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -136,10 +141,9 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {/* {mainPosts[mainPosts.length - 2].title} */}
-                        테스트입니다.
+                        {mainPosts[mainPosts.length - 2].title}
                       </div>
-                      {/* {mainPosts[mainPosts.length - 2].date} */}
+                      {mainPosts[mainPosts.length - 2].date}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -148,10 +152,9 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {/* {mainPosts[mainPosts.length - 3].title} */}
-                        테스트입니다.
+                        {mainPosts[mainPosts.length - 3].title}
                       </div>
-                      {/* {mainPosts[mainPosts.length - 3].date} */}
+                      {mainPosts[mainPosts.length - 3].date}
                     </div>
                   </ListGroup.Item>
                 </ListGroup>
@@ -161,10 +164,12 @@ function mainGrid() {
         </Row>
         <Row>
           <Col className="my-2">
-          <Figure>
-                  <Figure.Image src="https://via.placeholder.com/500x200" />
-                </Figure>
-            <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+            <Figure>
+              <Figure.Image src="https://via.placeholder.com/500x200" />
+            </Figure>
+            <Card
+              style={{ width: '100%', height: '300px', overflow: 'hidden' }}
+            >
               <Card.Header className="d-flex justify-content-between">
                 축제/행사
                 <Button variant="outline-primary" className="ml-auto">
@@ -205,9 +210,11 @@ function mainGrid() {
             </Card>
           </Col>
           <Col className="my-2">
-            <Card style={{ width: '100%', height: '520px', overflow: 'hidden' }}>
+            <Card
+              style={{ width: '100%', height: '520px', overflow: 'hidden' }}
+            >
               <Card.Body>
-                <Carousel variant="dark" className='mt-4'>
+                <Carousel variant="dark" className="mt-4">
                   <Carousel.Item>
                     <Row>
                       <Col>
@@ -353,7 +360,7 @@ function mainGrid() {
         </Row>
         <Row>
           <Col>
-            <Card className='mt-3'>
+            <Card className="mt-3">
               <Card.Body>
                 <Row>
                   <Col>

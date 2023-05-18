@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col, Image, Dropdown, DropdownButton } from 'react-bootstrap';
+
+import {
+  Container,
+  Row,
+  Col,
+  Image,
+  Dropdown,
+  DropdownButton,
+} from 'react-bootstrap';
+
 import footerlogo from '../../assets/footerlogo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_MY_INFO_REQUEST } from '../../reducers/admin';
-import { LOAD_POSTS_REQUEST } from '../../reducers/post';
-
 function Footer() {
     const { mainPosts } = useSelector((state) => state.post);
     const dispatch = useDispatch();
@@ -13,11 +20,7 @@ function Footer() {
         dispatch({
             type: LOAD_MY_INFO_REQUEST,
         });
-        if (mainPosts.length === 0) {
-            dispatch({
-                type: LOAD_POSTS_REQUEST,
-            });
-        }
+
     }, []);
     return (
         <footer className="bg-light py-3">
@@ -81,6 +84,7 @@ function Footer() {
             </Container>
         </footer>
     );
+
 }
 
 export default Footer;

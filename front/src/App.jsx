@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reactLogo from './assets/react.svg';
 import AnnounceBoard from './pages/announceBoard';
 import AnnounceBoardAdd from './pages/announceBoardAdd';
-import AnnounceBoardDetail from './components/Board/announceBoardDetail';
+import AnnounceBoardPost from './pages/announceBoardPost';
 import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
 import GalleryBoard from './pages/galleryBoard';
 import AnnounceBoardSearch from './components/Board/announceBoardSearch';
@@ -31,7 +31,7 @@ function App() {
           <Route path="/board/announce" element={<AnnounceBoard />} />
           <Route
             path="/board/announce/:boardid"
-            element={<AnnounceBoardDetail />}
+            element={<AnnounceBoardPost />}
           />
           <Route
             path="/board/announce/:boardid/update"

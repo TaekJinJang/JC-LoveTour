@@ -6,10 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import styled from 'styled-components';
 
-// 공통부분
-
-import Footer from '../UI/footer';
-
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
@@ -34,20 +30,22 @@ import {
 import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 function announceBoardView() {
-    const dispatch = useDispatch();
-    // useEffect(() => {
-    //   dispatch({
-    //     type: LOAD_POSTS_REQUEST,
-    //   });
-    // }, []);
-    const { admin } = useSelector((state) => state.admin);
-    const { mainPosts } = useSelector((state) => state.post);
-    const [searchInput, onChangeSearchInput] = useInput('');
-    const navigate = useNavigate();
-    const goToSearch = useCallback(() => {
-        if (searchInput === '') return alert('검색어를 입력해주세요');
-        navigate(`/board/announce/search/${searchInput}/`, { state: searchInput });
-    }, [searchInput]);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({
+      type: LOAD_POSTS_REQUEST,
+    });
+  }, []);
+  const { admin } = useSelector((state) => state.admin);
+  const { mainPosts } = useSelector((state) => state.post);
+  const [searchInput, onChangeSearchInput] = useInput('');
+  const navigate = useNavigate();
+  const goToSearch = useCallback(() => {
+    if (searchInput === '') return alert('검색어를 입력해주세요');
+    navigate(`/board/announce/search/${searchInput}/`, { state: searchInput });
+  }, [searchInput]);
+
 
     // 페이지네이션
     const [page, setPage] = useState(1);

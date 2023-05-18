@@ -202,6 +202,7 @@ function announceBoardWrite() {
                                 </Col>
                             </Form.Group>
 
+
                             {/* 이미지 업로드 */}
                             <Form.Group as={Row} className="mb-3" controlId="text">
                                 <Col md={2}>
@@ -258,5 +259,6 @@ function announceBoardWrite() {
             </Container>
         </>
     );
+
 }
 export default announceBoardWrite;

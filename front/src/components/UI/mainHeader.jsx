@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Carousel,
@@ -15,6 +15,8 @@ import logo from '../../assets/logo.png';
 import map from '../../assets/map.png';
 import search from '../../assets/search.png';
 import { fa } from 'faker/lib/locales';
+import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import styled from 'styled-components';
 
@@ -23,6 +25,15 @@ import { fa } from 'faker/lib/locales';
 
 function MainHeader() {
   const [showMenu, setShowMenu] = useState(false); // 마우스 호버 상태를 저장하는 상태값
+  const { mainPosts } = useSelector((state) => state.post);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (mainPosts.length === 0) {
+      dispatch({
+        type: LOAD_ALL_POSTS_REQUEST,
+      });
+    }
+  }, []);
 
   return (
     // header - logo, search, mapicon

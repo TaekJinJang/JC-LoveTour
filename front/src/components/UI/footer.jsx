@@ -20,11 +20,6 @@ function Footer() {
     dispatch({
       type: LOAD_MY_INFO_REQUEST,
     });
-    if (mainPosts.length === 0) {
-      dispatch({
-        type: LOAD_ALL_POSTS_REQUEST,
-      });
-    }
   }, []);
   return (
     <footer className="bg-light py-3">

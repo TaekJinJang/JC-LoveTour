@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 import { useDispatch, useSelector } from 'react-redux';
 import {
   ADD_POST_REQUEST,
@@ -24,8 +25,6 @@ import {
   Stack,
   ButtonGroup,
 } from 'react-bootstrap';
-import Footer from '../UI/footer';
-
 import Footer from '../UI/footer';
 
 function announceBoardWrite() {
@@ -310,6 +309,7 @@ function announceBoardWrite() {
             </Form>
           </Col>
         </Row>
+
       </Container>
 
       <Footer />

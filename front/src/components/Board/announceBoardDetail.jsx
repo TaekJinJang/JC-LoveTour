@@ -5,14 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
 import { REMOVE_POST_REQUEST } from "../../reducers/post";
-import { Container } from "react-bootstrap";
+import { Row, Col, ButtonGroup, Card, Container } from "react-bootstrap";
 
 import Pagination from "react-js-pagination";
 import "../UI/paging.css";
 import "../UI/boardUI.css";
 // 사이드바 라이브러리 추가
-
-import { Row, Col, ButtonGroup, Card, Stack, Form } from "react-bootstrap";
 
 function announceBoardDetail() {
   const { admin } = useSelector((state) => state.admin);

@@ -263,7 +263,7 @@ function MainHeader() {
                 >
                     <Nav.Item as="li">
                         <Nav.Link
-                            href="/board/reserve"
+                            href="/board/review"
                             style={{
                                 color: 'black',
                                 fontWeight: 'bold',

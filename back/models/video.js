@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Video.associate = (db) => {
     db.Video.belongsTo(db.Mainpost);
+    db.Video.belongsTo(db.Reviewpost);
   };
   return Video;
 };

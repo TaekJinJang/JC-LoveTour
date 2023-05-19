@@ -14,8 +14,8 @@ function main() {
         <Link to="/board/announce">
           <button>게시판</button>
         </Link>
-        <Link to="/board/reserve">
-          <button>예약하기</button>
+        <Link to="/board/review">
+          <button>후기게시판</button>
         </Link>
         <Link to="/board/gallery">
           <button>갤러리</button>

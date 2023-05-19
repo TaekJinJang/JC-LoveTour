@@ -8,10 +8,10 @@ import AnnounceBoardPost from './pages/announceBoardPost';
 import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
 import GalleryBoard from './pages/galleryBoard';
 import AnnounceBoardSearch from './components/Board/announceBoardSearch';
-import ReserveBoard from './pages/reserveBoard';
-import ReserveBoardWrite from './components/Board/reserveBoardWrite';
-import ReserveBoardDetail from './components/Board/reserveBoardDetail';
-import ReserveBoardUpdate from './components/Board/reserveBoardUpdate';
+import ReviewBoard from './pages/reviewBoard';
+import ReviewBoardWrite from './components/Board/reviewBoardWrite';
+import ReviewBoardDetail from './components/Board/reviewBoardDetail';
+import ReviewBoardUpdate from './components/Board/reviewBoardUpdate';
 import BoardUI from './components/UI/boardUI';
 import Main from './pages/main';
 import Admin from './pages/admin';
@@ -43,15 +43,15 @@ function App() {
             element={<AnnounceBoardSearch />}
           />
           <Route path="/board/gallery" element={<GalleryBoard />} />
-          <Route path="/board/reserve" element={<ReserveBoard />} />
-          <Route path="/board/reserve/add" element={<ReserveBoardWrite />} />
+          <Route path="/board/review" element={<ReviewBoard />} />
+          <Route path="/board/review/add" element={<ReviewBoardWrite />} />
           <Route
-            path="/board/reserve/:boardid"
-            element={<ReserveBoardDetail />}
+            path="/board/review/:boardid"
+            element={<ReviewBoardDetail />}
           />
           <Route
-            path="/board/reserve/:boardid/update"
-            element={<ReserveBoardUpdate />}
+            path="/board/review/:boardid/update"
+            element={<ReviewBoardUpdate />}
           />
           <Route path="/admin" element={<Admin />} />
           <Route path="/test" element={<BoardUI />} />

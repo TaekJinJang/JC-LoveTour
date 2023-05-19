@@ -1,17 +1,17 @@
 import React, { useCallback, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ReserveBoardView from '../components/Board/reserveBoardView';
+import ReviewBoardView from '../components/Board/reviewBoardView';
 import Header from '../components/UI/header';
 // import { TextArea } from 'react-bootstrap';
 import Footer from '../components/UI/footer';
 
-function reserveBoard() {
+function reviewBoard() {
   return (
     <>
       <Header />
-      <ReserveBoardView />
+      <ReviewBoardView />
       <Footer />
     </>
   );
 }
-export default reserveBoard;
+export default reviewBoard;

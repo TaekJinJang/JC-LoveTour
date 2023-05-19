@@ -4,9 +4,9 @@ import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
-import { REMOVE_RESERVE_REQUEST } from '../../reducers/post';
+import { REMOVE_REVIEW_REQUEST } from '../../reducers/post';
 
-function reserveBoardDetail() {
+function reviewBoardDetail() {
   const { admin } = useSelector((state) => state.admin);
   const location = useLocation();
   const { post } = location?.state;
@@ -14,15 +14,15 @@ function reserveBoardDetail() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const deleteBoard = useCallback(() => {
-    navigate('/board/reserve');
+    navigate('/board/review');
     return dispatch({
-      type: REMOVE_RESERVE_REQUEST,
+      type: REMOVE_REVIEW_REQUEST,
       data: post.id,
     });
   }, []);
 
   const updateBoard = useCallback(() => {
-    navigate(`/board/reserve/${post.id}/update`, { state: { post } });
+    navigate(`/board/review/${post.id}/update`, { state: { post } });
   }, []);
 
   return (
@@ -41,8 +41,8 @@ function reserveBoardDetail() {
           <tr>
             <td>{post.id}</td>
             <td>{post.name}</td>
-            <td>{post.reserveDate}</td>
             <td>{post.date}</td>
+            <td>{post.titleDate}</td>
             <td>{post.content}</td>
           </tr>
         </tbody>
@@ -59,4 +59,4 @@ function reserveBoardDetail() {
     </>
   );
 }
-export default reserveBoardDetail;
+export default reviewBoardDetail;

@@ -1,50 +1,47 @@
 import React, { useCallback, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { ADD_REVIEW_REQUEST } from '../../reducers/post';
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import useInput from '../../hooks/useInput';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { UPDATE_RESERVE_REQUEST } from '../../reducers/post';
-import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-function reserveBoardUpdate() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
+function reviewBoardWrite() {
   const [name, onChangeName] = useInput('');
   const [password, onChangePassword] = useInput('');
-  const [reserveDate, onChangeReserveDate] = useInput('');
+  const [title, onChangeTitle] = useInput('');
   const [phoneNum, onChangePhoneNum] = useInput('');
   const [text, onChangeText] = useInput('');
 
-  const { post } = location.state || {};
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
       if (!text || !text.trim()) {
         return alert('게시글을 작성하세요');
       }
-      navigate('/board/reserve/'); // 이전페이지로 이동
+      navigate('/board/review');
       return dispatch({
-        type: UPDATE_RESERVE_REQUEST,
+        type: ADD_REVIEW_REQUEST,
         data: {
-          postId: post.id,
           name: name,
           password: password,
-          reserveDate: reserveDate,
+          title: title,
           phoneNumber: phoneNum,
           content: text,
         },
       });
     },
-    [name, text, password, reserveDate, phoneNum]
+    [name, text, password, title, phoneNum]
   );
 
   return (
     <>
-      <h1>예약 수정하기</h1>
-      <Form onSubmit={onSubmitForm}>
+      <h1>예약하기</h1>
+      <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>이름</Form.Label>
           <Form.Control
@@ -65,14 +62,14 @@ function reserveBoardUpdate() {
             onChange={onChangePassword}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="reserveDate">
-          <Form.Label>예약날짜</Form.Label>
+        <Form.Group className="mb-3" controlId="title">
+          <Form.Label>제목</Form.Label>
           <Form.Control
-            name="reserveDate"
-            type="reserveDate"
-            placeholder="2023-00-00"
-            value={reserveDate}
-            onChange={onChangeReserveDate}
+            name="title"
+            type="title"
+            placeholder="제목을 입력해주세요."
+            value={title}
+            onChange={onChangeTitle}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="phoneNum">
@@ -97,12 +94,11 @@ function reserveBoardUpdate() {
         </Form.Group>
         <div>
           <Button variant="primary" type="submit">
-            수정하기
+            글쓰기
           </Button>
         </div>
       </Form>
     </>
   );
 }
-
-export default reserveBoardUpdate;
+export default reviewBoardWrite;

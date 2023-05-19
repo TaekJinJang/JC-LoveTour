@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Comment.associate = (db) => {
     db.Comment.belongsTo(db.Mainpost);
-    db.Comment.belongsTo(db.Reservepost);
+    db.Comment.belongsTo(db.Reviewpost);
     db.Comment.belongsTo(db.Gallery);
   };
   return Comment;

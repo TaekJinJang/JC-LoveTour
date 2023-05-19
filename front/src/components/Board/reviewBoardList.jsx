@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { INCREMENT_VIEWS_REQUEST } from '../../reducers/post';
 import useInput from '../../hooks/useInput';
 
-function reserveBoardList({ post }) {
+function reviewBoardList({ post }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -18,7 +18,7 @@ function reserveBoardList({ post }) {
 
   const boardDetail = useCallback(() => {
     if (post.password == password) {
-      navigate(`/board/reserve/${post.id}`, { state: { post } });
+      navigate(`/board/review/${post.id}`, { state: { post } });
     } else setShowError(true);
   }, [{ post }]);
 
@@ -37,8 +37,8 @@ function reserveBoardList({ post }) {
         <tbody>
           <tr onClick={handleShow}>
             <td>{post.id}</td>
-            <td>{post.name[0]}**님 예약글입니다.</td>
-            <td>{post.reserveDate}</td>
+            <td>{post.title}</td>
+            <td>{post.name}</td>
             <td>{post.date}</td>
             <td></td>
           </tr>
@@ -83,4 +83,4 @@ function reserveBoardList({ post }) {
     </>
   );
 }
-export default reserveBoardList;
+export default reviewBoardList;

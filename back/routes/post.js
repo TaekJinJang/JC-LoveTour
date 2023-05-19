@@ -1,5 +1,5 @@
 const express = require('express');
-const { Mainpost, Reservepost, Image, Admin, Comment } = require('../models');
+const { Mainpost, Reviewpost, Image, Admin, Comment } = require('../models');
 const router = express.Router();
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const multer = require('multer');
@@ -95,19 +95,19 @@ router.post(
 );
 router.post(
   //예약페이지 add
-  '/reserve/add',
+  '/review/add',
   async (req, res, next) => {
-    // POST /post/reserve/add
+    // POST /post/review/add
     try {
-      const post = await Reservepost.create({
+      const post = await Reviewpost.create({
         name: req.body.name,
         password: req.body.password,
+        title: req.body.title,
         content: req.body.content,
         date: TodayTime(),
-        reserveDate: req.body.reserveDate,
         phoneNumber: req.body.phoneNumber,
       });
-      // const fullPost = await Reservepost.findOne({
+      // const fullPost = await Reviewpost.findOne({
       //   where: { id: post.id },
       //   include: [{ model: Image }],
       // });
@@ -151,15 +151,15 @@ router.get('/announce/posts', async (req, res, next) => {
     next(error);
   }
 });
-router.get('/reserve/posts', async (req, res, next) => {
-  // GET /posts
+router.get('/review/posts', async (req, res, next) => {
+  // GET /post/review/posts
   try {
     const where = {};
     if (parseInt(req.query.lastId, 10)) {
       // 초기 로딩이 아닐 때
       where.id = { [Op.lt]: parseInt(req.query.lastId, 10) };
     }
-    const posts = await Reservepost.findAll({
+    const posts = await Reviewpost.findAll({
       //   limit: 10,
       where,
       order: [
@@ -170,7 +170,14 @@ router.get('/reserve/posts', async (req, res, next) => {
         {
           model: Comment, // 댓글 작성자
           attributes: {
-            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            attributes: [
+              'id',
+              'content',
+              'name',
+              'title',
+              'phoneNumber',
+              'password',
+            ],
             order: [['createdAt', 'DESC']],
           },
         },
@@ -203,7 +210,7 @@ router.get('/all/posts', async (req, res, next) => {
         },
       ],
     });
-    const reservePosts = await Reservepost.findAll({
+    const reviewPosts = await Reviewpost.findAll({
       limit: 10,
       order: [
         ['createdAt', 'DESC'],
@@ -221,7 +228,7 @@ router.get('/all/posts', async (req, res, next) => {
     });
     const allPosts = {
       mainPosts: mainPosts,
-      reservePosts: reservePosts,
+      reviewPosts: reviewPosts,
     };
     res.status(200).json(allPosts);
   } catch (error) {

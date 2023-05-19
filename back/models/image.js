@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   Image.associate = (db) => {
     db.Image.belongsTo(db.Mainpost); // Image.MainpostId
     db.Image.belongsTo(db.Gallery); // Image.GalleryId
+    db.Image.belongsTo(db.Reviewpost); // Image.ReviewpostId
   };
   return Image;
 };

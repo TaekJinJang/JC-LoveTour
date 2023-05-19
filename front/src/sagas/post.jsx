@@ -13,30 +13,30 @@ import {
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
   ADD_POST_REQUEST,
-  ADD_RESERVE_SUCCESS,
-  ADD_RESERVE_FAILURE,
-  ADD_RESERVE_REQUEST,
+  ADD_REVIEW_SUCCESS,
+  ADD_REVIEW_FAILURE,
+  ADD_REVIEW_REQUEST,
   REMOVE_POST_REQUEST,
   REMOVE_POST_FAILURE,
   REMOVE_POST_SUCCESS,
-  REMOVE_RESERVE_REQUEST,
-  REMOVE_RESERVE_FAILURE,
-  REMOVE_RESERVE_SUCCESS,
+  REMOVE_REVIEW_REQUEST,
+  REMOVE_REVIEW_FAILURE,
+  REMOVE_REVIEW_SUCCESS,
   UPDATE_POST_REQUEST,
   UPDATE_POST_FAILURE,
   UPDATE_POST_SUCCESS,
-  UPDATE_RESERVE_REQUEST,
-  UPDATE_RESERVE_FAILURE,
-  UPDATE_RESERVE_SUCCESS,
+  UPDATE_REVIEW_REQUEST,
+  UPDATE_REVIEW_FAILURE,
+  UPDATE_REVIEW_SUCCESS,
   LOAD_ALL_POSTS_REQUEST,
   LOAD_ALL_POSTS_SUCCESS,
   LOAD_ALL_POSTS_FAILURE,
   LOAD_POSTS_REQUEST,
   LOAD_POSTS_SUCCESS,
   LOAD_POSTS_FAILURE,
-  LOAD_RESERVE_POSTS_REQUEST,
-  LOAD_RESERVE_POSTS_SUCCESS,
-  LOAD_RESERVE_POSTS_FAILURE,
+  LOAD_REVIEW_POSTS_REQUEST,
+  LOAD_REVIEW_POSTS_SUCCESS,
+  LOAD_REVIEW_POSTS_FAILURE,
   LOAD_SEARCH_POSTS_REQUEST,
   LOAD_SEARCH_POSTS_SUCCESS,
   LOAD_SEARCH_POSTS_FAILURE,
@@ -74,24 +74,24 @@ function* addPost(action) {
     });
   }
 }
-function addReserveAPI(data) {
-  return axios.post('/post/reserve/add', data);
+function addReviewAPI(data) {
+  return axios.post('/post/review/add', data);
 }
 
-function* addReserve(action) {
+function* addReview(action) {
   try {
-    const result = yield call(addReserveAPI, action.data);
+    const result = yield call(addReviewAPI, action.data);
     // yield delay(1000);
 
     yield put({
       // put은 dispatch라고 생각하는게 편함
-      type: ADD_RESERVE_SUCCESS,
+      type: ADD_REVIEW_SUCCESS,
       data: result.data,
     });
   } catch (err) {
     console.error(err);
     yield put({
-      type: ADD_RESERVE_FAILURE,
+      type: ADD_REVIEW_FAILURE,
       data: err.response.data,
     });
   }
@@ -119,22 +119,22 @@ function* incrementViews(action) {
   }
 }
 
-function removeReserveAPI(data) {
-  return axios.delete(`/post/reserve/${data}`);
+function removeReviewAPI(data) {
+  return axios.delete(`/post/review/${data}`);
 }
 
-function* removeReserve(action) {
+function* removeReview(action) {
   try {
     const result = yield call(removePostAPI, action.data);
     // yield delay(1000);
     yield put({
-      type: REMOVE_RESERVE_SUCCESS,
+      type: REMOVE_REVIEW_SUCCESS,
       data: action.data,
     });
   } catch (err) {
     console.error(err);
     yield put({
-      type: REMOVE_RESERVE_FAILURE,
+      type: REMOVE_REVIEW_FAILURE,
       data: err.response.data,
     });
   }
@@ -178,21 +178,21 @@ function* updatePost(action) {
     });
   }
 }
-function updateReserveAPI(data) {
+function updateReviewAPI(data) {
   return axios.delete('/api/post', data);
 }
-function* updateReserve(action) {
+function* updateReview(action) {
   try {
-    // const result = yield call(updateReserveAPI, action.data);
+    // const result = yield call(updateReviewAPI, action.data);
     // yield delay(1000);
     yield put({
-      type: UPDATE_RESERVE_SUCCESS,
+      type: UPDATE_REVIEW_SUCCESS,
       data: action.data,
     });
   } catch (err) {
     console.error(err);
     yield put({
-      type: UPDATE_RESERVE_FAILURE,
+      type: UPDATE_REVIEW_FAILURE,
       data: err.response.data,
     });
   }
@@ -216,21 +216,21 @@ function* loadPosts(action) {
     });
   }
 }
-function loadReservePostsAPI(lastId) {
-  return axios.get(`/post/reserve/posts?lastId=${lastId || 0}`);
+function loadReviewPostsAPI(lastId) {
+  return axios.get(`/post/review/posts?lastId=${lastId || 0}`);
 }
-function* loadReservePosts(action) {
+function* loadReviewPosts(action) {
   try {
-    const result = yield call(loadReservePostsAPI, action.lastId); // call은 동기 fork는 비동기
+    const result = yield call(loadReviewPostsAPI, action.lastId); // call은 동기 fork는 비동기
     yield put({
       // put은 dispatch라고 생각하는게 편함
-      type: LOAD_RESERVE_POSTS_SUCCESS,
+      type: LOAD_REVIEW_POSTS_SUCCESS,
       data: result.data, // 모든 게시글
     });
   } catch (err) {
     console.error(err);
     yield put({
-      type: LOAD_RESERVE_POSTS_FAILURE,
+      type: LOAD_REVIEW_POSTS_FAILURE,
       error: err.response.data,
     });
   }
@@ -325,27 +325,27 @@ function* watchAllLoadPosts() {
 function* watchLoadPosts() {
   yield takeLatest(LOAD_POSTS_REQUEST, loadPosts);
 }
-function* watchReserveLoadPosts() {
-  yield takeLatest(LOAD_RESERVE_POSTS_REQUEST, loadReservePosts);
+function* watchReviewLoadPosts() {
+  yield takeLatest(LOAD_REVIEW_POSTS_REQUEST, loadReviewPosts);
 }
 function* watchAddPost() {
   yield takeLatest(ADD_POST_REQUEST, addPost);
 }
-function* watchAddReserve() {
-  yield takeLatest(ADD_RESERVE_REQUEST, addReserve);
+function* watchAddReview() {
+  yield takeLatest(ADD_REVIEW_REQUEST, addReview);
 }
 
 function* watchRemovePost() {
   yield takeLatest(REMOVE_POST_REQUEST, removePost);
 }
-function* watchRemoveReserve() {
-  yield takeLatest(REMOVE_RESERVE_REQUEST, removeReserve);
+function* watchRemoveReview() {
+  yield takeLatest(REMOVE_REVIEW_REQUEST, removeReview);
 }
 function* watchUpdatePost() {
   yield takeLatest(UPDATE_POST_REQUEST, updatePost);
 }
-function* watchUpdateReserve() {
-  yield takeLatest(UPDATE_RESERVE_REQUEST, updateReserve);
+function* watchUpdateReview() {
+  yield takeLatest(UPDATE_REVIEW_REQUEST, updateReview);
 }
 function* watchLoadPost() {
   yield takeLatest(LOAD_POST_REQUEST, loadPost);
@@ -364,15 +364,15 @@ export default function* postSaga() {
   yield all([
     fork(watchIncrementViews),
     fork(watchAddPost),
-    fork(watchAddReserve),
+    fork(watchAddReview),
     fork(watchAllLoadPosts),
     fork(watchLoadPosts),
-    fork(watchReserveLoadPosts),
+    fork(watchReviewLoadPosts),
     fork(watchLoadSearchPosts),
     fork(watchRemovePost),
-    fork(watchRemoveReserve),
+    fork(watchRemoveReview),
     fork(watchUpdatePost),
-    fork(watchUpdateReserve),
+    fork(watchUpdateReview),
     fork(watchUploadImages),
     fork(watchLoadPost),
   ]);

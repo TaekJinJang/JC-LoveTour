@@ -27,15 +27,16 @@ function header() {
                         margin: '0 auto',
                     }}
                 />
-                <Row>
+                <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
                     <Nav
                         style={{
                             justifyContent: 'center',
                             width: '100%',
-                            zIndex: '30',
+                            zIndex: '20',
                             position: 'absolute',
                             paddingRight: 'calc(10px - 10px)',
                         }}
+                        activeKey="/"
                         onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
                         onMouseLeave={() => setShowMenu(false)} // 네비게이션에서 마우스를 내렸을 때 상태값 변경
                     >
@@ -43,13 +44,20 @@ function header() {
                             md="auto"
                             style={{
                                 fontSize: '20px',
+                                display: 'flex',
+                                justifyContent: 'center',
                                 fontWeight: 'bold',
                             }}
                         >
                             <Nav.Item as="li">
                                 <Nav.Link
                                     href="/"
-                                    style={{ color: 'white', fontWeight: 'bold', fontSize: '22px', width: '194px' }}
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        width: '200px',
+                                    }}
                                 >
                                     제천 러브투어
                                 </Nav.Link>
@@ -59,19 +67,19 @@ function header() {
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '0px',
+                                            marginTop: '11px',
                                         }}
                                     >
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             러브투어 소개
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             지원 혜택
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="/board/gallery">
+                                        <Nav.Link as="a" href="/board/gallery" style={{ color: 'white' }}>
                                             사진 갤러리
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             영상 갤러리
                                         </Nav.Link>
                                     </ul>
@@ -91,32 +99,36 @@ function header() {
                             <Nav.Item as="li">
                                 <Nav.Link
                                     href="/"
-                                    style={{ color: 'white', fontWeight: 'bold', fontSize: '22px', width: '194px' }}
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        width: '200px',
+                                    }}
                                 >
                                     제천의 이모저모
                                 </Nav.Link>
-
                                 {showMenu && (
                                     <ul
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '0px',
+                                            marginTop: '11px',
                                         }}
                                     >
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             관광지
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             전통시장
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             음식
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             숙박
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             축제/행사
                                         </Nav.Link>
                                     </ul>
@@ -136,29 +148,33 @@ function header() {
                             <Nav.Item as="li">
                                 <Nav.Link
                                     href="/"
-                                    style={{ color: 'white', fontWeight: 'bold', fontSize: '22px', width: '175px' }}
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        width: '200px',
+                                    }}
                                 >
                                     테마/코스
                                 </Nav.Link>
-
                                 {showMenu && (
                                     <ul
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '0px',
+                                            marginTop: '11px',
                                         }}
                                     >
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             기본코스
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             힐링코스
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             가스트로투어
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             제천시티투어
                                         </Nav.Link>
                                     </ul>
@@ -177,25 +193,29 @@ function header() {
                         >
                             <Nav.Item as="li">
                                 <Nav.Link
-                                    href="/board/reserve"
-                                    style={{ color: 'white', fontWeight: 'bold', fontSize: '22px', width: '170px' }}
+                                    href="/board/review"
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        width: '200px',
+                                    }}
                                 >
-                                    예약
+                                    후기 게시판
                                 </Nav.Link>
-
                                 {showMenu && (
                                     <ul
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '0px',
+                                            marginTop: '11px',
                                         }}
                                     >
-                                        <Nav.Link as="a" href="#">
-                                            예약 신청
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
+                                            후기 작성
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
-                                            예약 조회/취소
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
+                                            후기 조회/삭제
                                         </Nav.Link>
                                     </ul>
                                 )}
@@ -214,23 +234,27 @@ function header() {
                             <Nav.Item as="li">
                                 <Nav.Link
                                     href="/board/announce"
-                                    style={{ color: 'white', fontWeight: 'bold', fontSize: '22px', width: '190px' }}
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        width: '200px',
+                                    }}
                                 >
                                     알림마당
                                 </Nav.Link>
-
                                 {showMenu && (
                                     <ul
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '0px',
+                                            marginTop: '11px',
                                         }}
                                     >
-                                        <Nav.Link as="a" href="/board/announce">
+                                        <Nav.Link as="a" href="/board/announce" style={{ color: 'white' }}>
                                             공지사항
                                         </Nav.Link>
-                                        <Nav.Link as="a" href="#">
+                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                             자주하는 질문
                                         </Nav.Link>
                                     </ul>

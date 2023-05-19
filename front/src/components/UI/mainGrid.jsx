@@ -14,10 +14,11 @@ import {
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
 
 function mainGrid() {
   const { mainPosts } = useSelector((state) => state.post);
-  const dispatch = useDispatch();
+  console.log(mainPosts);
 
   const navigate = useNavigate();
   const goToAnnounceBoard = useCallback(() => {
@@ -130,9 +131,12 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {mainPosts[mainPosts.length - 1].title}
+                        {mainPosts.length > 0 &&
+                          mainPosts[mainPosts.length - 1].title}
+                        테스트입니다.
                       </div>
-                      {mainPosts[mainPosts.length - 1].date}
+                      {/* {mainPosts[mainPosts.length - 1].date */}
+                      테스트입니다.
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -141,9 +145,11 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {mainPosts[mainPosts.length - 2].title}
+                        {/* {mainPosts[mainPosts.length - 2].title} */}
+                        테스트입니다.
                       </div>
-                      {mainPosts[mainPosts.length - 2].date}
+                      {/* {mainPosts[mainPosts.length - 2].date} */}
+                      테스트입니다.
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -152,9 +158,11 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {mainPosts[mainPosts.length - 3].title}
+                        {/* {mainPosts[mainPosts.length - 3].title} */}
+                        테스트입니다.
                       </div>
-                      {mainPosts[mainPosts.length - 3].date}
+                      {/* {mainPosts[mainPosts.length - 3].date} */}
+                      테스트입니다.
                     </div>
                   </ListGroup.Item>
                 </ListGroup>

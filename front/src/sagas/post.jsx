@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 import {
   all,
@@ -8,7 +8,7 @@ import {
   put,
   takeLatest,
   throttle,
-} from 'redux-saga/effects';
+} from "redux-saga/effects";
 import {
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
@@ -50,10 +50,10 @@ import {
   INCREMENT_VIEWS_SUCCESS,
   INCREMENT_VIEWS_FAILURE,
   generateDummyPost,
-} from '../reducers/post';
+} from "../reducers/post";
 
 function addPostAPI(data) {
-  return axios.post('/post/announce/add', data);
+  return axios.post("/post/announce/add", data);
 }
 
 function* addPost(action) {
@@ -75,7 +75,7 @@ function* addPost(action) {
   }
 }
 function addReviewAPI(data) {
-  return axios.post('/post/review/add', data);
+  return axios.post("/post/review/add", data);
 }
 
 function* addReview(action) {
@@ -125,11 +125,11 @@ function removeReviewAPI(data) {
 
 function* removeReview(action) {
   try {
-    const result = yield call(removePostAPI, action.data);
+    const result = yield call(removeReviewAPI, action.data);
     // yield delay(1000);
     yield put({
       type: REMOVE_REVIEW_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);
@@ -179,15 +179,15 @@ function* updatePost(action) {
   }
 }
 function updateReviewAPI(data) {
-  return axios.delete('/api/post', data);
+  return axios.patch(`/post/review/${data.PostId}/update`, data);
 }
 function* updateReview(action) {
   try {
-    // const result = yield call(updateReviewAPI, action.data);
+    const result = yield call(updateReviewAPI, action.data);
     // yield delay(1000);
     yield put({
       type: UPDATE_REVIEW_SUCCESS,
-      data: action.data,
+      data: result.data,
     });
   } catch (err) {
     console.error(err);
@@ -300,7 +300,7 @@ function* loadPost(action) {
   }
 }
 function uploadImagesAPI(data) {
-  return axios.post('/post/images', data);
+  return axios.post("/post/images", data);
 }
 function* uploadImages(action) {
   try {

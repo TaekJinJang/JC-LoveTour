@@ -48,7 +48,7 @@ function galleryBoardView() {
                 </Row>
 
                 {/* 사이드 메뉴 */}
-                <Row className="mt-3 ps-1">
+                <Row className="mt-3 ps-1" style={{width: '100%'}}>
                     <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
                         <Card bg="success" text="white" style={{ height: '150px' }}>
                             <Card.Body className="bp-0">
@@ -87,7 +87,7 @@ function galleryBoardView() {
                         <Row>
                             <h2>사진 갤러리</h2>
                         </Row>
-                        <Row className="mt-2">
+                        <Row className="mt-2" >
                             <Col className="bg-light border pt-1">
                                 <Col className="mb-1" style={{ float: 'right' }}>
                                     <Stack direction="horizontal" gap={3}>

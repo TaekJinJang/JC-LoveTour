@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 import {
   all,
@@ -8,7 +8,7 @@ import {
   put,
   takeLatest,
   throttle,
-} from "redux-saga/effects";
+} from 'redux-saga/effects';
 import {
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
@@ -16,6 +16,9 @@ import {
   ADD_REVIEW_SUCCESS,
   ADD_REVIEW_FAILURE,
   ADD_REVIEW_REQUEST,
+  ADD_GALLERY_SUCCESS,
+  ADD_GALLERY_FAILURE,
+  ADD_GALLERY_REQUEST,
   REMOVE_POST_REQUEST,
   REMOVE_POST_FAILURE,
   REMOVE_POST_SUCCESS,
@@ -46,14 +49,17 @@ import {
   UPLOAD_IMAGES_REQUEST,
   UPLOAD_IMAGES_SUCCESS,
   UPLOAD_IMAGES_FAILURE,
+  UPLOAD_IMAGE_REQUEST,
+  UPLOAD_IMAGE_SUCCESS,
+  UPLOAD_IMAGE_FAILURE,
   INCREMENT_VIEWS_REQUEST,
   INCREMENT_VIEWS_SUCCESS,
   INCREMENT_VIEWS_FAILURE,
   generateDummyPost,
-} from "../reducers/post";
+} from '../reducers/post';
 
 function addPostAPI(data) {
-  return axios.post("/post/announce/add", data);
+  return axios.post('/post/announce/add', data);
 }
 
 function* addPost(action) {
@@ -75,7 +81,7 @@ function* addPost(action) {
   }
 }
 function addReviewAPI(data) {
-  return axios.post("/post/review/add", data);
+  return axios.post('/post/review/add', data);
 }
 
 function* addReview(action) {
@@ -92,6 +98,28 @@ function* addReview(action) {
     console.error(err);
     yield put({
       type: ADD_REVIEW_FAILURE,
+      data: err.response.data,
+    });
+  }
+}
+function addGalleryAPI(data) {
+  return axios.post('/post/gallery/add', data);
+}
+
+function* addGallery(action) {
+  try {
+    const result = yield call(addGalleryAPI, action.data);
+    // yield delay(1000);
+
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: ADD_GALLERY_SUCCESS,
+      data: result.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: ADD_GALLERY_FAILURE,
       data: err.response.data,
     });
   }
@@ -300,7 +328,7 @@ function* loadPost(action) {
   }
 }
 function uploadImagesAPI(data) {
-  return axios.post("/post/images", data);
+  return axios.post('/post/images', data);
 }
 function* uploadImages(action) {
   try {
@@ -314,6 +342,25 @@ function* uploadImages(action) {
     console.error(err);
     yield put({
       type: UPLOAD_IMAGES_FAILURE,
+      error: err.response.data,
+    });
+  }
+}
+function uploadImageAPI(data) {
+  return axios.post('/post/image', data);
+}
+function* uploadImage(action) {
+  try {
+    const result = yield call(uploadImageAPI, action.data); // call은 동기 fork는 비동기
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: UPLOAD_IMAGE_SUCCESS,
+      data: result.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: UPLOAD_IMAGE_FAILURE,
       error: err.response.data,
     });
   }
@@ -333,6 +380,9 @@ function* watchAddPost() {
 }
 function* watchAddReview() {
   yield takeLatest(ADD_REVIEW_REQUEST, addReview);
+}
+function* watchAddGallery() {
+  yield takeLatest(ADD_GALLERY_REQUEST, addGallery);
 }
 
 function* watchRemovePost() {
@@ -356,6 +406,9 @@ function* watchLoadSearchPosts() {
 function* watchUploadImages() {
   yield takeLatest(UPLOAD_IMAGES_REQUEST, uploadImages);
 }
+function* watchUploadImage() {
+  yield takeLatest(UPLOAD_IMAGE_REQUEST, uploadImage);
+}
 function* watchIncrementViews() {
   yield takeLatest(INCREMENT_VIEWS_REQUEST, incrementViews);
 }
@@ -365,6 +418,7 @@ export default function* postSaga() {
     fork(watchIncrementViews),
     fork(watchAddPost),
     fork(watchAddReview),
+    fork(watchAddGallery),
     fork(watchAllLoadPosts),
     fork(watchLoadPosts),
     fork(watchReviewLoadPosts),
@@ -374,6 +428,7 @@ export default function* postSaga() {
     fork(watchUpdatePost),
     fork(watchUpdateReview),
     fork(watchUploadImages),
+    fork(watchUploadImage),
     fork(watchLoadPost),
   ]);
 }

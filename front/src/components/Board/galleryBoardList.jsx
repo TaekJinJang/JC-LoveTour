@@ -13,7 +13,7 @@ function galleryBoardList({ post }) {
   return (
     <>
       <Col md={4}>
-
+        {/* {console.log(post)} */}
         {/* 이미지 캐러셀 */}
         <Modal show={showImagesZoom} onHide={handleClose} size="lg" centered>
           <Modal.Header closeButton>
@@ -24,7 +24,7 @@ function galleryBoardList({ post }) {
           </Modal.Body>
         </Modal>
 
-        <Card style={{ width: '15rem' }} className='mb-3'>
+        <Card style={{ width: '15rem' }} className="mb-3">
           <Card.Img
             variant="top"
             width={230}
@@ -33,9 +33,20 @@ function galleryBoardList({ post }) {
             alt={post.Images[0].src}
           />
           <Card.Body>
-            <Card.Title className='text-center mt-1 mb-4'><h4>{post.title}</h4></Card.Title>
-{/*             <Card.Text>{post.content}</Card.Text>*/}
-            <Card.Text style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', color: 'gray'}}><p>sdfsasdfadfadfasdfadfadfafddfasdf</p></Card.Text>
+            <Card.Title className="text-center mt-1 mb-4">
+              <h4>{post.title}</h4>
+            </Card.Title>
+            {/*             <Card.Text>{post.content}</Card.Text>*/}
+            <Card.Text
+              style={{
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                color: 'gray',
+              }}
+            >
+              <p>제목</p>
+            </Card.Text>
             <Button variant="primary" onClick={() => setShowImagesZoom(true)}>
               더 보기
             </Button>

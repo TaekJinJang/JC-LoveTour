@@ -57,11 +57,27 @@ const upload = multer({
   limits: { fileSize: 20 * 1024 * 1024 }, //20MB 로 제한
 });
 
-router.post('/images', upload.array('image'), (req, res, next) => {
-  //POST /post/images
+router.post('/image', upload.array('image'), (req, res, next) => {
+  // 이미지 한개만 저장하기, 캡션과 함께
+  //POST /post/image
   console.log(req.files);
-  res.json(req.files.map((v) => v.filename));
+
+  const image = req.files.map((v) => {
+    return {
+      src: v.filename,
+      captionTitle: req.body.imageTitle,
+      captionContent: req.body.imageContent,
+    };
+  });
+  res.json(image);
 });
+// router.post('/images', upload.array('image'), (req, res, next) => {
+//   //POST /post/images
+//   console.log(req.files);
+//   res.json(
+//     req.files.map((v) => v.filename)
+//   );
+// });
 
 router.post(
   '/announce/add',
@@ -142,7 +158,7 @@ router.post(
 router.post(
   //예약페이지 add
   '/gallery/add',
-  isLoggedIn,
+  // isLoggedIn,
   upload.none(),
   async (req, res, next) => {
     // POST /post/gallery/add
@@ -152,15 +168,16 @@ router.post(
         content: req.body.content,
         date: TodayTime(),
       });
+
       if (req.body.image) {
         if (Array.isArray(req.body.image)) {
           // 이미지를 여러개 올리면 image: [택진.png, 택진111.png]
           const images = await Promise.all(
-            req.body.image.map((image) =>
+            req.body.image.map((image, i) =>
               Image.create({
                 src: image,
-                captionTitle: req.body.imageTitle,
-                captionContent: req.body.imageContent,
+                captionTitle: req.body.captionTitle[i],
+                captionContent: req.body.captionContent[i],
               })
             )
           );
@@ -168,14 +185,14 @@ router.post(
         } else {
           // 이미지를 하나만 올리면 image: 택진.png
           const image = await Image.create({
-            src: image,
+            src: req.body.image,
             captionTitle: req.body.imageTitle,
             captionContent: req.body.imageContent,
           });
           await post.addImages(image);
         }
       }
-      const fullPost = await Reviewpost.findOne({
+      const fullPost = await Gallery.findOne({
         where: { id: post.id },
         include: [{ model: Image }],
       });
@@ -294,10 +311,19 @@ router.get('/all/posts', async (req, res, next) => {
         },
       ],
     });
+    const galleryPosts = await Gallery.findAll({
+      limit: 10,
+      order: [
+        ['createdAt', 'DESC'],
+        // 내림차순
+      ],
+    });
     const allPosts = {
       mainPosts: mainPosts,
       reviewPosts: reviewPosts,
+      gallery: galleryPosts,
     };
+    console.log(allPosts);
     res.status(200).json(allPosts);
   } catch (error) {
     console.error(error);

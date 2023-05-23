@@ -2,7 +2,11 @@ import React, { useCallback, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { REMOVE_IMAGE, UPLOAD_IMAGES_REQUEST } from '../../reducers/post';
+import {
+  ADD_GALLERY_REQUEST,
+  REMOVE_IMAGE,
+  UPLOAD_IMAGE_REQUEST,
+} from '../../reducers/post';
 import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import '../UI/paging.css';
@@ -41,33 +45,41 @@ function galleryBoardWrite() {
       }
       const formData = new FormData();
       imagePaths.forEach((p) => {
-        formData.append('image', p);
+        console.log(p);
+        formData.append('image', p[0].src);
+        formData.append('captionTitle', p[0].captionTitle);
+        formData.append('captionContent', p[0].captionContent);
       });
       formData.append('title', title);
       formData.append('content', text);
 
-      console.log(formData);
+      console.log(imagePaths, '이미지패쓰');
       navigate('/board/gallery');
+      console.log(formData, '폼데이터');
 
       return dispatch({
-        type: ADD_GALLERY,
+        type: ADD_GALLERY_REQUEST,
         data: formData,
       });
     },
     [title, text, imagePaths]
   );
 
-  const onPushImages = useCallback(() => {
-    console.log('images');
+  //   const onClickImageUpload = useCallback(() => {
+  //     imageInput.current.click();
+  //   }, [imageInput.current]);
+
+  const onPushImages = useCallback((imageTitle, imageText) => {
     const imageFormData = new FormData();
-    [].forEach.call(e.target.files, (f) => {
+    [].forEach.call(imageInput.current.files, (f) => {
       imageFormData.append('image', f);
+      imageFormData.append('imageTitle', imageTitle);
+      imageFormData.append('imageContent', imageText);
     });
     dispatch({
-      type: UPLOAD_IMAGES_REQUEST,
+      type: UPLOAD_IMAGE_REQUEST,
       data: imageFormData,
     });
-    console.log(imageFormData);
   }, []);
   const onRemoveImage = useCallback((index) => () => {
     dispatch({
@@ -361,10 +373,11 @@ function galleryBoardWrite() {
               <div>
                 {imagePaths.map((v, i) => (
                   <div key={v} style={{ display: 'inline-block' }}>
+                    {console.log(v, i)}
                     <img
-                      src={`http://localhost:3005/${v}`}
+                      src={`http://localhost:3005/${v[0].src}`}
                       style={{ width: '200px' }}
-                      alt={v}
+                      alt={v[0]}
                     />
                     <div>
                       <Button onClick={onRemoveImage(i)}>제거</Button>
@@ -372,7 +385,9 @@ function galleryBoardWrite() {
                   </div>
                 ))}
               </div>
-              <Button onClick={onPushImages()}>이미지등록</Button>
+              <Button onClick={() => onPushImages(imageTitle, imageText)}>
+                이미지등록
+              </Button>
               <Col className="d-flex justify-content-end">
                 <Button
                   className="mb-4"

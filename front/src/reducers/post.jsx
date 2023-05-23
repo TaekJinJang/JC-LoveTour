@@ -1,6 +1,6 @@
-import produce from "immer";
-import shortId from "shortid";
-import faker from "faker";
+import produce from 'immer';
+import shortId from 'shortid';
+import faker from 'faker';
 
 export const initialState = {
   searchPosts: [],
@@ -27,21 +27,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: "관리자",
+        nickname: '관리자',
       },
-      title: "첫 예시",
+      title: '첫 예시',
       Images: [
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "첫이미지 제목",
-          captionContent: "첫이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
         },
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "2이미지 제목",
-          captionContent: "2이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
         },
       ],
     },
@@ -49,21 +49,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: "관리자",
+        nickname: '관리자',
       },
-      title: "첫 예시",
+      title: '첫 예시',
       Images: [
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "첫이미지 제목",
-          captionContent: "첫이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
         },
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "2이미지 제목",
-          captionContent: "2이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
         },
       ],
     },
@@ -71,21 +71,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: "관리자",
+        nickname: '관리자',
       },
-      title: "첫 예시",
+      title: '첫 예시',
       Images: [
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "첫이미지 제목",
-          captionContent: "첫이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
         },
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "2이미지 제목",
-          captionContent: "2이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
         },
       ],
     },
@@ -93,21 +93,21 @@ export const initialState = {
       id: 1,
       admin: {
         id: 1,
-        nickname: "관리자",
+        nickname: '관리자',
       },
-      title: "첫 예시",
+      title: '첫 예시',
       Images: [
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "첫이미지 제목",
-          captionContent: "첫이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '첫이미지 제목',
+          captionContent: '첫이미지 내용',
         },
         {
           id: shortId.generate(),
-          src: "https://via.placeholder.com/300.png/o0f/fff",
-          captionTitle: "2이미지 제목",
-          captionContent: "2이미지 내용",
+          src: 'https://via.placeholder.com/300.png/o0f/fff',
+          captionTitle: '2이미지 제목',
+          captionContent: '2이미지 내용',
         },
       ],
     },
@@ -163,7 +163,7 @@ const TodayTime = () => {
   let Month = date.getMonth() + 1; // 월
   let Day = date.getDate(); // 일
 
-  return Year + "-" + Month + "-" + Day;
+  return Year + '-' + Month + '-' + Day;
 };
 
 let fakerId = 0;
@@ -194,10 +194,10 @@ export const generateDummyReview = (number) =>
     .fill()
     .map(() => ({
       id: shortId.generate(),
-      name: "박동준",
+      name: '박동준',
       password: 123,
-      phoneNumber: "010-0000-0000",
-      title: "하핫 잘 놀다 갑니다",
+      phoneNumber: '010-0000-0000',
+      title: '하핫 잘 놀다 갑니다',
       content: faker.lorem.paragraph(),
 
       date: TodayTime(),
@@ -209,46 +209,52 @@ initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 initialState.reviewPosts = initialState.reviewPosts.concat(
   generateDummyReview(10)
 );
-export const ADD_POST_REQUEST = "ADD_POST_REQUEST";
-export const ADD_POST_SUCCESS = "ADD_POST_SUCCESS";
-export const ADD_POST_FAILURE = "ADD_POST_FAILURE";
-export const ADD_REVIEW_REQUEST = "ADD_REVIEW_REQUEST";
-export const ADD_REVIEW_SUCCESS = "ADD_REVIEW_SUCCESS";
-export const ADD_REVIEW_FAILURE = "ADD_REVIEW_FAILURE";
-export const REMOVE_POST_REQUEST = "REMOVE_POST_REQUEST";
-export const REMOVE_POST_SUCCESS = "REMOVE_POST_SUCCESS";
-export const REMOVE_POST_FAILURE = "REMOVE_POST_FAILURE";
-export const REMOVE_REVIEW_REQUEST = "REMOVE_REVIEW_REQUEST";
-export const REMOVE_REVIEW_SUCCESS = "REMOVE_REVIEW_SUCCESS";
-export const REMOVE_REVIEW_FAILURE = "REMOVE_REVIEW_FAILURE";
-export const UPDATE_POST_REQUEST = "UPDATE_POST_REQUEST";
-export const UPDATE_POST_SUCCESS = "UPDATE_POST_SUCCESS";
-export const UPDATE_POST_FAILURE = "UPDATE_POST_FAILURE";
-export const UPDATE_REVIEW_REQUEST = "UPDATE_REVIEW_REQUEST";
-export const UPDATE_REVIEW_SUCCESS = "UPDATE_REVIEW_SUCCESS";
-export const UPDATE_REVIEW_FAILURE = "UPDATE_REVIEW_FAILURE";
-export const UPLOAD_IMAGES_REQUEST = "UPLOAD_IMAGES_REQUEST";
-export const UPLOAD_IMAGES_SUCCESS = "UPLOAD_IMAGES_SUCCESS";
-export const UPLOAD_IMAGES_FAILURE = "UPLOAD_IMAGES_FAILURE";
-export const LOAD_POSTS_REQUEST = "LOAD_POSTS_REQUEST";
-export const LOAD_POSTS_SUCCESS = "LOAD_POSTS_SUCCESS";
-export const LOAD_POSTS_FAILURE = "LOAD_POSTS_FAILURE";
-export const LOAD_ALL_POSTS_REQUEST = "LOAD_ALL_POSTS_REQUEST";
-export const LOAD_ALL_POSTS_SUCCESS = "LOAD_ALL_POSTS_SUCCESS";
-export const LOAD_ALL_POSTS_FAILURE = "LOAD_ALL_POSTS_FAILURE";
-export const LOAD_REVIEW_POSTS_REQUEST = "LOAD_REVIEW_POSTS_REQUEST";
-export const LOAD_REVIEW_POSTS_SUCCESS = "LOAD_REVIEW_POSTS_SUCCESS";
-export const LOAD_REVIEW_POSTS_FAILURE = "LOAD_REVIEW_POSTS_FAILURE";
-export const LOAD_SEARCH_POSTS_REQUEST = "LOAD_SEARCH_POSTS_REQUEST";
-export const LOAD_SEARCH_POSTS_SUCCESS = "LOAD_SEARCH_POSTS_SUCCESS";
-export const LOAD_SEARCH_POSTS_FAILURE = "LOAD_SEARCH_POSTS_FAILURE";
-export const LOAD_POST_REQUEST = "LOAD_POST_REQUEST";
-export const LOAD_POST_SUCCESS = "LOAD_POST_SUCCESS";
-export const LOAD_POST_FAILURE = "LOAD_POST_FAILURE";
-export const REMOVE_IMAGE = "REMOVE_IMAGE";
-export const INCREMENT_VIEWS_REQUEST = "INCREMENT_VIEWS_REQUEST";
-export const INCREMENT_VIEWS_SUCCESS = "INCREMENT_VIEWS_SUCCESS";
-export const INCREMENT_VIEWS_FAILURE = "INCREMENT_VIEWS_FAILURE";
+export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
+export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
+export const ADD_POST_FAILURE = 'ADD_POST_FAILURE';
+export const ADD_REVIEW_REQUEST = 'ADD_REVIEW_REQUEST';
+export const ADD_REVIEW_SUCCESS = 'ADD_REVIEW_SUCCESS';
+export const ADD_REVIEW_FAILURE = 'ADD_REVIEW_FAILURE';
+export const ADD_GALLERY_REQUEST = 'ADD_GALLERY_REQUEST';
+export const ADD_GALLERY_SUCCESS = 'ADD_GALLERY_SUCCESS';
+export const ADD_GALLERY_FAILURE = 'ADD_GALLERY_FAILURE';
+export const REMOVE_POST_REQUEST = 'REMOVE_POST_REQUEST';
+export const REMOVE_POST_SUCCESS = 'REMOVE_POST_SUCCESS';
+export const REMOVE_POST_FAILURE = 'REMOVE_POST_FAILURE';
+export const REMOVE_REVIEW_REQUEST = 'REMOVE_REVIEW_REQUEST';
+export const REMOVE_REVIEW_SUCCESS = 'REMOVE_REVIEW_SUCCESS';
+export const REMOVE_REVIEW_FAILURE = 'REMOVE_REVIEW_FAILURE';
+export const UPDATE_POST_REQUEST = 'UPDATE_POST_REQUEST';
+export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
+export const UPDATE_POST_FAILURE = 'UPDATE_POST_FAILURE';
+export const UPDATE_REVIEW_REQUEST = 'UPDATE_REVIEW_REQUEST';
+export const UPDATE_REVIEW_SUCCESS = 'UPDATE_REVIEW_SUCCESS';
+export const UPDATE_REVIEW_FAILURE = 'UPDATE_REVIEW_FAILURE';
+export const UPLOAD_IMAGES_REQUEST = 'UPLOAD_IMAGES_REQUEST';
+export const UPLOAD_IMAGES_SUCCESS = 'UPLOAD_IMAGES_SUCCESS';
+export const UPLOAD_IMAGES_FAILURE = 'UPLOAD_IMAGES_FAILURE';
+export const UPLOAD_IMAGE_REQUEST = 'UPLOAD_IMAGE_REQUEST';
+export const UPLOAD_IMAGE_SUCCESS = 'UPLOAD_IMAGE_SUCCESS';
+export const UPLOAD_IMAGE_FAILURE = 'UPLOAD_IMAGE_FAILURE';
+export const LOAD_POSTS_REQUEST = 'LOAD_POSTS_REQUEST';
+export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
+export const LOAD_POSTS_FAILURE = 'LOAD_POSTS_FAILURE';
+export const LOAD_ALL_POSTS_REQUEST = 'LOAD_ALL_POSTS_REQUEST';
+export const LOAD_ALL_POSTS_SUCCESS = 'LOAD_ALL_POSTS_SUCCESS';
+export const LOAD_ALL_POSTS_FAILURE = 'LOAD_ALL_POSTS_FAILURE';
+export const LOAD_REVIEW_POSTS_REQUEST = 'LOAD_REVIEW_POSTS_REQUEST';
+export const LOAD_REVIEW_POSTS_SUCCESS = 'LOAD_REVIEW_POSTS_SUCCESS';
+export const LOAD_REVIEW_POSTS_FAILURE = 'LOAD_REVIEW_POSTS_FAILURE';
+export const LOAD_SEARCH_POSTS_REQUEST = 'LOAD_SEARCH_POSTS_REQUEST';
+export const LOAD_SEARCH_POSTS_SUCCESS = 'LOAD_SEARCH_POSTS_SUCCESS';
+export const LOAD_SEARCH_POSTS_FAILURE = 'LOAD_SEARCH_POSTS_FAILURE';
+export const LOAD_POST_REQUEST = 'LOAD_POST_REQUEST';
+export const LOAD_POST_SUCCESS = 'LOAD_POST_SUCCESS';
+export const LOAD_POST_FAILURE = 'LOAD_POST_FAILURE';
+export const REMOVE_IMAGE = 'REMOVE_IMAGE';
+export const INCREMENT_VIEWS_REQUEST = 'INCREMENT_VIEWS_REQUEST';
+export const INCREMENT_VIEWS_SUCCESS = 'INCREMENT_VIEWS_SUCCESS';
+export const INCREMENT_VIEWS_FAILURE = 'INCREMENT_VIEWS_FAILURE';
 
 const dummyPost = (data) => ({
   id: shortId.generate(),
@@ -256,7 +262,7 @@ const dummyPost = (data) => ({
   content: data.content,
   admin: {
     id: 1,
-    nickname: "관리자",
+    nickname: '관리자',
   },
   date: TodayTime(),
   Images: [],
@@ -276,8 +282,8 @@ const dummyPost = (data) => ({
 
 // 정규표현식을 이용해 게시글 검색
 function createSearchRegex(keyword) {
-  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return new RegExp(`\\b${escapedKeyword}\\b`, "i");
+  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`\\b${escapedKeyword}\\b`, 'i');
 }
 
 // 리듀서는 이전 상태를 액션을 통해 다음 상태로 만들어내는 함수 ( 단! 불변성을 지키면서 !!)
@@ -287,6 +293,7 @@ const reducer = (state = initialState, action) =>
       // ADD_POST, ADD_REVIEW
       case ADD_REVIEW_REQUEST:
       case ADD_POST_REQUEST:
+      case ADD_GALLERY_REQUEST:
         draft.addPostLoading = true;
         draft.addPostError = null;
         draft.addPostDone = false;
@@ -304,24 +311,34 @@ const reducer = (state = initialState, action) =>
         draft.addPostDone = true;
         draft.imagePaths = [];
         break;
+      case ADD_GALLERY_SUCCESS:
+        draft.gallery.unshift(action.data);
+        draft.addPostLoading = false;
+        draft.addPostDone = true;
+        draft.imagePaths = [];
+        break;
       case ADD_REVIEW_FAILURE:
       case ADD_POST_FAILURE:
+      case ADD_GALLERY_FAILURE:
         draft.addPostLoading = false;
         draft.addPostError = action.error;
         break;
 
       // UPLOAD_IMAGES
       case UPLOAD_IMAGES_REQUEST:
+      case UPLOAD_IMAGE_REQUEST:
         draft.uploadImagesLoading = true;
         draft.uploadImagesError = null;
         draft.uploadImagesDone = false;
         break;
       case UPLOAD_IMAGES_SUCCESS:
-        draft.imagePaths = action.data;
+      case UPLOAD_IMAGE_SUCCESS:
+        draft.imagePaths.push(action.data);
         draft.uploadImagesLoading = false;
         draft.uploadImagesDone = true;
         break;
       case UPLOAD_IMAGES_FAILURE:
+      case UPLOAD_IMAGE_FAILURE:
         draft.uploadImagesLoading = false;
         draft.uploadImagesError = action.error;
         break;
@@ -428,6 +445,7 @@ const reducer = (state = initialState, action) =>
         draft.loadAllPostsDone = true;
         draft.mainPosts = action.data.mainPosts.concat(draft.mainPosts);
         draft.reviewPosts = action.data.reviewPosts.concat(draft.reviewPosts);
+        draft.gallery = action.data.gallery.concat(draft.gallery);
         break;
       case LOAD_ALL_POSTS_FAILURE:
         draft.loadAllPostsLoading = false;
@@ -462,7 +480,7 @@ const reducer = (state = initialState, action) =>
         draft.loadPostLoading = false;
         draft.loadPostDone = true;
         draft.singlePost = action.data;
-        console.log("erroralert:", draft.singlePost);
+        console.log('erroralert:', draft.singlePost);
 
         break;
       case LOAD_POST_FAILURE:

@@ -74,7 +74,6 @@ function announceBoardWrite() {
       type: UPLOAD_IMAGES_REQUEST,
       data: imageFormData,
     });
-    console.log('이미지', imageFormData);
   }, []);
   const onRemoveImage = useCallback((index) => () => {
     dispatch({

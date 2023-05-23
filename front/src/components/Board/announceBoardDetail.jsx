@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useCallback } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { REMOVE_POST_REQUEST } from "../../reducers/post";
+import { REMOVE_POST_REQUEST } from '../../reducers/post';
 import {
   Row,
   Col,
@@ -15,11 +15,11 @@ import {
   Table,
   NavDropdown,
   Button,
-} from "react-bootstrap";
+} from 'react-bootstrap';
 
-import Pagination from "react-js-pagination";
-import "../UI/paging.css";
-import "../UI/boardUI.css";
+import Pagination from 'react-js-pagination';
+import '../UI/paging.css';
+import '../UI/boardUI.css';
 // 사이드바 라이브러리 추가
 
 function announceBoardDetail() {
@@ -32,7 +32,7 @@ function announceBoardDetail() {
   console.log(post);
 
   const deleteBoard = useCallback(() => {
-    navigate("/board/announce");
+    navigate('/board/announce');
     return dispatch({
       type: REMOVE_POST_REQUEST,
       data: post.id,
@@ -45,9 +45,9 @@ function announceBoardDetail() {
 
   return (
     <>
-      <Container style={{ width: "100%" }}>
+      <Container style={{ width: '100%' }}>
         <Row
-          style={{ width: "100%", marginLeft: 0, marginRight: 0, padding: 0 }}
+          style={{ width: '100%', marginLeft: 0, marginRight: 0, padding: 0 }}
         >
           <Navbar bg="success" expand="lg">
             <Container>
@@ -92,17 +92,17 @@ function announceBoardDetail() {
           </Navbar>
         </Row>
         <Row className="mt-3 ps-1 mt-2">
-          <Col md={3} className="d-grid gap-2 ms" style={{ height: "100%" }}>
-            <Card bg="success" text="white" style={{ height: "150px" }}>
+          <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
+            <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body className="bp-0">
                 <Card.Title className="my-3 mx-5 h-1">
-                  <h2>사진</h2>
+                  <h2>알림</h2>
                 </Card.Title>
                 <Card.Title
                   className="my-3 mx-5 h-1 bp-0"
-                  style={{ fontWeight: "bold", height: "100px" }}
+                  style={{ fontWeight: 'bold', height: '100px' }}
                 >
-                  <h3>갤러리</h3>
+                  <h3>마당</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
@@ -113,7 +113,7 @@ function announceBoardDetail() {
                 size="lg"
                 block="true"
               >
-                러브투어 소개
+                공지사항
               </Button>
               <Button
                 variant="outline-success"
@@ -121,7 +121,7 @@ function announceBoardDetail() {
                 size="lg"
                 block="true"
               >
-                지원 혜택
+                자주하는 질문
               </Button>
               <Button
                 variant="outline-success"
@@ -129,15 +129,7 @@ function announceBoardDetail() {
                 size="lg"
                 block="true"
               >
-                사진 갤러리
-              </Button>
-              <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
-                size="lg"
-                block="true"
-              >
-                영상 갤러리
+                1:1 고객센터
               </Button>
 
               {/* block button 세로 길이 조정 */}
@@ -147,18 +139,18 @@ function announceBoardDetail() {
           <Col md={9}>
             <Row
               style={{
-                width: "100%",
+                width: '100%',
                 marginLeft: 0,
                 marginRight: 0,
                 padding: 0,
               }}
             >
-              <h2>사진 갤러리</h2>
+              <h2>공지사항</h2>
               <hr />
               <div className="w-100% p-0">
                 {/* 제목은 나중에 수정 */}
                 <h2>{post.title}</h2>
-                <div style={{ float: "right" }}>
+                <div style={{ float: 'right' }}>
                   <span>작성일: </span>
                   <span>{post.date} </span>
                   <span>작성자: </span>
@@ -175,7 +167,7 @@ function announceBoardDetail() {
                     src={`http://localhost:3005/${image.src}`}
                     alt={`http://localhost:3005/${image.src}`}
                     // 사진 크기는 수정 해야함
-                    style={{ width: "300px", height: "200px" }}
+                    style={{ width: '300px', height: '200px' }}
                   />
                 ))}
 

@@ -1,10 +1,10 @@
-const express = require("express");
-const { Mainpost, Reviewpost, Image, Admin, Comment } = require("../models");
+const express = require('express');
+const { Mainpost, Reviewpost, Image, Admin, Comment } = require('../models');
 const router = express.Router();
-const { isLoggedIn, isNotLoggedIn } = require("./middlewares");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 /*
 브라우저,사용자는 믿을게 못되기때문에 꼭 백엔드에서 1차적으로 정상적인 접근이 맞는지 확인해주고
@@ -19,7 +19,7 @@ const TodayTime = () => {
   let Month = date.getMonth() + 1; // 월
   let Day = date.getDate(); // 일
 
-  return Year + "-" + Month + "-" + Day;
+  return Year + '-' + Month + '-' + Day;
 };
 
 // 게시글을 불러오는 과정에서 postId - 1~10 ,11~20 이런식으로 가져오고싶었는데
@@ -27,37 +27,37 @@ const TodayTime = () => {
 // 다른 방식을 찾는중 결론적으로는 같은 게시글을 불러올수도, 규격에 맞지 않는 량의 게시물을 불러올수도 있음
 
 try {
-  fs.accessSync("uploads");
+  fs.accessSync('uploads');
 } catch (error) {
-  console.log("uploads 폴더가 없으므로 생성합니다.");
-  fs.mkdirSync("uploads");
+  console.log('uploads 폴더가 없으므로 생성합니다.');
+  fs.mkdirSync('uploads');
 }
 
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, done) {
-      done(null, "uploads");
+      done(null, 'uploads');
     },
     filename(req, file, done) {
       //택진.png
       const ext = path.extname(file.originalname); //확장자 추출(png)
       const basename = path.basename(file.originalname, ext); // 이미지의 이름을 꺼내올 수 있음(택진)
 
-      done(null, basename + "_" + new Date().getTime() + ext);
+      done(null, basename + '_' + new Date().getTime() + ext);
       //시간을 저장해서 중복된 이름에 오류가 없게 할 수 있음 (택진12831203.png)
     },
   }),
   limits: { fileSize: 20 * 1024 * 1024 }, //20MB 로 제한
 });
 
-router.post("/images", isLoggedIn, upload.array("image"), (req, res, next) => {
+router.post('/images', upload.array('image'), (req, res, next) => {
   //POST /post/images
   console.log(req.files);
   res.json(req.files.map((v) => v.filename));
 });
 
 router.post(
-  "/announce/add",
+  '/announce/add',
   isLoggedIn,
   upload.none(),
   async (req, res, next) => {
@@ -95,7 +95,8 @@ router.post(
 );
 router.post(
   //예약페이지 add
-  "/review/add",
+  '/review/add',
+  upload.none(),
   async (req, res, next) => {
     // POST /post/review/add
     try {
@@ -107,11 +108,24 @@ router.post(
         date: TodayTime(),
         phoneNumber: req.body.phoneNumber,
       });
-      // const fullPost = await Reviewpost.findOne({
-      //   where: { id: post.id },
-      //   include: [{ model: Image }],
-      // });
-      res.status(201).json(post);
+      if (req.body.image) {
+        if (Array.isArray(req.body.image)) {
+          // 이미지를 여러개 올리면 image: [택진.png, 택진111.png]
+          const images = await Promise.all(
+            req.body.image.map((image) => Image.create({ src: image }))
+          );
+          await post.addImages(images);
+        } else {
+          // 이미지를 하나만 올리면 image: 택진.png
+          const image = await Image.create({ src: req.body.image });
+          await post.addImages(image);
+        }
+      }
+      const fullPost = await Reviewpost.findOne({
+        where: { id: post.id },
+        include: [{ model: Image }],
+      });
+      res.status(201).json(fullPost);
     } catch (error) {
       console.error(error);
       next(error);
@@ -119,7 +133,7 @@ router.post(
   }
 );
 
-router.get("/announce/posts", async (req, res, next) => {
+router.get('/announce/posts', async (req, res, next) => {
   // GET /posts
   try {
     const where = {};
@@ -131,16 +145,16 @@ router.get("/announce/posts", async (req, res, next) => {
       //   limit: 10,
       where,
       order: [
-        ["createdAt", "DESC"],
-        [Comment, "createdAt", "DESC"], // 내림차순
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
       ],
       include: [
         { model: Image },
         {
           model: Comment, // 댓글 작성자
           attributes: {
-            attributes: ["id", "content", "name", "phoneNumber", "password"],
-            order: [["createdAt", "DESC"]],
+            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            order: [['createdAt', 'DESC']],
           },
         },
       ],
@@ -151,7 +165,7 @@ router.get("/announce/posts", async (req, res, next) => {
     next(error);
   }
 });
-router.get("/review/posts", async (req, res, next) => {
+router.get('/review/posts', async (req, res, next) => {
   // GET /post/review/posts
   try {
     const where = {};
@@ -163,22 +177,22 @@ router.get("/review/posts", async (req, res, next) => {
       //   limit: 10,
       where,
       order: [
-        ["createdAt", "DESC"],
-        [Comment, "createdAt", "DESC"], // 내림차순
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
       ],
       include: [
         {
           model: Comment, // 댓글 작성자
           attributes: {
             attributes: [
-              "id",
-              "content",
-              "name",
-              "title",
-              "phoneNumber",
-              "password",
+              'id',
+              'content',
+              'name',
+              'title',
+              'phoneNumber',
+              'password',
             ],
-            order: [["createdAt", "DESC"]],
+            order: [['createdAt', 'DESC']],
           },
         },
       ],
@@ -190,22 +204,22 @@ router.get("/review/posts", async (req, res, next) => {
   }
 });
 // 모든 게시글 다 가져오기
-router.get("/all/posts", async (req, res, next) => {
+router.get('/all/posts', async (req, res, next) => {
   // GET /post/all/posts
   try {
     const mainPosts = await Mainpost.findAll({
       limit: 10,
       order: [
-        ["createdAt", "DESC"],
-        [Comment, "createdAt", "DESC"], // 내림차순
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
       ],
       include: [
         { model: Image },
         {
           model: Comment, // 댓글 작성자
           attributes: {
-            attributes: ["id", "content", "name", "phoneNumber", "password"],
-            order: [["createdAt", "DESC"]],
+            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            order: [['createdAt', 'DESC']],
           },
         },
       ],
@@ -213,15 +227,15 @@ router.get("/all/posts", async (req, res, next) => {
     const reviewPosts = await Reviewpost.findAll({
       limit: 10,
       order: [
-        ["createdAt", "DESC"],
-        [Comment, "createdAt", "DESC"], // 내림차순
+        ['createdAt', 'DESC'],
+        [Comment, 'createdAt', 'DESC'], // 내림차순
       ],
       include: [
         {
           model: Comment, // 댓글 작성자
           attributes: {
-            attributes: ["id", "content", "name", "phoneNumber", "password"],
-            order: [["createdAt", "DESC"]],
+            attributes: ['id', 'content', 'name', 'phoneNumber', 'password'],
+            order: [['createdAt', 'DESC']],
           },
         },
       ],
@@ -237,14 +251,14 @@ router.get("/all/posts", async (req, res, next) => {
   }
 });
 //조회수 증가
-router.patch("/announce/:postId/views", async (req, res, next) => {
+router.patch('/announce/:postId/views', async (req, res, next) => {
   // PATCH /post/1/views
   try {
     const post = await Mainpost.findOne({
       where: { id: req.params.postId },
     });
     if (!post) {
-      return res.status(403).send("존재하지 않는 게시글입니다.");
+      return res.status(403).send('존재하지 않는 게시글입니다.');
     }
     post.views += 1;
     await post.save();
@@ -257,7 +271,7 @@ router.patch("/announce/:postId/views", async (req, res, next) => {
 });
 
 //게시글 수정 - 공지사항
-router.patch("/announce/:postId/update", isLoggedIn, async (req, res, next) => {
+router.patch('/announce/:postId/update', isLoggedIn, async (req, res, next) => {
   // PATCH /post/1/update
   try {
     const post = await Mainpost.findOne({
@@ -268,7 +282,7 @@ router.patch("/announce/:postId/update", isLoggedIn, async (req, res, next) => {
       { where: { id: req.body.postId } }
     );
     if (!post) {
-      return res.status(403).send("존재하지 않는 게시글입니다.");
+      return res.status(403).send('존재하지 않는 게시글입니다.');
     }
 
     res.json({
@@ -282,7 +296,7 @@ router.patch("/announce/:postId/update", isLoggedIn, async (req, res, next) => {
   }
 });
 //게시글 수정 - 리뷰게시판
-router.patch("/review/:postId/update", async (req, res, next) => {
+router.patch('/review/:postId/update', async (req, res, next) => {
   // PATCH /post/review/1/update
   try {
     const post = await Reviewpost.findOne({
@@ -299,7 +313,7 @@ router.patch("/review/:postId/update", async (req, res, next) => {
       { where: { id: req.body.postId } }
     );
     if (!post) {
-      return res.status(403).send("존재하지 않는 게시글입니다.");
+      return res.status(403).send('존재하지 않는 게시글입니다.');
     }
 
     res.json({
@@ -316,7 +330,7 @@ router.patch("/review/:postId/update", async (req, res, next) => {
   }
 });
 // 게시글 삭제 - 공지사항
-router.delete("/announce/:postId", isLoggedIn, async (req, res, next) => {
+router.delete('/announce/:postId', isLoggedIn, async (req, res, next) => {
   // DELETE /post/1
   try {
     await Mainpost.destroy({
@@ -329,7 +343,7 @@ router.delete("/announce/:postId", isLoggedIn, async (req, res, next) => {
   }
 });
 // 게시글 삭제 - 리뷰게시판
-router.delete("/review/:postId", async (req, res, next) => {
+router.delete('/review/:postId', async (req, res, next) => {
   // DELETE /post/review/1
   try {
     await Reviewpost.destroy({

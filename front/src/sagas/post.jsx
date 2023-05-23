@@ -25,6 +25,9 @@ import {
   REMOVE_REVIEW_REQUEST,
   REMOVE_REVIEW_FAILURE,
   REMOVE_REVIEW_SUCCESS,
+  REMOVE_GALLERY_REQUEST,
+  REMOVE_GALLERY_FAILURE,
+  REMOVE_GALLERY_SUCCESS,
   UPDATE_POST_REQUEST,
   UPDATE_POST_FAILURE,
   UPDATE_POST_SUCCESS,
@@ -40,6 +43,9 @@ import {
   LOAD_REVIEW_POSTS_REQUEST,
   LOAD_REVIEW_POSTS_SUCCESS,
   LOAD_REVIEW_POSTS_FAILURE,
+  LOAD_GALLERY_POSTS_REQUEST,
+  LOAD_GALLERY_POSTS_SUCCESS,
+  LOAD_GALLERY_POSTS_FAILURE,
   LOAD_SEARCH_POSTS_REQUEST,
   LOAD_SEARCH_POSTS_SUCCESS,
   LOAD_SEARCH_POSTS_FAILURE,
@@ -187,6 +193,26 @@ function* removePost(action) {
     });
   }
 }
+function removeGalleryAPI(data) {
+  return axios.delete(`/post/gallery/${data}`);
+}
+
+function* removeGallery(action) {
+  try {
+    const result = yield call(removeGalleryAPI, action.data);
+
+    yield put({
+      type: REMOVE_GALLERY_SUCCESS,
+      data: result.data,
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: REMOVE_GALLERY_FAILURE,
+      data: err.response.data,
+    });
+  }
+}
 function updatePostAPI(data) {
   return axios.patch(`/post/announce/${data.PostId}/update`, data);
 }
@@ -259,6 +285,25 @@ function* loadReviewPosts(action) {
     console.error(err);
     yield put({
       type: LOAD_REVIEW_POSTS_FAILURE,
+      error: err.response.data,
+    });
+  }
+}
+function loadGalleryPostsAPI(lastId) {
+  return axios.get(`/post/gallery/posts?lastId=${lastId || 0}`);
+}
+function* loadGalleryPosts(action) {
+  try {
+    const result = yield call(loadGalleryPostsAPI, action.lastId); // call은 동기 fork는 비동기
+    yield put({
+      // put은 dispatch라고 생각하는게 편함
+      type: LOAD_GALLERY_POSTS_SUCCESS,
+      data: result.data, // 모든 게시글
+    });
+  } catch (err) {
+    console.error(err);
+    yield put({
+      type: LOAD_GALLERY_POSTS_FAILURE,
       error: err.response.data,
     });
   }
@@ -375,6 +420,9 @@ function* watchLoadPosts() {
 function* watchReviewLoadPosts() {
   yield takeLatest(LOAD_REVIEW_POSTS_REQUEST, loadReviewPosts);
 }
+function* watchGalleryLoadPosts() {
+  yield takeLatest(LOAD_GALLERY_POSTS_REQUEST, loadGalleryPosts);
+}
 function* watchAddPost() {
   yield takeLatest(ADD_POST_REQUEST, addPost);
 }
@@ -390,6 +438,9 @@ function* watchRemovePost() {
 }
 function* watchRemoveReview() {
   yield takeLatest(REMOVE_REVIEW_REQUEST, removeReview);
+}
+function* watchRemoveGallery() {
+  yield takeLatest(REMOVE_GALLERY_REQUEST, removeGallery);
 }
 function* watchUpdatePost() {
   yield takeLatest(UPDATE_POST_REQUEST, updatePost);
@@ -422,9 +473,11 @@ export default function* postSaga() {
     fork(watchAllLoadPosts),
     fork(watchLoadPosts),
     fork(watchReviewLoadPosts),
+    fork(watchGalleryLoadPosts),
     fork(watchLoadSearchPosts),
     fork(watchRemovePost),
     fork(watchRemoveReview),
+    fork(watchRemoveGallery),
     fork(watchUpdatePost),
     fork(watchUpdateReview),
     fork(watchUploadImages),

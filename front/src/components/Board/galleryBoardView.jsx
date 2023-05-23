@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -17,10 +17,11 @@ import {
 } from 'react-bootstrap';
 
 import GalleryBoardList from './galleryBoardList';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useInput from '../../hooks/useInput';
 //공통부분
 import Footer from '../UI/footer';
+import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 const GreenCol = styled(Col)`
   background-color: green;
@@ -29,6 +30,13 @@ const GreenCol = styled(Col)`
 function galleryBoardView() {
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: LOAD_GALLERY_POSTS_REQUEST,
+    });
+  }, []);
 
   return (
     <>

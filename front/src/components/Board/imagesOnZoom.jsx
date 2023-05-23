@@ -15,8 +15,8 @@ function imagesOnZoom({ Images }) {
         <Carousel.Item key={image.id}>
           <img
             className="d-block w-100"
-            src={image.src}
-            alt="First slide"
+            src={`http://localhost:3005/${image.src}`}
+            alt={`http://localhost:3005/${image.src}`}
             style={{ width: '400px', height: '500px' }}
           />
           <Carousel.Caption>

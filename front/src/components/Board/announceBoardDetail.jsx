@@ -154,7 +154,7 @@ function announceBoardDetail() {
                   <span>작성일: </span>
                   <span>{post.date} </span>
                   <span>작성자: </span>
-                  <span>{post.id} </span>
+                  <span>관리자 </span>
                   <span>조회수: </span>
                   <span>{post.views}</span>
                 </div>

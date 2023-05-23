@@ -17,12 +17,15 @@ import { useNavigate } from 'react-router-dom';
 import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
 
 function mainGrid() {
-  const { mainPosts } = useSelector((state) => state.post);
+  const { mainPosts, reviewPosts } = useSelector((state) => state.post);
   console.log(mainPosts);
 
   const navigate = useNavigate();
   const goToAnnounceBoard = useCallback(() => {
     navigate('/board/announce');
+  }, []);
+  const goToReviewBoard = useCallback(() => {
+    navigate('/board/review');
   }, []);
   const goToAnnounceBoardDetail = useCallback((postId) => {
     navigate(`/board/announce/${postId}`);
@@ -44,14 +47,18 @@ function mainGrid() {
                 </Button>
               </Card.Header>
               <Card.Body>
-                <ListGroup as="ol">
+                <ListGroup as="ol" onClick={goToReviewBoard}>
                   <ListGroup.Item
                     as="li"
                     className="d-flex justify-content-between align-items-start"
                   >
                     <div className="ms-2 me-auto">
-                      <div className="fw-bold">김**님 4월 26일 예약완료</div>
-                      {/* {mainPosts[mainPosts.length - 1].date} */}
+                      <div className="fw-bold">
+                        {reviewPosts.length > 0 &&
+                          reviewPosts[reviewPosts.length - 1].title}
+                      </div>
+                      {reviewPosts.length > 0 &&
+                        reviewPosts[reviewPosts.length - 1].date}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -59,8 +66,12 @@ function mainGrid() {
                     className="d-flex justify-content-between align-items-start"
                   >
                     <div className="ms-2 me-auto">
-                      <div className="fw-bold">장**님 4월 26일 예약완료</div>
-                      {/* {mainPosts[mainPosts.length - 2].date} */}
+                      <div className="fw-bold">
+                        {reviewPosts.length > 1 &&
+                          reviewPosts[reviewPosts.length - 2].title}
+                      </div>
+                      {reviewPosts.length > 1 &&
+                        reviewPosts[reviewPosts.length - 2].date}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -68,8 +79,12 @@ function mainGrid() {
                     className="d-flex justify-content-between align-items-start"
                   >
                     <div className="ms-2 me-auto">
-                      <div className="fw-bold">박**님 4월 26일 예약완료</div>
-                      {/* {mainPosts[mainPosts.length - 3].date} */}
+                      <div className="fw-bold">
+                        {reviewPosts.length > 2 &&
+                          reviewPosts[reviewPosts.length - 3].title}
+                      </div>
+                      {reviewPosts.length > 2 &&
+                        reviewPosts[reviewPosts.length - 3].date}
                     </div>
                   </ListGroup.Item>
                 </ListGroup>
@@ -133,10 +148,9 @@ function mainGrid() {
                       <div className="fw-bold">
                         {mainPosts.length > 0 &&
                           mainPosts[mainPosts.length - 1].title}
-                        테스트입니다.
                       </div>
-                      {/* {mainPosts[mainPosts.length - 1].date */}
-                      테스트입니다.
+                      {mainPosts.length > 0 &&
+                        mainPosts[mainPosts.length - 1].date}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -145,11 +159,11 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {/* {mainPosts[mainPosts.length - 2].title} */}
-                        테스트입니다.
+                        {mainPosts.length > 1 &&
+                          mainPosts[mainPosts.length - 2].title}
                       </div>
-                      {/* {mainPosts[mainPosts.length - 2].date} */}
-                      테스트입니다.
+                      {mainPosts.length > 1 &&
+                        mainPosts[mainPosts.length - 2].date}
                     </div>
                   </ListGroup.Item>
                   <ListGroup.Item
@@ -158,11 +172,11 @@ function mainGrid() {
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">
-                        {/* {mainPosts[mainPosts.length - 3].title} */}
-                        테스트입니다.
+                        {mainPosts.length > 2 &&
+                          mainPosts[mainPosts.length - 3].title}
                       </div>
-                      {/* {mainPosts[mainPosts.length - 3].date} */}
-                      테스트입니다.
+                      {mainPosts.length > 2 &&
+                        mainPosts[mainPosts.length - 3].date}
                     </div>
                   </ListGroup.Item>
                 </ListGroup>

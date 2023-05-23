@@ -52,8 +52,7 @@ function announceBoardView() {
   useEffect(() => {
     setCurrentPosts(mainPosts.slice(indexOfFirstPost, indexOfLastPost));
   }, [mainPosts, indexOfFirstPost, indexOfLastPost, page]);
-  console.log(mainPosts);
-  console.log(currentPosts, indexOfFirstPost, page);
+
   useEffect(() => {
     dispatch({
       type: LOAD_POSTS_REQUEST,

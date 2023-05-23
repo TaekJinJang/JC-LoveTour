@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
+import Pagination from 'react-js-pagination';
+import '../UI/paging.css';
 import styled from 'styled-components';
 import {
   Container,
@@ -18,19 +20,25 @@ import {
 
 import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
-import useInput from '../../hooks/useInput';
-//공통부분
-import Footer from '../UI/footer';
-import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
-const GreenCol = styled(Col)`
-  background-color: green;
-`;
+import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function galleryBoardView() {
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
+
+  // 페이지네이션
+  const [page, setPage] = useState(1);
+  const [currentPosts, setCurrentPosts] = useState([]);
+  const indexOfLastPost = page * 10;
+  const indexOfFirstPost = indexOfLastPost - 10;
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
+  useEffect(() => {
+    setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
+  }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
 
   useEffect(() => {
     dispatch({
@@ -189,9 +197,20 @@ function galleryBoardView() {
               </Col>
             </Row>
             <Row className="mt-2">
-              {gallery.map((post, index) => (
+              {currentPosts.map((post, index) => (
                 <GalleryBoardList key={post.id} post={post} />
               ))}
+            </Row>
+            <Row>
+              <Pagination
+                activePage={page}
+                itemsCountPerPage={10}
+                totalItemsCount={gallery.length}
+                pageRangeDisplayed={5}
+                prevPageText={'‹'}
+                nextPageText={'›'}
+                onChange={handlePageChange}
+              />
             </Row>
           </Col>
         </Row>

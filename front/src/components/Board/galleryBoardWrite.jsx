@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,16 +26,25 @@ import {
 } from 'react-bootstrap';
 
 function galleryBoardWrite() {
-  const { imagePaths } = useSelector((state) => state.post);
+  const { imagePaths, uploadImagesDone } = useSelector((state) => state.post);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
-  const [imageTitle, onChangeImageTitle] = useInput('');
-  const [imageText, onChangeImageText] = useInput('');
+  const [imageTitle, onChangeImageTitle, setImageTitle] = useInput('');
+  const [imageText, onChangeImageText, setImageText] = useInput('');
 
   const imageInput = useRef();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (uploadImagesDone) {
+      setImageTitle('');
+      setImageText('');
+      imageInput.current.value = ''; // 파일 입력 요소 초기화
+    }
+  }, [uploadImagesDone]);
+
   // 기본적인 버그들, 게시글을 작성하기로해놓ㄱ 다 빈칸으로 두거나 알맞은 형식이 아닐땐 요청을 받지 않게끔
   const onSubmitForm = useCallback(
     (e) => {
@@ -380,7 +389,9 @@ function galleryBoardWrite() {
                       alt={v[0]}
                     />
                     <div>
-                      <Button onClick={onRemoveImage(i)}>제거</Button>
+                      <Button variant="danger" Click={onRemoveImage(i)}>
+                        제거
+                      </Button>
                     </div>
                   </div>
                 ))}

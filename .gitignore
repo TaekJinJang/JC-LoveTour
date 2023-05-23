@@ -25,4 +25,5 @@ dist-ssr
 .env
 *.pptx
 *.hwp
+jc-lovetour.pem
 /back/uploads/

@@ -2,11 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  ADD_POST_REQUEST,
-  REMOVE_IMAGE,
-  UPLOAD_IMAGES_REQUEST,
-} from '../../reducers/post';
+import { REMOVE_IMAGE, UPLOAD_IMAGES_REQUEST } from '../../reducers/post';
 import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import '../UI/paging.css';
@@ -24,12 +20,13 @@ import {
   Stack,
   ButtonGroup,
 } from 'react-bootstrap';
-import Footer from '../UI/footer';
 
-function announceBoardWrite() {
+function galleryBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
+  const [imageTitle, onChangeImageTitle] = useInput('');
+  const [imageText, onChangeImageText] = useInput('');
 
   const imageInput = useRef();
 
@@ -50,22 +47,18 @@ function announceBoardWrite() {
       formData.append('content', text);
 
       console.log(formData);
-      navigate('/board/announce');
+      navigate('/board/gallery');
 
       return dispatch({
-        type: ADD_POST_REQUEST,
+        type: ADD_GALLERY,
         data: formData,
       });
     },
     [title, text, imagePaths]
   );
 
-  const onClickImageUpload = useCallback(() => {
-    imageInput.current.click();
-  }, [imageInput.current]);
-
-  const onChangeImages = useCallback((e) => {
-    console.log('images', e.target.files);
+  const onPushImages = useCallback(() => {
+    console.log('images');
     const imageFormData = new FormData();
     [].forEach.call(e.target.files, (f) => {
       imageFormData.append('image', f);
@@ -74,7 +67,7 @@ function announceBoardWrite() {
       type: UPLOAD_IMAGES_REQUEST,
       data: imageFormData,
     });
-    console.log('이미지', imageFormData);
+    console.log(imageFormData);
   }, []);
   const onRemoveImage = useCallback((index) => () => {
     dispatch({
@@ -292,10 +285,78 @@ function announceBoardWrite() {
                     type="file"
                     ref={imageInput}
                     multiple
-                    onChange={onChangeImages}
+                    // onChange={onChangeImages}
                     style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
+                {/* 이미지 제목 */}
+                <Form.Group as={Row} className="mb-3" controlId="title">
+                  <Col md={2}>
+                    <Card
+                      className="text-center"
+                      bg="success"
+                      border="success"
+                      text="white"
+                    >
+                      <Card.Header
+                        style={{
+                          height: '35px',
+                          fontSize: '17px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        이미지 제목
+                      </Card.Header>
+                    </Card>
+                  </Col>
+
+                  <Col md={10}>
+                    <Form.Control
+                      name="imageTitle"
+                      type="text"
+                      placeholder="이미지 제목을 입력해주세요. "
+                      value={imageTitle}
+                      onChange={onChangeImageTitle}
+                      style={{ backgroundColor: '#D9D9D9' }}
+                    />
+                  </Col>
+                </Form.Group>
+                {/* 이미지 내용 */}
+                <Form.Group as={Row} className="mb-3" controlId="title">
+                  <Col md={2}>
+                    <Card
+                      className="text-center"
+                      bg="success"
+                      border="success"
+                      text="white"
+                    >
+                      <Card.Header
+                        style={{
+                          height: '35px',
+                          fontSize: '17px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        이미지 내용
+                      </Card.Header>
+                    </Card>
+                  </Col>
+
+                  <Col md={10}>
+                    <Form.Control
+                      name="imageText"
+                      type="text"
+                      placeholder="이미지 제목을 입력해주세요. "
+                      value={imageText}
+                      onChange={onChangeImageText}
+                      style={{ backgroundColor: '#D9D9D9' }}
+                    />
+                  </Col>
+                </Form.Group>
               </Form.Group>
               <div>
                 {imagePaths.map((v, i) => (
@@ -311,7 +372,7 @@ function announceBoardWrite() {
                   </div>
                 ))}
               </div>
-
+              <Button onClick={onPushImages()}>이미지등록</Button>
               <Col className="d-flex justify-content-end">
                 <Button
                   className="mb-4"
@@ -329,4 +390,4 @@ function announceBoardWrite() {
     </>
   );
 }
-export default announceBoardWrite;
+export default galleryBoardWrite;

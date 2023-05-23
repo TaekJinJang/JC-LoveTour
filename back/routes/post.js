@@ -1,5 +1,12 @@
 const express = require('express');
-const { Mainpost, Reviewpost, Image, Admin, Comment } = require('../models');
+const {
+  Mainpost,
+  Reviewpost,
+  Image,
+  Admin,
+  Comment,
+  Gallery,
+} = require('../models');
 const router = express.Router();
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const multer = require('multer');
@@ -118,6 +125,53 @@ router.post(
         } else {
           // 이미지를 하나만 올리면 image: 택진.png
           const image = await Image.create({ src: req.body.image });
+          await post.addImages(image);
+        }
+      }
+      const fullPost = await Reviewpost.findOne({
+        where: { id: post.id },
+        include: [{ model: Image }],
+      });
+      res.status(201).json(fullPost);
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  }
+);
+router.post(
+  //예약페이지 add
+  '/gallery/add',
+  isLoggedIn,
+  upload.none(),
+  async (req, res, next) => {
+    // POST /post/gallery/add
+    try {
+      const post = await Gallery.create({
+        title: req.body.title,
+        content: req.body.content,
+        date: TodayTime(),
+      });
+      if (req.body.image) {
+        if (Array.isArray(req.body.image)) {
+          // 이미지를 여러개 올리면 image: [택진.png, 택진111.png]
+          const images = await Promise.all(
+            req.body.image.map((image) =>
+              Image.create({
+                src: image,
+                captionTitle: req.body.imageTitle,
+                captionContent: req.body.imageContent,
+              })
+            )
+          );
+          await post.addImages(images);
+        } else {
+          // 이미지를 하나만 올리면 image: 택진.png
+          const image = await Image.create({
+            src: image,
+            captionTitle: req.body.imageTitle,
+            captionContent: req.body.imageContent,
+          });
           await post.addImages(image);
         }
       }

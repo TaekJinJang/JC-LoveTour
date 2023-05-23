@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/esm/Button';
 import { REMOVE_REVIEW_REQUEST } from '../../reducers/post';
 
 function reviewBoardDetail() {
-  const { admin } = useSelector((state) => state.admin);
   const location = useLocation();
   const { post } = location?.state;
   console.log(post);
@@ -47,7 +46,16 @@ function reviewBoardDetail() {
           </tr>
         </tbody>
       </Table>
-
+      {post.Images &&
+        post.Images.map((image, index) => (
+          <img
+            key={index}
+            src={`http://localhost:3005/${image.src}`}
+            alt={`http://localhost:3005/${image.src}`}
+            // 사진 크기는 수정 해야함
+            style={{ width: '300px', height: '200px' }}
+          />
+        ))}
       <>
         <Button variant="danger" onClick={deleteBoard}>
           삭제

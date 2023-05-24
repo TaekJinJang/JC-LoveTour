@@ -53,8 +53,6 @@ passportConfig();
 if (process.env.NODE_ENV === 'production') {
   app.use(hpp());
   app.use(helmet());
-} else {
-  app.use(morgan('den'));
 }
 
 app.use(express.json()); // json파일을 req.body에 넣어줌
@@ -87,6 +85,6 @@ app.get('/', (req, res) => {
 app.use('/post', postRouter);
 app.use('/admin', adminRouter);
 
-app.listen(3005, () => {
+app.listen(80, () => {
   console.log('gdgd~');
 });

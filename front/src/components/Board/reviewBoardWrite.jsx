@@ -10,6 +10,7 @@ import {
 
 import useInput from '../../hooks/useInput';
 import { useNavigate } from 'react-router-dom';
+import { backUrl } from '../../../config/config';
 
 function reviewBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
@@ -156,11 +157,7 @@ function reviewBoardWrite() {
         <div>
           {imagePaths.map((v, i) => (
             <div key={v} style={{ display: 'inline-block' }}>
-              <img
-                src={`http://localhost:3005/${v}`}
-                style={{ width: '200px' }}
-                alt={v}
-              />
+              <img src={`${backUrl}/${v}`} style={{ width: '200px' }} alt={v} />
               <div>
                 <Button variant="danger" onClick={onRemoveImage(i)}>
                   제거

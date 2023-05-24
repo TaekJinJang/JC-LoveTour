@@ -24,6 +24,7 @@ import {
   Stack,
   ButtonGroup,
 } from 'react-bootstrap';
+import { backUrl } from '../../../config/config';
 
 function galleryBoardWrite() {
   const { imagePaths, uploadImagesDone } = useSelector((state) => state.post);
@@ -384,7 +385,7 @@ function galleryBoardWrite() {
                   <div key={v} style={{ display: 'inline-block' }}>
                     {console.log(v, i)}
                     <img
-                      src={`http://localhost:3005/${v[0].src}`}
+                      src={`${backUrl}${v[0].src}`}
                       style={{ width: '200px' }}
                       alt={v[0]}
                     />

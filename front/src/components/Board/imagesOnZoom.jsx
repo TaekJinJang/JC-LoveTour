@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import styled from 'styled-components';
+import { backUrl } from '../../../config/config';
 
 function imagesOnZoom({ Images }) {
   // const SlickWrapper = styled(Carousel.Item)`
@@ -15,8 +16,8 @@ function imagesOnZoom({ Images }) {
         <Carousel.Item key={image.id}>
           <img
             className="d-block w-100"
-            src={`http://localhost:3005/${image.src}`}
-            alt={`http://localhost:3005/${image.src}`}
+            src={`${backUrl}/${image.src}`}
+            alt={`${backUrl}/${image.src}`}
             style={{ width: '400px', height: '500px' }}
           />
           <Carousel.Caption>

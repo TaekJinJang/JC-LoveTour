@@ -10,6 +10,8 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const path = require('path');
+const hpp = require('hpp');
+const helmet = require('helmet');
 
 // 백에서 프론트로 로그인기능 이후 비밀번호를 통으로 보내주면 해킹에 굉장히 취약하겠죠 ?
 // 그래서 쿠키값을 대신 주는거임, 그럼 브라우저는 앞으로 게시글을 쓰던 뭘 하던 비밀번호를 보내는게 아니고
@@ -48,6 +50,13 @@ passportConfig();
 //   console.log(error);
 // }
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(hpp());
+  app.use(helmet());
+} else {
+  app.use(morgan('den'));
+}
+
 app.use(express.json()); // json파일을 req.body에 넣어줌
 app.use(express.urlencoded({ extended: true })); // form을 submit 했을 때 데이터를 req.body에 넣어줌
 app.use('/', express.static(path.join(__dirname, 'uploads'))); //프론트서버로 이미지파일을 같이 보내줌
@@ -55,7 +64,7 @@ app.use('/', express.static(path.join(__dirname, 'uploads'))); //프론트서버
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)
-    origin: 'http://localhost:3000', // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
+    origin: ['http://localhost:3000', 'jc-lovetour'], // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
     credentials: true, // 쿠키 전달
   })
 );

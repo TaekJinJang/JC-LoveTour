@@ -71,13 +71,11 @@ router.post('/image', upload.array('image'), (req, res, next) => {
   });
   res.json(image);
 });
-// router.post('/images', upload.array('image'), (req, res, next) => {
-//   //POST /post/images
-//   console.log(req.files);
-//   res.json(
-//     req.files.map((v) => v.filename)
-//   );
-// });
+router.post('/images', upload.array('image'), (req, res, next) => {
+  //POST /post/images
+  console.log(req.files);
+  res.json(req.files.map((v) => v.filename));
+});
 
 router.post(
   '/announce/add',

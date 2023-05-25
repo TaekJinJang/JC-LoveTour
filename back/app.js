@@ -66,6 +66,10 @@ app.use(
     credentials: true, // 쿠키 전달
   })
 );
+app.use(function (req, res, next) {
+  res.setHeader('Cross-Origin-Resource-Policy', 'same-site');
+  next();
+});
 
 app.use(
   session({

@@ -62,7 +62,7 @@ app.use('/', express.static(path.join(__dirname, 'uploads'))); //프론트서버
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)
-    origin: ['http://localhost:3000', 'jc-lovetour'], // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
+    origin: ['http://localhost:3000', 'jc-lovetour', 'http://52.79.219.104'], // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
     credentials: true, // 쿠키 전달
   })
 );

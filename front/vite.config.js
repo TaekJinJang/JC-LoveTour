@@ -17,6 +17,7 @@ export default defineConfig({
     },
   },
   server: {
+    host: '0.0.0.0', // 모든 IP 주소에 바인딩
     port: 80,
   },
 });

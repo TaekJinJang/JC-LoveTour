@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [splitVendorChunkPlugin(), react()],
 
   build: {
+    outDir: 'dist',
     minify: 'terser',
     terserOptions: {
       compress: {

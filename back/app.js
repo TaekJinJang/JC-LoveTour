@@ -52,7 +52,11 @@ passportConfig();
 
 if (process.env.NODE_ENV === 'production') {
   app.use(hpp());
-  app.use(helmet());
+  app.use(
+    helmet({
+      crossOriginResourcePolicy: false,
+    })
+  );
 }
 
 app.use(express.json()); // json파일을 req.body에 넣어줌

@@ -142,7 +142,7 @@ function MainHeader() {
                             >
                                 <Nav.Link
                                     as="a"
-                                    href="#"
+                                    href="/board/introduce"
                                     style={{
                                         color: 'white',
                                     }}

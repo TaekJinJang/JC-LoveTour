@@ -18,6 +18,8 @@ import Main from './pages/main';
 import Admin from './pages/admin';
 import React from 'react';
 
+import IntroduceBoard from './pages/introduceBoard';
+
 const Container = styled.div`
   margin: 10px auto;
   // width: 370px;
@@ -45,6 +47,7 @@ function App() {
           />
           <Route path="/board/gallery" element={<GalleryBoard />} />
           <Route path="/board/gallery/add" element={<GalleryBoardAdd />} />
+          <Route path="/board/introduce" element={<IntroduceBoard />} />
           <Route path="/board/review" element={<ReviewBoard />} />
           <Route path="/board/review/add" element={<ReviewBoardWrite />} />
           <Route

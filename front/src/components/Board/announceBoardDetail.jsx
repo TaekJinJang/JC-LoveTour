@@ -20,6 +20,7 @@ import {
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
+import { backUrl } from '../../../config/config';
 // 사이드바 라이브러리 추가
 
 function announceBoardDetail() {
@@ -164,8 +165,8 @@ function announceBoardDetail() {
                 post.Images.map((image, index) => (
                   <img
                     key={index}
-                    src={`http://localhost:3005/${image.src}`}
-                    alt={`http://localhost:3005/${image.src}`}
+                    src={`${backUrl}/${image.src}`}
+                    alt={`${backUrl}/${image.src}`}
                     // 사진 크기는 수정 해야함
                     style={{ width: '300px', height: '200px' }}
                   />

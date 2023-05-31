@@ -8,6 +8,7 @@ import { Col } from 'react-bootstrap';
 import { REMOVE_GALLERY_REQUEST } from '../../reducers/post';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { backUrl } from '../../../config/config';
 
 function galleryBoardList({ post }) {
   const [showImagesZoom, setShowImagesZoom] = useState(false);
@@ -41,8 +42,8 @@ function galleryBoardList({ post }) {
             variant="top"
             width={230}
             height={230}
-            src={`http://localhost:3005/${post.Images[0].src}`}
-            alt={`http://localhost:3005/${post.Images[0].src}`}
+            src={`${backUrl}/${post.Images[0].src}`}
+            alt={`${backUrl}/${post.Images[0].src}`}
           />
 
           <Card.Body>

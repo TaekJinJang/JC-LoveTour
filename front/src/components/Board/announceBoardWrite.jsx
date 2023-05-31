@@ -25,6 +25,7 @@ import {
   ButtonGroup,
 } from 'react-bootstrap';
 import Footer from '../UI/footer';
+import { backUrl } from '../../../config/config';
 
 function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
@@ -300,7 +301,7 @@ function announceBoardWrite() {
                 {imagePaths.map((v, i) => (
                   <div key={v} style={{ display: 'inline-block' }}>
                     <img
-                      src={`http://localhost:3005/${v}`}
+                      src={`${backUrl}/${v}`}
                       style={{ width: '200px' }}
                       alt={v}
                     />

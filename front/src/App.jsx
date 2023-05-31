@@ -7,6 +7,7 @@ import AnnounceBoardAdd from './pages/announceBoardAdd';
 import AnnounceBoardPost from './pages/announceBoardPost';
 import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
 import GalleryBoard from './pages/galleryBoard';
+import GalleryBoardAdd from './pages/galleryBoardAdd';
 import AnnounceBoardSearch from './components/Board/announceBoardSearch';
 import ReviewBoard from './pages/reviewBoard';
 import ReviewBoardWrite from './components/Board/reviewBoardWrite';
@@ -43,6 +44,7 @@ function App() {
             element={<AnnounceBoardSearch />}
           />
           <Route path="/board/gallery" element={<GalleryBoard />} />
+          <Route path="/board/gallery/add" element={<GalleryBoardAdd />} />
           <Route path="/board/review" element={<ReviewBoard />} />
           <Route path="/board/review/add" element={<ReviewBoardWrite />} />
           <Route

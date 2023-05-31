@@ -15,7 +15,6 @@ db.Comment = require('./comment')(sequelize, Sequelize);
 db.Image = require('./image')(sequelize, Sequelize);
 db.Video = require('./video')(sequelize, Sequelize);
 db.Mainpost = require('./mainpost')(sequelize, Sequelize);
-// db.Reservepost = require('./reservepost')(sequelize, Sequelize);
 db.Reviewpost = require('./reviewpost')(sequelize, Sequelize);
 db.Admin = require('./admin')(sequelize, Sequelize);
 db.Gallery = require('./gallery')(sequelize, Sequelize);

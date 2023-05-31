@@ -1,11 +1,11 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  ADD_POST_REQUEST,
+  ADD_GALLERY_REQUEST,
   REMOVE_IMAGE,
-  UPLOAD_IMAGES_REQUEST,
+  UPLOAD_IMAGE_REQUEST,
 } from '../../reducers/post';
 import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
@@ -24,17 +24,27 @@ import {
   Stack,
   ButtonGroup,
 } from 'react-bootstrap';
-import Footer from '../UI/footer';
 
-function announceBoardWrite() {
-  const { imagePaths } = useSelector((state) => state.post);
+function galleryBoardWrite() {
+  const { imagePaths, uploadImagesDone } = useSelector((state) => state.post);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
+  const [imageTitle, onChangeImageTitle, setImageTitle] = useInput('');
+  const [imageText, onChangeImageText, setImageText] = useInput('');
 
   const imageInput = useRef();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (uploadImagesDone) {
+      setImageTitle('');
+      setImageText('');
+      imageInput.current.value = ''; // 파일 입력 요소 초기화
+    }
+  }, [uploadImagesDone]);
+
   // 기본적인 버그들, 게시글을 작성하기로해놓ㄱ 다 빈칸으로 두거나 알맞은 형식이 아닐땐 요청을 받지 않게끔
   const onSubmitForm = useCallback(
     (e) => {
@@ -44,34 +54,39 @@ function announceBoardWrite() {
       }
       const formData = new FormData();
       imagePaths.forEach((p) => {
-        formData.append('image', p);
+        console.log(p);
+        formData.append('image', p[0].src);
+        formData.append('captionTitle', p[0].captionTitle);
+        formData.append('captionContent', p[0].captionContent);
       });
       formData.append('title', title);
       formData.append('content', text);
 
-      console.log(formData);
-      navigate('/board/announce');
+      console.log(imagePaths, '이미지패쓰');
+      navigate('/board/gallery');
+      console.log(formData, '폼데이터');
 
       return dispatch({
-        type: ADD_POST_REQUEST,
+        type: ADD_GALLERY_REQUEST,
         data: formData,
       });
     },
     [title, text, imagePaths]
   );
 
-  const onClickImageUpload = useCallback(() => {
-    imageInput.current.click();
-  }, [imageInput.current]);
+  //   const onClickImageUpload = useCallback(() => {
+  //     imageInput.current.click();
+  //   }, [imageInput.current]);
 
-  const onChangeImages = useCallback((e) => {
-    console.log('images', e.target.files);
+  const onPushImages = useCallback((imageTitle, imageText) => {
     const imageFormData = new FormData();
-    [].forEach.call(e.target.files, (f) => {
+    [].forEach.call(imageInput.current.files, (f) => {
       imageFormData.append('image', f);
+      imageFormData.append('imageTitle', imageTitle);
+      imageFormData.append('imageContent', imageText);
     });
     dispatch({
-      type: UPLOAD_IMAGES_REQUEST,
+      type: UPLOAD_IMAGE_REQUEST,
       data: imageFormData,
     });
   }, []);
@@ -291,26 +306,99 @@ function announceBoardWrite() {
                     type="file"
                     ref={imageInput}
                     multiple
-                    onChange={onChangeImages}
+                    // onChange={onChangeImages}
                     style={{ backgroundColor: '#D9D9D9' }}
                   />
                 </Col>
+                {/* 이미지 제목 */}
+                <Form.Group as={Row} className="mb-3" controlId="title">
+                  <Col md={2}>
+                    <Card
+                      className="text-center"
+                      bg="success"
+                      border="success"
+                      text="white"
+                    >
+                      <Card.Header
+                        style={{
+                          height: '35px',
+                          fontSize: '17px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        이미지 제목
+                      </Card.Header>
+                    </Card>
+                  </Col>
+
+                  <Col md={10}>
+                    <Form.Control
+                      name="imageTitle"
+                      type="text"
+                      placeholder="이미지 제목을 입력해주세요. "
+                      value={imageTitle}
+                      onChange={onChangeImageTitle}
+                      style={{ backgroundColor: '#D9D9D9' }}
+                    />
+                  </Col>
+                </Form.Group>
+                {/* 이미지 내용 */}
+                <Form.Group as={Row} className="mb-3" controlId="title">
+                  <Col md={2}>
+                    <Card
+                      className="text-center"
+                      bg="success"
+                      border="success"
+                      text="white"
+                    >
+                      <Card.Header
+                        style={{
+                          height: '35px',
+                          fontSize: '17px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        이미지 내용
+                      </Card.Header>
+                    </Card>
+                  </Col>
+
+                  <Col md={10}>
+                    <Form.Control
+                      name="imageText"
+                      type="text"
+                      placeholder="이미지 제목을 입력해주세요. "
+                      value={imageText}
+                      onChange={onChangeImageText}
+                      style={{ backgroundColor: '#D9D9D9' }}
+                    />
+                  </Col>
+                </Form.Group>
               </Form.Group>
               <div>
                 {imagePaths.map((v, i) => (
                   <div key={v} style={{ display: 'inline-block' }}>
+                    {console.log(v, i)}
                     <img
-                      src={`http://localhost:3005/${v}`}
+                      src={`http://localhost:3005/${v[0].src}`}
                       style={{ width: '200px' }}
-                      alt={v}
+                      alt={v[0]}
                     />
                     <div>
-                      <Button onClick={onRemoveImage(i)}>제거</Button>
+                      <Button variant="danger" Click={onRemoveImage(i)}>
+                        제거
+                      </Button>
                     </div>
                   </div>
                 ))}
               </div>
-
+              <Button onClick={() => onPushImages(imageTitle, imageText)}>
+                이미지등록
+              </Button>
               <Col className="d-flex justify-content-end">
                 <Button
                   className="mb-4"
@@ -328,4 +416,4 @@ function announceBoardWrite() {
     </>
   );
 }
-export default announceBoardWrite;
+export default galleryBoardWrite;

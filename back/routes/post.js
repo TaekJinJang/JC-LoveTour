@@ -1,5 +1,12 @@
 const express = require('express');
-const { Mainpost, Reviewpost, Image, Admin, Comment } = require('../models');
+const {
+  Mainpost,
+  Reviewpost,
+  Image,
+  Admin,
+  Comment,
+  Gallery,
+} = require('../models');
 const router = express.Router();
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const multer = require('multer');
@@ -50,11 +57,27 @@ const upload = multer({
   limits: { fileSize: 20 * 1024 * 1024 }, //20MB 로 제한
 });
 
-router.post('/images', upload.array('image'), (req, res, next) => {
-  //POST /post/images
+router.post('/image', upload.array('image'), (req, res, next) => {
+  // 이미지 한개만 저장하기, 캡션과 함께
+  //POST /post/image
   console.log(req.files);
-  res.json(req.files.map((v) => v.filename));
+
+  const image = req.files.map((v) => {
+    return {
+      src: v.filename,
+      captionTitle: req.body.imageTitle,
+      captionContent: req.body.imageContent,
+    };
+  });
+  res.json(image);
 });
+// router.post('/images', upload.array('image'), (req, res, next) => {
+//   //POST /post/images
+//   console.log(req.files);
+//   res.json(
+//     req.files.map((v) => v.filename)
+//   );
+// });
 
 router.post(
   '/announce/add',
@@ -132,6 +155,55 @@ router.post(
     }
   }
 );
+router.post(
+  //예약페이지 add
+  '/gallery/add',
+  // isLoggedIn,
+  upload.none(),
+  async (req, res, next) => {
+    // POST /post/gallery/add
+    try {
+      const post = await Gallery.create({
+        title: req.body.title,
+        content: req.body.content,
+        date: TodayTime(),
+      });
+
+      if (req.body.image) {
+        if (Array.isArray(req.body.image)) {
+          // 이미지를 여러개 올리면 image: [택진.png, 택진111.png]
+          console.log(req.body);
+          const images = await Promise.all(
+            req.body.image.map((image, i) =>
+              Image.create({
+                src: image,
+                captionTitle: req.body.captionTitle[i],
+                captionContent: req.body.captionContent[i],
+              })
+            )
+          );
+          await post.addImages(images);
+        } else {
+          // 이미지를 하나만 올리면 image: 택진.png
+          const image = await Image.create({
+            src: req.body.image,
+            captionTitle: req.body.captionTitle,
+            captionContent: req.body.captionContent,
+          });
+          await post.addImages(image);
+        }
+      }
+      const fullPost = await Gallery.findOne({
+        where: { id: post.id },
+        include: [{ model: Image }],
+      });
+      res.status(201).json(fullPost);
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
+  }
+);
 
 router.get('/announce/posts', async (req, res, next) => {
   // GET /posts
@@ -181,6 +253,7 @@ router.get('/review/posts', async (req, res, next) => {
         [Comment, 'createdAt', 'DESC'], // 내림차순
       ],
       include: [
+        { model: Image },
         {
           model: Comment, // 댓글 작성자
           attributes: {
@@ -196,6 +269,26 @@ router.get('/review/posts', async (req, res, next) => {
           },
         },
       ],
+    });
+    res.status(200).json(posts);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+router.get('/gallery/posts', async (req, res, next) => {
+  // GET /post/gallery/posts
+  try {
+    const where = {};
+    if (parseInt(req.query.lastId, 10)) {
+      // 초기 로딩이 아닐 때
+      where.id = { [Op.lt]: parseInt(req.query.lastId, 10) };
+    }
+    const posts = await Gallery.findAll({
+      //   limit: 10,
+      where,
+      order: [['createdAt', 'DESC']],
+      include: [{ model: Image }],
     });
     res.status(200).json(posts);
   } catch (error) {
@@ -231,6 +324,7 @@ router.get('/all/posts', async (req, res, next) => {
         [Comment, 'createdAt', 'DESC'], // 내림차순
       ],
       include: [
+        { model: Image },
         {
           model: Comment, // 댓글 작성자
           attributes: {
@@ -240,10 +334,20 @@ router.get('/all/posts', async (req, res, next) => {
         },
       ],
     });
+    const galleryPosts = await Gallery.findAll({
+      limit: 10,
+      order: [
+        ['createdAt', 'DESC'],
+        // 내림차순
+      ],
+      include: [{ model: Image }],
+    });
     const allPosts = {
       mainPosts: mainPosts,
       reviewPosts: reviewPosts,
+      gallery: galleryPosts,
     };
+
     res.status(200).json(allPosts);
   } catch (error) {
     console.error(error);
@@ -347,6 +451,20 @@ router.delete('/review/:postId', async (req, res, next) => {
   // DELETE /post/review/1
   try {
     await Reviewpost.destroy({
+      where: { id: req.params.postId },
+    });
+    res.status(200).json({ PostId: parseInt(req.params.postId, 10) });
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+// 게시글 삭제 - 리뷰게시판
+router.delete('/gallery/:postId', async (req, res, next) => {
+  console.log(req.params.postId);
+  // DELETE /post/gallery/1
+  try {
+    await Gallery.destroy({
       where: { id: req.params.postId },
     });
     res.status(200).json({ PostId: parseInt(req.params.postId, 10) });

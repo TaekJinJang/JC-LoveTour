@@ -51,12 +51,9 @@ function announceBoardView() {
   };
   useEffect(() => {
     setCurrentPosts(mainPosts.slice(indexOfFirstPost, indexOfLastPost));
-    console.log('이때바뀜');
   }, [mainPosts, indexOfFirstPost, indexOfLastPost, page]);
-  console.log(mainPosts);
-  console.log(currentPosts, indexOfFirstPost, page);
+
   useEffect(() => {
-    console.log('이게힌트');
     dispatch({
       type: LOAD_POSTS_REQUEST,
     });
@@ -110,7 +107,7 @@ function announceBoardView() {
         </Row>
         {/* 사이드바 받은 파일 */}
         {/* // 2번 그리드 여기 아래의 코드가 바로 사이드바 코드 */}
-        <Row className="mt-3 ps-1" style={{width: '100%'}}>
+        <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
             <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body className="bp-0">

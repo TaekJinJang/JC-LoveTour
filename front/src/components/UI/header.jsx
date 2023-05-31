@@ -70,7 +70,7 @@ function header() {
                                             marginTop: '11px',
                                         }}
                                     >
-                                        <Nav.Link as="a" href="#" style={{ color: 'white' }}>
+                                        <Nav.Link as="a" href="/board/introduce" style={{ color: 'white' }}>
                                             러브투어 소개
                                         </Nav.Link>
                                         <Nav.Link as="a" href="#" style={{ color: 'white' }}>

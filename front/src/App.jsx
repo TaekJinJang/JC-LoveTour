@@ -20,6 +20,19 @@ import React from "react";
 
 import IntroduceBoard from "./pages/introduceBoard";
 
+import AccommodationBoard from './pages/accommodationBoard';
+import BasicCourseBoard from './pages/basicCourseBoard';
+import CityTourBoard from './pages/cityTourBoard';
+import FaqBoard from './pages/faqBoard';
+import FestivalBoard from './pages/festivalBoard';
+import FoodBoard from './pages/foodBoard';
+import GastroTourBoard from './pages/gastroTourBoard';
+import HealingCourseBoard from './pages/healingCourseBoard';
+import SupportBenefitBoard from './pages/supportBenefitBoard';
+import TouristSpotBoard from './pages/touristSpotBoard';
+import TraditionalMarketBoard from './pages/traditionalMarketBoard';
+import VideoGalleryBoard from './pages/videoGalleryBoard';
+
 const Container = styled.div`
   margin: 10px auto;
   // width: 370px;
@@ -31,6 +44,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" exact={true} element={<Main />} />
+          <Route path="/board/accommodation" element={<AccommodationBoard />} />
           <Route path="/board/announce" element={<AnnounceBoard />} />
           <Route
             path="/board/announce/:boardid"
@@ -60,6 +74,18 @@ function App() {
           />
           <Route path="/admin" element={<Admin />} />
           <Route path="/test" element={<BoardUI />} />
+
+          <Route path="/board/basicCourse" element={<BasicCourseBoard />} />
+          <Route path="/board/cityTour" element={<CityTourBoard />} />
+          <Route path="/board/faq" element={<FaqBoard />} />
+          <Route path="/board/festival" element={<FestivalBoard />} />
+          <Route path="/board/food" element={<FoodBoard />} />
+          <Route path="/board/gastroTour" element={<GastroTourBoard />} />
+          <Route path="/board/healingCourse" element={<HealingCourseBoard />} />
+          <Route path="/board/supportBenefit" element={<SupportBenefitBoard />} />
+          <Route path="/board/touristSpot" element={<TouristSpotBoard />} />
+          <Route path="/board/traditionalMarket" element={<TraditionalMarketBoard />} />
+          <Route path="/board/videoGallery" element={<VideoGalleryBoard />} />
         </Routes>
       </BrowserRouter>
     </>

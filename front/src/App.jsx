@@ -1,24 +1,24 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import reactLogo from './assets/react.svg';
-import AnnounceBoard from './pages/announceBoard';
-import AnnounceBoardAdd from './pages/announceBoardAdd';
-import AnnounceBoardPost from './pages/announceBoardPost';
-import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
-import GalleryBoard from './pages/galleryBoard';
-import GalleryBoardAdd from './pages/galleryBoardAdd';
-import AnnounceBoardSearch from './components/Board/announceBoardSearch';
-import ReviewBoard from './pages/reviewBoard';
-import ReviewBoardWrite from './components/Board/reviewBoardWrite';
-import ReviewBoardDetail from './components/Board/reviewBoardDetail';
-import ReviewBoardUpdate from './components/Board/reviewBoardUpdate';
-import BoardUI from './components/UI/boardUI';
-import Main from './pages/main';
-import Admin from './pages/admin';
-import React from 'react';
+import { useState } from "react";
+import styled from "styled-components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import reactLogo from "./assets/react.svg";
+import AnnounceBoard from "./pages/announceBoard";
+import AnnounceBoardAdd from "./pages/announceBoardAdd";
+import AnnounceBoardPost from "./pages/announceBoardPost";
+import AnnounceBoardUpdate from "./components/Board/announceBoardUpdate";
+import GalleryBoard from "./pages/galleryBoard";
+import GalleryBoardAdd from "./pages/galleryBoardAdd";
+import AnnounceBoardSearch from "./components/Board/announceBoardSearch";
+import ReviewBoard from "./pages/reviewBoard";
+import ReviewBoardWrite from "./components/Board/reviewBoardWrite";
+import ReviewBoardDetail from "./components/Board/reviewBoardDetail";
+import ReviewBoardUpdate from "./components/Board/reviewBoardUpdate";
+import BoardUI from "./components/UI/boardUI";
+import Main from "./pages/main";
+import Admin from "./pages/admin";
+import React from "react";
 
-import IntroduceBoard from './pages/introduceBoard';
+import IntroduceBoard from "./pages/introduceBoard";
 
 const Container = styled.div`
   margin: 10px auto;

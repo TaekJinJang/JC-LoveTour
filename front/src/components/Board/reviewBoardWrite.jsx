@@ -151,7 +151,7 @@ function reviewBoardWrite() {
                 size="lg"
                 block
               >
-                러브투어 소개
+                후기작성
               </Button>
               <Button
                 variant="outline-success"
@@ -159,25 +159,8 @@ function reviewBoardWrite() {
                 size="lg"
                 block
               >
-                지원 혜택
+                후기 조회/삭제
               </Button>
-              <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
-                size="lg"
-                block
-              >
-                사진 갤러리
-              </Button>
-              <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
-                size="lg"
-                block
-              >
-                영상 갤러리
-              </Button>
-              {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
           {/* </Row>
@@ -202,7 +185,7 @@ function reviewBoardWrite() {
                       <Card.Header
                         style={{
                           height: '35px',
-                          fontSize: '17px',
+                          fontSize: '15px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -234,9 +217,10 @@ function reviewBoardWrite() {
                       text="white"
                     >
                       <Card.Header
+                        className="p-0"
                         style={{
                           height: '35px',
-                          fontSize: '17px',
+                          fontSize: '15px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -270,7 +254,7 @@ function reviewBoardWrite() {
                       <Card.Header
                         style={{
                           height: '35px',
-                          fontSize: '17px',
+                          fontSize: '15px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -302,9 +286,10 @@ function reviewBoardWrite() {
                       text="white"
                     >
                       <Card.Header
+                        className="p-0"
                         style={{
                           height: '35px',
-                          fontSize: '17px',
+                          fontSize: '15px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -338,7 +323,7 @@ function reviewBoardWrite() {
                       <Card.Header
                         style={{
                           height: '35px',
-                          fontSize: '17px',
+                          fontSize: '15px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -371,7 +356,7 @@ function reviewBoardWrite() {
                       <Card.Header
                         style={{
                           height: '35px',
-                          fontSize: '17px',
+                          fontSize: '15px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',

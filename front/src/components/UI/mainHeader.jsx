@@ -33,7 +33,7 @@ function MainHeader() {
                     <Col md={4} className="mt-3">
                         <Figure>
                             <a href="/">
-                                <Figure.Image className="me-2 mt-1" width={300} height={52} src={logo} alt="logo" />
+                                <Figure.Image className="me-2 mt-1" width={250} height={52} src={logo} alt="logo" />
                             </a>
                         </Figure>
                     </Col>

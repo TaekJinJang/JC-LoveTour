@@ -11,7 +11,7 @@ function header() {
             <Container
                 style={{
                     backgroundImage: `url(${background})`,
-                    height: '400px',
+                    height: '350px',
                     width: '100%',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
@@ -67,7 +67,7 @@ function header() {
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '11px',
+                                            marginTop: '0px',
                                         }}
                                     >
                                         <Nav.Link as="a" href="/board/introduce" style={{ color: 'white' }}>
@@ -113,7 +113,7 @@ function header() {
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '11px',
+                                            marginTop: '0px',
                                         }}
                                     >
                                         <Nav.Link as="a" href="/board/touristSpot" style={{ color: 'white' }}>
@@ -162,7 +162,7 @@ function header() {
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '11px',
+                                            marginTop: '0px',
                                         }}
                                     >
                                         <Nav.Link as="a" href="/board/basicCourse" style={{ color: 'white' }}>
@@ -208,7 +208,7 @@ function header() {
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '11px',
+                                            marginTop: '0px',
                                         }}
                                     >
                                         <Nav.Link as="a" href="#" style={{ color: 'white' }}>
@@ -248,7 +248,7 @@ function header() {
                                         style={{
                                             background: 'rgba(17, 17, 17, 0.8)',
                                             height: '250px',
-                                            marginTop: '11px',
+                                            marginTop: '0px',
                                         }}
                                     >
                                         <Nav.Link as="a" href="/board/announce" style={{ color: 'white' }}>
@@ -271,7 +271,7 @@ function header() {
                                     textAlign: 'center',
                                     zIndex: '1',
                                     position: 'absolute',
-                                    top: '300px',
+                                    top: '200px',
                                     left: '50%',
                                     transform: 'translateX(-50%)',
                                 }}

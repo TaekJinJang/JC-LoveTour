@@ -200,7 +200,7 @@ function mainGrid() {
           </Col>
         </Row>
         <Row>
-          <Col className="my-2">
+          <Col className="my-2" md={6}>
             <Figure>
               <Figure.Image
                 style={{ width: 500, height: 200, objectFit: "fill" }}
@@ -249,141 +249,139 @@ function mainGrid() {
               </Card.Body>
             </Card>
           </Col>
-          <Col className="my-2">
-            <Card
-              style={{ width: '100%', height: '520px', overflow: 'hidden' }}
-            >
-              <Card.Body>
-                <Carousel variant="dark" className="mt-4">
-                  <Carousel.Item>
-                    <Row>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal1}
-                            alt="figure 1"
-                          />
-                        </figure>
-                      </Col>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal2}
-                            alt="figure 2"
-                          />
-                        </figure>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal3}
-                            alt="figure 3"
-                          />
-                        </figure>
-                      </Col>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal4}
-                            alt="figure 4"
-                          />
-                        </figure>
-                      </Col>
-                    </Row>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <Row>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal5}
-                            alt="figure 1"
-                          />
-                        </figure>
-                      </Col>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal6}
-                            alt="figure 2"
-                          />
-                        </figure>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal7}
-                            alt="figure 3"
-                          />
-                        </figure>
-                      </Col>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal8}
-                            alt="figure 4"
-                          />
-                        </figure>
-                      </Col>
-                    </Row>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <Row>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal9}
-                            alt="figure 1"
-                          />
-                        </figure>
-                      </Col>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal10}
-                            alt="figure 2"
-                          />
-                        </figure>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal11}
-                            alt="figure 3"
-                          />
-                        </figure>
-                      </Col>
-                      <Col>
-                        <figure>
-                          <img
-                            style={{ width: 215, height: 215, objectFit: "fill" }}
-                            src={gal12}
-                            alt="figure 4"
-                          />
-                        </figure>
-                      </Col>
-                    </Row>
-                  </Carousel.Item>
-                </Carousel>
-              </Card.Body>
-            </Card>
+          <Col className="my-1" md={6}>
+            <Container
+              style={{ width: '100%', overflow: 'hidden' }}>
+              <Carousel variant="dark" className="mt-4" controls={false} >
+                <Carousel.Item>
+                  <Row>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal1}
+                          alt="figure 1"
+                        />
+                      </figure>
+                    </Col>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal2}
+                          alt="figure 2"
+                        />
+                      </figure>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal3}
+                          alt="figure 3"
+                        />
+                      </figure>
+                    </Col>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal4}
+                          alt="figure 4"
+                        />
+                      </figure>
+                    </Col>
+                  </Row>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <Row>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal5}
+                          alt="figure 1"
+                        />
+                      </figure>
+                    </Col>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal6}
+                          alt="figure 2"
+                        />
+                      </figure>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal7}
+                          alt="figure 3"
+                        />
+                      </figure>
+                    </Col>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal8}
+                          alt="figure 4"
+                        />
+                      </figure>
+                    </Col>
+                  </Row>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <Row>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal9}
+                          alt="figure 1"
+                        />
+                      </figure>
+                    </Col>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal10}
+                          alt="figure 2"
+                        />
+                      </figure>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal11}
+                          alt="figure 3"
+                        />
+                      </figure>
+                    </Col>
+                    <Col>
+                      <figure>
+                        <img
+                          style={{ width: 220, height: 240, objectFit: "fill", borderRadius: '7px' }}
+                          src={gal12}
+                          alt="figure 4"
+                        />
+                      </figure>
+                    </Col>
+                  </Row>
+                </Carousel.Item>
+              </Carousel>
+
+            </Container>
           </Col>
         </Row>
         <Row>
@@ -402,7 +400,7 @@ function mainGrid() {
                     />
                   </Col>
                   <Col>
-                  <iframe
+                    <iframe
                       className="embed-responsive-item"
                       width={300}
                       height={300}
@@ -412,7 +410,7 @@ function mainGrid() {
                     />
                   </Col>
                   <Col>
-                  <iframe
+                    <iframe
                       className="embed-responsive-item"
                       width={300}
                       height={300}

@@ -16,6 +16,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
 
+// 이미지 경로
+import festivalex from '../../assets/mainGridIMG/festivalex.jpg'
+import gal1 from '../../assets/mainGridIMG/gal1.jpg'
+import gal2 from '../../assets/mainGridIMG/gal2.jpg'
+import gal3 from '../../assets/mainGridIMG/gal3.jpg'
+import gal4 from '../../assets/mainGridIMG/gal4.jpg'
+import gal5 from '../../assets/mainGridIMG/gal5.jpg'
+import gal6 from '../../assets/mainGridIMG/gal6.jpg'
+import gal7 from '../../assets/mainGridIMG/gal7.jpg'
+import gal8 from '../../assets/mainGridIMG/gal8.jpg'
+import gal9 from '../../assets/mainGridIMG/gal9.jpg'
+import gal10 from '../../assets/mainGridIMG/gal10.jpg'
+import gal11 from '../../assets/mainGridIMG/gal11.jpg'
+import gal12 from '../../assets/mainGridIMG/gal12.jpg'
+
+
+
+
+
 function mainGrid() {
   const { mainPosts, reviewPosts } = useSelector((state) => state.post);
   console.log(mainPosts);
@@ -35,13 +54,12 @@ function mainGrid() {
     <>
       <Container>
         <Row>
-          {/* 예약현황 */}
           <Col className="my-2">
             <Card
               style={{ width: '100%', height: '300px', overflow: 'hidden' }}
             >
               <Card.Header className="d-flex justify-content-between my-card-header">
-                예약 현황
+                공지 사항(리뷰 게시판과 연결되어 있음)
                 <Button variant="outline-primary" className="ml-auto">
                   +
                 </Button>
@@ -187,7 +205,10 @@ function mainGrid() {
         <Row>
           <Col className="my-2">
             <Figure>
-              <Figure.Image src="https://via.placeholder.com/500x200" />
+              <Figure.Image
+              style={{ width: 500, height: 200}}
+              src={festivalex}
+              thumbnail/>
             </Figure>
             <Card
               style={{ width: '100%', height: '300px', overflow: 'hidden' }}
@@ -242,9 +263,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal1}
                             alt="figure 1"
                           />
                         </figure>
@@ -252,9 +272,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal2}
                             alt="figure 2"
                           />
                         </figure>
@@ -264,9 +283,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal3}
                             alt="figure 3"
                           />
                         </figure>
@@ -274,9 +292,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal4}
                             alt="figure 4"
                           />
                         </figure>
@@ -288,9 +305,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal5}
                             alt="figure 1"
                           />
                         </figure>
@@ -298,9 +314,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal6}
                             alt="figure 2"
                           />
                         </figure>
@@ -310,9 +325,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal7}
                             alt="figure 3"
                           />
                         </figure>
@@ -320,9 +334,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal8}
                             alt="figure 4"
                           />
                         </figure>
@@ -334,9 +347,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal9}
                             alt="figure 1"
                           />
                         </figure>
@@ -344,9 +356,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal10}
                             alt="figure 2"
                           />
                         </figure>
@@ -356,9 +367,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal11}
                             alt="figure 3"
                           />
                         </figure>
@@ -366,9 +376,8 @@ function mainGrid() {
                       <Col>
                         <figure>
                           <img
-                            width={215}
-                            height={215}
-                            src="https://via.placeholder.com/215x215.png"
+                            style={{ width: 215, height: 215, objectFit: "fill"}}
+                            src={gal12}
                             alt="figure 4"
                           />
                         </figure>
@@ -387,19 +396,29 @@ function mainGrid() {
                 <Row>
                   <Col>
                     <Figure>
-                      <Figure.Image src="https://via.placeholder.com/300x300" />
+                      <Figure.Image
+                      style={{ width: 300, height: 300}}
+                       src="https://via.placeholder.com/300x300"
+                       alt="first video label" />
                       <Figure.Caption>First Image</Figure.Caption>
+                      
                     </Figure>
                   </Col>
                   <Col>
                     <Figure>
-                      <Figure.Image src="https://via.placeholder.com/300x300" />
+                      <Figure.Image
+                      style={{ width: 300, height: 300}}
+                       src="https://via.placeholder.com/300x300"
+                       alt="second video label" />
                       <Figure.Caption>Second Image</Figure.Caption>
                     </Figure>
                   </Col>
                   <Col>
                     <Figure>
-                      <Figure.Image src="https://via.placeholder.com/300x300" />
+                      <Figure.Image
+                      style={{ width: 300, height: 300}}
+                       src="https://via.placeholder.com/300x300"
+                       alt="third video label" />
                       <Figure.Caption>Third Image</Figure.Caption>
                     </Figure>
                   </Col>

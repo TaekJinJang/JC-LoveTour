@@ -8,6 +8,12 @@ import { fa } from 'faker/lib/locales';
 import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
 import { useDispatch, useSelector } from 'react-redux';
 
+// 이미지
+import mhc1 from '../../assets/mainHeaderIMG/mhc1.jpg'
+import mhc2 from '../../assets/mainHeaderIMG/mhc2.jpg'
+import mhc3 from '../../assets/mainHeaderIMG/mhc3.jpg'
+
+
 // import styled from 'styled-components';
 
 // src 속 뜨지 않던 holder.js -> https://via.placeholder.com/이미지규격 으로 변경시 전부 정상으로 뜸
@@ -352,13 +358,13 @@ function MainHeader() {
                             className="d-block w-100"
                             width={800}
                             height={400}
-                            src="https://via.placeholder.com/800x400"
+                            src={mhc1}
                             alt="First slide"
                         />
                         <Carousel.Caption>
                             <h3>First slide label</h3>
 
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <p>제천 전통시장 러브화면 관련 홍보 소식을 업로드합니다.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -366,13 +372,13 @@ function MainHeader() {
                             className="d-block w-100"
                             width={800}
                             height={400}
-                            src="https://via.placeholder.com/800x400"
+                            src={mhc2}
                             alt="Second slide"
                         />
 
                         <Carousel.Caption>
                             <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>제천 전통시장 러브화면 관련 홍보 소식을 업로드합니다.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -380,13 +386,13 @@ function MainHeader() {
                             className="d-block w-100"
                             width={800}
                             height={400}
-                            src="https://via.placeholder.com/800x400"
+                            src={mhc3}
                             alt="Third slide"
                         />
 
                         <Carousel.Caption>
                             <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <p>제천 전통시장 러브화면 관련 홍보 소식을 업로드합니다.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

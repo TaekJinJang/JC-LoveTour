@@ -398,7 +398,7 @@ function mainGrid() {
                       height={300}
                       src="https://www.youtube.com/embed/3vCKaZLcWhY"
                       allowFullScreen
-                      title="Video Player"
+                      title="Video Player1"
                     />
                   </Col>
                   <Col>
@@ -408,7 +408,7 @@ function mainGrid() {
                       height={300}
                       src="https://www.youtube.com/embed/ElDsQj5frtY"
                       allowFullScreen
-                      title="Video Player"
+                      title="Video Player2"
                     />
                   </Col>
                   <Col>
@@ -418,7 +418,7 @@ function mainGrid() {
                       height={300}
                       src="https://www.youtube.com/embed/i35rOACxc8E"
                       allowFullScreen
-                      title="Video Player"
+                      title="Video Player3"
                     />
                   </Col>
                 </Row>

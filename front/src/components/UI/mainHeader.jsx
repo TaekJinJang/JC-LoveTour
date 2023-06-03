@@ -253,16 +253,19 @@ function MainHeader() {
                                 }}
                             >
                                 <Nav.Link as="a" href="/board/basicCourse" style={{ color: 'white' }}>
-                                    기본코스
+                                    옥순봉 코스
                                 </Nav.Link>
                                 <Nav.Link as="a" href="/board/healingCourse" style={{ color: 'white' }}>
-                                    힐링코스
+                                    청풍호 코스
                                 </Nav.Link>
                                 <Nav.Link as="a" href="/board/gastroTour" style={{ color: 'white' }}>
-                                    가스트로투어
+                                    박물관 코스
                                 </Nav.Link>
                                 <Nav.Link as="a" href="/board/cityTour" style={{ color: 'white' }}>
-                                    제천시티투어
+                                    배론성지 코스
+                                </Nav.Link>
+                                <Nav.Link as="a" href="/board/cityTour" style={{ color: 'white' }}>
+                                    힐링 코스
                                 </Nav.Link>
                             </ul>
                         )}
@@ -288,46 +291,6 @@ function MainHeader() {
                                 width: '200px',
                             }}
                         >
-                            후기 게시판
-                        </Nav.Link>
-                        {showMenu && (
-                            <ul
-                                style={{
-                                    background: 'rgba(17, 17, 17, 0.8)',
-                                    height: '250px',
-                                    marginTop: '11px',
-                                }}
-                            >
-                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
-                                    후기 작성
-                                </Nav.Link>
-                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
-                                    후기 조회/삭제
-                                </Nav.Link>
-                            </ul>
-                        )}
-                    </Nav.Item>
-                </Col>
-
-                <Col
-                    md="auto"
-                    style={{
-                        fontSize: '20px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        fontWeight: 'bold',
-                    }}
-                >
-                    <Nav.Item as="li">
-                        <Nav.Link
-                            href="/board/announce"
-                            style={{
-                                color: 'black',
-                                fontWeight: 'bold',
-                                fontSize: '22px',
-                                width: '200px',
-                            }}
-                        >
                             알림마당
                         </Nav.Link>
                         {showMenu && (
@@ -338,16 +301,20 @@ function MainHeader() {
                                     marginTop: '11px',
                                 }}
                             >
-                                <Nav.Link as="a" href="/board/announce" style={{ color: 'white' }}>
-                                    공지사항
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
+                                    공지 사항
                                 </Nav.Link>
-                                <Nav.Link as="a" href="/board/faq" style={{ color: 'white' }}>
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
                                     자주하는 질문
+                                </Nav.Link>
+                                <Nav.Link as="a" href="#" style={{ color: 'white' }}>
+                                    투어 후기
                                 </Nav.Link>
                             </ul>
                         )}
                     </Nav.Item>
                 </Col>
+
             </Nav>
             {/* // 캐러셀 */}
             <Container>

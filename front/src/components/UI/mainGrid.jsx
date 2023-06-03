@@ -206,7 +206,7 @@ function mainGrid() {
           <Col className="my-2">
             <Figure>
               <Figure.Image
-              style={{ width: 500, height: 200}}
+              style={{ width: 500, height: 200, objectFit: "fill"}}
               src={festivalex}
               thumbnail/>
             </Figure>

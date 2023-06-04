@@ -18,6 +18,9 @@ import {
   NavDropdown,
 } from 'react-bootstrap';
 
+// 백그라운드 임포트
+import background from '../../assets/background.png';
+
 // import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -160,6 +163,108 @@ function introduceBoardView() {
           <Col md={9}>
             <Row>
               <h2>러브투어 소개</h2>
+              <hr />
+            </Row>
+            {/* 그림이 왼쪽에 있어요 */}
+            <Row className="mb-2">
+              <Col
+                md={4}
+                style={{
+                  backgroundImage: `url(${background})`,
+                  height: '250px',
+                  width: '50%',
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                  float: 'left',
+                }}
+              ></Col>
+              <Col md={4} style={{ position: 'relative' }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '20%',
+                    transform: 'translate(-50%, -50%)',
+                    background: '#fff',
+                    width: '200%',
+                    height: '80%',
+                    display: 'flex',
+                    // alignItems: 'center',
+                    justifyContent: 'left',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: '20px',
+
+                      color: 'black',
+                    }}
+                  >
+                    <h3>러브투어 소개글</h3>
+                    <p>
+                      안녕하십니까 지금 만든 폼은 세일이가 만들었어요 앞으로
+                      내용을 넣을거예여
+                    </p>
+                  </span>
+                </div>
+              </Col>
+              <Col
+                md={2}
+                className="bg-primary"
+                style={{ float: 'right' }}
+              ></Col>
+            </Row>
+            {/* 그림이 오른쪽에 있어요 */}
+            <Row className="mb-2">
+              <Col
+                md={2}
+                className="bg-primary"
+                style={{ float: 'right' }}
+              ></Col>
+              <Col md={4} style={{ position: 'relative' }}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '80%',
+                    transform: 'translate(-50%, -50%)',
+                    background: '#fff',
+                    width: '200%',
+                    height: '80%',
+                    display: 'flex',
+                    // alignItems: 'center',
+                    justifyContent: 'left',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: '20px',
+
+                      color: 'black',
+                    }}
+                  >
+                    <h3>러브투어 소개글</h3>
+                    <p>
+                      안녕하십니까 지금 만든 폼은 세일이가 만들었어요 앞으로
+                      내용을 넣을거예여
+                    </p>
+                  </span>
+                </div>
+              </Col>
+
+              <Col
+                md={4}
+                style={{
+                  backgroundImage: `url(${background})`,
+                  height: '250px',
+                  width: '50%',
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                  float: 'left',
+                }}
+              ></Col>
             </Row>
           </Col>
         </Row>

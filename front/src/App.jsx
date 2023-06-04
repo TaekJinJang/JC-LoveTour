@@ -1,24 +1,24 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import AnnounceBoard from "./pages/announceBoard";
-import AnnounceBoardAdd from "./pages/announceBoardAdd";
-import AnnounceBoardPost from "./pages/announceBoardPost";
-import AnnounceBoardUpdate from "./components/Board/announceBoardUpdate";
-import GalleryBoard from "./pages/galleryBoard";
-import GalleryBoardAdd from "./pages/galleryBoardAdd";
-import AnnounceBoardSearch from "./components/Board/announceBoardSearch";
-import ReviewBoard from "./pages/reviewBoard";
-import ReviewBoardWrite from "./components/Board/reviewBoardWrite";
-import ReviewBoardDetail from "./components/Board/reviewBoardDetail";
-import ReviewBoardUpdate from "./components/Board/reviewBoardUpdate";
-import BoardUI from "./components/UI/boardUI";
-import Main from "./pages/main";
-import Admin from "./pages/admin";
-import React from "react";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import reactLogo from './assets/react.svg';
+import AnnounceBoard from './pages/announceBoard';
+import AnnounceBoardAdd from './pages/announceBoardAdd';
+import AnnounceBoardPost from './pages/announceBoardPost';
+import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
+import GalleryBoard from './pages/galleryBoard';
+import GalleryBoardAdd from './pages/galleryBoardAdd';
+import AnnounceBoardSearch from './components/Board/announceBoardSearch';
+import ReviewBoard from './pages/reviewBoard';
+import ReviewBoardWrite from './components/Board/reviewBoardWrite';
+import ReviewBoardDetail from './components/Board/reviewBoardDetail';
+import ReviewBoardUpdate from './components/Board/reviewBoardUpdate';
+import BoardUI from './components/UI/boardUI';
+import Main from './pages/main';
+import Admin from './pages/admin';
+import React from 'react';
 
-import IntroduceBoard from "./pages/introduceBoard";
+import IntroduceBoard from './pages/introduceBoard';
 
 import AccommodationBoard from './pages/accommodationBoard';
 import BasicCourseBoard from './pages/basicCourseBoard';
@@ -32,6 +32,7 @@ import SupportBenefitBoard from './pages/supportBenefitBoard';
 import TouristSpotBoard from './pages/touristSpotBoard';
 import TraditionalMarketBoard from './pages/traditionalMarketBoard';
 import VideoGalleryBoard from './pages/videoGalleryBoard';
+import ReviewBoardAdd from './pages/reviewBoardAdd';
 
 const Container = styled.div`
   margin: 10px auto;
@@ -63,7 +64,7 @@ function App() {
           <Route path="/board/gallery/add" element={<GalleryBoardAdd />} />
           <Route path="/board/introduce" element={<IntroduceBoard />} />
           <Route path="/board/review" element={<ReviewBoard />} />
-          <Route path="/board/review/add" element={<ReviewBoardWrite />} />
+          <Route path="/board/review/add" element={<ReviewBoardAdd />} />
           <Route
             path="/board/review/:boardid"
             element={<ReviewBoardDetail />}
@@ -82,9 +83,15 @@ function App() {
           <Route path="/board/food" element={<FoodBoard />} />
           <Route path="/board/gastroTour" element={<GastroTourBoard />} />
           <Route path="/board/healingCourse" element={<HealingCourseBoard />} />
-          <Route path="/board/supportBenefit" element={<SupportBenefitBoard />} />
+          <Route
+            path="/board/supportBenefit"
+            element={<SupportBenefitBoard />}
+          />
           <Route path="/board/touristSpot" element={<TouristSpotBoard />} />
-          <Route path="/board/traditionalMarket" element={<TraditionalMarketBoard />} />
+          <Route
+            path="/board/traditionalMarket"
+            element={<TraditionalMarketBoard />}
+          />
           <Route path="/board/videoGallery" element={<VideoGalleryBoard />} />
         </Routes>
       </BrowserRouter>

@@ -97,8 +97,8 @@ function reviewBoardView() {
             </Container>
           </Navbar>
         </Row>
-        <Row className="mt-3 ps-1 ms-0" style={{ width: "100%" }}>
-          <Col md={3} className="d-grid gap-2 ms" style={{ height: "100%" }}>
+        <Row className="mt-3 ms-0" style={{ width: "100%" }}>
+          <Col md={3} className="d-grid gap-2 ps-0" style={{ height: "100%" }}>
             <Card bg="success" text="white" style={{ height: "150px" }}>
               <Card.Body className="bp-0">
                 <Card.Title className="my-3 mx-5 h-1">
@@ -119,7 +119,7 @@ function reviewBoardView() {
                 size="lg"
                 block="true"
               >
-                공지사항
+                후기작성
               </Button>
               <Button
                 variant="outline-success"
@@ -127,15 +127,7 @@ function reviewBoardView() {
                 size="lg"
                 block="true"
               >
-                자주하는 질문
-              </Button>
-              <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
-                size="lg"
-                block="true"
-              >
-                1:1 고객센터
+                후기 조회/삭제
               </Button>
 
               {/* block button 세로 길이 조정 */}
@@ -169,7 +161,7 @@ function reviewBoardView() {
                   {/* 서치바 드롭다운 메뉴 */}
 
                   <Form.Select
-                    className="me-2"
+                    className="me-3"
                     style={{ float: "right", width: "100px" }}
                   >
                     <option>전체</option>

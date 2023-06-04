@@ -1,6 +1,6 @@
-import produce from 'immer';
-import shortId from 'shortid';
-import faker from 'faker';
+import produce from "immer";
+import shortId from "shortid";
+import faker from "faker";
 
 export const initialState = {
     searchPosts: [],
@@ -163,7 +163,9 @@ const TodayTime = () => {
     let Month = date.getMonth() + 1; // 월
     let Day = date.getDate(); // 일
 
+
     return Year + '-' + Month + '-' + Day;
+
 };
 
 let fakerId = 0;
@@ -190,6 +192,7 @@ export const generateDummyPost = (number) =>
             date: TodayTime(),
         }));
 export const generateDummyReview = (number) =>
+
     Array(number)
         .fill()
         .map(() => ({
@@ -200,12 +203,14 @@ export const generateDummyReview = (number) =>
             title: '하핫 잘 놀다 갑니다',
             content: faker.lorem.paragraph(),
 
+
             date: TodayTime(),
         }));
 
 // ===================================== UI 제작 시 ===================================
 initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 // ====================================================================================
+
 initialState.reviewPosts = initialState.reviewPosts.concat(generateDummyReview(10));
 export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
@@ -271,6 +276,7 @@ const dummyPost = (data) => ({
     date: TodayTime(),
     Images: [],
     views: 1,
+
 });
 // const dummyReview = (data) => ({
 //   id: shortId.generate(),
@@ -286,8 +292,10 @@ const dummyPost = (data) => ({
 
 // 정규표현식을 이용해 게시글 검색
 function createSearchRegex(keyword) {
+
     const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return new RegExp(`\\b${escapedKeyword}\\b`, 'i');
+
 }
 
 // 리듀서는 이전 상태를 액션을 통해 다음 상태로 만들어내는 함수 ( 단! 불변성을 지키면서 !!)
@@ -485,6 +493,7 @@ const reducer = (state = initialState, action) =>
                 draft.searchPostsError = action.error;
                 break;
 
+
             // LOAD_POST
             case LOAD_POST_REQUEST:
                 draft.loadPostLoading = true;
@@ -496,7 +505,6 @@ const reducer = (state = initialState, action) =>
                 draft.loadPostDone = true;
                 draft.singlePost = action.data;
                 console.log('erroralert:', draft.singlePost);
-
                 break;
             case LOAD_POST_FAILURE:
                 draft.loadPostLoading = false;

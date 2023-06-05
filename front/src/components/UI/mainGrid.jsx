@@ -6,6 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
 
+// 이미지 경로
+import festivalex from '../../assets/mainGrid-assets/festivalex.jpg';
+
+
+
+
+
+
 function mainGrid() {
     const { mainPosts, reviewPosts } = useSelector((state) => state.post);
     console.log(mainPosts);
@@ -155,7 +163,9 @@ function mainGrid() {
                 <Row>
                     <Col className="my-2">
                         <Figure>
-                            <Figure.Image src="https://via.placeholder.com/500x200" />
+                            <Figure.Image 
+                            style={{width: '500px', height: '200px', objectFit: 'cover'}} 
+                            src={festivalex} />
                         </Figure>
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
                             <Card.Header className="d-flex justify-content-between">

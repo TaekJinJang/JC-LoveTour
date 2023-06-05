@@ -371,7 +371,7 @@ function MainHeader() {
             </Container>
 
             {/* // 캐러셀 */}
-            <Container>
+            <Container >
                 <Carousel style={{ zIndex: '10', marginTop: '58px' }}>
                     <Carousel.Item>
                         <img className="d-block w-100" width={800} height={400} src={uirimji} alt="First slide" />

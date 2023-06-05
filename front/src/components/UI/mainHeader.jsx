@@ -376,17 +376,18 @@ function MainHeader() {
                     <Carousel.Item>
                         <img className="d-block w-100" width={800} height={400} src={uirimji} alt="First slide" />
                         <Carousel.Caption>
-                            <h3>First slide label</h3>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
 
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <img className="d-block w-100" width={800} height={400} src={Bakdaljae} alt="Second slide" />
 
                         <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -397,10 +398,10 @@ function MainHeader() {
                             src={WoraksanMountain}
                             alt="Third slide"
                         />
-
                         <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
 
@@ -412,6 +413,11 @@ function MainHeader() {
                             src={CheongpungCultural}
                             alt="Third slide"
                         />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
                     </Carousel.Item>
 
                     <Carousel.Item>
@@ -422,6 +428,11 @@ function MainHeader() {
                             src={GeumsusanMountain}
                             alt="Third slide"
                         />
+                        <Carousel.Caption>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
                     </Carousel.Item>
 
                     <Carousel.Item>
@@ -432,14 +443,29 @@ function MainHeader() {
                             src={YonghagugokValley}
                             alt="Third slide"
                         />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
                     </Carousel.Item>
 
                     <Carousel.Item>
                         <img className="d-block w-100" width={800} height={400} src={SonggyeValley} alt="Third slide" />
+                        <Carousel.Caption>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
                     </Carousel.Item>
 
                     <Carousel.Item>
                         <img className="d-block w-100" width={800} height={400} src={OksunbongPeak} alt="Third slide" />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
                     </Carousel.Item>
 
                     <Carousel.Item>
@@ -450,6 +476,11 @@ function MainHeader() {
                             src={TaksajeongPavilion}
                             alt="Third slide"
                         />
+                        <Carousel.Caption>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
                     </Carousel.Item>
 
                     <Carousel.Item>
@@ -460,6 +491,11 @@ function MainHeader() {
                             src={BaeronHolyGround}
                             alt="Third slide"
                         />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
             </Container>

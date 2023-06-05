@@ -163,12 +163,13 @@ table {
   table-layout: auto;
   table-layout: fixed;
   border-collapse: collapse;
+  background-color: white; /* 배경색을 흰색으로 설정 */
 }
 
 .table_form {
   margin-left: 215px;
   height: 55px;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   margin-top: 10px;
   text-align: center;
 }

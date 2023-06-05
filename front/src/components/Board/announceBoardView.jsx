@@ -116,57 +116,53 @@ function announceBoardView() {
         {/* 사이드바 */}
         <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white">
+            <Card bg="success" text="white" style={{ borderRadius: '0' }}>
               <Card.Body className="pb-1 pt-1">
                 <Card.Title style={{ textAlign: 'center' }}>
-                  <h3 className="mb-0">알림</h3>
-                  <h3 className="mb-0">마당</h3>
+                  <h3 className="mb-0">알림마당</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block="true"
               >
-                공지사항
+                <h5>공지사항</h5>
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block="true"
               >
-                자주하는 질문
+                <h5>자주하는 질문</h5>
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block="true"
               >
-                1:1 고객센터
+                <h5>1:1 고객센터</h5>
               </Button>
 
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
-          {/* // 3번 그리드 */}
-          <Col md={9}>
+          {/*내용 리스트*/}
+          <Col md={9} className="ps-5 pe-0">
             <Row>
-              <h2>공지사항</h2>
+              <h3>공지사항</h3>
               <hr />
             </Row>
             <Row className="mt-2">
               <Col className="bg-light border pt-1">
                 <Col className="mb-1" style={{ float: 'right' }}>
                   <Stack direction="horizontal" gap={3}>
-                    <Form.Control
-                      className="ms-auto"
-                      placeholder="Add your item here..."
-                    />
+                    <Form.Control className="ms-auto" placeholder="" />
                     <Button
                       variant="success"
                       text="white"
@@ -208,9 +204,14 @@ function announceBoardView() {
             </Row>
             <Row>
               {/* 게시물 기재 테이블 */}
-
-              <Table striped className="mt-4">
-                <thead>
+              <Table
+                bordered
+                className="mt-4 table table-hover"
+                style={{ border: '1px solid #f2f2f2' }}
+              >
+                <thead
+                  style={{ textAlign: 'center', backgroundColor: '#E0E0E0' }}
+                >
                   <tr>
                     <th scope="col" width="10%">
                       번호
@@ -229,7 +230,11 @@ function announceBoardView() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  style={{
+                    textAlign: 'center',
+                  }}
+                >
                   {currentPosts.map((post, index) => (
                     <AnnounceBoardList key={post.id} post={post} page={page} />
                   ))}

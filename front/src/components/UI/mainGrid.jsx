@@ -34,6 +34,9 @@ function mainGrid() {
     const goToAnnounceBoard = useCallback(() => {
         navigate('/board/announce');
     }, []);
+    const goTosupportBenefit = useCallback(() => {
+        navigate('/board/supportBenefit');
+    }, []);
     const goToReviewBoard = useCallback(() => {
         navigate('/board/review');
     }, []);
@@ -45,84 +48,6 @@ function mainGrid() {
         <>
             <Container>
                 <Row>
-                    {/* 예약현황 */}
-                    <Col className="my-2">
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <Card.Header className="d-flex justify-content-between my-card-header">
-                                후기
-                                <Button variant="outline-primary" className="ml-auto">
-                                    +
-                                </Button>
-                            </Card.Header>
-                            <Card.Body>
-                                <ListGroup as="ol" onClick={goToReviewBoard}>
-                                    <ListGroup.Item
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
-                                                {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].title}
-                                            </div>
-                                            {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].date}
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
-                                                {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].title}
-                                            </div>
-                                            {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].date}
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].title}
-                                            </div>
-                                            {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].date}
-                                        </div>
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col className="my-2">
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <Card.Header className="d-flex justify-content-between">
-                                지원 혜택
-                                <Button variant="outline-primary" className="ml-auto">
-                                    +
-                                </Button>
-                            </Card.Header>
-                            <Card.Body>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item action variant="light">
-                                        help
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action variant="light">
-                                        Dapibus ac facilisis in
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action variant="light">
-                                        Morbi leo risus
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action variant="light">
-                                        Morbi leo risus
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action variant="light">
-                                        Porta ac consectetur ac
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
                     {/* 공지사항 */}
                     <Col className="my-2">
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
@@ -171,13 +96,93 @@ function mainGrid() {
                             </Card.Body>
                         </Card>
                     </Col>
+
+                    <Col className="my-2">
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+                            <Card.Header className="d-flex justify-content-between">
+                                지원 혜택
+                                <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
+                                    +
+                                </Button>
+                            </Card.Header>
+                            <Card.Body>
+                                <ListGroup variant="flush">
+                                    <ListGroup.Item action variant="light">
+                                        help
+                                    </ListGroup.Item>
+                                    <ListGroup.Item action variant="light">
+                                        Dapibus ac facilisis in
+                                    </ListGroup.Item>
+                                    <ListGroup.Item action variant="light">
+                                        Morbi leo risus
+                                    </ListGroup.Item>
+                                    <ListGroup.Item action variant="light">
+                                        Morbi leo risus
+                                    </ListGroup.Item>
+                                    <ListGroup.Item action variant="light">
+                                        Porta ac consectetur ac
+                                    </ListGroup.Item>
+                                </ListGroup>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    {/* 예약현황 */}
+                    <Col className="my-2">
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+                            <Card.Header className="d-flex justify-content-between my-card-header">
+                                후기
+                                <Button variant="outline-primary" className="ml-auto">
+                                    +
+                                </Button>
+                            </Card.Header>
+                            <Card.Body>
+                                <ListGroup as="ol" onClick={goToReviewBoard}>
+                                    <ListGroup.Item
+                                        as="li"
+                                        className="d-flex justify-content-between align-items-start"
+                                    >
+                                        <div className="ms-2 me-auto">
+                                            <div className="fw-bold">
+                                                {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].title}
+                                            </div>
+                                            {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].date}
+                                        </div>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item
+                                        as="li"
+                                        className="d-flex justify-content-between align-items-start"
+                                    >
+                                        <div className="ms-2 me-auto">
+                                            <div className="fw-bold">
+                                                {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].title}
+                                            </div>
+                                            {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].date}
+                                        </div>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item
+                                        as="li"
+                                        className="d-flex justify-content-between align-items-start"
+                                    >
+                                        <div className="ms-2 me-auto">
+                                            <div className="fw-bold">
+                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].title}
+                                            </div>
+                                            {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].date}
+                                        </div>
+                                    </ListGroup.Item>
+                                </ListGroup>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+
                 </Row>
                 <Row>
                     <Col className="my-2">
                         <Figure>
-                            <Figure.Image 
-                            style={{width: '500px', height: '200px', objectFit: 'cover'}} 
-                            src={festivalex} />
+                            <Figure.Image
+                                style={{ width: '500px', height: '200px', objectFit: 'cover' }}
+                                src={festivalex} />
                         </Figure>
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
                             <Card.Header className="d-flex justify-content-between">
@@ -228,7 +233,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img12}
                                                         alt="figure 1"
                                                     />
@@ -237,7 +242,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                    style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img1}
                                                         alt="figure 2"
                                                     />
@@ -248,7 +253,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img2}
                                                         alt="figure 3"
                                                     />
@@ -257,7 +262,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img3}
                                                         alt="figure 4"
                                                     />
@@ -270,7 +275,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img4}
                                                         alt="figure 1"
                                                     />
@@ -279,7 +284,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img5}
                                                         alt="figure 2"
                                                     />
@@ -290,7 +295,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img6}
                                                         alt="figure 3"
                                                     />
@@ -299,7 +304,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img7}
                                                         alt="figure 4"
                                                     />
@@ -312,7 +317,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img8}
                                                         alt="figure 1"
                                                     />
@@ -321,7 +326,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img9}
                                                         alt="figure 2"
                                                     />
@@ -332,7 +337,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img10}
                                                         alt="figure 3"
                                                     />
@@ -341,7 +346,7 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        style={{ width: '215px', height: '215px', objectFit: 'cover', borderRadius: '10px' }}
                                                         src={img11}
                                                         alt="figure 4"
                                                     />
@@ -360,13 +365,13 @@ function mainGrid() {
                             <Card.Body>
                                 <Row>
                                     <Col>
-                                    <iframe width="300" height="315" src="https://www.youtube.com/embed/3vCKaZLcWhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        <iframe width="300" height="315" src="https://www.youtube.com/embed/3vCKaZLcWhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     </Col>
                                     <Col>
-                                    <iframe width="300" height="315" src="https://www.youtube.com/embed/ElDsQj5frtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        <iframe width="300" height="315" src="https://www.youtube.com/embed/ElDsQj5frtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     </Col>
                                     <Col>
-                                    <iframe width="300" height="315" src="https://www.youtube.com/embed/1xUIqj6-crg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        <iframe width="300" height="315" src="https://www.youtube.com/embed/1xUIqj6-crg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     </Col>
                                 </Row>
                             </Card.Body>

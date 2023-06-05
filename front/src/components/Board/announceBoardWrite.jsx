@@ -152,7 +152,7 @@ function announceBoardWrite() {
             <ButtonGroup vertical>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
               >
@@ -160,7 +160,7 @@ function announceBoardWrite() {
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
               >

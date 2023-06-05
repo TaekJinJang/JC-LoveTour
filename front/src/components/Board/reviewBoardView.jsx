@@ -24,6 +24,8 @@ import {
 } from 'react-bootstrap';
 
 function reviewBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('투어 후기'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { reviewPosts } = useSelector((state) => state.post);
   // 페이지네이션
@@ -123,7 +125,7 @@ function reviewBoardView() {
                 size="lg"
                 block="true"
               >
-                후기작성
+                공지사항
               </Button>
               <Button
                 variant="outline-success"
@@ -131,7 +133,18 @@ function reviewBoardView() {
                 size="lg"
                 block="true"
               >
-                후기 조회/삭제
+                FAQ
+              </Button>
+              <Button
+                variant={
+                  currentPage === '투어 후기' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
+                className="mb-2 p-2 rounded-0"
+                size="lg"
+                block
+                onClick={() => setCurrentPage('투어 후기')} // 버튼 클릭 시 현재 페이지 업데이트
+              >
+                리뷰 게시판
               </Button>
 
               {/* block button 세로 길이 조정 */}

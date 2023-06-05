@@ -138,13 +138,13 @@ function announceBoardWrite() {
         </Row>
 
         {/* 사이드바 */}
+        {/* 사이드바 */}
         <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white">
+            <Card bg="success" text="white" className="rounded-0">
               <Card.Body className="pb-1 pt-1">
                 <Card.Title style={{ textAlign: 'center' }}>
-                  <h3 className="mb-0">알림</h3>
-                  <h3>마당</h3>
+                  <h3 className="mb-0">쓰기 페이지</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
@@ -163,9 +163,16 @@ function announceBoardWrite() {
                 size="lg"
                 block
               >
-                자주하는 질문
+                FAQ
               </Button>
-              {/* block button 세로 길이 조정 */}
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2 rounded-0"
+                size="lg"
+                block
+              >
+                리뷰 게시판
+              </Button>
             </ButtonGroup>
           </Col>
 

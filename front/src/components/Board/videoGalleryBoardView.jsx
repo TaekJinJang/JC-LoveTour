@@ -24,6 +24,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function videoGalleryBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('영상 갤러리'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -107,8 +109,7 @@ function videoGalleryBoardView() {
             <Card bg="success" text="white" className="rounded-0">
               <Card.Body className="pb-1 pt-1">
                 <Card.Title style={{ textAlign: 'center' }}>
-                  <h3 className="mb-0">영상</h3>
-                  <h3>갤러리</h3>
+                  <h3 className="mb-0">영상 갤러리</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
@@ -138,14 +139,16 @@ function videoGalleryBoardView() {
                 사진 갤러리
               </Button>
               <Button
-                variant="outline-success"
+                variant={
+                  currentPage === '영상 갤러리' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
                 className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
+                onClick={() => setCurrentPage('영상 갤러리')} // 버튼 클릭 시 현재 페이지 업데이트
               >
                 영상 갤러리
               </Button>
-              {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
           {/* </Row>

@@ -30,6 +30,8 @@ import {
 import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 function announceBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('공지사항'); // 현재 페이지 상태
   const { mainPosts } = useSelector((state) => state.post);
   const dispatch = useDispatch();
   const { admin } = useSelector((state) => state.admin);
@@ -125,10 +127,13 @@ function announceBoardView() {
             </Card>
             <ButtonGroup vertical>
               <Button
-                variant="outline-success"
+                variant={
+                  currentPage === '공지사항' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
                 className="mb-2 p-2 rounded-0"
                 size="lg"
-                block="true"
+                block
+                onClick={() => setCurrentPage('공지사항')} // 버튼 클릭 시 현재 페이지 업데이트
               >
                 <h5>공지사항</h5>
               </Button>
@@ -138,7 +143,7 @@ function announceBoardView() {
                 size="lg"
                 block="true"
               >
-                <h5>자주하는 질문</h5>
+                <h5>FAQ</h5>
               </Button>
               <Button
                 variant="outline-success"
@@ -146,7 +151,7 @@ function announceBoardView() {
                 size="lg"
                 block="true"
               >
-                <h5>1:1 고객센터</h5>
+                <h5>리뷰 게시판</h5>
               </Button>
 
               {/* block button 세로 길이 조정 */}

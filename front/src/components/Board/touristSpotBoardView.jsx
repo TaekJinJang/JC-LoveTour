@@ -24,6 +24,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function touristSpotBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('관광지'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -101,7 +103,6 @@ function touristSpotBoardView() {
           </Navbar>
         </Row>
 
-        {/* 사이드 메뉴 */}
         {/* 사이드바 */}
         <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
@@ -114,12 +115,15 @@ function touristSpotBoardView() {
             </Card>
             <ButtonGroup vertical>
               <Button
-                variant="outline-success"
+                variant={
+                  currentPage === '관광지' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
                 className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
+                onClick={() => setCurrentPage('관광지')} // 버튼 클릭 시 현재 페이지 업데이트
               >
-                러브투어 소개
+                관광지
               </Button>
               <Button
                 variant="outline-success"
@@ -127,7 +131,7 @@ function touristSpotBoardView() {
                 size="lg"
                 block
               >
-                지원 혜택
+                전통시장
               </Button>
               <Button
                 variant="outline-success"
@@ -135,7 +139,7 @@ function touristSpotBoardView() {
                 size="lg"
                 block
               >
-                사진 갤러리
+                음식
               </Button>
               <Button
                 variant="outline-success"
@@ -143,7 +147,15 @@ function touristSpotBoardView() {
                 size="lg"
                 block
               >
-                영상 갤러리
+                숙박
+              </Button>
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2 rounded-0"
+                size="lg"
+                block
+              >
+                행사/축제
               </Button>
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>

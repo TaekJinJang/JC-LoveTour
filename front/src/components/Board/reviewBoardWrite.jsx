@@ -26,6 +26,9 @@ import useInput from '../../hooks/useInput';
 import { useNavigate } from 'react-router-dom';
 
 function reviewBoardWrite() {
+  // // 페이지 버튼 눌린 상태로 만드려고 생성
+  // const [currentPage, setCurrentPage] = useState('후기 작성'); // 현재 페이지 상태
+  // 적용이 되지 않음
   const { imagePaths } = useSelector((state) => state.post);
   const [name, onChangeName] = useInput('');
   const [password, onChangePassword] = useInput('');
@@ -145,6 +148,15 @@ function reviewBoardWrite() {
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
+              {/* <Button
+                variant={
+                  currentPage === '후기작성' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
+                className="mb-2 p-2 rounded-0"
+                size="lg"
+                block
+                onClick={() => setCurrentPage('후기작성')} // 버튼 클릭 시 현재 페이지 업데이트
+              > -----------------------------------------------------------------------------------이거 작성이 안됨*/}
               <Button
                 variant="outline-success"
                 className="mb-2 p-2 rounded-0"

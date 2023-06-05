@@ -108,8 +108,7 @@ function announceBoardUpdate() {
             <Card bg="success" text="white">
               <Card.Body className="pb-1 pt-1">
                 <Card.Title style={{ textAlign: 'center' }}>
-                  <h3 className="mb-0">알림</h3>
-                  <h3 className="mb-0">마당</h3>
+                  <h3 className="mb-0">수정하기</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
@@ -128,7 +127,7 @@ function announceBoardUpdate() {
                 size="lg"
                 block="true"
               >
-                자주하는 질문
+                FAQ
               </Button>
               <Button
                 variant="outline-success"
@@ -136,7 +135,7 @@ function announceBoardUpdate() {
                 size="lg"
                 block="true"
               >
-                1:1 고객센터
+                리뷰 게시판
               </Button>
 
               {/* block button 세로 길이 조정 */}

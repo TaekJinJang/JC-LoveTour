@@ -30,6 +30,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function healingCourseBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('힐링 코스'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -124,7 +126,7 @@ function healingCourseBoardView() {
                 size="lg"
                 block
               >
-                러브투어 소개
+                옥순봉 코스
               </Button>
               <Button
                 variant="outline-success"
@@ -132,7 +134,7 @@ function healingCourseBoardView() {
                 size="lg"
                 block
               >
-                지원 혜택
+                청풍호 코스
               </Button>
               <Button
                 variant="outline-success"
@@ -140,7 +142,7 @@ function healingCourseBoardView() {
                 size="lg"
                 block
               >
-                사진 갤러리
+                박물관 코스
               </Button>
               <Button
                 variant="outline-success"
@@ -148,7 +150,18 @@ function healingCourseBoardView() {
                 size="lg"
                 block
               >
-                영상 갤러리
+                배론성지 코스
+              </Button>
+              <Button
+                variant={
+                  currentPage === '힐링 코스' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
+                className="mb-2 p-2 rounded-0"
+                size="lg"
+                block
+                onClick={() => setCurrentPage('힐링 코스')} // 버튼 클릭 시 현재 페이지 업데이트
+              >
+                힐링 코스
               </Button>
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>

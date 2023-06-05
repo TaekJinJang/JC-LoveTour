@@ -37,8 +37,8 @@ function mainGrid() {
     const goTosupportBenefit = useCallback(() => {
         navigate('/board/supportBenefit');
     }, []);
-    const goToReviewBoard = useCallback(() => {
-        navigate('/board/review');
+    const goToFAQ = useCallback(() => {
+        navigate('/board/faq');
     }, []);
     const goToAnnounceBoardDetail = useCallback((postId) => {
         navigate(`/board/announce/${postId}`);
@@ -131,12 +131,12 @@ function mainGrid() {
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
                             <Card.Header className="d-flex justify-content-between my-card-header">
                                 후기
-                                <Button variant="outline-primary" className="ml-auto">
+                                <Button variant="outline-primary" className="ml-auto" onClick={goToFAQ}>
                                     +
                                 </Button>
                             </Card.Header>
                             <Card.Body>
-                                <ListGroup as="ol" onClick={goToReviewBoard}>
+                                <ListGroup as="ol" onClick={goToFAQ}>
                                     <ListGroup.Item
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"

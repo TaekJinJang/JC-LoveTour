@@ -8,7 +8,7 @@ function header() {
     const [showMenu, setShowMenu] = useState(false); // 마우스 호버 상태를 저장하는 상태값
 
     const handleMouseEnter = (e) => {
-        e.target.style.backgroundColor = 'green'; //마우스 호버시 배경 색을 초록색으로 설정
+        e.target.style.backgroundColor = 'rgba(24, 242, 12, 0.5)'; //마우스 호버시 배경 색을 초록색으로 설정
         setHover(true);
     };
 
@@ -229,7 +229,7 @@ function header() {
                             >
                                 <Nav.Item as="li">
                                     <Nav.Link
-                                        href="/"
+                                        href="/board/oksunbongPeakCourse"
                                         style={{
                                             color: 'black',
                                             fontWeight: 'bold',
@@ -255,7 +255,7 @@ function header() {
                                                 onMouseEnter={handleMouseEnter}
                                                 onMouseLeave={handleMouseLeave}
                                                 as="a"
-                                                href="/board/basicCourse"
+                                                href="/board/oksunbongPeakCourse"
                                                 style={{ color: 'white' }}
                                             >
                                                 옥순봉 코스
@@ -264,7 +264,7 @@ function header() {
                                                 onMouseEnter={handleMouseEnter}
                                                 onMouseLeave={handleMouseLeave}
                                                 as="a"
-                                                href="/board/healingCourse"
+                                                href="/board/cheongpunghoCourse"
                                                 style={{ color: 'white' }}
                                             >
                                                 청풍호 코스
@@ -273,7 +273,7 @@ function header() {
                                                 onMouseEnter={handleMouseEnter}
                                                 onMouseLeave={handleMouseLeave}
                                                 as="a"
-                                                href="/board/gastroTour"
+                                                href="/board/museumCourse"
                                                 style={{ color: 'white' }}
                                             >
                                                 박물관 코스
@@ -282,7 +282,7 @@ function header() {
                                                 onMouseEnter={handleMouseEnter}
                                                 onMouseLeave={handleMouseLeave}
                                                 as="a"
-                                                href="/board/cityTour"
+                                                href="/board/shrineOfBaeronCourse"
                                                 style={{ color: 'white' }}
                                             >
                                                 배론성지 코스
@@ -291,7 +291,7 @@ function header() {
                                                 onMouseEnter={handleMouseEnter}
                                                 onMouseLeave={handleMouseLeave}
                                                 as="a"
-                                                href="/board/cityTour"
+                                                href="/board/healingCourse"
                                                 style={{ color: 'white' }}
                                             >
                                                 힐링 코스

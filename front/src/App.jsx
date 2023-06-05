@@ -21,12 +21,13 @@ import React from 'react';
 import IntroduceBoard from './pages/introduceBoard';
 
 import AccommodationBoard from './pages/accommodationBoard';
-import BasicCourseBoard from './pages/basicCourseBoard';
-import CityTourBoard from './pages/cityTourBoard';
+import CheongpunghoCourseBoard from './pages/cheongpunghoCourseBoard';
+import MuseumCourseBoard from './pages/museumCourseBoard';
 import FaqBoard from './pages/faqBoard';
 import FestivalBoard from './pages/festivalBoard';
 import FoodBoard from './pages/foodBoard';
-import GastroTourBoard from './pages/gastroTourBoard';
+import OksunbongPeakCourseBoard from './pages/oksunbongPeakCourseBoard';
+import ShrineOfBaeronCourseBoard from './pages/shrineOfBaeronCourseBoard';
 import HealingCourseBoard from './pages/healingCourseBoard';
 import SupportBenefitBoard from './pages/supportBenefitBoard';
 import TouristSpotBoard from './pages/touristSpotBoard';
@@ -76,12 +77,9 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/test" element={<BoardUI />} />
 
-          <Route path="/board/basicCourse" element={<BasicCourseBoard />} />
-          <Route path="/board/cityTour" element={<CityTourBoard />} />
           <Route path="/board/faq" element={<FaqBoard />} />
           <Route path="/board/festival" element={<FestivalBoard />} />
           <Route path="/board/food" element={<FoodBoard />} />
-          <Route path="/board/gastroTour" element={<GastroTourBoard />} />
           <Route path="/board/healingCourse" element={<HealingCourseBoard />} />
           <Route
             path="/board/supportBenefit"
@@ -93,6 +91,11 @@ function App() {
             element={<TraditionalMarketBoard />}
           />
           <Route path="/board/videoGallery" element={<VideoGalleryBoard />} />
+
+          <Route path="/board/cheongpunghoCourse" element={<CheongpunghoCourseBoard />} />
+          <Route path="/board/museumCourse" element={<MuseumCourseBoard />} />
+          <Route path="/board/oksunbongPeakCourse" element={<OksunbongPeakCourseBoard />} />
+          <Route path="/board/shrineOfBaeronCourse" element={<ShrineOfBaeronCourseBoard />} />
         </Routes>
       </BrowserRouter>
     </>

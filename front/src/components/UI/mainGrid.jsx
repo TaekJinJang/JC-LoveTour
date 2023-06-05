@@ -50,14 +50,14 @@ function mainGrid() {
                 <Row>
                     {/* 공지사항 */}
                     <Col className="my-2">
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <Card.Header className="d-flex justify-content-between mt-1" style={{ backgroundColor: 'white' }}>
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className='bg-light'>
+                            <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{paddingInline:'10px'}}><h4>공지사항</h4></div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body style={{ backgroundColor: 'white' }} className='p-0'>
+                            <Card.Body className='p-1'>
                                 <ListGroup variant='flush' as="ol" onClick={goToAnnounceBoard}>
                                     <ListGroup.Item action variant="light"
                                         as="li"
@@ -170,14 +170,14 @@ function mainGrid() {
                     </Col>
                     {/* 예약현황 */}
                     <Col className="my-2">
-                    <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                        <Card.Header className="d-flex justify-content-between mt-1" style={{ backgroundColor: 'white' }}>
+                    <Card style={{ width: '100%', height: '300px', overflow: 'hidden'}} className='bg-light'>
+                        <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{paddingInline:'10px'}}><h4>자주하는 질문</h4></div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goToFAQ}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body style={{ backgroundColor: 'white' }} className='p-0'>
+                            <Card.Body className='p-1'>
                                 <ListGroup variant='flush' as="ol" onClick={goToFAQ}>
                                     <ListGroup.Item action variant="light"
                                         as="li"

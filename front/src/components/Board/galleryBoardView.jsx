@@ -104,11 +104,10 @@ function galleryBoardView() {
         {/* 사이드바 */}
         <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white">
+            <Card bg="success" text="white" className="rounded-0">
               <Card.Body className="pb-1 pt-1">
                 <Card.Title style={{ textAlign: 'center' }}>
-                  <h3 className="mb-0">사진</h3>
-                  <h3 className="mb-0">갤러리</h3>
+                  <h3 className="mb-0">사진 갤러리</h3>
                 </Card.Title>
               </Card.Body>
             </Card>

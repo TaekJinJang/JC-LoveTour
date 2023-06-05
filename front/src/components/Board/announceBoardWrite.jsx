@@ -86,7 +86,6 @@ function announceBoardWrite() {
     <>
       <Container>
         {/* 상단 네비바 */}
-        {/* 상단 네비바 */}
         <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
           <Navbar bg="success" expand="lg" className="p-0">
             <Container style={{ top: '-2px' }}>

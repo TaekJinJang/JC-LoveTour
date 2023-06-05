@@ -8,6 +8,18 @@ import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
 
 // 이미지 경로
 import festivalex from '../../assets/mainGrid-assets/festivalex.jpg';
+import img1 from '../../assets/mainGrid-assets/img1.jpg';
+import img2 from '../../assets/mainGrid-assets/img2.jpg';
+import img3 from '../../assets/mainGrid-assets/img3.jpg';
+import img4 from '../../assets/mainGrid-assets/img4.jpg';
+import img5 from '../../assets/mainGrid-assets/img5.jpg';
+import img6 from '../../assets/mainGrid-assets/img6.jpg';
+import img7 from '../../assets/mainGrid-assets/img7.jpg';
+import img8 from '../../assets/mainGrid-assets/img8.jpg';
+import img9 from '../../assets/mainGrid-assets/img9.jpg';
+import img10 from '../../assets/mainGrid-assets/img10.jpg';
+import img11 from '../../assets/mainGrid-assets/img11.jpg';
+import img12 from '../../assets/mainGrid-assets/img12.jpg';
 
 
 
@@ -216,9 +228,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img12}
                                                         alt="figure 1"
                                                     />
                                                 </figure>
@@ -226,9 +237,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                    style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img1}
                                                         alt="figure 2"
                                                     />
                                                 </figure>
@@ -238,9 +248,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img2}
                                                         alt="figure 3"
                                                     />
                                                 </figure>
@@ -248,9 +257,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img3}
                                                         alt="figure 4"
                                                     />
                                                 </figure>
@@ -262,9 +270,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img4}
                                                         alt="figure 1"
                                                     />
                                                 </figure>
@@ -272,9 +279,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img5}
                                                         alt="figure 2"
                                                     />
                                                 </figure>
@@ -284,9 +290,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img6}
                                                         alt="figure 3"
                                                     />
                                                 </figure>
@@ -294,9 +299,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img7}
                                                         alt="figure 4"
                                                     />
                                                 </figure>
@@ -308,9 +312,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img8}
                                                         alt="figure 1"
                                                     />
                                                 </figure>
@@ -318,9 +321,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img9}
                                                         alt="figure 2"
                                                     />
                                                 </figure>
@@ -330,9 +332,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img10}
                                                         alt="figure 3"
                                                     />
                                                 </figure>
@@ -340,9 +341,8 @@ function mainGrid() {
                                             <Col>
                                                 <figure>
                                                     <img
-                                                        width={215}
-                                                        height={215}
-                                                        src="https://via.placeholder.com/215x215.png"
+                                                        style={{width: '215px', height: '215px', objectFit: 'cover', borderRadius:'10px'}}
+                                                        src={img11}
                                                         alt="figure 4"
                                                     />
                                                 </figure>

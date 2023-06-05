@@ -51,9 +51,10 @@ function mainGrid() {
                     {/* 공지사항 */}
                     <Col className="my-2">
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <Card.Header className="d-flex justify-content-between border-0" style={{ backgroundColor: '#D9D9D9' }}>
+                            <Card.Header className="d-flex justify-content-between border-0 m-0" style={{ backgroundColor: '#D9D9D9' }}>
                                 공지사항
-                                <Button variant="light" className="ml-auto" onClick={goToAnnounceBoard}>
+                                <Button variant="light" className="p-0 m-0" onClick={goToAnnounceBoard}
+                                style={{color: 'blue', fontSize:'2em', height:'1.5em'}}>
                                     +
                                 </Button>
                             </Card.Header>

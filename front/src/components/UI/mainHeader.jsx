@@ -360,7 +360,7 @@ function MainHeader() {
                                     <Nav.Link as="a" href="/board/faq" style={{ color: 'white' }}>
                                         자주하는 질문
                                     </Nav.Link>
-                                    <Nav.Link as="a" href="/board/faq" style={{ color: 'white' }}>
+                                    <Nav.Link as="a" href="/board/review" style={{ color: 'white' }}>
                                         투어 후기
                                     </Nav.Link>
                                 </ul>

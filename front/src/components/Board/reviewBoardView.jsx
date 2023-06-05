@@ -55,16 +55,21 @@ function reviewBoardView() {
   return (
     <>
       <Container>
+        {/* 상단 네비바 */}
         <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-          <Navbar bg="success" expand="lg">
-            <Container>
+          <Navbar bg="success" expand="lg" className="p-0">
+            <Container style={{ top: '-2px' }}>
               <Navbar.Brand href="#home">
-                <h4>홈</h4>
+                <h6>홈</h6>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
-                  <NavDropdown as="h5" title="알림마당" id="basic-nav-dropdown">
+                  <NavDropdown
+                    as="h6"
+                    title="제천 러브투어"
+                    id="basic-nav-dropdown"
+                  >
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
@@ -78,7 +83,11 @@ function reviewBoardView() {
                       Separated link
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <NavDropdown as="h5" title="공지사항" id="basic-nav-dropdown">
+                  <NavDropdown
+                    as="h6"
+                    title="러브투어 소개"
+                    id="basic-nav-dropdown"
+                  >
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
@@ -97,16 +106,14 @@ function reviewBoardView() {
             </Container>
           </Navbar>
         </Row>
-        <Row className="mt-3 ms-0" style={{ width: '100%' }}>
-          <Col md={3} className="d-grid gap-2 ps-0" style={{ height: '100%' }}>
-            <Card bg="success" text="white" style={{ height: '150px' }}>
-              <Card.Body className="bp-0">
-                <Card.Title
-                  className="my-3 mx-5 h-1"
-                  style={{ textAlign: 'center' }}
-                >
-                  <h2>리뷰</h2>
-                  <h2>게시판</h2>
+        {/* 사이드바 */}
+        <Row className="mt-3 ps-1" style={{ width: '100%' }}>
+          <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
+            <Card bg="success" text="white">
+              <Card.Body className="pb-1 pt-1">
+                <Card.Title style={{ textAlign: 'center' }}>
+                  <h3 className="mb-0">리뷰</h3>
+                  <h3 className="mb-0">게시판</h3>
                 </Card.Title>
               </Card.Body>
             </Card>

@@ -153,7 +153,7 @@ function supportBenefitBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row className="mb-1">
-              <h2>지원혜택</h2>
+              <h3>지원혜택</h3>
               <hr />
             </Row>
             <Row>

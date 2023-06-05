@@ -157,7 +157,7 @@ function introduceBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>러브투어 소개</h2>
+              <h3>러브투어 소개</h3>
               <hr />
             </Row>
             {/* 그림이 왼쪽에 있어요 */}

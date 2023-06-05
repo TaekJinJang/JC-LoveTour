@@ -140,7 +140,7 @@ function reviewBoardView() {
           </Col>
           <Col md={9} className="ps-2">
             <Row>
-              <h2>리뷰게시판</h2>
+              <h3>리뷰게시판</h3>
               <hr />
             </Row>
             <Row className="mt-2">

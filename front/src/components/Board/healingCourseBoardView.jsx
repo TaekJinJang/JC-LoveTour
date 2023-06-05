@@ -159,7 +159,7 @@ function healingCourseBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>힐링코스</h2>
+              <h3>힐링코스</h3>
               <hr />
             </Row>
             {/* 청풍문화재단지-------------------------------------- */}

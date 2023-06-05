@@ -153,7 +153,7 @@ function shrineOfBaeronCourseBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>기본코스</h2>
+              <h3>베른성지 코스</h3>
             </Row>
           </Col>
         </Row>

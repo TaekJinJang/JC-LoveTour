@@ -154,7 +154,7 @@ function videoGalleryBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>영상 갤러리</h2>
+              <h3>영상 갤러리</h3>
             </Row>
           </Col>
         </Row>

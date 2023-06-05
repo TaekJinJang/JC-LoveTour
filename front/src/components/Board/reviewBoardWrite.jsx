@@ -140,8 +140,7 @@ function reviewBoardWrite() {
             <Card bg="success" text="white">
               <Card.Body className="pb-1 pt-1">
                 <Card.Title style={{ textAlign: 'center' }}>
-                  <h3 className="mb-0">리뷰</h3>
-                  <h3 className="mb-0">게시판</h3>
+                  <h3 className="mb-0">리뷰 게시판</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
@@ -170,7 +169,7 @@ function reviewBoardWrite() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>리뷰 작성하기</h2>
+              <h3>리뷰 작성하기</h3>
             </Row>
             <Form encType="multipart/form-data" onSubmit={onSubmitForm}>
               <Col>

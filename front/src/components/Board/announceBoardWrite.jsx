@@ -172,7 +172,7 @@ function announceBoardWrite() {
 
           <Col md={9} className="ps-2">
             <Row>
-              <h2>공지사항</h2>
+              <h3>공지사항</h3>
               <hr />
             </Row>
 

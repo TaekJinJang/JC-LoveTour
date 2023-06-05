@@ -50,7 +50,6 @@ function cheongpunghoCourseBoardView() {
     <>
       <Container>
         {/* 상단 네비바 */}
-        {/* 상단 네비바 */}
         <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
           <Navbar bg="success" expand="lg" className="p-0">
             <Container style={{ top: '-2px' }}>
@@ -154,7 +153,7 @@ function cheongpunghoCourseBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>기본코스</h2>
+              <h3>청풍호 코스</h3>
             </Row>
           </Col>
         </Row>

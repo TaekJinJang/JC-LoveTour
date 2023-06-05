@@ -143,7 +143,7 @@ function announceBoardDetail() {
                 padding: 0,
               }}
             >
-              <h2>공지사항</h2>
+              <h3>공지사항</h3>
               <hr />
               <div className="w-100% p-0">
                 {/* 제목은 나중에 수정 */}

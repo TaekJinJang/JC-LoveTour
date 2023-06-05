@@ -153,7 +153,7 @@ function traditionalMarketBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>전통시장</h2>
+              <h3>전통시장</h3>
             </Row>
           </Col>
         </Row>

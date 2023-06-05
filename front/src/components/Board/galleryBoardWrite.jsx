@@ -196,9 +196,9 @@ function galleryBoardWrite() {
           <Col>
             <Col>
               <Row className="mb-4">
-                <h2 className="mb-4" style={{ color: '#2da57d' }}>
+                <h3 className="mb-4" style={{ color: '#2da57d' }}>
                   공지사항
-                </h2>
+                </h3>
                 <hr />
               </Row>
             </Col>

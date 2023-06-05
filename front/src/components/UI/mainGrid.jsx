@@ -49,7 +49,7 @@ function mainGrid() {
             <Container>
                 <Row>
                     {/* 공지사항 */}
-                    <Col className="my-2">
+                    <Col className="my-2 mx-0" style={{paddingRight: '0px'}}>
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className='bg-light'>
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{paddingInline:'10px'}}><h4>공지사항</h4></div>
@@ -109,7 +109,7 @@ function mainGrid() {
                         </Card>
                     </Col>
 
-                    <Col className="my-2">
+                    <Col className="my-2 mx-0 px-2">
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
                         <Card.Header className="d-flex justify-content-between mt-1" style={{ backgroundColor: 'white' }}>
                                 <div style={{paddingInline:'10px'}}><h4>지원혜택</h4></div>
@@ -168,8 +168,8 @@ function mainGrid() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    {/* 예약현황 */}
-                    <Col className="my-2">
+                    {/* 자주하는 질문 */}
+                    <Col className="my-2 mx-0" style={{paddingLeft: '0px'}}>
                     <Card style={{ width: '100%', height: '300px', overflow: 'hidden'}} className='bg-light'>
                         <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{paddingInline:'10px'}}><h4>자주하는 질문</h4></div>

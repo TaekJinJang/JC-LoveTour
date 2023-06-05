@@ -434,20 +434,34 @@ function healingCourseBoardView() {
                   className="d-flex justify-content-center align-items-center mt-2 mb-2"
                   style={{ height: '100%' }}
                 >
-                  <div className="card text-center" style={{ width: '300px' }}>
+                  <div className="card text-center" style={{ width: '500px' }}>
                     <div className="card-body d-flex justify-content-between align-items-center">
-                      <img
-                        src={Market1}
-                        className="img-fluid"
-                        alt="시장 사진"
-                        style={{ width: '50%', marginRight: '10px' }}
-                      />
-                      <h5
-                        className="card-title"
-                        style={{ marginBottom: '0', width: '50%' }}
-                      >
-                        전통시장
-                      </h5>
+                      <Col md={5}>
+                        <h4
+                          className="card-title"
+                          style={{
+                            marginBottom: '0',
+                            width: '100%',
+                          }}
+                        >
+                          <b>전통시장</b>
+                        </h4>
+                        <img
+                          src={Market1}
+                          className="img-fluid"
+                          alt="시장 사진"
+                          style={{ width: '100%', marginRight: '10px' }}
+                        />
+                      </Col>
+                      <Col>
+                        <p>
+                          역전한마음시장, 중앙 내토 동문시장
+                          <br />
+                          약초시장, 고추시장, 덕산시장
+                          <br />
+                          박달재 전통시장
+                        </p>
+                      </Col>
                     </div>
                   </div>
                 </div>

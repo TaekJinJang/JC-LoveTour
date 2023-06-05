@@ -313,7 +313,7 @@ function mainGrid() {
                     <Col className="my-2" >
                         <Card style={{ width: '100%', height: '520px', overflow: 'hidden' }} className='border-0 m-0 p-0'>
                             <Card.Body className='p-0'>
-                                <Carousel variant="dark" className="mt-1 p-0">
+                                <Carousel variant="dark" className="mt-1 p-0" prevIcon={null} nextIcon={null} >
                                     <Carousel.Item className='m-0 p-0'>
                                         <Row>
                                             <Col style={{paddingRight:'0px'}}>
@@ -459,7 +459,7 @@ function mainGrid() {
                 </Row>
                 <Row>
                     <Col>
-                        <Card className="mt-3">
+                        <Card className="mt-0 mb-3">
                             <Card.Body>
                                 <Row>
                                     <Col>

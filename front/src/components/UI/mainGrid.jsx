@@ -117,7 +117,7 @@ function mainGrid() {
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body style={{ backgroundColor: 'white' }} className='p-0'>
+                            <Card.Body style={{ backgroundColor: 'white' }} className='p-1'>
                                 <ListGroup variant='flush' as="ol" onClick={goToAnnounceBoard}>
                                     <ListGroup.Item action variant="light"
                                         as="li"

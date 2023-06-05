@@ -219,7 +219,7 @@ function mainGrid() {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col className="my-2">
+                    <Col className="my-2" >
                         <Card style={{ width: '100%', height: '520px', overflow: 'hidden' }}>
                             <Card.Body>
                                 <Carousel variant="dark" className="mt-4">

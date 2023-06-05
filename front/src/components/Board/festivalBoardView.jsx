@@ -106,7 +106,10 @@ function festivalBoardView() {
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
             <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body className="bp-0">
-                <Card.Title className="my-3 mx-7 h-1">
+                <Card.Title
+                  className="my-3 mx-7 h-1"
+                  style={{ textAlign: 'center' }}
+                >
                   <h2>축제 / 행사</h2>
                 </Card.Title>
               </Card.Body>

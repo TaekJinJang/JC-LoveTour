@@ -109,14 +109,12 @@ function introduceBoardView() {
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
             <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body className="bp-0">
-                <Card.Title className="my-3 mx-7 h-1">
-                  <h2>러브투어</h2>
-                </Card.Title>
                 <Card.Title
-                  className="my-3 mx-5 h-1 bp-0"
-                  style={{ fontWeight: 'bold', height: '100px' }}
+                  className="my-3 mx-7 h-1"
+                  style={{ textAlign: 'center' }}
                 >
-                  <h3>소개</h3>
+                  <h2>러브투어</h2>
+                  <h2>소개</h2>
                 </Card.Title>
               </Card.Body>
             </Card>

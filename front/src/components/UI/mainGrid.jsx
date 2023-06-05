@@ -350,22 +350,13 @@ function mainGrid() {
                             <Card.Body>
                                 <Row>
                                     <Col>
-                                        <Figure>
-                                            <Figure.Image src="https://via.placeholder.com/300x300" />
-                                            <Figure.Caption>First Image</Figure.Caption>
-                                        </Figure>
+                                    <iframe width="300" height="315" src="https://www.youtube.com/embed/3vCKaZLcWhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     </Col>
                                     <Col>
-                                        <Figure>
-                                            <Figure.Image src="https://via.placeholder.com/300x300" />
-                                            <Figure.Caption>Second Image</Figure.Caption>
-                                        </Figure>
+                                    <iframe width="300" height="315" src="https://www.youtube.com/embed/ElDsQj5frtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     </Col>
                                     <Col>
-                                        <Figure>
-                                            <Figure.Image src="https://via.placeholder.com/300x300" />
-                                            <Figure.Caption>Third Image</Figure.Caption>
-                                        </Figure>
+                                    <iframe width="300" height="315" src="https://www.youtube.com/embed/1xUIqj6-crg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     </Col>
                                 </Row>
                             </Card.Body>

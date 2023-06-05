@@ -34,7 +34,7 @@ function announceBoardDetail() {
 
     return (
         <>
-            <Container style={{ width: '100%' }}>
+            <Container>
                 <Row style={{ width: '100%', marginLeft: 0, marginRight: 0, padding: 0 }}>
                     <Navbar bg="success" expand="lg">
                         <Container>
@@ -85,7 +85,7 @@ function announceBoardDetail() {
                                 자주하는 질문
                             </Button>
                             <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block="true">
-                                1:1 고객센터
+                                투어 후기
                             </Button>
 
                             {/* block button 세로 길이 조정 */}
@@ -137,7 +137,6 @@ function announceBoardDetail() {
                                     수정
                                 </Button>
                             </>
-                            {/* )} */}
                         </Row>
                     </Col>
                 </Row>

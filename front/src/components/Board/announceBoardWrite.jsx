@@ -114,12 +114,35 @@ function announceBoardWrite() {
                             </Card.Body>
                         </Card>
                         <ButtonGroup vertical>
-                            <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>
+                            <Button
+                                href="/board/announce"
+                                variant="outline-success"
+                                className="mb-2 p-2 rounded"
+                                size="lg"
+                                block="true"
+                            >
                                 공지사항
                             </Button>
-                            <Button variant="outline-success" className="mb-2 p-2 rounded" size="lg" block>
+
+                            <Button
+                                href="/board/faq"
+                                variant="outline-success"
+                                className="mb-2 p-2 rounded"
+                                size="lg"
+                                block="true"
+                            >
                                 자주하는 질문
                             </Button>
+                            <Button
+                                href="/board/review"
+                                variant="outline-success"
+                                className="mb-2 p-2 rounded"
+                                size="lg"
+                                block="true"
+                            >
+                                투어후기
+                            </Button>
+
                             {/* block button 세로 길이 조정 */}
                         </ButtonGroup>
                     </Col>

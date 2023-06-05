@@ -51,45 +51,57 @@ function mainGrid() {
                     {/* 공지사항 */}
                     <Col className="my-2">
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <Card.Header className="d-flex justify-content-between">
+                            <Card.Header className="d-flex justify-content-between border-0" style={{ backgroundColor: '#D9D9D9' }}>
                                 공지사항
-                                <Button variant="outline-primary" className="ml-auto" onClick={goToAnnounceBoard}>
+                                <Button variant="light" className="ml-auto" onClick={goToAnnounceBoard}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body>
-                                <ListGroup as="ol" onClick={goToAnnounceBoard}>
-                                    <ListGroup.Item
+                            <Card.Body style={{ backgroundColor: '#D9D9D9' }}>
+                                <ListGroup variant='flush' as="ol" onClick={goToAnnounceBoard}>
+                                    <ListGroup.Item action variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
+                                            <div className="fw-bold" style={{fontSize: '0.9em', color: 'green'}}>
                                                 {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].title}
                                             </div>
-                                            {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].date}
+                                            <div style={{fontSize: '0.7em'}}>{mainPosts.length > 0 && mainPosts[mainPosts.length - 1].date}</div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item
+                                    <ListGroup.Item action variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
+                                            <div className="fw-bold" style={{fontSize: '0.9em', color: 'green'}} >
                                                 {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].title}
                                             </div>
+                                            <div style={{fontSize: '0.7em'}}>
                                             {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].date}
+                                            </div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item
+                                    <ListGroup.Item action variant="light"
                                         as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
+                                        className="d-flex justify-content-between align-items-start">
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
+                                            <div className="fw-bold" style={{fontSize: '0.9em', color: 'green'}}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].title}
                                             </div>
-                                            {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].date}
+                                            <div style={{fontSize: '0.7em'}}>{mainPosts.length > 2 && mainPosts[mainPosts.length - 3].date}</div>
+                                        </div>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item action variant="light"
+                                        as="li"
+                                        className="d-flex justify-content-between align-items-start">
+                                        <div className="ms-2 me-auto">
+                                            <div className="fw-bold" style={{fontSize: '0.9em', color: 'green'}}>
+                                                {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].title}
+                                            </div>
+                                            <div style={{fontSize: '0.7em'}}>{mainPosts.length > 2 && mainPosts[mainPosts.length - 4].date}
+                                            </div>
                                         </div>
                                     </ListGroup.Item>
                                 </ListGroup>
@@ -99,7 +111,7 @@ function mainGrid() {
 
                     <Col className="my-2">
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <Card.Header className="d-flex justify-content-between">
+                            <Card.Header className="d-flex justify-content-between border-0">
                                 지원 혜택
                                 <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
                                     +
@@ -137,34 +149,34 @@ function mainGrid() {
                             </Card.Header>
                             <Card.Body>
                                 <ListGroup as="ol" onClick={goToFAQ}>
-                                    <ListGroup.Item
+                                    <ListGroup.Item action variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
+                                            <div className="fw-bold" style={{fontSize: '0.9em', color: 'green'}}>
                                                 {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].title}
                                             </div>
                                             {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].date}
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item
+                                    <ListGroup.Item action variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
+                                            <div className="fw-bold" style={{fontSize: '0.9em', color: 'green'}}>
                                                 {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].title}
                                             </div>
                                             {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].date}
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item
+                                    <ListGroup.Item action variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold">
+                                            <div className="fw-bold" style={{fontSize: '0.9em', color: 'green'}}>
                                                 {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].title}
                                             </div>
                                             {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].date}

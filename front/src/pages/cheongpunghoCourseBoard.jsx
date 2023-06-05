@@ -1,19 +1,19 @@
 import React, { useCallback, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CityTourBoardView from "../components/Board/cityTourBoardView";
+import CheongpunghoCourseBoardView from "../components/Board/cheongpunghoCourseBoardView";
 import Header from "../components/UI/header";
 // import { TextArea } from 'react-bootstrap';
 
 // 공통부분
 import Footer from "../components/UI/footer";
 
-function cityTourBoard() {
+function cheongpunghoCourseBoard() {
   return (
     <>
       <Header />
-      <CityTourBoardView />
+      <CheongpunghoCourseBoardView />
       <Footer />
     </>
   );
 }
-export default cityTourBoard;
+export default cheongpunghoCourseBoard;

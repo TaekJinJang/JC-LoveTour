@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
-function basicCourseBoardView() {
+function  museumCourseBoardView() {
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -107,7 +107,7 @@ function basicCourseBoardView() {
             <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body className="bp-0">
                 <Card.Title className="my-3 mx-7 h-1">
-                  <h2>기본코스</h2>
+                  <h2>박물관 코스</h2>
                 </Card.Title>
               </Card.Body>
             </Card>
@@ -162,4 +162,4 @@ function basicCourseBoardView() {
   );
 }
 
-export default basicCourseBoardView;
+export default  museumCourseBoardView;

@@ -1,19 +1,19 @@
 import React, { useCallback, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import BasicCourseBoardView from "../components/Board/basicCourseBoardView";
+import MuseumCourseBoardView from "../components/Board/museumCourseBoardView";
 import Header from "../components/UI/header";
 // import { TextArea } from 'react-bootstrap';
 
 // 공통부분
 import Footer from "../components/UI/footer";
 
-function basicCourseBoard() {
+function museumCourseBoard() {
   return (
     <>
       <Header />
-      <BasicCourseBoardView />
+      <MuseumCourseBoardView />
       <Footer />
     </>
   );
 }
-export default basicCourseBoard;
+export default museumCourseBoard;

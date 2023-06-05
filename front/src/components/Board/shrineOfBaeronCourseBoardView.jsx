@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
-function gastroTourBoardView() {
+function  shrineOfBaeronCourseBoardView() {
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -107,13 +107,7 @@ function gastroTourBoardView() {
             <Card bg="success" text="white" style={{ height: '150px' }}>
               <Card.Body className="bp-0">
                 <Card.Title className="my-3 mx-7 h-1">
-                  <h2>가스트로</h2>
-                </Card.Title>
-                <Card.Title
-                  className="my-3 mx-5 h-1 bp-0"
-                  style={{ fontWeight: 'bold', height: '100px' }}
-                >
-                  <h3>투어</h3>
+                  <h2>배론성지 코스</h2>
                 </Card.Title>
               </Card.Body>
             </Card>
@@ -159,7 +153,7 @@ function gastroTourBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>가스트로 투어</h2>
+              <h2>기본코스</h2>
             </Row>
           </Col>
         </Row>
@@ -168,4 +162,4 @@ function gastroTourBoardView() {
   );
 }
 
-export default gastroTourBoardView;
+export default  shrineOfBaeronCourseBoardView;

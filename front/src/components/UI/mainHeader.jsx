@@ -382,177 +382,185 @@ function MainHeader() {
             </Nav.Item>
           </Col>
 
-          <Col
-            md="auto"
-            style={{
-              fontSize: '20px',
-              display: 'flex',
-              justifyContent: 'center',
-              fontWeight: 'bold',
-            }}
-          >
-            <Nav.Item as="li">
-              <Nav.Link
-                href="/board/announce"
-                style={{
-                  color: 'black',
-                  fontWeight: 'bold',
-                  fontSize: '20px',
-                  width: '200px',
-                }}
-              >
-                알림마당
-              </Nav.Link>
-              {showMenu && (
-                <ul
-                  style={{
-                    background: 'rgba(17, 17, 17, 0.7)',
-                    height: '250px',
-                    marginTop: '11px',
-                    fontSize: '18px',
-                  }}
-                >
-                  <Nav.Link
-                    as="a"
-                    href="/board/announce"
-                    style={{ color: 'white' }}
-                  >
-                    공지사항
-                  </Nav.Link>
-                  <Nav.Link as="a" href="/board/faq" style={{ color: 'white' }}>
-                    자주하는 질문
-                  </Nav.Link>
-                  <Nav.Link as="a" href="/board/faq" style={{ color: 'white' }}>
-                    투어 후기
-                  </Nav.Link>
-                </ul>
-              )}
-            </Nav.Item>
-          </Col>
-        </Nav>
-      </Container>
 
-      {/* // 캐러셀 */}
-      <Container>
-        <Carousel style={{ zIndex: '10', marginTop: '58px' }}>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={uirimji}
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
+                    <Col
+                        md="auto"
+                        style={{
+                            fontSize: '20px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        <Nav.Item as="li">
+                            <Nav.Link
+                                href="/board/announce"
+                                style={{
+                                    color: 'black',
+                                    fontWeight: 'bold',
+                                    fontSize: '20px',
+                                    width: '200px',
+                                }}
+                            >
+                                알림마당
+                            </Nav.Link>
+                            {showMenu && (
+                                <ul
+                                    style={{
+                                        background: 'rgba(17, 17, 17, 0.7)',
+                                        height: '250px',
+                                        marginTop: '11px',
+                                        fontSize: '18px',
+                                    }}
+                                >
+                                    <Nav.Link as="a" href="/board/announce" style={{ color: 'white' }}>
+                                        공지사항
+                                    </Nav.Link>
+                                    <Nav.Link as="a" href="/board/faq" style={{ color: 'white' }}>
+                                        자주하는 질문
+                                    </Nav.Link>
+                                    <Nav.Link as="a" href="/board/review" style={{ color: 'white' }}>
+                                        투어 후기
+                                    </Nav.Link>
+                                </ul>
+                            )}
+                        </Nav.Item>
+                    </Col>
+                </Nav>
+            </Container>
 
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={Bakdaljae}
-              alt="Second slide"
-            />
+            {/* // 캐러셀 */}
+            <Container >
+                <Carousel style={{ zIndex: '10', marginTop: '58px' }}>
+                    <Carousel.Item>
+                        <img className="d-block w-100" width={800} height={400} src={uirimji} alt="First slide" />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
 
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={WoraksanMountain}
-              alt="Third slide"
-            />
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img className="d-block w-100" width={800} height={400} src={Bakdaljae} alt="Second slide" />
 
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={CheongpungCultural}
-              alt="Third slide"
-            />
-          </Carousel.Item>
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            width={800}
+                            height={400}
+                            src={WoraksanMountain}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={GeumsusanMountain}
-              alt="Third slide"
-            />
-          </Carousel.Item>
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={YonghagugokValley}
-              alt="Third slide"
-            />
-          </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            width={800}
+                            height={400}
+                            src={CheongpungCultural}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={SonggyeValley}
-              alt="Third slide"
-            />
-          </Carousel.Item>
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={OksunbongPeak}
-              alt="Third slide"
-            />
-          </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            width={800}
+                            height={400}
+                            src={GeumsusanMountain}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={TaksajeongPavilion}
-              alt="Third slide"
-            />
-          </Carousel.Item>
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              width={800}
-              height={400}
-              src={BaeronHolyGround}
-              alt="Third slide"
-            />
-          </Carousel.Item>
-        </Carousel>
-      </Container>
-    </>
-  );
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            width={800}
+                            height={400}
+                            src={YonghagugokValley}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img className="d-block w-100" width={800} height={400} src={SonggyeValley} alt="Third slide" />
+                        <Carousel.Caption>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img className="d-block w-100" width={800} height={400} src={OksunbongPeak} alt="Third slide" />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            width={800}
+                            height={400}
+                            src={TaksajeongPavilion}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>각기 다른 알림 문구를 올릴 수 있습니다.</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            width={800}
+                            height={400}
+                            src={BaeronHolyGround}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h3>제천 전통시장 러브투어 소식 광고 알림</h3>
+
+                            <p>제천 전통시장 러브투어 소식 광고 알림을 업로드하는 곳입니다.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            </Container>
+        </>
+    );
+
 }
 
 export default MainHeader;

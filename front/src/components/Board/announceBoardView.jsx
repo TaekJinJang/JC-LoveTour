@@ -30,6 +30,8 @@ import {
 import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 function announceBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('공지사항'); // 현재 페이지 상태
   const { mainPosts } = useSelector((state) => state.post);
   const dispatch = useDispatch();
   const { admin } = useSelector((state) => state.admin);
@@ -61,18 +63,21 @@ function announceBoardView() {
   return (
     <>
       <Container>
-        {/* 상단 네비바 수정 부분 */}
+        {/* 상단 네비바 */}
         <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-          <Navbar bg="success" expand="lg">
-            <Container>
+          <Navbar bg="success" expand="lg" className="p-0">
+            <Container style={{ top: '-2px' }}>
               <Navbar.Brand href="#home">
-                <h4>홈</h4>
+                <h6>홈</h6>
               </Navbar.Brand>
-
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
-                  <NavDropdown as="h5" title="알림마당" id="basic-nav-dropdown">
+                  <NavDropdown
+                    as="h6"
+                    title="제천 러브투어"
+                    id="basic-nav-dropdown"
+                  >
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
@@ -86,7 +91,11 @@ function announceBoardView() {
                       Separated link
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <NavDropdown as="h5" title="공지사항" id="basic-nav-dropdown">
+                  <NavDropdown
+                    as="h6"
+                    title="러브투어 소개"
+                    id="basic-nav-dropdown"
+                  >
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
@@ -105,66 +114,60 @@ function announceBoardView() {
             </Container>
           </Navbar>
         </Row>
-        {/* 사이드바 받은 파일 */}
-        {/* // 2번 그리드 여기 아래의 코드가 바로 사이드바 코드 */}
+
+        {/* 사이드바 */}
         <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white" style={{ height: '150px' }}>
-              <Card.Body className="bp-0">
-                <Card.Title className="my-3 mx-5 h-1">
-                  <h2>알림</h2>
-                </Card.Title>
-                <Card.Title
-                  className="my-3 mx-5 h-1 bp-0"
-                  style={{ fontWeight: 'bold', height: '100px' }}
-                >
-                  <h2>마당</h2>
+            <Card bg="success" text="white" style={{ borderRadius: '0' }}>
+              <Card.Body className="pb-1 pt-1">
+                <Card.Title style={{ textAlign: 'center' }}>
+                  <h3 className="mb-0">알림마당</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
               <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
+                variant={
+                  currentPage === '공지사항' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
+                className="mb-2 p-2 rounded-0"
                 size="lg"
-                block="true"
+                block
+                onClick={() => setCurrentPage('공지사항')} // 버튼 클릭 시 현재 페이지 업데이트
               >
-                공지사항
+                <h5>공지사항</h5>
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block="true"
               >
-                자주하는 질문
+                <h5>FAQ</h5>
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block="true"
               >
-                1:1 고객센터
+                <h5>리뷰 게시판</h5>
               </Button>
 
               {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
-          {/* // 3번 그리드 */}
-          <Col md={9}>
+          {/*내용 리스트*/}
+          <Col md={9} className="ps-5 pe-0">
             <Row>
-              <h2>공지사항</h2>
+              <h3>공지사항</h3>
               <hr />
             </Row>
             <Row className="mt-2">
               <Col className="bg-light border pt-1">
                 <Col className="mb-1" style={{ float: 'right' }}>
                   <Stack direction="horizontal" gap={3}>
-                    <Form.Control
-                      className="ms-auto"
-                      placeholder="Add your item here..."
-                    />
+                    <Form.Control className="ms-auto" placeholder="" />
                     <Button
                       variant="success"
                       text="white"
@@ -206,9 +209,14 @@ function announceBoardView() {
             </Row>
             <Row>
               {/* 게시물 기재 테이블 */}
-
-              <Table striped className="mt-4">
-                <thead>
+              <Table
+                bordered
+                className="mt-4 table table-hover"
+                style={{ border: '1px solid #f2f2f2' }}
+              >
+                <thead
+                  style={{ textAlign: 'center', backgroundColor: '#E0E0E0' }}
+                >
                   <tr>
                     <th scope="col" width="10%">
                       번호
@@ -227,7 +235,11 @@ function announceBoardView() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  style={{
+                    textAlign: 'center',
+                  }}
+                >
                   {currentPosts.map((post, index) => (
                     <AnnounceBoardList key={post.id} post={post} page={page} />
                   ))}

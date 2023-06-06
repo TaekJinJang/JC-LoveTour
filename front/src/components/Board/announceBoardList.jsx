@@ -13,7 +13,7 @@ const Input_Tr = styled.tr`
 `;
 const Input_Td = styled.td`
   border-bottom: 1px solid #f2f2f2;
-  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
 `;
 
 function announceBoardList({ post }) {

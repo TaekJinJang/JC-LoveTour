@@ -40,18 +40,17 @@ try {
   fs.mkdirSync('uploads');
 }
 
+AWS.config.update({
+  accessKeyId: process.env.S3_ACCESS_KEY,
+  secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+  region: 'ap-northeast-2',
+});
 const upload = multer({
-  storage: multer.diskStorage({
-    destination(req, file, done) {
-      done(null, 'uploads');
-    },
-    filename(req, file, done) {
-      //택진.png
-      const ext = path.extname(file.originalname); //확장자 추출(png)
-      const basename = path.basename(file.originalname, ext); // 이미지의 이름을 꺼내올 수 있음(택진)
-
-      done(null, basename + '_' + new Date().getTime() + ext);
-      //시간을 저장해서 중복된 이름에 오류가 없게 할 수 있음 (택진12831203.png)
+  storage: multerS3({
+    s3: new AWS.S3(),
+    bucket: 'jc-lovetour',
+    key(req, file, cb) {
+      cb(null, `original/${Date.now()}_${path.basename(file.originalname)}`);
     },
   }),
   limits: { fileSize: 20 * 1024 * 1024 }, //20MB 로 제한
@@ -64,7 +63,7 @@ router.post('/image', upload.array('image'), (req, res, next) => {
 
   const image = req.files.map((v) => {
     return {
-      src: v.filename,
+      src: v.location,
       captionTitle: req.body.imageTitle,
       captionContent: req.body.imageContent,
     };
@@ -74,7 +73,7 @@ router.post('/image', upload.array('image'), (req, res, next) => {
 router.post('/images', upload.array('image'), (req, res, next) => {
   //POST /post/images
   console.log(req.files);
-  res.json(req.files.map((v) => v.filename));
+  res.json(req.files.map((v) => v.location));
 });
 
 router.post(

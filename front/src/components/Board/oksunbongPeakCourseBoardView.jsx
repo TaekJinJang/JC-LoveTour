@@ -23,7 +23,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
-function  oksunbongPeakCourseBoardView() {
+function oksunbongPeakCourseBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('옥순봉 코스'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -51,16 +53,16 @@ function  oksunbongPeakCourseBoardView() {
       <Container>
         {/* 상단 네비바 */}
         <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-          <Navbar bg="success" expand="lg">
-            <Container>
+          <Navbar bg="success" expand="lg" className="p-0">
+            <Container style={{ top: '-2px' }}>
               <Navbar.Brand href="#home">
-                <h4>홈</h4>
+                <h6>홈</h6>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
                   <NavDropdown
-                    as="h5"
+                    as="h6"
                     title="제천 러브투어"
                     id="basic-nav-dropdown"
                   >
@@ -78,7 +80,7 @@ function  oksunbongPeakCourseBoardView() {
                     </NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown
-                    as="h5"
+                    as="h6"
                     title="러브투어 소개"
                     id="basic-nav-dropdown"
                   >
@@ -101,50 +103,60 @@ function  oksunbongPeakCourseBoardView() {
           </Navbar>
         </Row>
 
-        {/* 사이드 메뉴 */}
+        {/* 사이드바 */}
         <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white" style={{ height: '150px' }}>
-              <Card.Body className="bp-0">
-                <Card.Title className="my-3 mx-7 h-1">
-                  <h2>옥순봉 코스</h2>
+            <Card bg="success" text="white" className="rounded-0">
+              <Card.Body className="pb-1 pt-1">
+                <Card.Title style={{ textAlign: 'center' }}>
+                  <h3 className="mb-0">옥순봉 코스</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
               <Button
-                variant="outline-success"
-                className="mb-2 p-2 rounded"
+                variant={
+                  currentPage === '옥순봉 코스' ? 'success' : 'outline-success'
+                } // 현재 페이지에 따라 스타일 설정
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
+                onClick={() => setCurrentPage('옥순봉 코스')} // 버튼 클릭 시 현재 페이지 업데이트
               >
-                러브투어 소개
+                옥순봉 코스
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
               >
-                지원 혜택
+                청풍호 코스
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
               >
-                사진 갤러리
+                박물관 코스
               </Button>
               <Button
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
                 block
               >
-                영상 갤러리
+                배론성지 코스
               </Button>
-              {/* block button 세로 길이 조정 */}
+              <Button
+                variant="outline-success"
+                className="mb-2 p-2 rounded-0"
+                size="lg"
+                block
+              >
+                힐링 코스
+              </Button>
             </ButtonGroup>
           </Col>
           {/* </Row>
@@ -153,7 +165,7 @@ function  oksunbongPeakCourseBoardView() {
           {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
           <Col md={9}>
             <Row>
-              <h2>기본코스</h2>
+              <h3>옥순봉 코스</h3>
             </Row>
           </Col>
         </Row>
@@ -162,4 +174,4 @@ function  oksunbongPeakCourseBoardView() {
   );
 }
 
-export default  oksunbongPeakCourseBoardView;
+export default oksunbongPeakCourseBoardView;

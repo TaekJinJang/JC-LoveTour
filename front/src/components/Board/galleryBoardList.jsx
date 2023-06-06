@@ -42,8 +42,8 @@ function galleryBoardList({ post }) {
             variant="top"
             width={230}
             height={230}
-            src={`${backUrl}/${post.Images[0].src}`}
-            alt={`${backUrl}/${post.Images[0].src}`}
+            src={`${post.Images[0].src}`}
+            alt={`${post.Images[0].src}`}
           />
 
           <Card.Body>

@@ -165,8 +165,8 @@ function announceBoardDetail() {
                 post.Images.map((image, index) => (
                   <img
                     key={index}
-                    src={`${backUrl}/${image.src}`}
-                    alt={`${backUrl}/${image.src}`}
+                    src={`${image.src}`}
+                    alt={`${image.src}`}
                     // 사진 크기는 수정 해야함
                     style={{ width: '300px', height: '200px' }}
                   />

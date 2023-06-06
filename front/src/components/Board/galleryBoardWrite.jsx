@@ -385,7 +385,7 @@ function galleryBoardWrite() {
                   <div key={v} style={{ display: 'inline-block' }}>
                     {console.log(v, i)}
                     <img
-                      src={`${backUrl}${v[0].src}`}
+                      src={`${v[0].src}`}
                       style={{ width: '200px' }}
                       alt={v[0]}
                     />

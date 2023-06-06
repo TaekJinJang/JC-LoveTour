@@ -157,7 +157,7 @@ function reviewBoardWrite() {
         <div>
           {imagePaths.map((v, i) => (
             <div key={v} style={{ display: 'inline-block' }}>
-              <img src={`${backUrl}/${v}`} style={{ width: '200px' }} alt={v} />
+              <img src={`${v}`} style={{ width: '200px' }} alt={v} />
               <div>
                 <Button variant="danger" onClick={onRemoveImage(i)}>
                   제거

@@ -27,6 +27,7 @@ import {
 
 function galleryBoardWrite() {
   const { imagePaths, uploadImagesDone } = useSelector((state) => state.post);
+  const { admin } = useSelectro((state) => state.admin);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
   const [imageTitle, onChangeImageTitle, setImageTitle] = useInput('');
@@ -49,6 +50,9 @@ function galleryBoardWrite() {
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
+      if (!admin) {
+        return alert('관리자 로그인이 필요합니다.');
+      }
       if (!text || !text.trim()) {
         return alert('게시글을 작성하세요');
       }

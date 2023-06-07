@@ -29,6 +29,7 @@ import { backUrl } from '../../../config/config';
 
 function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
+  const { admin } = useSelector((state) => state.admin);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
 
@@ -40,6 +41,9 @@ function announceBoardWrite() {
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
+      if (!admin) {
+        return alert('관리자 로그인이 필요합니다.');
+      }
       if (!text || !text.trim()) {
         return alert('게시글을 작성하세요');
       }
@@ -86,18 +90,21 @@ function announceBoardWrite() {
   return (
     <>
       <Container>
-        {/* 상단 네비바 수정 부분 */}
+        {/* 상단 네비바 */}
         <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-          <Navbar bg="success" expand="lg">
-            <Container>
+          <Navbar bg="success" expand="lg" className="p-0">
+            <Container style={{ top: '-2px' }}>
               <Navbar.Brand href="#home">
-                <h4>홈</h4>
+                <h6>홈</h6>
               </Navbar.Brand>
-
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav>
-                  <NavDropdown as="h5" title="알림마당" id="basic-nav-dropdown">
+                  <NavDropdown
+                    as="h6"
+                    title="제천 러브투어"
+                    id="basic-nav-dropdown"
+                  >
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
@@ -111,7 +118,11 @@ function announceBoardWrite() {
                       Separated link
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <NavDropdown as="h5" title="공지사항" id="basic-nav-dropdown">
+                  <NavDropdown
+                    as="h6"
+                    title="러브투어 소개"
+                    id="basic-nav-dropdown"
+                  >
                     <NavDropdown.Item href="#action/3.1">
                       Action
                     </NavDropdown.Item>
@@ -131,61 +142,54 @@ function announceBoardWrite() {
           </Navbar>
         </Row>
 
-        {/* // 2번 그리드 여기 아래의 코드가 바로 사이드바 코드 */}
-        <Row className="mt-3 ps-1">
+        {/* 사이드바 */}
+        {/* 사이드바 */}
+        <Row className="mt-3 ps-1" style={{ width: '100%' }}>
           <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white" style={{ height: '150px' }}>
-              <Card.Body className="bp-0">
-                <Card.Title className="my-3 mx-5 h-1">
-                  <h2>알림</h2>
-                </Card.Title>
-                <Card.Title
-                  className="my-3 mx-5 h-1 bp-0"
-                  style={{ fontWeight: 'bold', height: '100px' }}
-                >
-                  <h2>마당</h2>
+            <Card bg="success" text="white" className="rounded-0">
+              <Card.Body className="pb-1 pt-1">
+                <Card.Title style={{ textAlign: 'center' }}>
+                  <h3 className="mb-0">알림마당</h3>
                 </Card.Title>
               </Card.Body>
             </Card>
             <ButtonGroup vertical>
               <Button
+                href="/board/announce"
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
-                block="true"
+                block
               >
                 공지사항
               </Button>
               <Button
+                href="/board/faq"
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
-                block="true"
+                block
               >
                 자주하는 질문
               </Button>
               <Button
+                href="/board/review"
                 variant="outline-success"
-                className="mb-2 p-2 rounded"
+                className="mb-2 p-2 rounded-0"
                 size="lg"
-                block="true"
+                block
               >
-                1:1 고객센터
+                투어후기
               </Button>
-
-              {/* block button 세로 길이 조정 */}
             </ButtonGroup>
           </Col>
 
-          <Col>
-            <Col>
-              <Row className="mb-4">
-                <h2 className="mb-4" style={{ color: '#2da57d' }}>
-                  공지사항
-                </h2>
-                <hr />
-              </Row>
-            </Col>
+          <Col md={9} className="ps-2">
+            <Row>
+              <h3>공지사항</h3>
+              <hr />
+            </Row>
+
             <Form
               style={{ padding: '30px' }}
               encType="multipart/form-data"

@@ -46,12 +46,12 @@ function reviewBoardList({ post }) {
       </Table>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>예약하기</Modal.Title>
+          <Modal.Title>투어 후기</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="password">
-              <Form.Label>예약 비밀번호</Form.Label>
+              <Form.Label>후기 비밀번호</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="비밀번호를 입력해주세요."

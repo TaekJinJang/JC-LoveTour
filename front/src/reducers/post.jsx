@@ -204,11 +204,12 @@ export const generateDummyReview = (number) =>
     }));
 
 // ===================================== UI 제작 시 ===================================
-// initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
+initialState.mainPosts = initialState.mainPosts.concat(generateDummyPost(10));
 // ====================================================================================
-// initialState.reviewPosts = initialState.reviewPosts.concat(
-//   generateDummyReview(10)
-// );
+
+initialState.reviewPosts = initialState.reviewPosts.concat(
+  generateDummyReview(10)
+);
 export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
 export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
 export const ADD_POST_FAILURE = 'ADD_POST_FAILURE';
@@ -504,7 +505,6 @@ const reducer = (state = initialState, action) =>
         draft.loadPostDone = true;
         draft.singlePost = action.data;
         console.log('erroralert:', draft.singlePost);
-
         break;
       case LOAD_POST_FAILURE:
         draft.loadPostLoading = false;

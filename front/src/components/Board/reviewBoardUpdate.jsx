@@ -1,24 +1,34 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import useInput from '../../hooks/useInput';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UPDATE_REVIEW_REQUEST } from '../../reducers/post';
+import { REMOVE_IMAGE, UPDATE_REVIEW_REQUEST } from '../../reducers/post';
 import { useDispatch, useSelector } from 'react-redux';
 
 function reviewBoardUpdate() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const [name, onChangeName] = useInput('');
-  const [password, onChangePassword] = useInput('');
-  const [title, onChangeTitle] = useInput('');
-  const [phoneNum, onChangePhoneNum] = useInput('');
-  const [text, onChangeText] = useInput('');
-
   const { post } = location.state || {};
+  const { imagePaths } = useSelector((state) => state.post);
 
+  const [name, onChangeName] = useInput(post.name);
+  const [password, onChangePassword] = useInput(post.password);
+  const [title, onChangeTitle] = useInput(post.title);
+  const [phoneNum, onChangePhoneNum] = useInput(post.phoneNumber);
+  const [text, onChangeText] = useInput(post.content);
+  useEffect(() => {
+    if (post?.Images) {
+      console.log('object');
+      const newImagePaths = [...imagePaths]; // 새로운 배열 생성
+      post.Images.forEach((v) => newImagePaths.push(v.src));
+      // imagePaths를 직접 수정하지 않고 새로운 배열에 값을 추가
+      // newImagePaths에 새로운 이미지 경로들을 추가
+      // useSelector 훅에서 반환하는 state.post.imagePaths는 변경되지 않음
+    }
+  }, [post]);
   const onSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
@@ -40,10 +50,16 @@ function reviewBoardUpdate() {
     },
     [name, text, password, title, phoneNum]
   );
+  const onRemoveImage = useCallback((index) => () => {
+    dispatch({
+      type: REMOVE_IMAGE,
+      data: index,
+    });
+  });
 
   return (
     <>
-      <h1>예약 수정하기</h1>
+      <h1>후기 수정하기</h1>
       <Form onSubmit={onSubmitForm}>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>이름</Form.Label>
@@ -95,6 +111,25 @@ function reviewBoardUpdate() {
             onChange={onChangeText}
           />
         </Form.Group>
+
+        {/* 제거 */}
+        <div>
+          {post.Images &&
+            post.Images.map((v, i) => (
+              <div key={v} style={{ display: 'inline-block' }}>
+                <img
+                  src={`http://localhost:3005/${v.src}`}
+                  style={{ width: '200px' }}
+                  alt={v}
+                />
+                <div>
+                  <Button variant="danger" onClick={onRemoveImage(i)}>
+                    제거
+                  </Button>
+                </div>
+              </div>
+            ))}
+        </div>
         <div>
           <Button variant="primary" type="submit">
             수정하기

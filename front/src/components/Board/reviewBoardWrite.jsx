@@ -24,6 +24,7 @@ import {
 
 import useInput from '../../hooks/useInput';
 import { useNavigate } from 'react-router-dom';
+import { backUrl } from '../../../config/config';
 
 function reviewBoardWrite() {
   // // 페이지 버튼 눌린 상태로 만드려고 생성
@@ -391,21 +392,17 @@ function reviewBoardWrite() {
                 </Form.Group>
                 {/* 제거 */}
                 <div>
-                  {imagePaths.map((v, i) => (
-                    <div key={v} style={{ display: 'inline-block' }}>
-                      <img
-                        src={`http://localhost:3005/${v}`}
-                        style={{ width: '200px' }}
-                        alt={v}
-                      />
-                      <div>
-                        <Button variant="danger" onClick={onRemoveImage(i)}>
-                          제거
-                        </Button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+          {imagePaths.map((v, i) => (
+            <div key={v} style={{ display: 'inline-block' }}>
+              <img src={`${v}`} style={{ width: '200px' }} alt={v} />
+              <div>
+                <Button variant="danger" onClick={onRemoveImage(i)}>
+                  제거
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
                 {/* 글쓰기버튼 */}
                 <Col className="d-flex justify-content-end">
                   <Button
@@ -422,6 +419,7 @@ function reviewBoardWrite() {
           </Col>
         </Row>
       </Container>
+
     </>
   );
 }

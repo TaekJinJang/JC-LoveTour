@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import { REMOVE_REVIEW_REQUEST } from '../../reducers/post';
+import { backUrl } from '../../../config/config';
 
 function reviewBoardDetail() {
   const location = useLocation();
@@ -50,8 +51,8 @@ function reviewBoardDetail() {
         post.Images.map((image, index) => (
           <img
             key={index}
-            src={`http://localhost:3005/${image.src}`}
-            alt={`http://localhost:3005/${image.src}`}
+            src={`${image.src}`}
+            alt={`${image.src}`}
             // 사진 크기는 수정 해야함
             style={{ width: '300px', height: '200px' }}
           />

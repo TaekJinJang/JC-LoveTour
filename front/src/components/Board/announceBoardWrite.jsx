@@ -25,6 +25,7 @@ import {
   ButtonGroup,
 } from 'react-bootstrap';
 import Footer from '../UI/footer';
+import { backUrl } from '../../../config/config';
 
 function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
@@ -303,11 +304,7 @@ function announceBoardWrite() {
               <div>
                 {imagePaths.map((v, i) => (
                   <div key={v} style={{ display: 'inline-block' }}>
-                    <img
-                      src={`http://localhost:3005/${v}`}
-                      style={{ width: '200px' }}
-                      alt={v}
-                    />
+                    <img src={`${v}`} style={{ width: '200px' }} alt={v} />
                     <div>
                       <Button onClick={onRemoveImage(i)}>제거</Button>
                     </div>

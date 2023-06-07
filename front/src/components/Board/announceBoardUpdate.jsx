@@ -291,7 +291,7 @@ function announceBoardUpdate() {
                   post.Images.map((v, i) => (
                     <div key={v} style={{ display: 'inline-block' }}>
                       <img
-                        src={`http://localhost:3005/${v.src}`}
+                        src={`${v.src}`}
                         style={{ width: '200px' }}
                         alt={v}
                       />

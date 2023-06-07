@@ -117,11 +117,7 @@ function reviewBoardUpdate() {
           {post.Images &&
             post.Images.map((v, i) => (
               <div key={v} style={{ display: 'inline-block' }}>
-                <img
-                  src={`http://localhost:3005/${v.src}`}
-                  style={{ width: '200px' }}
-                  alt={v}
-                />
+                <img src={`${v.src}`} style={{ width: '200px' }} alt={v} />
                 <div>
                   <Button variant="danger" onClick={onRemoveImage(i)}>
                     제거

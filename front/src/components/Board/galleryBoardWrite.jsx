@@ -28,7 +28,7 @@ import { backUrl } from '../../../config/config';
 
 function galleryBoardWrite() {
   const { imagePaths, uploadImagesDone } = useSelector((state) => state.post);
-  const { admin } = useSelectro((state) => state.admin);
+  const { admin } = useSelector((state) => state.admin);
   const [title, onChangeTitle] = useInput('');
   const [text, onChangeText] = useInput('');
   const [imageTitle, onChangeImageTitle, setImageTitle] = useInput('');

@@ -69,7 +69,7 @@ app.use(
     origin: [
       'http://localhost:3000',
       'http://lovetour.kr',
-      'http://3.36.59.118',
+      'http://15.164.252.216',
     ], // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
     credentials: true, // 쿠키 전달
     optionsSuccessStatus: 200, // 응답 상태 200으로 설정

@@ -43,6 +43,9 @@ function mainGrid() {
     const goToAnnounceBoardDetail = useCallback((postId) => {
         navigate(`/board/announce/${postId}`);
     }, []);
+    const goToFestival = useCallback(() => {
+        navigate('/board/festival/');
+    }, []);
 
     return (
         <>
@@ -239,69 +242,69 @@ function mainGrid() {
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className='bg-light mt-0'>
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}><h4>축제/행사</h4></div>
-                                <Button variant="outline-primary" className="ml-auto">
+                                <Button variant="outline-primary" className="ml-auto" onClick={goToFestival}>
                                     +
                                 </Button>
                             </Card.Header>
                             <Card.Body className='p-1'>
-                                <ListGroup variant="flush" as="ol" onClick={goToFAQ}>
+                                <ListGroup variant="flush" as="ol" onClick={goToFestival}>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                                {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].date}
+                                            2023-06-16
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                                {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].title}
+                                            2023 육성지원사업(겨자씨친구들)
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                                {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].date}
+                                            2023-06-16
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                                {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].title}
+                                            제천영상미디어센터 정기상영 '길버트 그레이프'
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].date}
+                                            2023-06-17
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].title}
+                                            제천영상미디어센터 정기상영 '라따뚜이'
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 4].date}
+                                            2023-06-18
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 4].title}
+                                            2023 육성지원사업(제천문화홍보단)
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 5].date}
+                                            2023-06-20
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 5].title}
+                                            2023 육성지원사업(한국연예예술단)
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 6].date}
+                                            2023-06-24
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 6].title}
+                                            2023 육성지원사업(제천연주인협회)
                                             </div>
                                         </div>
                                     </ListGroup.Item>

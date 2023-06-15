@@ -143,108 +143,92 @@ function festivalBoardView() {
                                         </th>
                                     </tr>
                             </thead>
+                            <tbody>
+                                {/* 아직 작업중 */}
+                                <tr href={""}>
+                                    <td scope="col" width="20%">
+                                        <a href='http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491' style={{display:'block', color: 'black', display:'block', height: '100%', width: '100%'}}>
+                                        2023-06-16
+                                        </a>
+                                    </td>
+                                    <td scope="col" width="30%">
+                                        <a href='http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491' style={{display:'block',color: 'black',display:'block', height: '100%', width: '100%'}}>
+                                        제천재가노인센터
+                                        </a>
+                                    </td>
+                                    <td scope="col" width="50%">
+                                        <a href='http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491' style={{display:'block',color: 'black',display:'block', height: '100%', width: '100%'}}>
+                                        2023 육성지원사업(겨자씨친구들)
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
                             <tbody a={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
                                 <tr>
-                                    <th scope="col" width="20%">
+                                    <td scope="col" width="20%">
                                         2023-06-16
-                                    </th>
-                                    <th scope="col" width="30%">
-                                    제천재가노인센터
-                                    </th>
-                                    <th scope="col" width="50%">
-                                    2023 육성지원사업(겨자씨친구들)
-                                    </th>
-                                </tr>
-                            </tbody>
-                            <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
-                                <tr>
-                                    <th scope="col" width="20%">
-                                        2023-06-16
-                                    </th>
-                                    <th scope="col" width="30%">
+                                    </td>
+                                    <td scope="col" width="30%">
                                     제천문화재단 3층 상영관
-                                    </th>
-                                    <th scope="col" width="50%">
+                                    </td>
+                                    <td scope="col" width="50%">
                                     제천영상미디어센터 정기상영 '길버트 그레이프'
-                                    </th>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
                                 <tr>
-                                    <th scope="col" width="20%">
+                                    <td scope="col" width="20%">
                                         2023-06-17
-                                    </th>
-                                    <th scope="col" width="30%">
+                                    </td>
+                                    <td scope="col" width="30%">
                                     제천문화재단 3층 상영관
-                                    </th>
-                                    <th scope="col" width="50%">
+                                    </td>
+                                    <td scope="col" width="50%">
                                     제천영상미디어센터 정기상영 '라따뚜이'
-                                    </th>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
                                 <tr>
-                                    <th scope="col" width="20%">
+                                    <td scope="col" width="20%">
                                         2023-06-18
-                                    </th>
-                                    <th scope="col" width="30%">
+                                    </td>
+                                    <td scope="col" width="30%">
                                     청전동 야외공연장
-                                    </th>
-                                    <th scope="col" width="50%">
+                                    </td>
+                                    <td scope="col" width="50%">
                                     2023 육성지원사업(제천문화홍보단)
-                                    </th>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
                                 <tr>
-                                    <th scope="col" width="20%">
+                                    <td scope="col" width="20%">
                                         2023-06-20
-                                    </th>
-                                    <th scope="col" width="30%">
+                                    </td>
+                                    <td scope="col" width="30%">
                                     세종주간보호센터
-                                    </th>
-                                    <th scope="col" width="50%">
+                                    </td>
+                                    <td scope="col" width="50%">
                                     2023 육성지원사업(한국연예예술단)
-                                    </th>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
                                 <tr>
-                                    <th scope="col" width="20%">
+                                    <td scope="col" width="20%">
                                         2023-06-24
-                                    </th>
-                                    <th scope="col" width="30%">
+                                    </td>
+                                    <td scope="col" width="30%">
                                     청전동 야외공연장
-                                    </th>
-                                    <th scope="col" width="50%">
+                                    </td>
+                                    <td scope="col" width="50%">
                                     2023 육성지원사업(제천연주인협회)
-                                    </th>
+                                    </td>
                                 </tr>
                             </tbody>
                             </table>
-                            {/* <Table bordered className="mt-4 table table-hover" style={{ border: '1px solid #f2f2f2' }}>
-                                <thead style={{ textAlign: 'center', backgroundColor: '#E0E0E0' }}>
-                                    <tr>
-                                        <th scope="col" width="10%">
-                                            번호
-                                        </th>
-                                        <th scope="col" width="40%">
-                                            제목
-                                        </th>
-                                        <th scope="col" width="15%">
-                                            작성자
-                                        </th>
-                                        <th scope="col" width="20%">
-                                            작성일
-                                        </th>
-                                        <th scope="col" width="10%">
-                                            조회수
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </Table> */}
                         </Row>
                     </Col>
                 </Row>

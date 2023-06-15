@@ -127,11 +127,11 @@ function MainHeader() {
               }}
             >
               <a href="#">
-                <Figure.Image width={30} height={30} src={map} alt="map" />
+                <Figure.Image width={30} height={30} src={map} alt="map" style={{ visibility: 'hidden'}} />
               </a>
               <Figure.Caption
                 className="text-dark"
-                style={{ fontSize: '12px', fontWeight: 'bold' }}
+                style={{ fontSize: '12px', fontWeight: 'bold', visibility: 'hidden' }}
               >
                 지도로 보기
               </Figure.Caption>

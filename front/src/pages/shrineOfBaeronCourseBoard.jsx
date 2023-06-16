@@ -1,18 +1,13 @@
-import React, { useCallback, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import ShrineOfBaeronCourseBoardView from "../components/Board/shrineOfBaeronCourseBoardView";
-import Header from "../components/UI/header";
-// import { TextArea } from 'react-bootstrap';
+import React, { useCallback, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ShrineOfBaeronCourseBoardView from '../components/Board/shrineOfBaeronCourseBoardView';
 
-// 공통부분
-import Footer from "../components/UI/footer";
+// import { TextArea } from 'react-bootstrap';
 
 function shrineOfBaeronCourseBoard() {
   return (
     <>
-      <Header />
       <ShrineOfBaeronCourseBoardView />
-      <Footer />
     </>
   );
 }

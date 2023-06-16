@@ -705,7 +705,7 @@ function MainHeader() {
             <Carousel.Caption>
               <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다 .</p>
             </Carousel.Caption>
 
           </Carousel.Item>

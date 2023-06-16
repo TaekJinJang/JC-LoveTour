@@ -85,7 +85,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}
@@ -163,7 +163,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}
@@ -246,7 +246,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}
@@ -329,7 +329,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}

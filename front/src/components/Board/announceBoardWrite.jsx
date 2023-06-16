@@ -14,9 +14,6 @@ import '../UI/boardUI.css';
 import {
   Form,
   Button,
-  Container,
-  Row,
-  Col,
   Card,
   Nav,
   Navbar,
@@ -24,8 +21,15 @@ import {
   Stack,
   ButtonGroup,
 } from 'react-bootstrap';
-import Footer from '../UI/footer';
+
 import { backUrl } from '../../../config/config';
+
+// 공통부분
+import { Container, Row, Col } from 'react-bootstrap';
+import Header from '../UI/header';
+import TopNavBar from '../UI/topNavBar';
+import SideBar from '../UI/sideBar';
+import Footer from '../UI/footer';
 
 function announceBoardWrite() {
   const { imagePaths } = useSelector((state) => state.post);
@@ -87,244 +91,167 @@ function announceBoardWrite() {
     });
   });
 
+  // 사이드바 내용
+  const buttons = [
+    { label: '공지사항', href: '/board/announce' },
+    { label: '자주하는 질문', href: '/board/faq' },
+    { label: '투어 후기', href: '/board/review' },
+  ];
+
   return (
     <>
       <Container>
-        {/* 상단 네비바 */}
-        <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-          <Navbar bg="success" expand="lg" className="p-0">
-            <Container style={{ top: '-2px' }}>
-              <Navbar.Brand href="#home">
-                <h6>홈</h6>
-              </Navbar.Brand>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav>
-                  <NavDropdown
-                    as="h6"
-                    title="제천 러브투어"
-                    id="basic-nav-dropdown"
-                  >
-                    <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown
-                    as="h6"
-                    title="러브투어 소개"
-                    id="basic-nav-dropdown"
-                  >
-                    <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      Something
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.4">
-                      Separated link
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-        </Row>
-
-        {/* 사이드바 */}
-        {/* 사이드바 */}
-        <Row className="mt-3 ps-1" style={{ width: '100%' }}>
-          <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-            <Card bg="success" text="white" className="rounded-0">
-              <Card.Body className="pb-1 pt-1">
-                <Card.Title style={{ textAlign: 'center' }}>
-                  <h3 className="mb-0">알림마당</h3>
-                </Card.Title>
-              </Card.Body>
-            </Card>
-            <ButtonGroup vertical>
-              <Button
-                href="/board/announce"
-                variant="outline-success"
-                className="mb-2 p-2 rounded-0"
-                size="lg"
-                block
+        <Header />
+        <Container>
+          <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
+            <TopNavBar />
+          </Row>
+          <Row className="mt-3 ps-1" style={{ width: '100%' }}>
+            <Col md={3}>
+              <SideBar buttons={buttons} title={'알림마당'} />
+            </Col>
+            <Col md={9}>
+              <Row>
+                <h3>공지사항</h3>
+                <hr />
+              </Row>
+              <Form
+                style={{ padding: '30px' }}
+                encType="multipart/form-data"
+                onSubmit={onSubmitForm}
               >
-                공지사항
-              </Button>
-              <Button
-                href="/board/faq"
-                variant="outline-success"
-                className="mb-2 p-2 rounded-0"
-                size="lg"
-                block
-              >
-                자주하는 질문
-              </Button>
-              <Button
-                href="/board/review"
-                variant="outline-success"
-                className="mb-2 p-2 rounded-0"
-                size="lg"
-                block
-              >
-                투어후기
-              </Button>
-            </ButtonGroup>
-          </Col>
-
-          <Col md={9} className="ps-2">
-            <Row>
-              <h3>공지사항</h3>
-              <hr />
-            </Row>
-
-            <Form
-              style={{ padding: '30px' }}
-              encType="multipart/form-data"
-              onSubmit={onSubmitForm}
-            >
-              {/* 제목 */}
-              <Form.Group as={Row} className="mb-3" controlId="title">
-                <Col md={2}>
-                  <Card
-                    className="text-center"
-                    bg="success"
-                    border="success"
-                    text="white"
-                  >
-                    <Card.Header
-                      style={{
-                        height: '35px',
-                        fontSize: '17px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
+                {/* 제목 */}
+                <Form.Group as={Row} className="mb-3" controlId="title">
+                  <Col md={2}>
+                    <Card
+                      className="text-center"
+                      bg="success"
+                      border="success"
+                      text="white"
                     >
-                      제목
-                    </Card.Header>
-                  </Card>
-                </Col>
+                      <Card.Header
+                        style={{
+                          height: '35px',
+                          fontSize: '17px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        제목
+                      </Card.Header>
+                    </Card>
+                  </Col>
 
-                <Col md={10}>
-                  <Form.Control
-                    name="title"
-                    type="text"
-                    placeholder="제목을 입력해주세요. "
-                    value={title}
-                    onChange={onChangeTitle}
-                    style={{ backgroundColor: '#D9D9D9' }}
-                  />
-                </Col>
-              </Form.Group>
+                  <Col md={10}>
+                    <Form.Control
+                      name="title"
+                      type="text"
+                      placeholder="제목을 입력해주세요. "
+                      value={title}
+                      onChange={onChangeTitle}
+                      style={{ backgroundColor: '#D9D9D9' }}
+                    />
+                  </Col>
+                </Form.Group>
 
-              {/* 내용 */}
-              <Form.Group as={Row} className="mb-3" controlId="text">
-                <Col md={2}>
-                  <Card
-                    className="text-center"
-                    bg="success"
-                    border="success"
-                    text="white"
-                  >
-                    <Card.Header
-                      style={{
-                        height: '35px',
-                        fontSize: '17px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
+                {/* 내용 */}
+                <Form.Group as={Row} className="mb-3" controlId="text">
+                  <Col md={2}>
+                    <Card
+                      className="text-center"
+                      bg="success"
+                      border="success"
+                      text="white"
                     >
-                      내용
-                    </Card.Header>
-                  </Card>
-                </Col>
+                      <Card.Header
+                        style={{
+                          height: '35px',
+                          fontSize: '17px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        내용
+                      </Card.Header>
+                    </Card>
+                  </Col>
 
-                <Col md={10}>
-                  <Form.Control
-                    as="textarea"
-                    rows={15}
-                    name="text"
-                    type="text"
-                    placeholder="내용을 입력해주세요."
-                    value={text}
-                    onChange={onChangeText}
-                    style={{ backgroundColor: '#D9D9D9' }}
-                  />
-                </Col>
-              </Form.Group>
+                  <Col md={10}>
+                    <Form.Control
+                      as="textarea"
+                      rows={15}
+                      name="text"
+                      type="text"
+                      placeholder="내용을 입력해주세요."
+                      value={text}
+                      onChange={onChangeText}
+                      style={{ backgroundColor: '#D9D9D9' }}
+                    />
+                  </Col>
+                </Form.Group>
 
-              {/* 이미지 업로드 */}
-              <Form.Group as={Row} className="mb-3" controlId="text">
-                <Col md={2}>
-                  <Card
-                    className="text-center"
-                    bg="success"
-                    border="success"
-                    text="white"
-                  >
-                    <Card.Header
-                      style={{
-                        height: '35px',
-                        fontSize: '17px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
+                {/* 이미지 업로드 */}
+                <Form.Group as={Row} className="mb-3" controlId="text">
+                  <Col md={2}>
+                    <Card
+                      className="text-center"
+                      bg="success"
+                      border="success"
+                      text="white"
                     >
-                      이미지
-                    </Card.Header>
-                  </Card>
-                </Col>
+                      <Card.Header
+                        style={{
+                          height: '35px',
+                          fontSize: '17px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        이미지
+                      </Card.Header>
+                    </Card>
+                  </Col>
 
-                <Col md={10}>
-                  <Form.Control
-                    name="image"
-                    type="file"
-                    ref={imageInput}
-                    multiple
-                    onChange={onChangeImages}
-                    style={{ backgroundColor: '#D9D9D9' }}
-                  />
-                </Col>
-              </Form.Group>
-              <div>
-                {imagePaths.map((v, i) => (
-                  <div key={v} style={{ display: 'inline-block' }}>
-                    <img src={`${v}`} style={{ width: '200px' }} alt={v} />
-                    <div>
-                      <Button onClick={onRemoveImage(i)}>제거</Button>
+                  <Col md={10}>
+                    <Form.Control
+                      name="image"
+                      type="file"
+                      ref={imageInput}
+                      multiple
+                      onChange={onChangeImages}
+                      style={{ backgroundColor: '#D9D9D9' }}
+                    />
+                  </Col>
+                </Form.Group>
+                <div>
+                  {imagePaths.map((v, i) => (
+                    <div key={v} style={{ display: 'inline-block' }}>
+                      <img src={`${v}`} style={{ width: '200px' }} alt={v} />
+                      <div>
+                        <Button onClick={onRemoveImage(i)}>제거</Button>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              <Col className="d-flex justify-content-end">
-                <Button
-                  className="mb-4"
-                  variant="success"
-                  type="submit"
-                  style={{ width: '100px', borderRadius: '30px' }}
-                >
-                  등록
-                </Button>
-              </Col>
-            </Form>
-          </Col>
-        </Row>
+                <Col className="d-flex justify-content-end">
+                  <Button
+                    className="mb-4"
+                    variant="success"
+                    type="submit"
+                    style={{ width: '100px', borderRadius: '30px' }}
+                  >
+                    등록
+                  </Button>
+                </Col>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+        <Footer />
       </Container>
     </>
   );

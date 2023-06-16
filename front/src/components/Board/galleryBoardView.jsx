@@ -56,7 +56,6 @@ function galleryBoardView() {
     { label: '러브투어 소개', href: '/board/introduce' },
     { label: '지원 혜택', href: '/board/supportBenefit' },
     { label: '사진 갤러리', href: '/board/gallery' },
-    { label: '영상 갤러리', href: '/board/videoGallery' },
   ];
   return (
     <>

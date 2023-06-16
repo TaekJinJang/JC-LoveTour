@@ -60,7 +60,6 @@ function introduceBoardView() {
     { label: '러브투어 소개', href: '/board/introduce' },
     { label: '지원 혜택', href: '/board/supportBenefit' },
     { label: '사진 갤러리', href: '/board/gallery' },
-    { label: '영상 갤러리', href: '/board/videoGallery' },
   ];
 
   return (
@@ -120,8 +119,8 @@ function introduceBoardView() {
                         >
                           <h3>러브투어 소개글</h3>
                           <p>
-                            안녕하십니까 지금 만든 폼은 세일이가 만들었어요
-                            앞으로 내용을 넣을거예여
+                            안녕하십니까 지금 만든 폼은 ■■이가 만들었어요
+                            앞으로 내용을 넣을거에요
                           </p>
                         </span>
                       </div>
@@ -163,8 +162,8 @@ function introduceBoardView() {
                         >
                           <h3>러브투어 소개글</h3>
                           <p>
-                            안녕하십니까 지금 만든 폼은 세일이가 만들었어요
-                            앞으로 내용을 넣을거예여
+                            안녕하십니까 지금 만든 폼은 ■■이가 만들었어요
+                            앞으로 내용을 넣을거예요
                           </p>
                         </span>
                       </div>

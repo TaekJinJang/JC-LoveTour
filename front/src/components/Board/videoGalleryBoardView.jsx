@@ -29,7 +29,7 @@ import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function videoGalleryBoardView() {
   // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('영상 갤러리'); // 현재 페이지 상태
+  // const [currentPage, setCurrentPage] = useState('영상 갤러리'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -57,7 +57,6 @@ function videoGalleryBoardView() {
     { label: '러브투어 소개', href: '/board/introduce' },
     { label: '지원 혜택', href: '/board/supportBenefit' },
     { label: '사진 갤러리', href: '/board/gallery' },
-    { label: '영상 갤러리', href: '/board/videoGallery' },
   ];
 
   return (
@@ -71,11 +70,6 @@ function videoGalleryBoardView() {
           <Row className="mt-3 ps-1" style={{ width: '100%' }}>
             <Col md={3}>
               <SideBar buttons={buttons} title={'영상 갤러리'} />
-            </Col>
-            <Col md={9}>
-              <Row>
-                <h3>영상 갤러리</h3>
-              </Row>
             </Col>
           </Row>
         </Container>

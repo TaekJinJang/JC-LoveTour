@@ -85,7 +85,7 @@ function MainHeader() {
                             <Form.Control
                                 as="input"
                                 type="text"
-                                placeholder="제천의 어디로 여행을 갈까요?"
+                                placeholder="제천 전통시장 러브투어에 대해 검색하세요!"
                                 aria-label="Search"
                                 style={{
                                     backgroundColor: '#F0F0F0',
@@ -393,14 +393,6 @@ function MainHeader() {
                                             style={{ color: 'white' }}
                                         >
                                             사진 갤러리
-                                        </Nav.Link>
-                                        <Nav.Link
-                                            onMouseEnter={handleMouseEnter}
-                                            onMouseLeave={handleMouseLeave}
-                                            href="/board/videoGallery"
-                                            style={{ color: 'white' }}
-                                        >
-                                            영상 갤러리
                                         </Nav.Link>
                                     </li>
                                 )}

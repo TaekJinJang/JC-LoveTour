@@ -54,13 +54,15 @@ function mainGrid() {
 
     return (
         <>
-            <Container>
+            <Container style={{
+                        fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정
+                    }}>
                 <Row>
                     {/* 공지사항 */}
                     <Col className="my-2 mx-0" style={{ paddingRight: '0px' }}>
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
-                                <div style={{ paddingInline: '10px' }}>
+                                <div style={{ paddingInline: '10px', fontWeight: 'bold' }}>
                                     <h4>공지사항</h4>
                                 </div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goToAnnounceBoard}>
@@ -76,7 +78,7 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].title}
                                             </div>
                                             <div style={{ fontSize: '0.7em' }}>
@@ -91,7 +93,7 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].title}
                                             </div>
                                             <div style={{ fontSize: '0.7em' }}>
@@ -106,7 +108,7 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].title}
                                             </div>
                                             <div style={{ fontSize: '0.7em' }}>
@@ -121,7 +123,7 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].title}
                                             </div>
                                             <div style={{ fontSize: '0.7em' }}>
@@ -135,82 +137,24 @@ function mainGrid() {
                     </Col>
                     {/* 지원혜택 */}
                     <Col className="my-2 mx-0 px-2">
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light" >
                             <Card.Header
-                                className="d-flex justify-content-between mt-1"
-                                style={{ backgroundColor: 'white' }}
+                                className="d-flex justify-content-between mt-1 border-0 bg-light"
+                                
                             >
                                 <div style={{ paddingInline: '10px' }}>
-                                    <h4>지원혜택</h4>
+                                    <h4 className='fw-bold'>지원혜택</h4>
                                 </div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body style={{ backgroundColor: 'white' }} className="p-1">
-                                <ListGroup variant="flush" as="ol" onClick={goTosupportBenefit}>
-                                    <ListGroup.Item
-                                        action
-                                        variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
-                                                지원지침
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>
-                                                거주지에서 관광버스를 임차하여 제천에 들어와 관내 관광과 전통시장 투어
-                                                시, 아래 지원조건에 맞을 때 지원한다.
-                                            </div>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item
-                                        action
-                                        variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
-                                                지원조건
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>
-                                                참가인원 : 35명이상 (코로나19 방역해제 전 한시적 적용30명이상)
-                                            </div>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item
-                                        action
-                                        variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
-                                                지원금액
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>
-                                                1일 : 1대당 35만원 ※1식 중식 + 관광 + 전통시장 1곳 쇼핑
-                                            </div>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item
-                                        action
-                                        variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
-                                                {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].title}
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>
-                                                {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].date}
-                                            </div>
-                                        </div>
-                                    </ListGroup.Item>
-                                </ListGroup>
+                            <Card.Body style={{ backgroundColor: 'white', fontSize: '0.9em' }} className="p-1 m-1 fw-bold" >
+                                <p className='m-1'> ● 거주지에서 관광버스를 임차해올 경우 버스 1대당 35만원 지원 </p>
+                                <p className='m-1'>● 청풍호유람선, 청풍호문화재단지, 청품케이블카, 세계기독교박물관 입장료 할인</p>
+                                   <p className='m-1'>● 투어코스 안내 및 해설을 위한 제천시 관광해결사 탑승 지원 </p>
+                                   <p className='m-1'>● 열차편으로 제천역 도착 시 관광버스 1일 최대 20대까지 무상지원</p>
+                                   
                             </Card.Body>
                         </Card>
                     </Col>
@@ -219,7 +163,7 @@ function mainGrid() {
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}>
-                                    <h4>자주하는 질문</h4>
+                                    <h4 className='fw-bold'>자주하는 질문</h4>
                                 </div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goToFAQ}>
                                     +
@@ -305,7 +249,7 @@ function mainGrid() {
                         <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light mt-0">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}>
-                                    <h4>축제/행사</h4>
+                                    <h4 className='fw-bold'>축제/행사</h4>
                                 </div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goToFestival}>
                                     +

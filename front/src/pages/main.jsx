@@ -10,7 +10,7 @@ function main() {
   return (
     <>
       <MainHeader />
-      <Container>
+      {/* <Container>
         <Link to="/board/announce">
           <button>게시판</button>
         </Link>
@@ -23,7 +23,7 @@ function main() {
         <Link to="/admin">
           <button>관리자</button>
         </Link>
-      </Container>
+      </Container> */}
       <MainGrid />
       <Footer />
     </>

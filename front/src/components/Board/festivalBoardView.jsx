@@ -48,97 +48,27 @@ function festivalBoardView() {
         window.location.href = url;
     };
 
+    const buttons = [
+        { label: '관광지', href: '/board/touristSpot' },
+        { label: '전통시장', href: '/board/traditionalMarket' },
+        { label: '음식', href: '/board/food' },
+        { label: '숙박', href: '/board/accommodation' },
+        { label: '축제/행사', href: '/board/festival' },
+    ];
+
     return (
         <>
             <Header />
             <Container>
-                {/* 상단 네비바 */}
-                <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Navbar bg="success" expand="lg" className="p-0">
-                        <Container style={{ top: '-2px' }}>
-                            <Navbar.Brand href="#home">
-                                <h6>홈</h6>
-                            </Navbar.Brand>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse id="basic-navbar-nav">
-                                <Nav>
-                                    <NavDropdown as="h6" title="제천 러브투어" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                    </NavDropdown>
-                                    <NavDropdown as="h6" title="러브투어 소개" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                    </NavDropdown>
-                                </Nav>
-                            </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                </Row>
+            <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
+                        <TopNavBar />
+                    </Row>
 
                 {/* 사이드바 */}
                 <Row className="mt-3 ps-1" style={{ width: '100%' }}>
-                    <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-                        <Card bg="success" text="white">
-                            <Card.Body className="pb-1 pt-1">
-                                <Card.Title style={{ textAlign: 'center' }}>
-                                    <h3 className="mb-0">축제 / 행사</h3>
-                                </Card.Title>
-                            </Card.Body>
-                        </Card>
-                        <ButtonGroup vertical>
-                            <Button
-                                href="/board/touristSpot"
-                                variant="outline-success"
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                            >
-                                관광지
-                            </Button>
-                            <Button
-                                href="/board/traditionalMarket"
-                                variant="outline-success"
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                            >
-                                전통시장
-                            </Button>
-                            <Button
-                                href="/board/food"
-                                variant="outline-success"
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                            >
-                                음식
-                            </Button>
-                            <Button
-                                href="/board/accommodation"
-                                variant="outline-success"
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                            >
-                                숙박
-                            </Button>
-                            <Button
-                                href="/board/festival"
-                                variant={currentPage === '축제/행사' ? 'success' : 'outline-success'} // 현재 페이지에 따라 스타일 설정
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                                onClick={() => setCurrentPage('축제/행사')} // 버튼 클릭 시 현재 페이지 업데이트
-                            >
-                                축제/행사
-                            </Button>
-                        </ButtonGroup>
-                    </Col>
+                        <Col md={3}>
+                            <SideBar buttons={buttons} title={'제천의 이모저모'} />
+                        </Col>
                     <Col md={9}>
                         <Row>
                             <h3>축제/행사</h3>
@@ -293,6 +223,7 @@ function festivalBoardView() {
                         </Row>
                     </Col>
                 </Row>
+                <Footer />
             </Container>
         </>
     );

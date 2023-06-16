@@ -36,6 +36,14 @@ function festivalBoardView() {
         });
     }, []);
 
+    // 행사 부분 클릭
+    const FirstClick = () => {
+        window.location.href = "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491";
+    };
+    const handleLinkClick = (url) => {
+        window.location.href = url;
+      };
+
     return (
         <>
             <Container>
@@ -143,90 +151,96 @@ function festivalBoardView() {
                                         </th>
                                     </tr>
                             </thead>
-                            <tbody>
-                                {/* 아직 작업중 */}
-                                <tr href={""}>
+                            <tbody onClick={() => handleLinkClick('http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491')}>
+                                <tr>
                                     <td scope="col" width="20%">
-                                        <a href='http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491' style={{display:'block', color: 'black', display:'block', height: '100%', width: '100%'}}>
-                                        2023-06-16
-                                        </a>
+                                    2023-06-16
                                     </td>
                                     <td scope="col" width="30%">
-                                        <a href='http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491' style={{display:'block',color: 'black',display:'block', height: '100%', width: '100%'}}>
-                                        제천재가노인센터
-                                        </a>
+                                    제천재가노인센터
                                     </td>
                                     <td scope="col" width="50%">
-                                        <a href='http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491' style={{display:'block',color: 'black',display:'block', height: '100%', width: '100%'}}>
-                                        2023 육성지원사업(겨자씨친구들)
-                                        </a>
+                                    2023 육성지원사업(겨자씨친구들)
                                     </td>
                                 </tr>
                             </tbody>
-                            <tbody a={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
-                                <tr>
-                                    <td scope="col" width="20%">
-                                        2023-06-16
-                                    </td>
-                                    <td scope="col" width="30%">
-                                    제천문화재단 3층 상영관
-                                    </td>
-                                    <td scope="col" width="50%">
-                                    제천영상미디어센터 정기상영 '길버트 그레이프'
-                                    </td>
-                                </tr>
+                            <tbody onClick={() => handleLinkClick('http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=501')}>
+                            <tr>
+                                <td scope="col" width="20%">
+                                2023-06-16
+                                </td>
+                                <td scope="col" width="30%">
+                                제천문화재단 3층 상영관
+                                </td>
+                                <td scope="col" width="50%">
+                                제천영상미디어센터 정기상영 '길버트 그레이프'
+                                </td>
+                            </tr>
                             </tbody>
-                            <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
-                                <tr>
-                                    <td scope="col" width="20%">
-                                        2023-06-17
-                                    </td>
-                                    <td scope="col" width="30%">
-                                    제천문화재단 3층 상영관
-                                    </td>
-                                    <td scope="col" width="50%">
-                                    제천영상미디어센터 정기상영 '라따뚜이'
-                                    </td>
-                                </tr>
+                            <tbody onClick={() => handleLinkClick('http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=502')}>
+                            <tr>
+                                <td scope="col" width="20%">
+                                2023-06-17
+                                </td>
+                                <td scope="col" width="30%">
+                                제천문화재단 3층 상영관
+                                </td>
+                                <td scope="col" width="50%">
+                                제천영상미디어센터 정기상영 '라따뚜이'
+                                </td>
+                            </tr>
                             </tbody>
-                            <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
-                                <tr>
-                                    <td scope="col" width="20%">
-                                        2023-06-18
-                                    </td>
-                                    <td scope="col" width="30%">
-                                    청전동 야외공연장
-                                    </td>
-                                    <td scope="col" width="50%">
-                                    2023 육성지원사업(제천문화홍보단)
-                                    </td>
-                                </tr>
+                            <tbody onClick={() => handleLinkClick('http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=492')}>
+                            <tr>
+                                <td scope="col" width="20%">
+                                2023-06-18
+                                </td>
+                                <td scope="col" width="30%">
+                                청전동 야외공연장
+                                </td>
+                                <td scope="col" width="50%">
+                                2023 육성지원사업(제천문화홍보단)
+                                </td>
+                            </tr>
                             </tbody>
-                            <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
-                                <tr>
-                                    <td scope="col" width="20%">
-                                        2023-06-20
-                                    </td>
-                                    <td scope="col" width="30%">
-                                    세종주간보호센터
-                                    </td>
-                                    <td scope="col" width="50%">
-                                    2023 육성지원사업(한국연예예술단)
-                                    </td>
-                                </tr>
+                            <tbody onClick={() => handleLinkClick('http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=505')}>
+                            <tr>
+                                <td scope="col" width="20%">
+                                2023-06-20
+                                </td>
+                                <td scope="col" width="30%">
+                                세종주간보호센터
+                                </td>
+                                <td scope="col" width="50%">
+                                2023 육성지원사업(한국연예예술단)
+                                </td>
+                            </tr>
                             </tbody>
-                            <tbody href={"http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"}>
-                                <tr>
-                                    <td scope="col" width="20%">
-                                        2023-06-24
-                                    </td>
-                                    <td scope="col" width="30%">
-                                    청전동 야외공연장
-                                    </td>
-                                    <td scope="col" width="50%">
-                                    2023 육성지원사업(제천연주인협회)
-                                    </td>
-                                </tr>
+                            <tbody onClick={() => handleLinkClick('http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=493')}>
+                            <tr>
+                                <td scope="col" width="20%">
+                                2023-06-21
+                                </td>
+                                <td scope="col" width="30%">
+                                제천문화재단 3층 상영관
+                                </td>
+                                <td scope="col" width="50%">
+                                제천영상미디어센터 정기상영 '태극기 휘날리며'
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tbody onClick={() => handleLinkClick('http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=508')}>
+                            <tr>
+                                <td scope="col" width="20%">
+                                2023-06-24
+                                </td>
+                                <td scope="col" width="30%">
+                                청전동 야외공연장
+                                </td>
+                                <td scope="col" width="50%">
+                                2023 육성지원사업(제천연주인협회)
+                                </td>
+                            </tr>
                             </tbody>
                             </table>
                         </Row>

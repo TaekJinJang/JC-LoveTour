@@ -27,5 +27,4 @@ dist-ssr
 *.hwp
 jc-lovetour.pem
 /back/uploads/
-
-UI
+yarn.lock

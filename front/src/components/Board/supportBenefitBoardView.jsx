@@ -5,7 +5,7 @@ import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import styled from 'styled-components';
 import { ButtonGroup, Button, Card, Stack, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-
+import '../../index.css'; //폰트를 넣기위한 임포트
 // 공통부분
 import { Container, Row, Col } from 'react-bootstrap';
 import Header from '../UI/header';
@@ -55,7 +55,11 @@ function supportBenefitBoardView() {
         <>
             <Container>
                 <Header />
-                <Container>
+                <Container
+                    style={{
+                        fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정
+                    }}
+                >
                     <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
                         <TopNavBar />
                     </Row>

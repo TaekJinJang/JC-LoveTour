@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
-import styled from 'styled-components';
+import '../../../src/index.css'; //폰트설정을 위한 css 임포트
 import { Container, Row, Col, ButtonGroup, Button, Card, Stack, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 // import GalleryBoardList from './galleryBoardList';
@@ -38,22 +38,21 @@ function supportBenefitBoardView() {
 
     return (
         <>
-            <Container>
+            <Container style={{ fontFamily: 'NanumSquareNeo-Variable' }}>
                 {/* 상단 네비바 */}
                 <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Navbar bg="success" expand="lg" className="p-0">
-                        <Container style={{ top: '-2px' }}>
-                            <Navbar.Brand href="#home">
-                                <h6>홈</h6>
+                    <Navbar bg="success" expand="lg" className="p-2">
+                        <Container>
+                            <Navbar.Brand href="/">
+                                <h5>홈</h5>
                             </Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav>
                                     <NavDropdown as="h6" title="제천 러브투어" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.1">지원 혜택</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.2">사진 갤러리</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.3">영상 갤러리</NavDropdown.Item>
                                     </NavDropdown>
                                     <NavDropdown as="h6" title="러브투어 소개" id="basic-nav-dropdown">
                                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 import styled from 'styled-components';
 
+import '../../../src/index.css'; //폰트설정을 위한 css 임포트
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import '../UI/boardUI.css';
@@ -62,11 +63,11 @@ function announceBoardView() {
     }, []);
     return (
         <>
-            <Container>
+            <Container style={{ fontFamily: 'NanumSquareNeo-Variable' }}>
                 {/* 상단 네비바 */}
                 <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
                     <Navbar bg="success" expand="lg" className="p-0">
-                        <Container style={{ top: '-2px' }}>
+                        <Container>
                             <Navbar.Brand href="#home">
                                 <h6>홈</h6>
                             </Navbar.Brand>

@@ -3,7 +3,14 @@ import { Row, Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 function topNavBar() {
     return (
-        <Navbar bg="success" expand="lg" className="p-1">
+        <Navbar
+            bg="success"
+            expand="lg"
+            className="p-1"
+            style={{
+                fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정
+            }}
+        >
             <Container>
                 <Navbar.Brand href="/">
                     <h5>홈</h5>

@@ -127,11 +127,11 @@ function MainHeader() {
               }}
             >
               <a href="#">
-                <Figure.Image width={30} height={30} src={map} alt="map" />
+                <Figure.Image width={30} height={30} src={map} alt="map" style={{ visibility: 'hidden'}} />
               </a>
               <Figure.Caption
                 className="text-dark"
-                style={{ fontSize: '12px', fontWeight: 'bold' }}
+                style={{ fontSize: '12px', fontWeight: 'bold', visibility: 'hidden' }}
               >
                 지도로 보기
               </Figure.Caption>
@@ -644,9 +644,9 @@ function MainHeader() {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -657,10 +657,10 @@ function MainHeader() {
               src={Bakdaljae}
               alt="Second slide"
             />
+<Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -669,15 +669,14 @@ function MainHeader() {
               width={800}
               height={400}
               src={WoraksanMountain}
-              alt="Third slide"
+                            alt="Third slide"
             />
-
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
             </Carousel.Caption>
+
           </Carousel.Item>
 
           <Carousel.Item>
@@ -686,8 +685,13 @@ function MainHeader() {
               width={800}
               height={400}
               src={CheongpungCultural}
-              alt="Third slide"
+                            alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -696,8 +700,14 @@ function MainHeader() {
               width={800}
               height={400}
               src={GeumsusanMountain}
-              alt="Third slide"
+                            alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다 .</p>
+            </Carousel.Caption>
+
           </Carousel.Item>
 
           <Carousel.Item>
@@ -706,8 +716,14 @@ function MainHeader() {
               width={800}
               height={400}
               src={YonghagugokValley}
-              alt="Third slide"
+                            alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
+
           </Carousel.Item>
 
           <Carousel.Item>
@@ -716,8 +732,14 @@ function MainHeader() {
               width={800}
               height={400}
               src={SonggyeValley}
-              alt="Third slide"
+                            alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
+
           </Carousel.Item>
 
           <Carousel.Item>
@@ -726,8 +748,14 @@ function MainHeader() {
               width={800}
               height={400}
               src={OksunbongPeak}
-              alt="Third slide"
+                            alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
+
           </Carousel.Item>
 
           <Carousel.Item>
@@ -736,8 +764,14 @@ function MainHeader() {
               width={800}
               height={400}
               src={TaksajeongPavilion}
-              alt="Third slide"
+                            alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
+
           </Carousel.Item>
 
           <Carousel.Item>
@@ -746,8 +780,14 @@ function MainHeader() {
               width={800}
               height={400}
               src={BaeronHolyGround}
-              alt="Third slide"
+                            alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
+
           </Carousel.Item>
         </Carousel>
       </Container>

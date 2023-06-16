@@ -37,9 +37,6 @@ function festivalBoardView() {
     }, []);
 
     // 행사 부분 클릭
-    const FirstClick = () => {
-        window.location.href = "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491";
-    };
     const handleLinkClick = (url) => {
         window.location.href = url;
       };

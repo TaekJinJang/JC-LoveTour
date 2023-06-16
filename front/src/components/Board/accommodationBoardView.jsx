@@ -18,60 +18,60 @@ import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
 
 function accommodationBoardView() {
-  // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('숙박'); // 현재 페이지 상태
-  const { admin } = useSelector((state) => state.admin);
-  const { gallery } = useSelector((state) => state.post);
-  const dispatch = useDispatch();
+    // 페이지 버튼 눌린 상태로 만드려고 생성
+    const [currentPage, setCurrentPage] = useState('숙박'); // 현재 페이지 상태
+    const { admin } = useSelector((state) => state.admin);
+    const { gallery } = useSelector((state) => state.post);
+    const dispatch = useDispatch();
 
-  // 페이지네이션
-  const [page, setPage] = useState(1);
-  const [currentPosts, setCurrentPosts] = useState([]);
-  const indexOfLastPost = page * 10;
-  const indexOfFirstPost = indexOfLastPost - 10;
-  const handlePageChange = (page) => {
-    setPage(page);
-  };
-  useEffect(() => {
-    setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
-  }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
+    // 페이지네이션
+    const [page, setPage] = useState(1);
+    const [currentPosts, setCurrentPosts] = useState([]);
+    const indexOfLastPost = page * 10;
+    const indexOfFirstPost = indexOfLastPost - 10;
+    const handlePageChange = (page) => {
+        setPage(page);
+    };
+    useEffect(() => {
+        setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
+    }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
 
-  useEffect(() => {
-    dispatch({
-      type: LOAD_GALLERY_POSTS_REQUEST,
-    });
-  }, []);
+    useEffect(() => {
+        dispatch({
+            type: LOAD_GALLERY_POSTS_REQUEST,
+        });
+    }, []);
 
-  // 사이드바 내용
-  const buttons = [
-    { label: '관광지', href: '/board/touristSpot' },
-    { label: '전통시장', href: '/board/traditionalMarket' },
-    { label: '음식', href: '/board/food' },
-    { label: '숙박', href: '/board/accommodation' },
-    { label: '축제/행사', href: '/board/festival' },
-  ];
+    // 사이드바 내용
+    const buttons = [
+        { label: '관광지', href: '/board/touristSpot' },
+        { label: '전통시장', href: '/board/traditionalMarket' },
+        { label: '음식', href: '/board/food' },
+        { label: '숙박', href: '/board/accommodation' },
+        { label: '축제/행사', href: '/board/festival' },
+    ];
 
-  return (
-    <>
-      <Header />
-      <Container>
-        <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-          <TopNavBar />
-        </Row>
-        <Row className="mt-3 ps-1" style={{ width: '100%' }}>
-          <Col md={3}>
-            <SideBar buttons={buttons} title={'숙박'} />
-          </Col>
-          <Col md={9}>
-            <Row>
-              <h3>숙박</h3>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <Container>
+                <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
+                    <TopNavBar />
+                </Row>
+                <Row className="mt-3 ps-1" style={{ width: '100%' }}>
+                    <Col md={3}>
+                        <SideBar buttons={buttons} title={'제천의 이모저모'} />
+                    </Col>
+                    <Col md={9}>
+                        <Row>
+                            <h3>숙박</h3>
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
+            <Footer />
+        </>
+    );
 }
 
 export default accommodationBoardView;

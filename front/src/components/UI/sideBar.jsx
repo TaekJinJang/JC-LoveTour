@@ -5,7 +5,7 @@ function SideBar({ currentPage, setCurrentPage, buttons, title }) {
   return (
     <>
       <Card bg="success" text="white" className="rounded-0">
-        <Card.Body className="pb-3 pt-3 ">
+        <Card.Body className="pb-4 pt-4 ">
           <Card.Title style={{ textAlign: 'center' }}>
             <h3 className="mb-0">{title}</h3>
           </Card.Title>

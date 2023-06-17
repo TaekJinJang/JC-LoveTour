@@ -21,7 +21,6 @@ function topNavBar() {
                         <NavDropdown as="h5" title="제천 러브투어" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">지원혜택</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">사진 갤러리</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">영상 갤러리</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown as="h5" title="제천의 이모저모" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">관광지</NavDropdown.Item>

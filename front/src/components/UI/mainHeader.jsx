@@ -7,7 +7,7 @@ import '../../../src/index.css'; //폰트설정을 위한 css 임포트
 import logo from '../../assets/mainHeader-assets/logo.png';
 import map from '../../assets/mainHeader-assets/map.png';
 import search from '../../assets/mainHeader-assets/search.png';
-import uirimji from '../../assets/mainHeader-assets/uirimji.png';
+import uirimji from '../../assets/mainHeader-assets/Uirimji.png';
 import Bakdaljae from '../../assets/mainHeader-assets/Bakdaljae.png';
 import WoraksanMountain from '../../assets/mainHeader-assets/WoraksanMountain.png';
 import CheongpungCultural from '../../assets/mainHeader-assets/CheongpungCultural.png';
@@ -85,7 +85,7 @@ function MainHeader() {
                             <Form.Control
                                 as="input"
                                 type="text"
-                                placeholder="제천의 어디로 여행을 갈까요?"
+                                placeholder="제천 전통시장 러브투어에 대해 검색하세요!"
                                 aria-label="Search"
                                 style={{
                                     backgroundColor: '#F0F0F0',
@@ -393,14 +393,6 @@ function MainHeader() {
                                             style={{ color: 'white' }}
                                         >
                                             사진 갤러리
-                                        </Nav.Link>
-                                        <Nav.Link
-                                            onMouseEnter={handleMouseEnter}
-                                            onMouseLeave={handleMouseLeave}
-                                            href="/board/videoGallery"
-                                            style={{ color: 'white' }}
-                                        >
-                                            영상 갤러리
                                         </Nav.Link>
                                     </li>
                                 )}

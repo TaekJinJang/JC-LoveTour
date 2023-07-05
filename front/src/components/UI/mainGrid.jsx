@@ -1,7 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import React, { useCallback, useEffect } from 'react';
-import { Container, Row, Col, Card, Button, Figure, Carousel, ListGroup, Table } from 'react-bootstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Button,
+  Figure,
+  Carousel,
+  ListGroup,
+  Table,
+} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { LOAD_ALL_POSTS_REQUEST } from '../../reducers/post';
@@ -21,14 +31,9 @@ import img10 from '../../assets/mainGrid-assets/img10.jpg';
 import img11 from '../../assets/mainGrid-assets/img11.jpg';
 import img12 from '../../assets/mainGrid-assets/img12.jpg';
 
-
-
-
-
-
 function mainGrid() {
-    const { mainPosts, reviewPosts } = useSelector((state) => state.post);
-    console.log(mainPosts);
+  const { mainPosts, reviewPosts } = useSelector((state) => state.post);
+  console.log(mainPosts);
 
     const navigate = useNavigate();
     const goToAnnounceBoard = useCallback(() => {
@@ -49,36 +54,46 @@ function mainGrid() {
 
     return (
         <>
-            <Container>
+            <Container style={{
+                        fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정
+                    }}>
                 <Row>
                     {/* 공지사항 */}
                     <Col className="my-2 mx-0" style={{ paddingRight: '0px' }}>
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className='bg-light'>
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
-                                <div style={{ paddingInline: '10px' }}><h4>공지사항</h4></div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
+                                <div style={{ paddingInline: '10px', fontWeight: 'bold' }}>
+                                    <h4>공지사항</h4>
+                                </div>
+                                <Button variant="outline-primary" className="ml-auto" onClick={goToAnnounceBoard}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body className='p-1'>
-                                <ListGroup variant='flush' as="ol" onClick={goToAnnounceBoard}>
-                                    <ListGroup.Item action variant="light"
+                            <Card.Body className="p-1">
+                                <ListGroup variant="flush" as="ol" onClick={goToAnnounceBoard}>
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>{mainPosts.length > 0 && mainPosts[mainPosts.length - 1].date}</div>
+                                            <div style={{ fontSize: '0.7em' }}>
+                                                {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].date}
+                                            </div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }} >
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].title}
                                             </div>
                                             <div style={{ fontSize: '0.7em' }}>
@@ -86,24 +101,33 @@ function mainGrid() {
                                             </div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
-                                        className="d-flex justify-content-between align-items-start">
+                                        className="d-flex justify-content-between align-items-start"
+                                    >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>{mainPosts.length > 2 && mainPosts[mainPosts.length - 3].date}</div>
+                                            <div style={{ fontSize: '0.7em' }}>
+                                                {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].date}
+                                            </div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
-                                        className="d-flex justify-content-between align-items-start">
+                                        className="d-flex justify-content-between align-items-start"
+                                    >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>{mainPosts.length > 2 && mainPosts[mainPosts.length - 4].date}
+                                            <div style={{ fontSize: '0.7em' }}>
+                                                {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].date}
                                             </div>
                                         </div>
                                     </ListGroup.Item>
@@ -111,78 +135,45 @@ function mainGrid() {
                             </Card.Body>
                         </Card>
                     </Col>
-
+                    {/* 지원혜택 */}
                     <Col className="my-2 mx-0 px-2">
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <Card.Header className="d-flex justify-content-between mt-1" style={{ backgroundColor: 'white' }}>
-                                <div style={{ paddingInline: '10px' }}><h4>지원혜택</h4></div>
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light" >
+                            <Card.Header
+                                className="d-flex justify-content-between mt-1 border-0 bg-light"
+                                
+                            >
+                                <div style={{ paddingInline: '10px' }}>
+                                    <h4 className='fw-bold'>지원혜택</h4>
+                                </div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body style={{ backgroundColor: 'white' }} className='p-1'>
-                                <ListGroup variant='flush' as="ol" onClick={goToAnnounceBoard}>
-                                    <ListGroup.Item action variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
-                                                {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].title}
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>{mainPosts.length > 0 && mainPosts[mainPosts.length - 1].date}</div>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start"
-                                    >
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }} >
-                                                {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].title}
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>
-                                                {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].date}
-                                            </div>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
-                                                {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].title}
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>{mainPosts.length > 2 && mainPosts[mainPosts.length - 3].date}</div>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
-                                        as="li"
-                                        className="d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
-                                                {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].title}
-                                            </div>
-                                            <div style={{ fontSize: '0.7em' }}>{mainPosts.length > 2 && mainPosts[mainPosts.length - 4].date}
-                                            </div>
-                                        </div>
-                                    </ListGroup.Item>
-                                </ListGroup>
+                            <Card.Body style={{ backgroundColor: 'white', fontSize: '0.9em' }} className="p-1 m-1 fw-bold" >
+                                <p className='m-1'> ● 거주지에서 관광버스를 임차해올 경우 버스 1대당 35만원 지원 </p>
+                                <p className='m-1'>● 청풍호유람선, 청풍호문화재단지, 청품케이블카, 세계기독교박물관 입장료 할인</p>
+                                   <p className='m-1'>● 투어코스 안내 및 해설을 위한 제천시 관광해결사 탑승 지원 </p>
+                                   <p className='m-1'>● 열차편으로 제천역 도착 시 관광버스 1일 최대 20대까지 무상지원</p>
+                                   
                             </Card.Body>
                         </Card>
                     </Col>
                     {/* 자주하는 질문 */}
                     <Col className="my-2 mx-0" style={{ paddingLeft: '0px' }}>
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className='bg-light'>
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
-                                <div style={{ paddingInline: '10px' }}><h4>자주하는 질문</h4></div>
+                                <div style={{ paddingInline: '10px' }}>
+                                    <h4 className='fw-bold'>자주하는 질문</h4>
+                                </div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goToFAQ}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body className='p-1'>
-                                <ListGroup variant='flush' as="ol" onClick={goToFAQ}>
-                                    <ListGroup.Item action variant="light"
+                            <Card.Body className="p-1">
+                                <ListGroup variant="flush" as="ol" onClick={goToFAQ}>
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
@@ -190,15 +181,19 @@ function mainGrid() {
                                             <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
                                                 {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>{reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].date}</div>
+                                            <div style={{ fontSize: '0.7em' }}>
+                                                {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].date}
+                                            </div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }} >
+                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
                                                 {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].title}
                                             </div>
                                             <div style={{ fontSize: '0.7em' }}>
@@ -206,24 +201,33 @@ function mainGrid() {
                                             </div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
-                                        className="d-flex justify-content-between align-items-start">
+                                        className="d-flex justify-content-between align-items-start"
+                                    >
                                         <div className="ms-2 me-auto">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
                                                 {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>{reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].date}</div>
+                                            <div style={{ fontSize: '0.7em' }}>
+                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].date}
+                                            </div>
                                         </div>
                                     </ListGroup.Item>
-                                    <ListGroup.Item action variant="light"
+                                    <ListGroup.Item
+                                        action
+                                        variant="light"
                                         as="li"
-                                        className="d-flex justify-content-between align-items-start">
+                                        className="d-flex justify-content-between align-items-start"
+                                    >
                                         <div className="ms-2 me-auto">
                                             <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
                                                 {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 4].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>{reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 4].date}
+                                            <div style={{ fontSize: '0.7em' }}>
+                                                {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 4].date}
                                             </div>
                                         </div>
                                     </ListGroup.Item>
@@ -234,128 +238,173 @@ function mainGrid() {
                 </Row>
                 <Row>
                     <Col className="my-2">
-                        <Figure className='mb-2'>
-                            <Figure.Image thumbnail className='mb-0'
+                        <Figure className="mb-2">
+                            <Figure.Image
+                                thumbnail
+                                className="mb-0"
                                 style={{ width: '500px', height: '200px', objectFit: 'cover' }}
-                                src={festivalex} />
+                                src={festivalex}
+                            />
                         </Figure>
-                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className='bg-light mt-0'>
+                        <Card style={{ width: '100%', height: '300px', overflow: 'hidden' }} className="bg-light mt-0">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
-                                <div style={{ paddingInline: '10px' }}><h4>축제/행사</h4></div>
+                                <div style={{ paddingInline: '10px' }}>
+                                    <h4 className='fw-bold'>축제/행사</h4>
+                                </div>
                                 <Button variant="outline-primary" className="ml-auto" onClick={goToFestival}>
                                     +
                                 </Button>
                             </Card.Header>
-                            <Card.Body className='p-1'>
+                            <Card.Body className="p-1">
                                 <ListGroup variant="flush" as="ol" onClick={goToFestival}>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                            2023-06-16
+                                            <div
+                                                className="fw-bold"
+                                                style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}
+                                            >
+                                                2023-06-16
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                            2023 육성지원사업(겨자씨친구들)
+                                                2023 육성지원사업(겨자씨친구들)
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                            2023-06-16
+                                            <div
+                                                className="fw-bold"
+                                                style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}
+                                            >
+                                                2023-06-16
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                            제천영상미디어센터 정기상영 '길버트 그레이프'
+                                                제천영상미디어센터 정기상영 '길버트 그레이프'
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                            2023-06-17
+                                            <div
+                                                className="fw-bold"
+                                                style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}
+                                            >
+                                                2023-06-17
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                            제천영상미디어센터 정기상영 '라따뚜이'
+                                                제천영상미디어센터 정기상영 '라따뚜이'
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                            2023-06-18
+                                            <div
+                                                className="fw-bold"
+                                                style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}
+                                            >
+                                                2023-06-18
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                            2023 육성지원사업(제천문화홍보단)
+                                                2023 육성지원사업(제천문화홍보단)
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                            2023-06-20
+                                            <div
+                                                className="fw-bold"
+                                                style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}
+                                            >
+                                                2023-06-20
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                            2023 육성지원사업(한국연예예술단)
+                                                2023 육성지원사업(한국연예예술단)
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                     <ListGroup.Item action variant="light" as="li" className="align-items-start">
                                         <div className="d-flex align-items-center">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}>
-                                            2023-06-24
+                                            <div
+                                                className="fw-bold"
+                                                style={{ fontSize: '0.9em', marginRight: '0.5rem', color: 'green' }}
+                                            >
+                                                2023-06-24
                                             </div>
                                             <div className="fw-bold" style={{ fontSize: '0.9em' }}>
-                                            2023 육성지원사업(제천연주인협회)
+                                                2023 육성지원사업(제천연주인협회)
                                             </div>
                                         </div>
                                     </ListGroup.Item>
                                 </ListGroup>
                             </Card.Body>
-
                         </Card>
                     </Col>
-                    <Col className="my-2" >
-                        <Card style={{ width: '100%', height: '520px', overflow: 'hidden' }} className='border-0 m-0 p-0'>
-                            <Card.Body className='p-0'>
-                                <Carousel variant="dark" className="mt-1 p-0" prevIcon={null} nextIcon={null} >
-                                    <Carousel.Item className='m-0 p-0'>
+                    <Col className="my-2">
+                        <Card
+                            style={{ width: '100%', height: '520px', overflow: 'hidden' }}
+                            className="border-0 m-0 p-0"
+                        >
+                            <Card.Body className="p-0">
+                                <Carousel variant="dark" className="mt-1 p-0" prevIcon={null} nextIcon={null}>
+                                    <Carousel.Item className="m-0 p-0">
                                         <Row>
-                                            <Col style={{paddingRight:'0px'}}>
+                                            <Col style={{ paddingRight: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img12}
                                                         alt="figure 1"
                                                     />
                                                 </figure>
                                             </Col>
-                                            <Col style={{paddingLeft:'0px'}}>
+                                            <Col style={{ paddingLeft: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img1}
                                                         alt="figure 2"
                                                     />
                                                 </figure>
-                                            </Col >
+                                            </Col>
                                         </Row>
                                         <Row>
-                                            <Col style={{paddingRight:'0px'}}>
+                                            <Col style={{ paddingRight: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img2}
                                                         alt="figure 3"
                                                     />
                                                 </figure>
                                             </Col>
-                                            <Col style={{paddingLeft:'0px'}}>
+                                            <Col style={{ paddingLeft: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img3}
                                                         alt="figure 4"
                                                     />
@@ -365,21 +414,31 @@ function mainGrid() {
                                     </Carousel.Item>
                                     <Carousel.Item>
                                         <Row>
-                                            <Col style={{paddingRight:'0px'}}>
+                                            <Col style={{ paddingRight: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img4}
                                                         alt="figure 1"
                                                     />
                                                 </figure>
                                             </Col>
-                                            <Col style={{paddingLeft:'0px'}}>
+                                            <Col style={{ paddingLeft: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img5}
                                                         alt="figure 2"
                                                     />
@@ -387,21 +446,31 @@ function mainGrid() {
                                             </Col>
                                         </Row>
                                         <Row>
-                                            <Col style={{paddingRight:'0px'}}>
+                                            <Col style={{ paddingRight: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img6}
                                                         alt="figure 3"
                                                     />
                                                 </figure>
                                             </Col>
-                                            <Col  style={{paddingLeft:'0px'}}>
+                                            <Col style={{ paddingLeft: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img7}
                                                         alt="figure 4"
                                                     />
@@ -411,21 +480,31 @@ function mainGrid() {
                                     </Carousel.Item>
                                     <Carousel.Item>
                                         <Row>
-                                            <Col style={{paddingRight:'0px'}}>
+                                            <Col style={{ paddingRight: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img8}
                                                         alt="figure 1"
                                                     />
                                                 </figure>
                                             </Col>
-                                            <Col style={{paddingLeft:'0px'}}>
+                                            <Col style={{ paddingLeft: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img9}
                                                         alt="figure 2"
                                                     />
@@ -433,21 +512,31 @@ function mainGrid() {
                                             </Col>
                                         </Row>
                                         <Row>
-                                            <Col style={{paddingRight:'0px'}}>
+                                            <Col style={{ paddingRight: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img10}
                                                         alt="figure 3"
                                                     />
                                                 </figure>
                                             </Col>
-                                            <Col style={{paddingLeft:'0px'}}>
+                                            <Col style={{ paddingLeft: '0px' }}>
                                                 <figure>
                                                     <img
-                                                        className='p-0 m-0'
-                                                        style={{ width: '235px', height: '240px', objectFit: 'cover', borderRadius: '10px' }}
+                                                        className="p-0 m-0"
+                                                        style={{
+                                                            width: '235px',
+                                                            height: '240px',
+                                                            objectFit: 'cover',
+                                                            borderRadius: '10px',
+                                                        }}
                                                         src={img11}
                                                         alt="figure 4"
                                                     />
@@ -466,13 +555,37 @@ function mainGrid() {
                             <Card.Body>
                                 <Row>
                                     <Col>
-                                        <iframe width="300" height="315" src="https://www.youtube.com/embed/3vCKaZLcWhY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        <iframe
+                                            width="300"
+                                            height="315"
+                                            src="https://www.youtube.com/embed/3vCKaZLcWhY"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen
+                                        ></iframe>
                                     </Col>
                                     <Col>
-                                        <iframe width="300" height="315" src="https://www.youtube.com/embed/ElDsQj5frtY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        <iframe
+                                            width="300"
+                                            height="315"
+                                            src="https://www.youtube.com/embed/ElDsQj5frtY"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen
+                                        ></iframe>
                                     </Col>
                                     <Col>
-                                        <iframe width="300" height="315" src="https://www.youtube.com/embed/1xUIqj6-crg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        <iframe
+                                            width="300"
+                                            height="315"
+                                            src="https://www.youtube.com/embed/1xUIqj6-crg"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen
+                                        ></iframe>
                                     </Col>
                                 </Row>
                             </Card.Body>

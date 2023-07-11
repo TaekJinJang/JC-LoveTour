@@ -70,8 +70,9 @@ function galleryBoardView() {
               <SideBar buttons={buttons} title={'사진 갤러리'} />
             </Col>
             <Col md={9}>
-              <Row>
-                <h2>사진 갤러리</h2>
+              <Row className="mb-1">
+                <h3>사진 갤러리</h3>
+                <hr />
               </Row>
               <Row className="mt-2">
                 <Col className="bg-light border pt-1">

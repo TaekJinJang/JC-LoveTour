@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 function topNavBar() {
+
     return (
         <Navbar
             bg="success"
@@ -46,6 +47,7 @@ function topNavBar() {
             </Container>
         </Navbar>
     );
+
 }
 
 export default topNavBar;

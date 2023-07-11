@@ -54,7 +54,7 @@ function touristSpotBoardView() {
 
     return (
         <>
-            <Container>
+            <Container style={{fontFamily: 'Pretendard-Regular',}}>
                 <Header />
                 <Container>
                     <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>

@@ -75,7 +75,7 @@ function shrineOfBaeronCourseBoardView() {
             </Col>
             <Col md={9}>
               <Row>
-                <h3>베론성지 코스</h3>
+                <h3>배론성지 코스</h3>
               </Row>
             </Col>
           </Row>

@@ -67,7 +67,7 @@ function festivalBoardView() {
                 {/* 사이드바 */}
                 <Row className="mt-3 ps-1" style={{ width: '100%' }}>
                     <Col md={3}>
-                        <SideBar buttons={buttons} title={'제천의 이모저모'} />
+                        <SideBar buttons={buttons} title={<div>제천의<br />이모저모</div>} />
                     </Col>
                     <Col md={9}>
                         <Row>

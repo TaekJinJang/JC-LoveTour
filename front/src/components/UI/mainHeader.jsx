@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel, Container, Nav, Form, Button, Figure, Row, Col, InputGroup } from 'react-bootstrap'; //부트스트랩 사용을 위한 임포트
 import '../../../src/index.css'; //폰트설정을 위한 css 임포트
-
+//request
 //사진을 넣기 위한 임포트..(이렇게 하는게 맞는지 의문이 든다..)
 import logo from '../../assets/mainHeader-assets/logo.png';
 import map from '../../assets/mainHeader-assets/map.png';

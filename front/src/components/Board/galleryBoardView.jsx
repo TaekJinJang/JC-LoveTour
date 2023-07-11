@@ -1,27 +1,19 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  ADD_GALLERY_REQUEST,
-  REMOVE_IMAGE,
-  UPLOAD_IMAGE_REQUEST,
-} from '../../reducers/post';
 import { Link, useNavigate } from 'react-router-dom';
-import useInput from '../../hooks/useInput';
+import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
-import '../UI/boardUI.css';
+import styled from 'styled-components';
 import {
-  Form,
+  ButtonGroup,
   Button,
   Card,
+  Stack,
+  Form,
   Nav,
   Navbar,
   NavDropdown,
-  Stack,
-  ButtonGroup,
 } from 'react-bootstrap';
-import { backUrl } from '../../../config/config';
 
 // 공통부분
 import { Container, Row, Col } from 'react-bootstrap';
@@ -30,88 +22,41 @@ import TopNavBar from '../UI/topNavBar';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
 
-function galleryBoardWrite() {
-  const { imagePaths, uploadImagesDone } = useSelector((state) => state.post);
+import GalleryBoardList from './galleryBoardList';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
+
+function galleryBoardView() {
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('사진 갤러리'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
-  const [title, onChangeTitle] = useInput('');
-  const [text, onChangeText] = useInput('');
-  const [imageTitle, onChangeImageTitle, setImageTitle] = useInput('');
-  const [imageText, onChangeImageText, setImageText] = useInput('');
-
-  const imageInput = useRef();
-
+  const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
+  // 페이지네이션
+  const [page, setPage] = useState(1);
+  const [currentPosts, setCurrentPosts] = useState([]);
+  const indexOfLastPost = page * 10;
+  const indexOfFirstPost = indexOfLastPost - 10;
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
+  useEffect(() => {
+    setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
+  }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
 
   useEffect(() => {
-    if (uploadImagesDone) {
-      setImageTitle('');
-      setImageText('');
-      imageInput.current.value = ''; // 파일 입력 요소 초기화
-    }
-  }, [uploadImagesDone]);
-
-  // 기본적인 버그들, 게시글을 작성하기로해놓ㄱ 다 빈칸으로 두거나 알맞은 형식이 아닐땐 요청을 받지 않게끔
-  const onSubmitForm = useCallback(
-    (e) => {
-      e.preventDefault();
-      if (!admin) {
-        return alert('관리자 로그인이 필요합니다.');
-      }
-      if (!text || !text.trim()) {
-        return alert('게시글을 작성하세요');
-      }
-      const formData = new FormData();
-      imagePaths.forEach((p) => {
-        console.log(p);
-        formData.append('image', p[0].src);
-        formData.append('captionTitle', p[0].captionTitle);
-        formData.append('captionContent', p[0].captionContent);
-      });
-      formData.append('title', title);
-      formData.append('content', text);
-
-      console.log(imagePaths, '이미지패쓰');
-      navigate('/board/gallery');
-      console.log(formData, '폼데이터');
-
-      return dispatch({
-        type: ADD_GALLERY_REQUEST,
-        data: formData,
-      });
-    },
-    [title, text, imagePaths]
-  );
-
-  //   const onClickImageUpload = useCallback(() => {
-  //     imageInput.current.click();
-  //   }, [imageInput.current]);
-
-  const onPushImages = useCallback((imageTitle, imageText) => {
-    const imageFormData = new FormData();
-    [].forEach.call(imageInput.current.files, (f) => {
-      imageFormData.append('image', f);
-      imageFormData.append('imageTitle', imageTitle);
-      imageFormData.append('imageContent', imageText);
-    });
     dispatch({
-      type: UPLOAD_IMAGE_REQUEST,
-      data: imageFormData,
+      type: LOAD_GALLERY_POSTS_REQUEST,
     });
   }, []);
-  const onRemoveImage = useCallback((index) => () => {
-    dispatch({
-      type: REMOVE_IMAGE,
-      data: index,
-    });
-  });
-
+  // 사이드바 내용
   const buttons = [
     { label: '러브투어 소개', href: '/board/introduce' },
     { label: '지원 혜택', href: '/board/supportBenefit' },
     { label: '사진 갤러리', href: '/board/gallery' },
   ];
-
   return (
     <>
       <Container>
@@ -125,232 +70,69 @@ function galleryBoardWrite() {
               <SideBar buttons={buttons} title={'사진 갤러리'} />
             </Col>
             <Col md={9}>
-              <Col>
-                <Col>
-                  <Row className="mb-4">
-                    <h3 className="mb-4" style={{ color: '#2da57d' }}>
-                      공지사항
-                    </h3>
-                    <hr />
-                  </Row>
-                </Col>
-                <Form
-                  style={{ padding: '30px' }}
-                  encType="multipart/form-data"
-                  onSubmit={onSubmitForm}
-                >
-                  {/* 제목 */}
-                  <Form.Group as={Row} className="mb-3" controlId="title">
-                    <Col md={2}>
-                      <Card
-                        className="text-center"
-                        bg="success"
-                        border="success"
+              <Row>
+                <h2>사진 갤러리</h2>
+              </Row>
+              <Row className="mt-2">
+                <Col className="bg-light border pt-1">
+                  <Col className="mb-1" style={{ float: 'right' }}>
+                    <Stack direction="horizontal" gap={3}>
+                      <Form.Control className="ms-auto" />
+                      <Button
+                        variant="success"
                         text="white"
+                        style={{ width: '130px' }}
                       >
-                        <Card.Header
-                          style={{
-                            height: '35px',
-                            fontSize: '17px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          제목
-                        </Card.Header>
-                      </Card>
-                    </Col>
-
-                    <Col md={10}>
-                      <Form.Control
-                        name="title"
-                        type="text"
-                        placeholder="제목을 입력해주세요. "
-                        value={title}
-                        onChange={onChangeTitle}
-                        style={{ backgroundColor: '#D9D9D9' }}
-                      />
-                    </Col>
-                  </Form.Group>
-
-                  {/* 내용 */}
-                  <Form.Group as={Row} className="mb-3" controlId="text">
-                    <Col md={2}>
-                      <Card
-                        className="text-center"
-                        bg="success"
-                        border="success"
-                        text="white"
-                      >
-                        <Card.Header
-                          style={{
-                            height: '35px',
-                            fontSize: '17px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          내용
-                        </Card.Header>
-                      </Card>
-                    </Col>
-
-                    <Col md={10}>
-                      <Form.Control
-                        as="textarea"
-                        rows={15}
-                        name="text"
-                        type="text"
-                        placeholder="내용을 입력해주세요."
-                        value={text}
-                        onChange={onChangeText}
-                        style={{ backgroundColor: '#D9D9D9' }}
-                      />
-                    </Col>
-                  </Form.Group>
-
-                  {/* 이미지 업로드 */}
-                  <Form.Group as={Row} className="mb-3" controlId="text">
-                    <Col md={2}>
-                      <Card
-                        className="text-center"
-                        bg="success"
-                        border="success"
-                        text="white"
-                      >
-                        <Card.Header
-                          style={{
-                            height: '35px',
-                            fontSize: '17px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          이미지
-                        </Card.Header>
-                      </Card>
-                    </Col>
-
-                    <Col md={10}>
-                      <Form.Control
-                        name="image"
-                        type="file"
-                        ref={imageInput}
-                        multiple
-                        // onChange={onChangeImages}
-                        style={{ backgroundColor: '#D9D9D9' }}
-                      />
-                    </Col>
-                    {/* 이미지 제목 */}
-                    <Form.Group as={Row} className="mb-3" controlId="title">
-                      <Col md={2}>
-                        <Card
-                          className="text-center"
-                          bg="success"
-                          border="success"
-                          text="white"
-                        >
-                          <Card.Header
-                            style={{
-                              height: '35px',
-                              fontSize: '17px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}
-                          >
-                            이미지 제목
-                          </Card.Header>
-                        </Card>
-                      </Col>
-
-                      <Col md={10}>
-                        <Form.Control
-                          name="imageTitle"
-                          type="text"
-                          placeholder="이미지 제목을 입력해주세요. "
-                          value={imageTitle}
-                          onChange={onChangeImageTitle}
-                          style={{ backgroundColor: '#D9D9D9' }}
-                        />
-                      </Col>
-                    </Form.Group>
-                    {/* 이미지 내용 */}
-                    <Form.Group as={Row} className="mb-3" controlId="title">
-                      <Col md={2}>
-                        <Card
-                          className="text-center"
-                          bg="success"
-                          border="success"
-                          text="white"
-                        >
-                          <Card.Header
-                            style={{
-                              height: '35px',
-                              fontSize: '17px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                            }}
-                          >
-                            이미지 내용
-                          </Card.Header>
-                        </Card>
-                      </Col>
-
-                      <Col md={10}>
-                        <Form.Control
-                          name="imageText"
-                          type="text"
-                          placeholder="이미지 제목을 입력해주세요. "
-                          value={imageText}
-                          onChange={onChangeImageText}
-                          style={{ backgroundColor: '#D9D9D9' }}
-                        />
-                      </Col>
-                    </Form.Group>
-                  </Form.Group>
-                  <div>
-                    {imagePaths.map((v, i) => (
-                      <div key={v} style={{ display: 'inline-block' }}>
-                        {console.log(v, i)}
-                        <img
-                          src={`${v[0].src}`}
-                          style={{ width: '200px' }}
-                          alt={v[0]}
-                        />
-                        <div>
-                          <Button variant="danger" Click={onRemoveImage(i)}>
-                            제거
-                          </Button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <Button onClick={() => onPushImages(imageTitle, imageText)}>
-                    이미지등록
-                  </Button>
-                  <Col className="d-flex justify-content-end">
-                    <Button
-                      className="mb-4"
-                      variant="success"
-                      type="submit"
-                      style={{ width: '100px', borderRadius: '30px' }}
-                    >
-                      등록
-                    </Button>
+                        검색
+                      </Button>
+                    </Stack>
                   </Col>
-                </Form>
-              </Col>
+                  {/* 서치바 드롭다운 메뉴 통일 */}
+                  <Form.Select
+                    className="me-2"
+                    style={{ float: 'right', width: '100px' }}
+                  >
+                    <option>전체</option>
+                    <option value="1">최신순</option>
+                    <option value="2">게시글순</option>
+                    <option value="3">왓에버순</option>
+                  </Form.Select>
+
+                  {admin && (
+                    <Link to="/board/gallery/add">
+                      <Button>글쓰기</Button>
+                    </Link>
+                  )}
+                </Col>
+              </Row>
+              <Row className="mt-2">
+                {currentPosts.map((post, index) => (
+                  <GalleryBoardList key={post.id} post={post} />
+                ))}
+              </Row>
+              <Row>
+                <Pagination
+                  activePage={page}
+                  itemsCountPerPage={10}
+                  totalItemsCount={gallery.length}
+                  pageRangeDisplayed={5}
+                  prevPageText={'‹'}
+                  nextPageText={'›'}
+                  onChange={handlePageChange}
+                />
+              </Row>
             </Col>
           </Row>
         </Container>
         <Footer />
       </Container>
+
+      {/* </Row>
+        <Row className="mt-4">
+          <Col md={3} className="d-grid gap-2"></Col> */}
+      {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
     </>
   );
 }
-export default galleryBoardWrite;
+
+export default galleryBoardView;

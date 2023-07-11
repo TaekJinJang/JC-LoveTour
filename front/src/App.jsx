@@ -32,7 +32,6 @@ import HealingCourseBoard from './pages/healingCourseBoard';
 import SupportBenefitBoard from './pages/supportBenefitBoard';
 import TouristSpotBoard from './pages/touristSpotBoard';
 import TraditionalMarketBoard from './pages/traditionalMarketBoard';
-import VideoGalleryBoard from './pages/videoGalleryBoard';
 import ReviewBoardAdd from './pages/reviewBoardAdd';
 
 import './index.css'; //폰트설정을 위한 css 임포트
@@ -72,7 +71,6 @@ function App() {
                     <Route path="/board/supportBenefit" element={<SupportBenefitBoard />} />
                     <Route path="/board/touristSpot" element={<TouristSpotBoard />} />
                     <Route path="/board/traditionalMarket" element={<TraditionalMarketBoard />} />
-                    <Route path="/board/videoGallery" element={<VideoGalleryBoard />} />
 
                     <Route path="/board/cheongpunghoCourse" element={<CheongpunghoCourseBoard />} />
                     <Route path="/board/museumCourse" element={<MuseumCourseBoard />} />

@@ -134,12 +134,12 @@ function MainHeader() {
                                     height={30}
                                     src={map}
                                     alt="map"
-                                    style={{ visibility: 'hidden' }}
+                                    // style={{ visibility: 'hidden' }}
                                 />
                             </a>
                             <Figure.Caption
                                 className="text-dark"
-                                style={{ fontSize: '12px', fontWeight: 'bold', visibility: 'hidden' }}
+                                // style={{ fontSize: '12px', fontWeight: 'bold', visibility: 'hidden' }}
                             >
                                 지도로 보기
                             </Figure.Caption>

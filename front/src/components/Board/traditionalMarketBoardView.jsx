@@ -54,7 +54,7 @@ function traditionalMarketBoardView() {
 
     return (
         <>
-            <Container>
+            <Container style={{fontFamily: 'Pretendard-Regular',}}>
                 <Header />
                 <Container>
                     <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
@@ -62,7 +62,7 @@ function traditionalMarketBoardView() {
                     </Row>
                     <Row className="mt-3 ps-1" style={{ width: '100%' }}>
                         <Col md={3}>
-                            <SideBar buttons={buttons} title={'제천의 이모저모'} />
+                            <SideBar buttons={buttons} title={<div>제천의<br />이모저모</div>} />
                         </Col>
                         <Col md={9}>
                             <Row>

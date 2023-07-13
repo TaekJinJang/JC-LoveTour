@@ -83,7 +83,7 @@ function announceBoardUpdate() {
 
   return (
     <>
-      <Container style={{fontFamily: 'Pretendard-Regular',}}>
+      <Container style={{ fontFamily: 'Pretendard-Regular' }}>
         <Header />
         <Container>
           <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
@@ -213,7 +213,7 @@ function announceBoardUpdate() {
                       post.Images.map((v, i) => (
                         <div key={v} style={{ display: 'inline-block' }}>
                           <img
-                            src={`http://localhost:3005/${v.src}`}
+                            src={`${v.src}`}
                             style={{ width: '200px' }}
                             alt={v}
                           />

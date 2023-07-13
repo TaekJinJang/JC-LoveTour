@@ -110,12 +110,11 @@ function galleryBoardWrite() {
     { label: '러브투어 소개', href: '/board/introduce' },
     { label: '지원 혜택', href: '/board/supportBenefit' },
     { label: '사진 갤러리', href: '/board/gallery' },
-    { label: '영상 갤러리', href: '/board/videoGallery' },
   ];
 
   return (
     <>
-      <Container>
+      <Container style={{fontFamily: 'Pretendard-Regular',}}>
         <Header />
         <Container>
           <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>

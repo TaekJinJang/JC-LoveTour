@@ -24,7 +24,7 @@ function Footer() {
     }, []);
     return (
         <footer className="bg-light">
-            <Container>
+             <Container style={{fontFamily: 'Pretendard-Regular',}}>
                 <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
                     <Col sm={9}>
                         <Row className="mb-4 mt-2">

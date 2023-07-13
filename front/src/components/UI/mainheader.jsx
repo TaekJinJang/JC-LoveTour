@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Carousel, Container, Nav, Form, Button, Figure, Row, Col, InputGroup } from 'react-bootstrap'; //부트스트랩 사용을 위한 임포트
+import {
+    Carousel,
+    Container,
+    Nav,
+    Form,
+    Button,
+    Figure,
+    Row,
+    Col,
+    InputGroup,
+    Navbar,
+    NavDropdown,
+} from 'react-bootstrap'; //부트스트랩 사용을 위한 임포트
 import '../../../src/index.css'; //폰트설정을 위한 css 임포트
 //request
 //사진을 넣기 위한 임포트..(이렇게 하는게 맞는지 의문이 든다..)
@@ -136,187 +148,31 @@ function MainHeader() {
                 </Row>
             </Container>
 
-            {/* 메뉴 모바일 반응형 개발중(부끄러우니 주석은 풀지 마세요) - 박동준*/}
-            {/* <Container>
-                <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Navbar
-                        onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
-                        onMouseLeave={() => setShowMenu(false)} // 네비게이션에서 마우스를 내렸을 때 상태값 변경
-                    >
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav" style={{ padding: '0px' }}>
-                            <Nav
-                                className="me-auto"
-                                style={{
-                                    justifyContent: 'center',
-                                    width: '100%',
-                                    background: 'green',
-                                    marginLeft: 0,
-                                    marginRight: 0,
-                                }}
-                            >
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        제천 러브투어
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                                paddingRight: 'calc(10px - 10px)',
-                                            }}
-                                        >
-                                            <Nav.Link href="/board/introduce" style={{ color: 'white' }}>
-                                                러브투어 소개
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/supportBenefit" style={{ color: 'white' }}>
-                                                지원 혜택
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/gallery" style={{ color: 'white' }}>
-                                                사진 갤러리
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/videoGallery" style={{ color: 'white' }}>
-                                                영상 갤러리
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        제천의 이모저모
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                            }}
-                                        >
-                                            <Nav.Link href="/board/touristSpot" style={{ color: 'white' }}>
-                                                관광지
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/traditionalMarket" style={{ color: 'white' }}>
-                                                전통 시장
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/food" style={{ color: 'white' }}>
-                                                음식
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/accommodation" style={{ color: 'white' }}>
-                                                숙박
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/festival" style={{ color: 'white' }}>
-                                                축제/행사
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        테마/코스
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                            }}
-                                        >
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                옥순봉 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                청풍호 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                박물관 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                배론성지 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                힐링 코스
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/board/announce"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        알림마당
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                            }}
-                                        >
-                                            <Nav.Link href="/board/announce" style={{ color: 'white' }}>
-                                                공지사항
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/faq" style={{ color: 'white' }}>
-                                                자주하는 질문
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/review" style={{ color: 'white' }}>
-                                                투어 후기
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Navbar>
-                </Row>
-            </Container> */}
-
             {/* 메뉴 */}
+            <br />
+            <Navbar bg="light" expand="lg" className="p-1">
+                <Container>
+                    <Navbar.Brand href="/">
+                        <h5>홈</h5>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav>
+                            <NavDropdown as="h5" title="제천 러브투어" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">지원혜택</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">사진 갤러리</NavDropdown.Item>
+                            </NavDropdown>
+                            <NavDropdown as="h5" title="제천의 이모저모" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">관광지</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">전통시장</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">음식</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">숙박</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.5">축제/행사</NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
             <Container>
                 <Nav
                     activeKey="/"

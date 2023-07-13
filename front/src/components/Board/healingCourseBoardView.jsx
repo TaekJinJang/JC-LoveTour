@@ -60,7 +60,7 @@ function healingCourseBoardView() {
 
     return (
         <>
-            <Container>
+            <Container style={{fontFamily: 'Pretendard-Regular',}}>
                 <Header />
                 <Container
                     style={{

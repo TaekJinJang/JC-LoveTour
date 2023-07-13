@@ -4,7 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import styled from 'styled-components';
-import { Container, Row, Col, ButtonGroup, Button, Card, Stack, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import {
+  ButtonGroup,
+  Button,
+  Card,
+  Stack,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from 'react-bootstrap';
+
+// 공통부분
+import { Container, Row, Col } from 'react-bootstrap';
+import Header from '../UI/header';
+import TopNavBar from '../UI/topNavBar';
+import SideBar from '../UI/sideBar';
+import Footer from '../UI/footer';
 
 import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,166 +28,112 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function galleryBoardView() {
-    // 페이지 버튼 눌린 상태로 만드려고 생성
-    const [currentPage, setCurrentPage] = useState('사진 갤러리'); // 현재 페이지 상태
-    const { admin } = useSelector((state) => state.admin);
-    const { gallery } = useSelector((state) => state.post);
-    const dispatch = useDispatch();
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('사진 갤러리'); // 현재 페이지 상태
+  const { admin } = useSelector((state) => state.admin);
+  const { gallery } = useSelector((state) => state.post);
+  const dispatch = useDispatch();
 
-    // 페이지네이션
-    const [page, setPage] = useState(1);
-    const [currentPosts, setCurrentPosts] = useState([]);
-    const indexOfLastPost = page * 10;
-    const indexOfFirstPost = indexOfLastPost - 10;
-    const handlePageChange = (page) => {
-        setPage(page);
-    };
-    useEffect(() => {
-        setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
-    }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
+  // 페이지네이션
+  const [page, setPage] = useState(1);
+  const [currentPosts, setCurrentPosts] = useState([]);
+  const indexOfLastPost = page * 10;
+  const indexOfFirstPost = indexOfLastPost - 10;
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
+  useEffect(() => {
+    setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
+  }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
 
-    useEffect(() => {
-        dispatch({
-            type: LOAD_GALLERY_POSTS_REQUEST,
-        });
-    }, []);
+  useEffect(() => {
+    dispatch({
+      type: LOAD_GALLERY_POSTS_REQUEST,
+    });
+  }, []);
+  // 사이드바 내용
+  const buttons = [
+    { label: '러브투어 소개', href: '/board/introduce' },
+    { label: '지원 혜택', href: '/board/supportBenefit' },
+    { label: '사진 갤러리', href: '/board/gallery' },
+  ];
+  return (
+    <>
+      <Container style={{fontFamily: 'Pretendard-Regular',}}>
+        <Header />
+        <Container>
+          <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
+            <TopNavBar />
+          </Row>
+          <Row className="mt-3 ps-1" style={{ width: '100%' }}>
+            <Col md={3}>
+              <SideBar buttons={buttons} title={'사진 갤러리'} />
+            </Col>
+            <Col md={9}>
+              <Row className="mb-1">
+                <h3>사진 갤러리</h3>
+                <hr />
+              </Row>
+              <Row className="mt-2">
+                <Col className="bg-light border pt-1">
+                  <Col className="mb-1" style={{ float: 'right' }}>
+                    <Stack direction="horizontal" gap={3}>
+                      <Form.Control className="ms-auto" />
+                      <Button
+                        variant="success"
+                        text="white"
+                        style={{ width: '130px' }}
+                      >
+                        검색
+                      </Button>
+                    </Stack>
+                  </Col>
+                  {/* 서치바 드롭다운 메뉴 통일 */}
+                  <Form.Select
+                    className="me-2"
+                    style={{ float: 'right', width: '100px' }}
+                  >
+                    <option>전체</option>
+                    <option value="1">최신순</option>
+                    <option value="2">게시글순</option>
+                    <option value="3">왓에버순</option>
+                  </Form.Select>
 
-    return (
-        <>
-            <Container>
-                {/* 상단 네비바 */}
-                <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Navbar bg="success" expand="lg" className="p-0">
-                        <Container style={{ top: '-2px' }}>
-                            <Navbar.Brand href="#home">
-                                <h6>홈</h6>
-                            </Navbar.Brand>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse id="basic-navbar-nav">
-                                <Nav>
-                                    <NavDropdown as="h6" title="제천 러브투어" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                    </NavDropdown>
-                                    <NavDropdown as="h6" title="러브투어 소개" id="basic-nav-dropdown">
-                                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                                    </NavDropdown>
-                                </Nav>
-                            </Navbar.Collapse>
-                        </Container>
-                    </Navbar>
-                </Row>
+                  {admin && (
+                    <Link to="/board/gallery/add">
+                      <Button>글쓰기</Button>
+                    </Link>
+                  )}
+                </Col>
+              </Row>
+              <Row className="mt-2">
+                {currentPosts.map((post, index) => (
+                  <GalleryBoardList key={post.id} post={post} />
+                ))}
+              </Row>
+              <Row>
+                <Pagination
+                  activePage={page}
+                  itemsCountPerPage={10}
+                  totalItemsCount={gallery.length}
+                  pageRangeDisplayed={5}
+                  prevPageText={'‹'}
+                  nextPageText={'›'}
+                  onChange={handlePageChange}
+                />
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+        <Footer />
+      </Container>
 
-                {/* 사이드바 */}
-                <Row className="mt-3 ps-1" style={{ width: '100%' }}>
-                    <Col md={3} className="d-grid gap-2 ms" style={{ height: '100%' }}>
-                        <Card bg="success" text="white" className="rounded-0">
-                            <Card.Body className="pb-1 pt-1">
-                                <Card.Title style={{ textAlign: 'center' }}>
-                                    <h3 className="mb-0">사진 갤러리</h3>
-                                </Card.Title>
-                            </Card.Body>
-                        </Card>
-                        <ButtonGroup vertical>
-                            <Button
-                                href="/board/introduce"
-                                variant="outline-success"
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                            >
-                                러브투어 소개
-                            </Button>
-                            <Button
-                                href="/board/supportBenefit"
-                                variant="outline-success"
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                            >
-                                지원 혜택
-                            </Button>
-                            <Button
-                                href="/board/gallery"
-                                variant={currentPage === '사진 갤러리' ? 'success' : 'outline-success'} // 현재 페이지에 따라 스타일 설정
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                                onClick={() => setCurrentPage('사진 갤러리')} // 버튼 클릭 시 현재 페이지 업데이트
-                            >
-                                사진 갤러리
-                            </Button>
-                            <Button
-                                href="/board/videoGallery"
-                                variant="outline-success"
-                                className="mb-2 p-2 rounded-0"
-                                size="lg"
-                                block
-                            >
-                                영상 갤러리
-                            </Button>
-                            {/* block button 세로 길이 조정 */}
-                        </ButtonGroup>
-                    </Col>
-                    {/* </Row>
+      {/* </Row>
         <Row className="mt-4">
           <Col md={3} className="d-grid gap-2"></Col> */}
-                    {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
-                    <Col md={9}>
-                        <Row>
-                            <h2>사진 갤러리</h2>
-                        </Row>
-                        <Row className="mt-2">
-                            <Col className="bg-light border pt-1">
-                                <Col className="mb-1" style={{ float: 'right' }}>
-                                    <Stack direction="horizontal" gap={3}>
-                                        <Form.Control className="ms-auto" />
-                                        <Button variant="success" text="white" style={{ width: '130px' }}>
-                                            검색
-                                        </Button>
-                                    </Stack>
-                                </Col>
-                                {/* 서치바 드롭다운 메뉴 통일 */}
-                                <Form.Select className="me-2" style={{ float: 'right', width: '100px' }}>
-                                    <option>전체</option>
-                                    <option value="1">최신순</option>
-                                    <option value="2">게시글순</option>
-                                    <option value="3">왓에버순</option>
-                                </Form.Select>
-
-                                {admin && (
-                                    <Link to="/board/gallery/add">
-                                        <Button>글쓰기</Button>
-                                    </Link>
-                                )}
-                            </Col>
-                        </Row>
-                        <Row className="mt-2">
-                            {currentPosts.map((post, index) => (
-                                <GalleryBoardList key={post.id} post={post} />
-                            ))}
-                        </Row>
-                        <Row>
-                            <Pagination
-                                activePage={page}
-                                itemsCountPerPage={10}
-                                totalItemsCount={gallery.length}
-                                pageRangeDisplayed={5}
-                                prevPageText={'‹'}
-                                nextPageText={'›'}
-                                onChange={handlePageChange}
-                            />
-                        </Row>
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    );
+      {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
+    </>
+  );
 }
 
 export default galleryBoardView;

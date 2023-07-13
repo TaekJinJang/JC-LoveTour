@@ -8,9 +8,7 @@ import Footer from '../components/UI/footer';
 function galleryBoardAdd() {
   return (
     <>
-      <Header />
       <GalleryBoardWrite />
-      <Footer />
     </>
   );
 }

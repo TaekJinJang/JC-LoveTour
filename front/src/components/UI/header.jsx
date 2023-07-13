@@ -85,7 +85,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}
@@ -121,15 +121,6 @@ function header() {
                                             >
                                                 사진 갤러리
                                             </Nav.Link>
-                                            <Nav.Link
-                                                onMouseEnter={handleMouseEnter}
-                                                onMouseLeave={handleMouseLeave}
-                                                as="a"
-                                                href="/board/videoGallery"
-                                                style={{ color: 'white' }}
-                                            >
-                                                영상 갤러리
-                                            </Nav.Link>
                                         </ul>
                                     )}
                                 </Nav.Item>
@@ -163,7 +154,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}
@@ -246,7 +237,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}
@@ -329,7 +320,7 @@ function header() {
                                         <ul
                                             style={{
                                                 background: 'rgba(17, 17, 17, 0.8)',
-                                                height: '260px',
+                                                height: '239px',
                                                 marginTop: '0px',
                                                 textAlign: 'center',
                                             }}

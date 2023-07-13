@@ -10,9 +10,11 @@ import {
   Row,
   Col,
   InputGroup,
+  Navbar,
+  NavDropdown,
 } from 'react-bootstrap'; //부트스트랩 사용을 위한 임포트
 import '../../../src/index.css'; //폰트설정을 위한 css 임포트
-
+//request
 //사진을 넣기 위한 임포트..(이렇게 하는게 맞는지 의문이 든다..)
 import logo from '../../assets/mainHeader-assets/logo.png';
 import map from '../../assets/mainHeader-assets/map.png';
@@ -95,7 +97,7 @@ function MainHeader() {
               <Form.Control
                 as="input"
                 type="text"
-                placeholder="어디로, 어떤 여행을 떠나실 예정이신가요?"
+                placeholder="제천 전통시장 러브투어에 대해 검색하세요!"
                 aria-label="Search"
                 style={{
                   backgroundColor: '#F0F0F0',
@@ -127,11 +129,21 @@ function MainHeader() {
               }}
             >
               <a href="#">
-                <Figure.Image width={30} height={30} src={map} alt="map" />
+                <Figure.Image
+                  width={30}
+                  height={30}
+                  src={map}
+                  alt="map"
+                  style={{ visibility: 'hidden' }}
+                />
               </a>
               <Figure.Caption
                 className="text-dark"
-                style={{ fontSize: '12px', fontWeight: 'bold' }}
+                style={{
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  visibility: 'hidden',
+                }}
               >
                 지도로 보기
               </Figure.Caption>
@@ -140,187 +152,43 @@ function MainHeader() {
         </Row>
       </Container>
 
-      {/* 메뉴 모바일 반응형 개발중(부끄러우니 주석은 풀지 마세요) - 박동준*/}
-      {/* <Container>
-                <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Navbar
-                        onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
-                        onMouseLeave={() => setShowMenu(false)} // 네비게이션에서 마우스를 내렸을 때 상태값 변경
-                    >
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav" style={{ padding: '0px' }}>
-                            <Nav
-                                className="me-auto"
-                                style={{
-                                    justifyContent: 'center',
-                                    width: '100%',
-                                    background: 'green',
-                                    marginLeft: 0,
-                                    marginRight: 0,
-                                }}
-                            >
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        제천 러브투어
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                                paddingRight: 'calc(10px - 10px)',
-                                            }}
-                                        >
-                                            <Nav.Link href="/board/introduce" style={{ color: 'white' }}>
-                                                러브투어 소개
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/supportBenefit" style={{ color: 'white' }}>
-                                                지원 혜택
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/gallery" style={{ color: 'white' }}>
-                                                사진 갤러리
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/videoGallery" style={{ color: 'white' }}>
-                                                영상 갤러리
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        제천의 이모저모
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                            }}
-                                        >
-                                            <Nav.Link href="/board/touristSpot" style={{ color: 'white' }}>
-                                                관광지
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/traditionalMarket" style={{ color: 'white' }}>
-                                                전통 시장
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/food" style={{ color: 'white' }}>
-                                                음식
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/accommodation" style={{ color: 'white' }}>
-                                                숙박
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/festival" style={{ color: 'white' }}>
-                                                축제/행사
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        테마/코스
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                            }}
-                                        >
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                옥순봉 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                청풍호 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                박물관 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                배론성지 코스
-                                            </Nav.Link>
-                                            <Nav.Link href="#" style={{ color: 'white' }}>
-                                                힐링 코스
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-
-                                <Nav.Item as="li">
-                                    <Nav.Link
-                                        href="/board/announce"
-                                        style={{
-                                            color: 'black',
-                                            fontWeight: 'bold',
-                                            fontSize: '20px',
-                                            width: '200px',
-                                        }}
-                                    >
-                                        알림마당
-                                    </Nav.Link>
-                                    {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
-                                        <ul
-                                            style={{
-                                                height: '250px',
-                                                marginTop: '11px',
-                                                fontSize: '18px',
-                                                zIndex: '20',
-                                                position: 'absolute',
-                                            }}
-                                        >
-                                            <Nav.Link href="/board/announce" style={{ color: 'white' }}>
-                                                공지사항
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/faq" style={{ color: 'white' }}>
-                                                자주하는 질문
-                                            </Nav.Link>
-                                            <Nav.Link href="/board/review" style={{ color: 'white' }}>
-                                                투어 후기
-                                            </Nav.Link>
-                                        </ul>
-                                    )}
-                                </Nav.Item>
-                            </Nav>
-                        </Navbar.Collapse>
-                    </Navbar>
-                </Row>
-            </Container> */}
-
       {/* 메뉴 */}
+      <br />
+      <Navbar bg="light" expand="lg" className="p-1">
+        <Container>
+          <Navbar.Brand href="/">
+            <h5>홈</h5>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav>
+              <NavDropdown
+                as="h5"
+                title="제천 러브투어"
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item href="#action/3.1">지원혜택</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  사진 갤러리
+                </NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown
+                as="h5"
+                title="제천의 이모저모"
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item href="#action/3.1">관광지</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">전통시장</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">음식</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">숙박</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.5">
+                  축제/행사
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <Container>
         <Nav
           activeKey="/"
@@ -397,14 +265,6 @@ function MainHeader() {
                       style={{ color: 'white' }}
                     >
                       사진 갤러리
-                    </Nav.Link>
-                    <Nav.Link
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      href="/board/videoGallery"
-                      style={{ color: 'white' }}
-                    >
-                      영상 갤러리
                     </Nav.Link>
                   </li>
                 )}
@@ -644,9 +504,9 @@ function MainHeader() {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>First slide label</h3>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -657,10 +517,10 @@ function MainHeader() {
               src={Bakdaljae}
               alt="Second slide"
             />
-
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -671,12 +531,10 @@ function MainHeader() {
               src={WoraksanMountain}
               alt="Third slide"
             />
-
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
             </Carousel.Caption>
           </Carousel.Item>
 
@@ -688,6 +546,11 @@ function MainHeader() {
               src={CheongpungCultural}
               alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -698,6 +561,11 @@ function MainHeader() {
               src={GeumsusanMountain}
               alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다 .</p>
+            </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -708,6 +576,11 @@ function MainHeader() {
               src={YonghagugokValley}
               alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -718,6 +591,11 @@ function MainHeader() {
               src={SonggyeValley}
               alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -728,6 +606,11 @@ function MainHeader() {
               src={OksunbongPeak}
               alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -738,6 +621,11 @@ function MainHeader() {
               src={TaksajeongPavilion}
               alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
           </Carousel.Item>
 
           <Carousel.Item>
@@ -748,6 +636,11 @@ function MainHeader() {
               src={BaeronHolyGround}
               alt="Third slide"
             />
+            <Carousel.Caption>
+              <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+
+              <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+            </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </Container>

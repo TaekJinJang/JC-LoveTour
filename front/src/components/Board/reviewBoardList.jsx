@@ -24,14 +24,13 @@ function reviewBoardList({ post }) {
 
   return (
     <>
-      <Table striped bordered hover>
+      <Table striped="columns">
         <thead>
           <tr>
             <th>글번호</th>
             <th>제목</th>
-            <th>예약일</th>
+            <th>작성자</th>
             <th>작성일</th>
-            <th>뭐넣지</th>
           </tr>
         </thead>
         <tbody>
@@ -40,7 +39,6 @@ function reviewBoardList({ post }) {
             <td>{post.title}</td>
             <td>{post.name}</td>
             <td>{post.date}</td>
-            <td></td>
           </tr>
         </tbody>
       </Table>

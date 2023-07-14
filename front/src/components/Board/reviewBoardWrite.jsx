@@ -88,6 +88,14 @@ function reviewBoardWrite() {
       data: index,
     });
   });
+
+    // 사이드바 내용
+    const buttons = [
+      { label: '공지사항', href: '/board/announce' },
+      { label: '자주하는 질문', href: '/board/faq' },
+      { label: '투어 후기', href: '/board/review' },
+  ];
+
   return (
     <>
       <Container style={{fontFamily: 'Pretendard-Regular',}}>

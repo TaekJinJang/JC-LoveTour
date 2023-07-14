@@ -244,10 +244,9 @@ function reviewBoardWrite() {
                       <Form.Control
                         name="text"
                         type="text"
-                        placeholder="내용을 입력해주세요. "
                         value={text}
                         onChange={onChangeText}
-                        style={{ backgroundColor: '#D9D9D9' }}
+                        style={{ backgroundColor: '#D9D9D9', height: '300px' }}
                       />
                     </Col>
                   </Form.Group>

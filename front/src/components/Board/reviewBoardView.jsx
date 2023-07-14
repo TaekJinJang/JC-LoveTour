@@ -35,6 +35,10 @@ function reviewBoardView() {
         if (searchInput === '') return alert('검색어를 입력해주세요');
         navigate(`/board/announce/search/${searchInput}/`, { state: searchInput });
     }, [searchInput]);
+    const goToAdd = useCallback(() => {
+        navigate('/board//board/review/add');
+      }, []);
+    
 
     const handlePageChange = (page) => {
         setPage(page);

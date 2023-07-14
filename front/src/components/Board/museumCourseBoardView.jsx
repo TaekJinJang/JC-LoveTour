@@ -21,6 +21,7 @@ import Header from '../UI/header';
 import TopNavBar from '../UI/topNavBar';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
+import MobileHeaders from '../UI/mobileHeaders';
 
 // import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -63,11 +64,12 @@ function museumCourseBoardView() {
 
   return (
     <>
+    <MobileHeaders />
       <Container style={{fontFamily: 'Pretendard-Regular',}}>
-        <Header />
+        {/* <Header /> */}
         <Container>
           <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-            <TopNavBar />
+            {/* <TopNavBar /> */}
           </Row>
           <Row className="mt-3 ps-1" style={{ width: '100%' }}>
             <Col md={3}>

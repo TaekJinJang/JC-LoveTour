@@ -12,11 +12,11 @@ import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 // 공통부분
 import { Container, Row, Col } from 'react-bootstrap';
-import Header from '../UI/header';
-import TopNavBar from '../UI/topNavBar';
+// import Header from '../UI/header';
+// import TopNavBar from '../UI/topNavBar';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
-import Offcanvasnav from '../UI/offcanvasnav';
+// import Offcanvasnav from '../UI/offcanvasnav';
 import MobileHeaders from '../UI/mobileHeaders';
 
 function oksunbongPeakCourseBoardView() {
@@ -53,13 +53,13 @@ function oksunbongPeakCourseBoardView() {
   ];
   return (
     <>
-      <Container style={{fontFamily: 'Pretendard-Regular',}}>
+      <Container style={{fontFamily: 'Pretendard-Regular'}}>
         <MobileHeaders />
         {/* <Offcanvasnav />
         <Header /> */}
         <Container>
           <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-            <TopNavBar />
+            {/* <TopNavBar /> */}
           </Row>
           <Row className="mt-3 ps-1" style={{ width: '100%' }}>
             <Col md={3}>

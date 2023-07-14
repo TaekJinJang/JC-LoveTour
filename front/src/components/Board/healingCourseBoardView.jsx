@@ -18,6 +18,8 @@ import Header from '../UI/header';
 import TopNavBar from '../UI/topNavBar';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
+import MobileHeaders from '../UI/mobileHeaders';
+
 
 // import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -60,15 +62,16 @@ function healingCourseBoardView() {
 
     return (
         <>
+        <MobileHeaders />
             <Container style={{fontFamily: 'Pretendard-Regular',}}>
-                <Header />
+                {/* <Header /> */}
                 <Container
                     style={{
                         fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정
                     }}
                 >
                     <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                        <TopNavBar />
+                        {/* <TopNavBar /> */}
                     </Row>
                     <Row className="mt-3 ps-1" style={{ width: '100%' }}>
                         <Col md={3}>

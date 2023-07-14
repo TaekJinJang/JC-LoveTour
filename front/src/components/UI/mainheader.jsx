@@ -5,6 +5,7 @@ import {
     Container,
     Nav,
     Form,
+    FormControl,
     Button,
     Figure,
     Row,
@@ -12,9 +13,10 @@ import {
     InputGroup,
     Navbar,
     NavDropdown,
+    Offcanvas,
 } from 'react-bootstrap'; //부트스트랩 사용을 위한 임포트
 import '../../../src/index.css'; //폰트설정을 위한 css 임포트
-
+import { FaSearch } from 'react-icons/fa'; //아이콘을 삽입을 위한 임포트
 //사진을 넣기 위한 임포트..
 import logo from '../../assets/mainHeader-assets/logo.png';
 import map from '../../assets/mainHeader-assets/map.png';
@@ -59,25 +61,18 @@ function MainHeader() {
         }
     }, []);
 
+    const handleToggleMenu = () => {
+        setShowMenu(!showMenu);
+    };
+
     return (
         // header - 러브투어 로고, 검색 지도 아이콘
         <>
             <Container>
-                <Row
-                    style={{
-                        width: '100%',
-                        marginLeft: 0,
-                        marginRight: 0,
-                        display: 'flex',
-                        justifyContent: 'center',
-                    }}
-                >
-                    <Col xs={4}>
+                <Row xs={12}>
+                    <Col xs={12} sm={4} className="d-flex align-items-center justify-content-center">
                         <Figure
                             style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
                                 marginTop: '10px',
                                 marginBottom: '0px',
                             }}
@@ -87,40 +82,26 @@ function MainHeader() {
                             </a>
                         </Figure>
                     </Col>
-                    <Col xs={6}>
+                    <Col xs={12} sm={6} className="d-flex align-items-center justify-content-center">
                         <InputGroup
                             style={{
-                                marginTop: '25px',
-                                marginBottom: '0px',
+                                backgroundColor: '#F0F0F0',
+                                borderRadius: '10px',
+                                //border: '1px solid #ccc',
                             }}
                         >
-                            <Form.Control
-                                as="input"
+                            <FormControl
                                 type="text"
                                 placeholder="제천 전통시장 러브투어에 대해 검색하세요!"
                                 aria-label="Search"
-                                style={{
-                                    backgroundColor: '#F0F0F0',
-                                    // width: '430px',
-                                    borderRadius: '10px',
-                                }}
+                                style={{}}
                             />
-                            <Button
-                                variant="none"
-                                href="#"
-                                style={{
-                                    backgroundImage: `url(${search})`,
-                                    backgroundSize: 'cover',
-                                    backgroundRepeat: 'no-repeat',
-                                    width: '40px',
-                                    height: '40px',
-                                    padding: 0,
-                                    border: 'none',
-                                }}
-                            ></Button>
+                            <Button variant="outline-light">
+                                <FaSearch style={{ color: 'black' }} />
+                            </Button>
                         </InputGroup>
                     </Col>
-                    <Col>
+                    <Col xs={12} sm={2} className="d-flex align-items-center justify-content-center">
                         <Figure
                             className="text-center"
                             style={{
@@ -147,32 +128,7 @@ function MainHeader() {
                     </Col>
                 </Row>
             </Container>
-
             {/* 메뉴 */}
-            <br />
-            <Navbar bg="light" expand="lg" className="p-1">
-                <Container>
-                    <Navbar.Brand href="/">
-                        <h5>홈</h5>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav>
-                            <NavDropdown as="h5" title="제천 러브투어" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">지원혜택</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">사진 갤러리</NavDropdown.Item>
-                            </NavDropdown>
-                            <NavDropdown as="h5" title="제천의 이모저모" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">관광지</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">전통시장</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">음식</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4">숙박</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.5">축제/행사</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
             <Container>
                 <Nav
                     activeKey="/"
@@ -191,9 +147,10 @@ function MainHeader() {
                         }}
                     >
                         <Col
+                            xs={3}
                             style={{
                                 fontSize: '20px',
-                                display: 'flex',
+                                // display: 'flex',
                                 paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                 paddingRight: 0, // 오른쪽 패딩 0으로 설정
                             }}
@@ -202,11 +159,11 @@ function MainHeader() {
                                 <Nav.Link
                                     href="/"
                                     style={{
-                                        // backgroundColor: hover ? 'green' : 'white',
+                                        //backgroundColor: hover ? 'green' : 'white',
                                         color: 'black',
                                         fontWeight: 'bold',
                                         fontSize: '22px',
-                                        width: '250px',
+                                        //width: '250px',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
@@ -256,9 +213,10 @@ function MainHeader() {
                         </Col>
 
                         <Col
+                            xs={3}
                             style={{
                                 fontSize: '20px',
-                                display: 'flex',
+                                //display: 'flex',
                                 justifyContent: 'center',
                                 paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                 paddingRight: 0, // 오른쪽 패딩 0으로 설정
@@ -271,7 +229,7 @@ function MainHeader() {
                                         color: 'black',
                                         fontWeight: 'bold',
                                         fontSize: '22px',
-                                        width: '274px',
+                                        //width: '274px',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
@@ -336,9 +294,10 @@ function MainHeader() {
                         </Col>
 
                         <Col
+                            xs={3}
                             style={{
                                 fontSize: '20px',
-                                display: 'flex',
+                                //display: 'flex',
                                 justifyContent: 'center',
                                 paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                 paddingRight: 0, // 오른쪽 패딩 0으로 설정
@@ -351,7 +310,7 @@ function MainHeader() {
                                         color: 'black',
                                         fontWeight: 'bold',
                                         fontSize: '22px',
-                                        width: '274px',
+                                        //width: '274px',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
@@ -413,9 +372,10 @@ function MainHeader() {
                         </Col>
 
                         <Col
+                            xs={3}
                             style={{
                                 fontSize: '20px',
-                                display: 'flex',
+                                //display: 'flex',
                                 justifyContent: 'center',
                                 paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                 paddingRight: 0, // 오른쪽 패딩 0으로 설정
@@ -428,7 +388,7 @@ function MainHeader() {
                                         color: 'black',
                                         fontWeight: 'bold',
                                         fontSize: '22px',
-                                        width: '202px',
+                                        //width: '202px',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
@@ -476,133 +436,189 @@ function MainHeader() {
                 </Nav>
             </Container>
 
+            {/*<Navbar bg="light" expand="lg">
+                <Container>
+                    <Row className="menu-row">
+                        <Col xs={12} lg={3}>
+                            <Navbar.Brand href="/" className="nav-brand">
+                                제천 러브투어
+                            </Navbar.Brand>
+                        </Col>
+
+                        <Col xs={12} lg={3}>
+                            <Navbar.Brand href="/" className="nav-brand">
+                                제천의 이모저모
+                            </Navbar.Brand>
+                        </Col>
+
+                        <Col xs={12} lg={3}>
+                            <Navbar.Brand href="/" className="nav-brand">
+                                테마/코스
+                            </Navbar.Brand>
+                        </Col>
+
+                        <Col xs={12} lg={3}>
+                            <Navbar.Brand href="/" className="nav-brand">
+                                알림마당
+                            </Navbar.Brand>
+                        </Col>
+                    </Row>
+                    <Navbar.Toggle aria-controls="navbar-nav" onClick={handleToggleMenu} />
+                    <Navbar.Collapse id="navbar-nav">
+                        <Nav.Link href="/board/introduce">러브투어 소개</Nav.Link>
+                        <Nav.Link href="/board/supportBenefit">지원 혜택</Nav.Link>
+                        <Nav.Link href="/board/gallery">사진 갤러리</Nav.Link>
+                    </Navbar.Collapse>
+                </Container>
+             </Navbar> */}
+
             {/* // 캐러셀 */}
             <Container>
-                <Carousel style={{ zIndex: '10', marginTop: '49px' }}>
-                    <Carousel.Item>
-                        <img className="d-block w-100" width={800} height={400} src={uirimji} alt="First slide" />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                <Row xs="auto">
+                    <Carousel style={{ zIndex: '10', marginTop: '49px' }}>
+                        <Carousel.Item>
+                            <img className="d-block w-100" width={800} height={400} src={uirimji} alt="First slide" />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className="d-block w-100" width={800} height={400} src={Bakdaljae} alt="Second slide" />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={Bakdaljae}
+                                alt="Second slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width={800}
-                            height={400}
-                            src={WoraksanMountain}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={WoraksanMountain}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width={800}
-                            height={400}
-                            src={CheongpungCultural}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={CheongpungCultural}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width={800}
-                            height={400}
-                            src={GeumsusanMountain}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={GeumsusanMountain}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다 .</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다 .</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width={800}
-                            height={400}
-                            src={YonghagugokValley}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={YonghagugokValley}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img className="d-block w-100" width={800} height={400} src={SonggyeValley} alt="Third slide" />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={SonggyeValley}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img className="d-block w-100" width={800} height={400} src={OksunbongPeak} alt="Third slide" />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={OksunbongPeak}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width={800}
-                            height={400}
-                            src={TaksajeongPavilion}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={TaksajeongPavilion}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width={800}
-                            height={400}
-                            src={BaeronHolyGround}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                width={800}
+                                height={400}
+                                src={BaeronHolyGround}
+                                alt="Third slide"
+                            />
+                            <Carousel.Caption>
+                                <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+                                <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
+                </Row>
             </Container>
         </>
     );

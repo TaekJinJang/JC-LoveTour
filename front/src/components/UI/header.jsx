@@ -28,9 +28,8 @@ function header() {
                     backgroundPosition: 'center',
                 }}
             >
-                <Row>
-                    <Col style={{ height: '5px' }}></Col>
-                </Row>
+                <div style={{ height: '5px' }}></div>
+
                 <hr
                     style={{
                         borderTop: '1px solid white',
@@ -56,10 +55,11 @@ function header() {
                             }}
                         >
                             <Col
+                                xs={3}
                                 style={{
                                     fontSize: '20px',
-                                    display: 'flex',
-                                    justifyContent: 'center',
+                                    // display: 'flex',
+                                    // justifyContent: 'center',
                                     //background: 'rgba(17, 17, 17, 0.6)',
                                     paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                     paddingRight: 0, // 오른쪽 패딩 0으로 설정
@@ -72,7 +72,7 @@ function header() {
                                             color: 'black',
                                             fontWeight: 'bold',
                                             fontSize: '22px',
-                                            width: '250px',
+                                            //width: '250px',
                                             display: 'flex',
                                             justifyContent: 'center',
                                             alignItems: 'center',
@@ -127,10 +127,11 @@ function header() {
                             </Col>
 
                             <Col
+                                xs={3}
                                 style={{
                                     fontSize: '20px',
-                                    display: 'flex',
-                                    justifyContent: 'center',
+                                    // display: 'flex',
+                                    // justifyContent: 'center',
                                     paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                     paddingRight: 0, // 오른쪽 패딩 0으로 설정
                                 }}
@@ -142,7 +143,7 @@ function header() {
                                             color: 'black',
                                             fontWeight: 'bold',
                                             fontSize: '22px',
-                                            width: '274px',
+                                            //width: '274px',
                                             display: 'flex',
                                             justifyContent: 'center',
                                             alignItems: 'center',
@@ -210,10 +211,11 @@ function header() {
                             </Col>
 
                             <Col
+                                xs={3}
                                 style={{
                                     fontSize: '20px',
-                                    display: 'flex',
-                                    justifyContent: 'center',
+                                    // display: 'flex',
+                                    // justifyContent: 'center',
                                     paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                     paddingRight: 0, // 오른쪽 패딩 0으로 설정
                                 }}
@@ -225,7 +227,7 @@ function header() {
                                             color: 'black',
                                             fontWeight: 'bold',
                                             fontSize: '22px',
-                                            width: '274px',
+                                            //width: '274px',
                                             display: 'flex',
                                             justifyContent: 'center',
                                             alignItems: 'center',
@@ -293,10 +295,11 @@ function header() {
                             </Col>
 
                             <Col
+                                xs={3}
                                 style={{
                                     fontSize: '20px',
-                                    display: 'flex',
-                                    justifyContent: 'center',
+                                    // display: 'flex',
+                                    // justifyContent: 'center',
                                     paddingLeft: 0, // 왼쪽 패딩 0으로 설정
                                     paddingRight: 0, // 오른쪽 패딩 0으로 설정
                                 }}
@@ -308,7 +311,7 @@ function header() {
                                             color: 'black',
                                             fontWeight: 'bold',
                                             fontSize: '22px',
-                                            width: '202px',
+                                            // width: '202px',
                                             display: 'flex',
                                             justifyContent: 'center',
                                             alignItems: 'center',

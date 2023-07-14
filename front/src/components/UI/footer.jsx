@@ -1,13 +1,6 @@
 import React, { useEffect } from 'react';
 
-import {
-  Container,
-  Row,
-  Col,
-  Image,
-  Dropdown,
-  DropdownButton,
-} from 'react-bootstrap';
+import { Container, Row, Col, Image, Dropdown, DropdownButton } from 'react-bootstrap';
 
 import footerlogo from '../../assets/footerlogo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,21 +13,20 @@ function Footer() {
         dispatch({
             type: LOAD_MY_INFO_REQUEST,
         });
-
     }, []);
     return (
         <footer className="bg-light">
-             <Container style={{fontFamily: 'Pretendard-Regular',}}>
+            <Container style={{ fontFamily: 'Pretendard-Regular' }}>
                 <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Col sm={9}>
+                    <Col xs={9}>
                         <Row className="mb-4 mt-2">
-                            <Col sm={2} style={{ fontSize: '12px' }}>
+                            <Col xs={2} style={{ fontSize: '12px' }}>
                                 개인정보처리방침
                             </Col>
-                            <Col sm={3} style={{ fontSize: '12px' }}>
+                            <Col xs={3} style={{ fontSize: '12px' }}>
                                 영상정보처리기기전리방침
                             </Col>
-                            <Col sm={2} style={{ fontSize: '12px' }}>
+                            <Col xs={2} style={{ fontSize: '12px' }}>
                                 저작권 보호
                             </Col>
                         </Row>
@@ -49,7 +41,7 @@ function Footer() {
                             </Col>
                         </Row>
                     </Col>
-                    <Col sm={3} className="d-flex justify-content-end">
+                    <Col xs={3} className="d-flex justify-content-end">
                         <Image
                             style={{ opacity: '0.5' }}
                             className="mt-1"
@@ -62,12 +54,12 @@ function Footer() {
                 </Row>
 
                 <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Col sm={3} style={{ backgroundColor: '#2da57d' }}>
+                    <Col xs={3} style={{ backgroundColor: '#2da57d' }}>
                         <p style={{ fontSize: '20px', color: 'white', marginTop: '7px' }}>
                             <b style={{ fontSize: '30px' }}>러브투어</b>JECHEON
                         </p>
                     </Col>
-                    <Col sm={9} className="d-flex justify-content-end" style={{ backgroundColor: '#2da57d' }}>
+                    <Col xs={9} className="d-flex justify-content-end" style={{ backgroundColor: '#2da57d' }}>
                         <DropdownButton
                             className="me-5 pe-3 DropdownButton float-right"
                             style={{ marginTop: '14px' }}
@@ -84,7 +76,6 @@ function Footer() {
             </Container>
         </footer>
     );
-
 }
 
 export default Footer;

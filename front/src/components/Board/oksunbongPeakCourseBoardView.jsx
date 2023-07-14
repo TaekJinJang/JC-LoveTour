@@ -3,17 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
-import styled from 'styled-components';
-import {
-  ButtonGroup,
-  Button,
-  Card,
-  Stack,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from 'react-bootstrap';
+
 
 // import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,6 +16,8 @@ import Header from '../UI/header';
 import TopNavBar from '../UI/topNavBar';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
+import Offcanvasnav from '../UI/offcanvasnav';
+import MobileHeaders from '../UI/mobileHeaders';
 
 function oksunbongPeakCourseBoardView() {
   // 페이지 버튼 눌린 상태로 만드려고 생성
@@ -62,7 +54,9 @@ function oksunbongPeakCourseBoardView() {
   return (
     <>
       <Container style={{fontFamily: 'Pretendard-Regular',}}>
-        <Header />
+        <MobileHeaders />
+        {/* <Offcanvasnav />
+        <Header /> */}
         <Container>
           <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
             <TopNavBar />

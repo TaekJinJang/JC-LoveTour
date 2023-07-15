@@ -1,17 +1,17 @@
-import React, { useCallback, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Modal, Form, Button, Alert } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { INCREMENT_VIEWS_REQUEST } from '../../reducers/post';
-import useInput from '../../hooks/useInput';
+import React, { useCallback, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Table, Modal, Form, Button, Alert } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { INCREMENT_VIEWS_REQUEST } from "../../reducers/post";
+import useInput from "../../hooks/useInput";
 
 function reviewBoardList({ post }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [password, onChangePassword] = useInput('');
+  const [password, onChangePassword] = useInput("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -24,7 +24,7 @@ function reviewBoardList({ post }) {
 
   return (
     <>
-      <Table striped="columns">
+      <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>글번호</th>

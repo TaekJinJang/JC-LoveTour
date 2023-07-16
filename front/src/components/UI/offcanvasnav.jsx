@@ -10,8 +10,9 @@ import {
 function Offcanvasnav() {
     return (
     <>
+    <Container className='bg-light' style={{ height: '65px' }} ></Container>
     {[false].map((expand) => (
-    <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+    <Navbar key={expand} expand={expand} className="bg-body-tertiary pt-0 navbar fixed-top" >
       <Container fluid className='bg-success'>
         <Navbar.Brand href="/">러브투어</Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

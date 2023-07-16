@@ -61,7 +61,7 @@ function MainHeader() {
         }
     }, []);
 
-    const handleToggleMenu = () => {
+    const handleToggleMenu = (e) => {
         setShowMenu(!showMenu);
     };
 
@@ -69,7 +69,7 @@ function MainHeader() {
         // header - 러브투어 로고, 검색 지도 아이콘
         <>
             <Container>
-                <Row xs={12}>
+                <Row>
                     <Col xs={12} sm={4} className="d-flex align-items-center justify-content-center">
                         <Figure
                             style={{
@@ -436,46 +436,314 @@ function MainHeader() {
                 </Nav>
             </Container>
 
-            {/*<Navbar bg="light" expand="lg">
-                <Container>
-                    <Row className="menu-row">
-                        <Col xs={12} lg={3}>
-                            <Navbar.Brand href="/" className="nav-brand">
-                                제천 러브투어
-                            </Navbar.Brand>
+            {/* <Navbar
+                onMouseEnter={() => setShowMenu(true)} // 네비게이션에 마우스를 올렸을 때 상태값 변경
+                onMouseLeave={() => setShowMenu(false)} // 네비게이션에서 마우스를 내렸을 때 상태값 변경
+                bg="primary"
+                expand="lg"
+                style={{
+                    fontFamily: 'SUITE-Regular', // 폰트 스타일 지정
+                }}
+            >
+                /<Navbar.Brand href="#">Logo</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" style={{ marginLeft: 0 }}>
+                    <Nav
+                        style={{
+                            width: '100%', //넓이
+                            zIndex: '20', //앞으로 보내기
+                            // position: 'absolute',
+                            background: 'rgba(17, 17, 17, 0.6)', //배경색
+                        }}
+                    >
+                        <Col
+                            xs={3}
+                            style={{
+                                fontSize: '20px',
+                                //display: 'flex',
+                                paddingLeft: 0, // 왼쪽 패딩 0으로 설정
+                                paddingRight: 0, // 오른쪽 패딩 0으로 설정
+                            }}
+                        >
+                            <Nav.Item as="li">
+                                <Nav.Link
+                                    href="/"
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        // width: '250px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        background: 'white',
+                                    }}
+                                >
+                                    제천 러브투어
+                                </Nav.Link>
+
+                                {showMenu && ( // 마우스 호버 상태일 때만 하위 리스트 보이기
+                                    <li
+                                        style={{
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/introduce"
+                                            style={{
+                                                color: 'white',
+                                            }}
+                                        >
+                                            러브투어 소개
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/supportBenefit"
+                                            style={{
+                                                color: 'white',
+                                            }}
+                                        >
+                                            지원 혜택
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/gallery"
+                                            style={{ color: 'white' }}
+                                        >
+                                            사진 갤러리
+                                        </Nav.Link>
+                                    </li>
+                                )}
+                            </Nav.Item>
                         </Col>
 
-                        <Col xs={12} lg={3}>
-                            <Navbar.Brand href="/" className="nav-brand">
-                                제천의 이모저모
-                            </Navbar.Brand>
+                        <Col
+                            xs={3}
+                            style={{
+                                fontSize: '20px',
+                                // display: 'flex',
+                                paddingLeft: 0, // 왼쪽 패딩 0으로 설정
+                                paddingRight: 0, // 오른쪽 패딩 0으로 설정
+                            }}
+                        >
+                            <Nav.Item as="li">
+                                <Nav.Link
+                                    href="/board/touristSpot"
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        //width: '274px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        background: 'white',
+                                    }}
+                                >
+                                    제천의 이모저모
+                                </Nav.Link>
+                                {showMenu && (
+                                    <li
+                                        style={{
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/touristSpot"
+                                            style={{
+                                                color: 'white',
+                                            }}
+                                        >
+                                            관광지
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/traditionalMarket"
+                                            style={{
+                                                color: 'white',
+                                            }}
+                                        >
+                                            전통시장
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/food"
+                                            style={{ color: 'white' }}
+                                        >
+                                            음식
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/accommodation"
+                                            style={{ color: 'white' }}
+                                        >
+                                            숙박
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/festival"
+                                            style={{ color: 'white' }}
+                                        >
+                                            축제/행사
+                                        </Nav.Link>
+                                    </li>
+                                )}
+                            </Nav.Item>
                         </Col>
 
-                        <Col xs={12} lg={3}>
-                            <Navbar.Brand href="/" className="nav-brand">
-                                테마/코스
-                            </Navbar.Brand>
+                        <Col
+                            xs={3}
+                            style={{
+                                fontSize: '20px',
+                                // display: 'flex',
+                                paddingLeft: 0, // 왼쪽 패딩 0으로 설정
+                                paddingRight: 0, // 오른쪽 패딩 0으로 설정
+                            }}
+                        >
+                            <Nav.Item as="li">
+                                <Nav.Link
+                                    href="/board/oksunbongPeakCourse"
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        //width: '274px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        background: 'white',
+                                    }}
+                                >
+                                    테마/코스
+                                </Nav.Link>
+                                {showMenu && (
+                                    <li
+                                        style={{
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/oksunbongPeakCourse"
+                                            style={{ color: 'white' }}
+                                        >
+                                            옥순봉 코스
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/cheongpunghoCourse"
+                                            style={{ color: 'white' }}
+                                        >
+                                            청풍호 코스
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/museumCourse"
+                                            style={{ color: 'white' }}
+                                        >
+                                            박물관 코스
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/shrineOfBaeronCourse"
+                                            style={{ color: 'white' }}
+                                        >
+                                            배론성지 코스
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/healingCourse"
+                                            style={{ color: 'white' }}
+                                        >
+                                            힐링 코스
+                                        </Nav.Link>
+                                    </li>
+                                )}
+                            </Nav.Item>
                         </Col>
 
-                        <Col xs={12} lg={3}>
-                            <Navbar.Brand href="/" className="nav-brand">
-                                알림마당
-                            </Navbar.Brand>
+                        <Col
+                            xs={3}
+                            style={{
+                                fontSize: '20px',
+                                // display: 'flex',
+                                paddingLeft: 0, // 왼쪽 패딩 0으로 설정
+                                paddingRight: 0, // 오른쪽 패딩 0으로 설정
+                            }}
+                        >
+                            <Nav.Item as="li">
+                                <Nav.Link
+                                    href="/board/announce"
+                                    style={{
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '22px',
+                                        //width: '202px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        background: 'white',
+                                    }}
+                                >
+                                    알림마당
+                                </Nav.Link>
+                                {showMenu && (
+                                    <li
+                                        style={{
+                                            textAlign: 'center',
+                                        }}
+                                    >
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/announce"
+                                            style={{ color: 'white' }}
+                                        >
+                                            공지사항
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/faq"
+                                            style={{ color: 'white' }}
+                                        >
+                                            자주하는 질문
+                                        </Nav.Link>
+                                        <Nav.Link
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                            href="/board/review"
+                                            style={{ color: 'white' }}
+                                        >
+                                            투어 후기
+                                        </Nav.Link>
+                                    </li>
+                                )}
+                            </Nav.Item>
                         </Col>
-                    </Row>
-                    <Navbar.Toggle aria-controls="navbar-nav" onClick={handleToggleMenu} />
-                    <Navbar.Collapse id="navbar-nav">
-                        <Nav.Link href="/board/introduce">러브투어 소개</Nav.Link>
-                        <Nav.Link href="/board/supportBenefit">지원 혜택</Nav.Link>
-                        <Nav.Link href="/board/gallery">사진 갤러리</Nav.Link>
-                    </Navbar.Collapse>
-                </Container>
-             </Navbar> */}
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar> */}
 
             {/* // 캐러셀 */}
             <Container>
                 <Row xs="auto">
-                    <Carousel style={{ zIndex: '10', marginTop: '49px' }}>
+                    <Carousel style={{ zIndex: '10', marginTop: '35px' }}>
                         <Carousel.Item>
                             <img className="d-block w-100" width={800} height={400} src={uirimji} alt="First slide" />
                             <Carousel.Caption>

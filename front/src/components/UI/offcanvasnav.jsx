@@ -35,11 +35,7 @@ function Offcanvasnav() {
                   러브투어 메뉴
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body
-                style={{
-                  fontSize: "25px",
-                }}
-              >
+              <Offcanvas.Body>
                 <Nav
                   className="justify-content-end flex-grow-1 pe-3"
                   style={{ fontSize: "20px" }}
@@ -49,7 +45,7 @@ function Offcanvasnav() {
                     title="제천 러브투어"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                     style={{
-                      fontSize: "25px",
+                      fontSize: "20px",
                     }}
                   >
                     <NavDropdown.Item

@@ -27,7 +27,7 @@ body {
     margin: 0;
     display: flex;
     place-items: start;
-    min-width: 320px;
+    min-width: 0px;
     min-height: 100vh;
 }
 
@@ -125,24 +125,4 @@ button:focus-visible {
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/OAGothic-ExtraBold.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
-}
-/* pc */
-@media all and (min-width: 1025px) {
-    .wrap {
-        width: 1200px;
-    }
-}
-
-/* tablet */
-@media all and (min-width: 768px) and (max-width: 1024px) {
-    .wrap {
-        width: 712px;
-    }
-}
-
-/* phone */
-@media all and (max-width: 767px) {
-    .wrap {
-        width: 320px;
-    }
 }

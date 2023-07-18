@@ -15,6 +15,9 @@ import {
   NavDropdown,
 } from 'react-bootstrap';
 
+// 모바일 관련 코드
+import { BrowserView, MobileView } from 'react-device-detect';
+
 // 공통부분
 import { Container, Row, Col } from 'react-bootstrap';
 import Header from '../UI/header';

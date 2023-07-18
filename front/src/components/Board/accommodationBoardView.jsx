@@ -111,7 +111,7 @@ function accommodationBoardView() {
               <hr />
             </Row>
           </Row>
-          <Row>{/* <Footer />  푸터 수정 진행중*/}</Row>
+          <Row>{/* <Footer />  푸터 수정 진행중 수정예정*/}</Row>
         </MobileView>
       </div>
     </>

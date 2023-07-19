@@ -1,9 +1,7 @@
 import React, { useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/esm/Button";
 import { REMOVE_REVIEW_REQUEST } from "../../reducers/post";
 import { backUrl } from "../../../config/config";
 

@@ -63,6 +63,7 @@ function foodBoardView() {
     { label: '축제/행사', href: '/board/festival' },
   ];
 
+
   return (
     <>
       {/* 데스크톱 */}
@@ -125,6 +126,7 @@ function foodBoardView() {
       </div>
     </>
   );
+
 }
 
 export default foodBoardView;

@@ -77,6 +77,7 @@ function announceBoardView() {
     { label: '투어 후기', href: '/board/review' },
   ];
 
+
   return (
     <>
       {/* 데스크톱 */}
@@ -109,6 +110,7 @@ function announceBoardView() {
                     </Col>
                     <Col>
                       {/* 서치바 드롭다운 메뉴 */}
+
 
                       <Form.Select
                         className="me-2"

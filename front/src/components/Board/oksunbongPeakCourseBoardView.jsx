@@ -4,8 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 
+
 // 모바일 관련 코드
 import { BrowserView, MobileView } from 'react-device-detect';
+
+
 
 // import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,23 +22,24 @@ import Footer from '../UI/footer';
 import Offcanvasnav from '../UI/offcanvasnav';
 
 function oksunbongPeakCourseBoardView() {
-  // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('옥순봉 코스'); // 현재 페이지 상태
-  const { admin } = useSelector((state) => state.admin);
-  const { gallery } = useSelector((state) => state.post);
-  const dispatch = useDispatch();
+    // 페이지 버튼 눌린 상태로 만드려고 생성
+    const [currentPage, setCurrentPage] = useState('옥순봉 코스'); // 현재 페이지 상태
+    const { admin } = useSelector((state) => state.admin);
+    const { gallery } = useSelector((state) => state.post);
+    const dispatch = useDispatch();
 
-  // 페이지네이션
-  const [page, setPage] = useState(1);
-  const [currentPosts, setCurrentPosts] = useState([]);
-  const indexOfLastPost = page * 10;
-  const indexOfFirstPost = indexOfLastPost - 10;
-  const handlePageChange = (page) => {
-    setPage(page);
-  };
-  useEffect(() => {
-    setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
-  }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
+    // 페이지네이션
+    const [page, setPage] = useState(1);
+    const [currentPosts, setCurrentPosts] = useState([]);
+    const indexOfLastPost = page * 10;
+    const indexOfFirstPost = indexOfLastPost - 10;
+    const handlePageChange = (page) => {
+        setPage(page);
+    };
+    useEffect(() => {
+        setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
+    }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
+
 
   useEffect(() => {
     dispatch({
@@ -122,6 +126,7 @@ function oksunbongPeakCourseBoardView() {
       </Container> */}
     </>
   );
+
 }
 
 export default oksunbongPeakCourseBoardView;

@@ -4,16 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import styled from 'styled-components';
-import {
-  ButtonGroup,
-  Button,
-  Card,
-  Stack,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from 'react-bootstrap';
+import { ButtonGroup, Button, Card, Stack, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 // 모바일 관련 코드
 import { BrowserView, MobileView } from 'react-device-detect';
@@ -31,38 +22,39 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function museumCourseBoardView() {
-  // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('박물관 코스'); // 현재 페이지 상태
-  const { admin } = useSelector((state) => state.admin);
-  const { gallery } = useSelector((state) => state.post);
-  const dispatch = useDispatch();
+    // 페이지 버튼 눌린 상태로 만드려고 생성
+    const [currentPage, setCurrentPage] = useState('박물관 코스'); // 현재 페이지 상태
+    const { admin } = useSelector((state) => state.admin);
+    const { gallery } = useSelector((state) => state.post);
+    const dispatch = useDispatch();
 
-  // 페이지네이션
-  const [page, setPage] = useState(1);
-  const [currentPosts, setCurrentPosts] = useState([]);
-  const indexOfLastPost = page * 10;
-  const indexOfFirstPost = indexOfLastPost - 10;
-  const handlePageChange = (page) => {
-    setPage(page);
-  };
-  useEffect(() => {
-    setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
-  }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
+    // 페이지네이션
+    const [page, setPage] = useState(1);
+    const [currentPosts, setCurrentPosts] = useState([]);
+    const indexOfLastPost = page * 10;
+    const indexOfFirstPost = indexOfLastPost - 10;
+    const handlePageChange = (page) => {
+        setPage(page);
+    };
+    useEffect(() => {
+        setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
+    }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
 
-  useEffect(() => {
-    dispatch({
-      type: LOAD_GALLERY_POSTS_REQUEST,
-    });
-  }, []);
+    useEffect(() => {
+        dispatch({
+            type: LOAD_GALLERY_POSTS_REQUEST,
+        });
+    }, []);
 
-  // 사이드바 내용
-  const buttons = [
-    { label: '옥순봉 코스', href: '/board/oksunbongPeakCourse' },
-    { label: '청풍호 코스', href: '/board/cheongpunghoCourse' },
-    { label: '박물관 코스', href: '/board/museumCourse' },
-    { label: '배론성지 코스', href: '/board/shrineOfBaeronCourse' },
-    { label: '힐링 코스', href: '/board/healingCourse' },
-  ];
+    // 사이드바 내용
+    const buttons = [
+        { label: '옥순봉 코스', href: '/board/oksunbongPeakCourse' },
+        { label: '청풍호 코스', href: '/board/cheongpunghoCourse' },
+        { label: '박물관 코스', href: '/board/museumCourse' },
+        { label: '배론성지 코스', href: '/board/shrineOfBaeronCourse' },
+        { label: '힐링 코스', href: '/board/healingCourse' },
+    ];
+
 
   return (
     <>
@@ -138,6 +130,7 @@ function museumCourseBoardView() {
       {/* 수정 진행 중 -> col/row container 구역 나눔 문제였음 해결함 */}
     </>
   );
+
 }
 
 export default museumCourseBoardView;

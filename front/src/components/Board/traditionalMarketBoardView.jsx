@@ -126,6 +126,7 @@ function traditionalMarketBoardView() {
       </div>
     </>
   );
+
 }
 
 export default traditionalMarketBoardView;

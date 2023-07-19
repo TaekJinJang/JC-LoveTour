@@ -54,6 +54,7 @@ function accommodationBoardView() {
     { label: '축제/행사', href: '/board/festival' },
   ];
 
+
   return (
     <>
       {/* 데스크톱 */}
@@ -78,6 +79,7 @@ function accommodationBoardView() {
                 <Row>
                   <h3>숙박</h3>
                   <hr />
+
                 </Row>
               </Col>
             </Row>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Row, Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 function topNavBar() {
-
     return (
         <Navbar
             bg="success"
@@ -37,7 +36,7 @@ function topNavBar() {
                             <NavDropdown.Item href="/board/shrineOfBaeronCourse">배론성지 코스</NavDropdown.Item>
                             <NavDropdown.Item href="/board/healingCourse">힐링 코스</NavDropdown.Item>
                         </NavDropdown>
-                        <NavDropdown as="h5" title="알림사항" id="basic-nav-dropdown">
+                        <NavDropdown as="h5" title="알림마당" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/board/announce">공지사항</NavDropdown.Item>
                             <NavDropdown.Item href="/board/faq">자주하는 질문</NavDropdown.Item>
                             <NavDropdown.Item href="/board/review">투어 후기</NavDropdown.Item>
@@ -47,7 +46,6 @@ function topNavBar() {
             </Container>
         </Navbar>
     );
-
 }
 
 export default topNavBar;

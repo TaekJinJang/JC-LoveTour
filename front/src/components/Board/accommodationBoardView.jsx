@@ -54,17 +54,27 @@ function accommodationBoardView() {
     return (
         <>
             <Header />
-            <Container style={{fontFamily: 'Pretendard-Regular',}}>
+            <Container style={{ fontFamily: 'Pretendard-Regular' }}>
                 <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
                     <TopNavBar />
                 </Row>
                 <Row className="mt-3 ps-1" style={{ width: '100%' }}>
                     <Col md={3}>
-                        <SideBar buttons={buttons} title={<div>제천의<br />이모저모</div>} />
+                        <SideBar
+                            buttons={buttons}
+                            title={
+                                <div>
+                                    제천의
+                                    <br />
+                                    이모저모
+                                </div>
+                            }
+                        />
                     </Col>
                     <Col md={9}>
                         <Row>
                             <h3>숙박</h3>
+                            <hr />
                         </Row>
                     </Col>
                 </Row>

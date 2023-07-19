@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
+
   Carousel,
   Container,
   Nav,
@@ -16,6 +17,7 @@ import {
 import '../../../src/index.css'; //폰트설정을 위한 css 임포트
 //request
 //사진을 넣기 위한 임포트..(이렇게 하는게 맞는지 의문이 든다..)
+
 import logo from '../../assets/mainHeader-assets/logo.png';
 import map from '../../assets/mainHeader-assets/map.png';
 import search from '../../assets/mainHeader-assets/search.png';
@@ -37,6 +39,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // react.svg 사용하지 않았기에 삭제
 
 function MainHeader() {
+
   const [showMenu, setShowMenu] = useState(false); // 마우스 호버 상태를 저장하는 상태값
 
   const handleMouseEnter = (e) => {

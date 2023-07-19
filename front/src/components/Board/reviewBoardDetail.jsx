@@ -1,11 +1,13 @@
-import React, { useCallback } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Table from 'react-bootstrap/Table';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/esm/Button';
-import { REMOVE_REVIEW_REQUEST } from '../../reducers/post';
-import { backUrl } from '../../../config/config';
+import React, { useCallback } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Table from "react-bootstrap/Table";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/esm/Button";
+import { REMOVE_REVIEW_REQUEST } from "../../reducers/post";
+import { backUrl } from "../../../config/config";
+
+import { Form, Button, Card, Table } from "react-bootstrap";
 
 function reviewBoardDetail() {
   const location = useLocation();
@@ -14,7 +16,7 @@ function reviewBoardDetail() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const deleteBoard = useCallback(() => {
-    navigate('/board/review');
+    navigate("/board/review");
     return dispatch({
       type: REMOVE_REVIEW_REQUEST,
       data: post.id,
@@ -54,7 +56,7 @@ function reviewBoardDetail() {
             src={`${image.src}`}
             alt={`${image.src}`}
             // 사진 크기는 수정 해야함
-            style={{ width: '300px', height: '200px' }}
+            style={{ width: "300px", height: "200px" }}
           />
         ))}
       <>

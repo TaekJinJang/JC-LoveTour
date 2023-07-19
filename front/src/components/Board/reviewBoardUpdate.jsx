@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
 import { Form, Button, Card } from "react-bootstrap";
 
 import useInput from "../../hooks/useInput";
@@ -160,7 +158,7 @@ function reviewBoardUpdate() {
                       />
                     </Col>
                   </Form.Group>
-                  {/* 휴대폰번호
+                  {/* 휴대폰번호 */}
                   <Form.Group as={Row} className="mb-3" controlId="title">
                     <Col md={2}>
                       <Card
@@ -193,7 +191,7 @@ function reviewBoardUpdate() {
                         style={{ backgroundColor: "#D9D9D9" }}
                       />
                     </Col>
-                  </Form.Group> */}
+                  </Form.Group>
                   {/* 제목 */}
                   <Form.Group as={Row} className="mb-3" controlId="title">
                     <Col md={2}>
@@ -258,7 +256,12 @@ function reviewBoardUpdate() {
                         placeholder="내용을 입력해주세요. "
                         value={text}
                         onChange={onChangeText}
-                        style={{ backgroundColor: "#D9D9D9", height: "600px" }}
+                        style={{
+                          //   whiteSpace: "pre-line",
+                          overflow: "auto",
+                          backgroundColor: "#D9D9D9",
+                          height: "600px",
+                        }}
                       />
                     </Col>
                   </Form.Group>
@@ -291,6 +294,7 @@ function reviewBoardUpdate() {
             </Col>
           </Row>
         </Container>
+        <Footer />
       </Container>
     </>
   );

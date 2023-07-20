@@ -1,17 +1,24 @@
 import React from 'react';
-import { Col, ButtonGroup, Button, Card, Row } from 'react-bootstrap';
+import {
+  Col,
+  ButtonGroup,
+  Button,
+  Card,
+  Row,
+  Container,
+} from 'react-bootstrap';
 
 function SideBar({ currentPage, setCurrentPage, buttons, title }) {
   return (
     <>
-      <Card bg="success" text="white" className="rounded-0">
-        <Card.Body className="pb-4 pt-4 ">
+      <Card bg="success" text="white" className="rounded-0 ps-0 pe-0">
+        <Card.Body className="pb-4 pt-4">
           <Card.Title style={{ textAlign: 'center' }}>
-            <h3 className="mb-0">{title}</h3>
+            <h3>{title}</h3>
           </Card.Title>
         </Card.Body>
       </Card>
-      <ButtonGroup vertical className="w-100 mt-2">
+      <ButtonGroup vertical className="w-100 mt-2 me-1">
         {buttons.map((button, index) => (
           <Button
             key={index}
@@ -19,7 +26,7 @@ function SideBar({ currentPage, setCurrentPage, buttons, title }) {
             variant={
               currentPage === button.label ? 'success' : 'outline-success'
             }
-            className="mb-2 p-2 rounded-0"
+            className="mb-2 p-2 rounded-0 "
             size="lg"
             block
             onClick={() => setCurrentPage(button.label)}

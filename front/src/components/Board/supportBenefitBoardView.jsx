@@ -69,7 +69,7 @@ function supportBenefitBoardView() {
           </Row>
           <Row className="mt-3 ps-1" style={{ width: '100%' }}>
             <Col md={3}>
-              <SideBar buttons={buttons} title={'지원혜택'} />
+              <SideBar buttons={buttons} title={'제천 러브투어'} />
             </Col>
             <Col md={9}>
               <Row className="mb-1">

@@ -4,6 +4,7 @@ import {
     Carousel,
     Container,
     Nav,
+    Form,
     FormControl,
     Button,
     Figure,
@@ -13,11 +14,11 @@ import {
     Navbar,
     NavDropdown,
     Offcanvas,
-    Dropdown,
 } from 'react-bootstrap'; //부트스트랩 사용을 위한 임포트
 import '../../../src/index.css'; //폰트설정을 위한 css 임포트
-import { FaSearch } from 'react-icons/fa'; //아이콘을 삽입을 위한 임포트
-//사진을 넣기 위한 임포트..
+//request
+//사진을 넣기 위한 임포트..(이렇게 하는게 맞는지 의문이 든다..)
+
 import logo from '../../assets/mainHeader-assets/logo.png';
 import map from '../../assets/mainHeader-assets/map.png';
 import search from '../../assets/mainHeader-assets/search.png';
@@ -42,7 +43,7 @@ function MainHeader() {
     const [showMenu, setShowMenu] = useState(false); // 마우스 호버 상태를 저장하는 상태값
 
     const handleMouseEnter = (e) => {
-        e.target.style.backgroundColor = '#4FD174'; //마우스 호버시 배경 색을 초록색으로 설정
+        e.target.style.backgroundColor = 'rgba(24, 242, 12, 0.5)'; //마우스 호버시 배경 색을 초록색으로 설정
         // setHover(true);
     };
 
@@ -50,10 +51,6 @@ function MainHeader() {
         e.target.style.backgroundColor = ''; //마우스가 떠나면 원래 배경을 돌아옴
         // setHover(false);
     };
-
-    // const handleMenuToggle = () => {
-    //     setShowMenu(!showMenu);
-    // };
 
     const { mainPosts } = useSelector((state) => state.post);
     const dispatch = useDispatch();

@@ -16,17 +16,17 @@ function Footer() {
     }, []);
     return (
         <footer className="bg-light">
-            <Container className="px-0" style={{ fontFamily: 'Pretendard-Regular' }}>
+            <Container fluid="sm" className="px-0" style={{ fontFamily: 'Pretendard-Regular' }}>
                 <Row className="mx-0" style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                    <Col xs={12}>
+                    <Col xs={12} lg={6}>
                         <Row className="mb-4 mt-2 w-100%">
-                            <Col xs={2} style={{ fontSize: '12px' }}>
+                            <Col xs={12} lg={3} style={{ fontSize: '12px' }}>
                                 개인정보처리방침
                             </Col>
-                            <Col xs={3} style={{ fontSize: '12px' }}>
+                            <Col xs={12} lg={4} style={{ fontSize: '12px' }}>
                                 영상정보처리기기전리방침
                             </Col>
-                            <Col xs={2} style={{ fontSize: '12px' }}>
+                            <Col xs={12} lg={2} style={{ fontSize: '12px' }}>
                                 저작권 보호
                             </Col>
                         </Row>
@@ -41,7 +41,7 @@ function Footer() {
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={12} className="d-flex justify-content-end">
+                    <Col xs={12} lg={6} className="d-flex justify-content-end">
                         <Image
                             style={{ opacity: '0.5' }}
                             className="mt-1"

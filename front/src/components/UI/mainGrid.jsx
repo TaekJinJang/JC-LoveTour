@@ -46,20 +46,19 @@ function mainGrid() {
         <>
             <Container
                 className="justify-content-center"
-                // fluid="xs"
                 style={{
                     fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정
                 }}
             >
-                <Row className="mx-0">
+                <Row xs="auto" className="mx-0">
                     {/* 지원혜택 */}
-                    <Col xs={6} sm={6} lg={4} className="my-2 mx-0 px-12">
+                    <Col xs={12} sm={6} lg={4} className="my-2 mx-0 px-12">
                         <Card style={{ height: '100%', overflow: 'visible' }} className="bg-light ">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">지원혜택</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goTosupportBenefit}>
                                     +
                                 </Button>
                             </Card.Header>
@@ -78,7 +77,7 @@ function mainGrid() {
                     </Col>
 
                     {/* 공지사항 */}
-                    <Col xs={6} sm={6} lg={4} className="my-2 mx-0 px-12">
+                    <Col xs={12} sm={6} lg={4} className="my-2 mx-0 px-12">
                         <Card style={{ height: 'auto', overflow: 'visible' }} className="bg-light">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px', fontWeight: 'bold' }}>

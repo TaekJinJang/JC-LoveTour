@@ -54,7 +54,6 @@ function accommodationBoardView() {
     { label: '축제/행사', href: '/board/festival' },
   ];
 
-
   return (
     <>
       {/* 데스크톱 */}
@@ -75,11 +74,10 @@ function accommodationBoardView() {
                   }
                 />
               </Col>
-              <Col md={9}>
+              <Col md={9} className="px-4">
                 <Row>
                   <h3>숙박</h3>
                   <hr />
-
                 </Row>
               </Col>
             </Row>
@@ -88,34 +86,32 @@ function accommodationBoardView() {
         </Container>
       </BrowserView>
       {/* 모바일 */}
-      <div style={{ maxWidth: ' 576px', margin: '0 auto' }}>
-        <MobileView>
-          <Row style={{ width: '100%' }} className="justify-content-center m-0">
-            <Offcanvasnav />
-            <Row>
-              <div style={{ height: '75px' }}></div>
-            </Row>
-            <Row>
-              <SideBar
-                buttons={buttons}
-                title={
-                  <div>
-                    제천의
-                    <br />
-                    이모저모
-                  </div>
-                }
-                style={{ Width: '100%' }}
-              />
-            </Row>
-            <Row className="ms-1 me-1 ps-4 pe-4">
-              <h3>숙박</h3>
-              <hr />
-            </Row>
+      <MobileView>
+        <Row style={{ width: '100%' }} className="justify-content-center m-0">
+          <Offcanvasnav />
+          <Row>
+            <div style={{ height: '60px' }}></div>
           </Row>
-          <Row>{/* <Footer />  푸터 수정 진행중 수정예정*/}</Row>
-        </MobileView>
-      </div>
+          <Row className="mt-2">
+            <SideBar
+              buttons={buttons}
+              title={
+                <div>
+                  제천의
+                  <br />
+                  이모저모
+                </div>
+              }
+              style={{ Width: '100%' }}
+            />
+          </Row>
+          <Row>
+            <h3 className="ps-0">숙박</h3>
+            <hr />
+          </Row>
+        </Row>
+        <Row>{/* <Footer /> */}</Row>
+      </MobileView>
     </>
   );
 }

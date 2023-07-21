@@ -77,7 +77,6 @@ function announceBoardView() {
     { label: '투어 후기', href: '/board/review' },
   ];
 
-
   return (
     <>
       {/* 데스크톱 */}
@@ -86,15 +85,15 @@ function announceBoardView() {
           <Header />
           <Container className="mt-3">
             <Row>
-              <Col md={3} className="ps-0 pe-1">
+              <Col md={3}>
                 <SideBar buttons={buttons} title={'알림마당'} />
               </Col>
-              <Col md={9} className="ps-0">
-                <Row className="ms-2">
+              <Col md={9} className="px-4">
+                <Row>
                   <h3>공지사항</h3>
                   <hr />
                 </Row>
-                <Row className="ms-2">
+                <Row>
                   <Col className="bg-light border pt-1">
                     <Col className="mb-1" style={{ float: 'right' }}>
                       <Stack direction="horizontal" gap={3}>
@@ -111,11 +110,7 @@ function announceBoardView() {
                     <Col>
                       {/* 서치바 드롭다운 메뉴 */}
 
-
-                      <Form.Select
-                        className="me-2"
-                        style={{ float: 'right', width: '100px' }}
-                      >
+                      <Form.Select style={{ float: 'right', width: '100px' }}>
                         <option>전체</option>
                         <option value="1">최신순</option>
                         <option value="2">게시글순</option>
@@ -139,7 +134,7 @@ function announceBoardView() {
                     </Col>
                   </Col>
                 </Row>
-                <Row className="ms-2">
+                <Row>
                   {/* 게시물 기재 테이블 */}
                   <Table
                     bordered
@@ -203,31 +198,27 @@ function announceBoardView() {
         </Container>
       </BrowserView>
       {/* 모바일 */}
-      <div style={{ maxWidth: ' 576px', margin: '0 auto' }}>
-        <MobileView>
-          <Row style={{ width: '100%' }} className="justify-content-center m-0">
-            <Offcanvasnav />
-            <Row>
-              <div style={{ height: '75px' }}></div>
-            </Row>
-            <Row>
-              <SideBar
-                buttons={buttons}
-                title={'알림마당'}
-                style={{ Width: '100%' }}
-              />
-            </Row>
-            <Row className="ms-1 me-1 ps-4 pe-4">
-              <h3>공지사항</h3>
-              <hr />
-            </Row>
-            <Row className="ms-1 me-1 ps-4 pe-4">
-              {/* 내용은 수정후 입력 예정 */}
-            </Row>
+      <MobileView>
+        <Row style={{ width: '100%' }} className="justify-content-center m-0">
+          <Offcanvasnav />
+          <Row>
+            <div style={{ height: '60px' }}></div>
           </Row>
-          <Row>{/* <Footer />  푸터 수정 진행중*/}</Row>
-        </MobileView>
-      </div>
+          <Row className="mt-2">
+            <SideBar
+              buttons={buttons}
+              title={'알림마당'}
+              style={{ Width: '100%' }}
+            />
+          </Row>
+          <Row>
+            <h3 className="ps-0">공지사항</h3>
+            <hr />
+          </Row>
+          <Row>{/* 내용은 수정후 입력 예정 */}</Row>
+        </Row>
+        <Row>{/* <Footer /> */}</Row>
+      </MobileView>
     </>
   );
 }

@@ -4,7 +4,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import styled from 'styled-components';
-import { ButtonGroup, Button, Card, Stack, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import {
+  ButtonGroup,
+  Button,
+  Card,
+  Stack,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from 'react-bootstrap';
 
 // 모바일 관련 코드
 import { BrowserView, MobileView } from 'react-device-detect';
@@ -22,38 +31,38 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function shrineOfBaeronCourseBoardView() {
-    // 페이지 버튼 눌린 상태로 만드려고 생성
-    const [currentPage, setCurrentPage] = useState('배론성지 코스'); // 현재 페이지 상태
-    const { admin } = useSelector((state) => state.admin);
-    const { gallery } = useSelector((state) => state.post);
-    const dispatch = useDispatch();
+  // 페이지 버튼 눌린 상태로 만드려고 생성
+  const [currentPage, setCurrentPage] = useState('배론성지 코스'); // 현재 페이지 상태
+  const { admin } = useSelector((state) => state.admin);
+  const { gallery } = useSelector((state) => state.post);
+  const dispatch = useDispatch();
 
-    // 페이지네이션
-    const [page, setPage] = useState(1);
-    const [currentPosts, setCurrentPosts] = useState([]);
-    const indexOfLastPost = page * 10;
-    const indexOfFirstPost = indexOfLastPost - 10;
-    const handlePageChange = (page) => {
-        setPage(page);
-    };
-    useEffect(() => {
-        setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
-    }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
+  // 페이지네이션
+  const [page, setPage] = useState(1);
+  const [currentPosts, setCurrentPosts] = useState([]);
+  const indexOfLastPost = page * 10;
+  const indexOfFirstPost = indexOfLastPost - 10;
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
+  useEffect(() => {
+    setCurrentPosts(gallery.slice(indexOfFirstPost, indexOfLastPost));
+  }, [gallery, indexOfFirstPost, indexOfLastPost, page]);
 
-    useEffect(() => {
-        dispatch({
-            type: LOAD_GALLERY_POSTS_REQUEST,
-        });
-    }, []);
+  useEffect(() => {
+    dispatch({
+      type: LOAD_GALLERY_POSTS_REQUEST,
+    });
+  }, []);
 
-    // 사이드바 내용
-    const buttons = [
-        { label: '옥순봉 코스', href: '/board/oksunbongPeakCourse' },
-        { label: '청풍호 코스', href: '/board/cheongpunghoCourse' },
-        { label: '박물관 코스', href: '/board/museumCourse' },
-        { label: '배론성지 코스', href: '/board/shrineOfBaeronCourse' },
-        { label: '힐링 코스', href: '/board/healingCourse' },
-    ];
+  // 사이드바 내용
+  const buttons = [
+    { label: '옥순봉 코스', href: '/board/oksunbongPeakCourse' },
+    { label: '청풍호 코스', href: '/board/cheongpunghoCourse' },
+    { label: '박물관 코스', href: '/board/museumCourse' },
+    { label: '배론성지 코스', href: '/board/shrineOfBaeronCourse' },
+    { label: '힐링 코스', href: '/board/healingCourse' },
+  ];
 
   return (
     <>
@@ -66,7 +75,7 @@ function shrineOfBaeronCourseBoardView() {
               <Col md={3}>
                 <SideBar buttons={buttons} title={'테마/코스'} />
               </Col>
-              <Col md={9}>
+              <Col md={9} className="px-4">
                 <Row>
                   <h3>배론성지 코스</h3>
                   <hr />
@@ -78,31 +87,28 @@ function shrineOfBaeronCourseBoardView() {
         </Container>
       </BrowserView>
       {/* 모바일 */}
-      <div style={{ maxWidth: ' 576px', margin: '0 auto' }}>
-        <MobileView>
-          <Row style={{ width: '100%' }} className="justify-content-center m-0">
-            <Offcanvasnav />
-            <Row>
-              <div style={{ height: '75px' }}></div>
-            </Row>
-            <Row>
-              <SideBar
-                buttons={buttons}
-                title={'테마/코스'}
-                style={{ Width: '100%' }}
-              />
-            </Row>
-            <Row className="ms-1 me-1 ps-4 pe-4">
-              <h3>배론성지 코스</h3>
-              <hr />
-            </Row>
+      <MobileView>
+        <Row style={{ width: '100%' }} className="justify-content-center m-0">
+          <Offcanvasnav />
+          <Row>
+            <div style={{ height: '60px' }}></div>
           </Row>
-          <Row>{/* <Footer />  푸터 수정 진행중*/}</Row>
-        </MobileView>
-      </div>
+          <Row className="mt-2">
+            <SideBar
+              buttons={buttons}
+              title={'테마/코스'}
+              style={{ Width: '100%' }}
+            />
+          </Row>
+          <Row className="ps-0">
+            <h3>배론성지 코스</h3>
+            <hr />
+          </Row>
+        </Row>
+        <Row>{/* <Footer />*/}</Row>
+      </MobileView>
     </>
   );
-
 }
 
 export default shrineOfBaeronCourseBoardView;

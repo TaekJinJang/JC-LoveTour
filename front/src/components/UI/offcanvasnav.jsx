@@ -28,7 +28,7 @@ function Offcanvasnav() {
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-${expand}`}
                 placement="end"
-                style={{ fontFamily: 'SUITE-Regular' }} // 폰트 스타일 지정
+                style={{ fontFamily: 'SUITE-Regular', maxWidth: '250px' }} // 폰트 스타일 지정
               >
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>

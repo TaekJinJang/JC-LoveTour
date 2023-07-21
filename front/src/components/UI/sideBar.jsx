@@ -18,7 +18,7 @@ function SideBar({ currentPage, setCurrentPage, buttons, title }) {
           </Card.Title>
         </Card.Body>
       </Card>
-      <ButtonGroup vertical className="w-100 mt-2 me-1">
+      <ButtonGroup vertical className="w-100 mt-2 p-0">
         {buttons.map((button, index) => (
           <Button
             key={index}

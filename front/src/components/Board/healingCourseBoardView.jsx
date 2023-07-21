@@ -81,14 +81,14 @@ function healingCourseBoardView() {
               <Col md={3}>
                 <SideBar buttons={buttons} title={'테마/코스'} />
               </Col>
-              <Col md={9}>
+              <Col md={9} className="px-4">
                 <Row>
                   <h3>힐링 코스</h3>
                   <hr />
                 </Row>
                 <Row>
                   {/* 청풍문화재단지-------------------------------------- */}
-                  <Row className="mb-2 ms-2">
+                  <Row className="mb-2 ms-0">
                     <div className="card">
                       <div
                         className="card-body mt-2"
@@ -414,31 +414,27 @@ function healingCourseBoardView() {
         </Container>
       </BrowserView>
       {/* 모바일 */}
-      <div style={{ maxWidth: ' 576px', margin: '0 auto' }}>
-        <MobileView>
-          <Row style={{ width: '100%' }} className="justify-content-center m-0">
-            <Offcanvasnav />
-            <Row>
-              <div style={{ height: '75px' }}></div>
-            </Row>
-            <Row>
-              <SideBar
-                buttons={buttons}
-                title={'테마/코스'}
-                style={{ Width: '100%' }}
-              />
-            </Row>
-            <Row className="ms-1 me-1 ps-4 pe-4">
-              <h3>힐링 코스</h3>
-              <hr />
-            </Row>
-            <Row className="ms-1 me-1 ps-4 pe-4">
-              {/* 내용잘림 확인 모바일을 수정 후 입력 예정 */}
-            </Row>
+      <MobileView>
+        <Row style={{ width: '100%' }} className="justify-content-center m-0">
+          <Offcanvasnav />
+          <Row>
+            <div style={{ height: '60px' }}></div>
           </Row>
-          <Row>{/* <Footer />  푸터 수정 진행중*/}</Row>
-        </MobileView>
-      </div>
+          <Row className="mt-2">
+            <SideBar
+              buttons={buttons}
+              title={'테마/코스'}
+              style={{ Width: '100%' }}
+            />
+          </Row>
+          <Row>
+            <h3 className="ps-0">힐링 코스</h3>
+            <hr />
+          </Row>
+          <Row>{/* 내용잘림 확인 모바일을 수정 후 입력 예정 */}</Row>
+        </Row>
+        <Row>{/* <Footer />  푸터 수정 진행중*/}</Row>
+      </MobileView>
     </>
   );
 }

@@ -84,12 +84,17 @@ function mainGrid() {
                                 <div style={{ paddingInline: '10px', fontWeight: 'bold' }}>
                                     <h4>공지사항</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goToAnnounceBoard}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goToAnnounceBoard}>
                                     +
                                 </Button>
                             </Card.Header>
                             <Card.Body className="p-1">
-                                <ListGroup variant="flush" as="ol" onClick={goToAnnounceBoard}>
+                                <ListGroup
+                                    className="p-1 d-none d-lg-block " //모바일 상태일때 숨김
+                                    variant="flush"
+                                    as="ol"
+                                    onClick={goToAnnounceBoard}
+                                >
                                     <ListGroup.Item
                                         action
                                         variant="light"
@@ -162,12 +167,17 @@ function mainGrid() {
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">자주하는 질문</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goToFAQ}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goToFAQ}>
                                     +
                                 </Button>
                             </Card.Header>
                             <Card.Body className="p-1">
-                                <ListGroup variant="flush" as="ol" onClick={goToFAQ}>
+                                <ListGroup
+                                    className="p-1 d-none d-lg-block " //모바일 상태일때 숨김
+                                    variant="flush"
+                                    as="ol"
+                                    onClick={goToFAQ}
+                                >
                                     <ListGroup.Item
                                         action
                                         variant="light"
@@ -247,7 +257,7 @@ function mainGrid() {
                         </Figure>
 
                         {/* 축제/행사 */}
-                        <Card style={{ width: '100%', height: '300px', overflow: 'visible' }} className="bg-light mt-0">
+                        <Card style={{ width: '100%', overflow: 'visible' }} className="bg-light mt-0">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">축제/행사</h4>
@@ -591,10 +601,10 @@ function mainGrid() {
                         <Card className="mt-1 mb-3">
                             <Card.Body>
                                 <Row>
-                                    <Col xs={8} sm={12} lg={4}>
+                                    <Col xs={12} sm={12} lg={4}>
                                         <iframe
                                             width="100%"
-                                            // height="300"
+                                            height="300"
                                             src="https://www.youtube.com/embed/3vCKaZLcWhY"
                                             title="YouTube video player"
                                             frameborder="0"
@@ -602,10 +612,10 @@ function mainGrid() {
                                             allowfullscreen
                                         ></iframe>
                                     </Col>
-                                    <Col xs={8} sm={12} lg={4}>
+                                    <Col xs={12} sm={12} lg={4}>
                                         <iframe
                                             width="100%"
-                                            // height="300"
+                                            height="300"
                                             src="https://www.youtube.com/embed/ElDsQj5frtY"
                                             title="YouTube video player"
                                             frameborder="0"
@@ -613,10 +623,10 @@ function mainGrid() {
                                             allowfullscreen
                                         ></iframe>
                                     </Col>
-                                    <Col xs={8} sm={12} lg={4}>
+                                    <Col xs={12} sm={12} lg={4}>
                                         <iframe
                                             width="100%"
-                                            // height="300"
+                                            height="300"
                                             src="https://www.youtube.com/embed/1xUIqj6-crg"
                                             title="YouTube video player"
                                             frameborder="0"

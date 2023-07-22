@@ -19,20 +19,17 @@ function reviewBoardList({ post }) {
   const boardDetail = useCallback(() => {
     if (post.password == password) {
       navigate(`/board/review/${post.id}`, { state: { post } });
+      return dispatch({
+        type: INCREMENT_VIEWS_REQUEST,
+        data: post.id,
+      });
     } else setShowError(true);
   }, [{ post }]);
 
   return (
     <>
       <Table striped bordered hover variant="dark">
-        <thead>
-          <tr>
-            <th>글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-          </tr>
-        </thead>
+        <tbody onClick={boardDetail}></tbody>
         <tbody>
           <tr onClick={handleShow}>
             <td>{post.id}</td>

@@ -1,28 +1,28 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useNavigate } from 'react-router-dom';
-import Pagination from 'react-js-pagination';
-import '../UI/paging.css';
-import styled from 'styled-components';
+import React, { useCallback, useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Link, useNavigate } from "react-router-dom";
+import Pagination from "react-js-pagination";
+import "../UI/paging.css";
+import styled from "styled-components";
 
 // import GalleryBoardList from './galleryBoardList';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
+import { LOAD_GALLERY_POSTS_REQUEST } from "../../reducers/post";
 
 // 모바일 관련 코드
-import { BrowserView, MobileView } from 'react-device-detect';
+import { BrowserView, MobileView } from "react-device-detect";
 
 // 공통부분
-import { Container, Row, Col } from 'react-bootstrap';
-import Header from '../UI/header';
-import SideBar from '../UI/sideBar';
-import Footer from '../UI/footer';
-import Offcanvasnav from '../UI/offcanvasnav';
+import { Container, Row, Col } from "react-bootstrap";
+import Header from "../UI/header";
+import SideBar from "../UI/sideBar";
+import Footer from "../UI/footer";
+import Offcanvasnav from "../UI/offcanvasnav";
 
 function accommodationBoardView() {
   // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('숙박'); // 현재 페이지 상태
+  const [currentPage, setCurrentPage] = useState("숙박"); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -47,19 +47,18 @@ function accommodationBoardView() {
 
   // 사이드바 내용
   const buttons = [
-    { label: '관광지', href: '/board/touristSpot' },
-    { label: '전통시장', href: '/board/traditionalMarket' },
-    { label: '음식', href: '/board/food' },
-    { label: '숙박', href: '/board/accommodation' },
-    { label: '축제/행사', href: '/board/festival' },
+    { label: "관광지", href: "/board/touristSpot" },
+    { label: "전통시장", href: "/board/traditionalMarket" },
+    { label: "음식", href: "/board/food" },
+    { label: "숙박", href: "/board/accommodation" },
+    { label: "축제/행사", href: "/board/festival" },
   ];
-
 
   return (
     <>
       {/* 데스크톱 */}
       <BrowserView>
-        <Container style={{ fontFamily: 'Pretendard-Regular' }}>
+        <Container style={{ fontFamily: "Pretendard-Regular" }}>
           <Header />
           <Container className="mt-3">
             <Row>
@@ -79,7 +78,6 @@ function accommodationBoardView() {
                 <Row>
                   <h3>숙박</h3>
                   <hr />
-
                 </Row>
               </Col>
             </Row>
@@ -88,12 +86,12 @@ function accommodationBoardView() {
         </Container>
       </BrowserView>
       {/* 모바일 */}
-      <div style={{ maxWidth: ' 576px', margin: '0 auto' }}>
+      <div style={{ maxWidth: " 576px", margin: "0 auto" }}>
         <MobileView>
-          <Row style={{ width: '100%' }} className="justify-content-center m-0">
+          <Row style={{ width: "100%" }} className="justify-content-center m-0">
             <Offcanvasnav />
             <Row>
-              <div style={{ height: '75px' }}></div>
+              <div style={{ height: "75px" }}></div>
             </Row>
             <Row>
               <SideBar
@@ -105,7 +103,7 @@ function accommodationBoardView() {
                     이모저모
                   </div>
                 }
-                style={{ Width: '100%' }}
+                style={{ Width: "100%" }}
               />
             </Row>
             <Row className="ms-1 me-1 ps-4 pe-4">

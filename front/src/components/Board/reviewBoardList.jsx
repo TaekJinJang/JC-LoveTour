@@ -5,6 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { INCREMENT_VIEWS_REQUEST } from "../../reducers/post";
 import useInput from "../../hooks/useInput";
+import styled from "styled-components";
+
+const Input_Tr = styled.tr`
+  height: 50px;
+`;
+const Input_Td = styled.td`
+  border-bottom: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+`;
 
 function reviewBoardList({ post }) {
   const navigate = useNavigate();
@@ -24,7 +33,7 @@ function reviewBoardList({ post }) {
 
   return (
     <>
-      <Table striped bordered hover variant="dark">
+      {/* <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>글번호</th>
@@ -41,7 +50,14 @@ function reviewBoardList({ post }) {
             <td>{post.date}</td>
           </tr>
         </tbody>
-      </Table>
+      </Table> */}
+      <Input_Tr onClick={boardDetail}>
+        <Input_Td>{post.id}</Input_Td>
+        <Input_Td>{post.name}</Input_Td>
+        <Input_Td>{post.title}</Input_Td>
+        <Input_Td>{post.date}</Input_Td>
+        <Input_Td>ㅇㅅㅇ</Input_Td>
+      </Input_Tr>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>투어 후기</Modal.Title>

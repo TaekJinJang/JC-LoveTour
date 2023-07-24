@@ -55,7 +55,7 @@ function reviewBoardList({ post }) {
         <Input_Td>{post.id}</Input_Td>
         <Input_Td>{post.name}</Input_Td>
         <Input_Td>{post.date}</Input_Td>
-        <Input_Td>{post.titleDate}</Input_Td>
+        {/* <Input_Td>{post.titleDate}</Input_Td> */}
         <Input_Td
           style={{
             overflow: "hidden",

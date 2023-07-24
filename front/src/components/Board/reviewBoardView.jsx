@@ -138,15 +138,15 @@ function reviewBoardView() {
                         글번호
                       </th>
                       <th scope="col" width="20%">
-                        예약자명
-                      </th>
-                      <th scope="col" width="20%">
-                        예약일
+                        작성자
                       </th>
                       <th scope="col" width="20%">
                         작성일
                       </th>
-                      <th scope="col" width="20%">
+                      {/* <th scope="col" width="20%">
+                        작성일
+                      </th> */}
+                      <th scope="col" width="40%">
                         내용
                       </th>
                     </tr>

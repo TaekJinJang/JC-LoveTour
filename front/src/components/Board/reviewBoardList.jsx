@@ -51,12 +51,20 @@ function reviewBoardList({ post }) {
           </tr>
         </tbody>
       </Table> */}
-      <Input_Tr onClick={boardDetail}>
+      <Input_Tr onClick={handleShow}>
         <Input_Td>{post.id}</Input_Td>
         <Input_Td>{post.name}</Input_Td>
-        <Input_Td>{post.title}</Input_Td>
         <Input_Td>{post.date}</Input_Td>
-        <Input_Td>ㅇㅅㅇ</Input_Td>
+        <Input_Td>{post.titleDate}</Input_Td>
+        <Input_Td
+          style={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {post.content}
+        </Input_Td>
       </Input_Tr>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

@@ -15,7 +15,7 @@ function Footer() {
         });
     }, []);
     return (
-        <Container fluid="sm" className="px-12" style={{ fontFamily: 'Pretendard-Regular' }}>
+        <Container fluid="sm" className="px-0" style={{ fontFamily: 'Pretendard-Regular' }}>
             <Row className="mx-0" style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
                 <Col>
                     <Row className="mb-4 mt-2 w-100%">
@@ -54,7 +54,7 @@ function Footer() {
             </Row>
 
             <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-                <Col xs={6} md={6} xl={6} style={{ backgroundColor: '#2da57d' }}>
+                <Col xs={6} md={6} xl={6} style={{ backgroundColor: '#3CB371' }}>
                     <p style={{ fontSize: '20px', color: 'white', marginTop: '7px' }}>
                         <b style={{ fontSize: '30px' }}>러브투어</b>JECHEON
                     </p>
@@ -64,13 +64,13 @@ function Footer() {
                     md={6}
                     xl={6}
                     className="d-flex justify-content-end "
-                    style={{ backgroundColor: '#2da57d' }}
+                    style={{ backgroundColor: '#3CB371' }}
                 >
                     <DropdownButton
                         className="me-5 DropdownButton float-right"
                         style={{ marginTop: '14px' }}
                         id="footerdropdown"
-                        variant="success"
+                        variant="light"
                         title="유관기관"
                     >
                         <Dropdown.Item href="/">청풍호반 케이블카</Dropdown.Item>

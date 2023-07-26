@@ -53,7 +53,7 @@ function mainGrid() {
             >
                 <Row xs="auto" className="mx-0">
                     {/* 지원혜택 */}
-                    <Col xs={12} sm={6} lg={4} className="my-2 mx-0 px-12">
+                    <Col xs={12} sm={12} lg={4} className="my-2 mx-0 px-12">
                         <Card style={{ height: '100%', overflow: 'visible' }} className="bg-light ">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}>
@@ -78,7 +78,7 @@ function mainGrid() {
                     </Col>
 
                     {/* 공지사항 */}
-                    <Col xs={12} sm={6} lg={4} className="my-2 mx-0 px-12">
+                    <Col xs={12} sm={12} lg={4} className="my-2 mx-0 px-12">
                         <Card style={{ height: 'auto', overflow: 'visible' }} className="bg-light">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px', fontWeight: 'bold' }}>
@@ -262,7 +262,7 @@ function mainGrid() {
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">축제/행사</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goToFestival}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goToFestival}>
                                     +
                                 </Button>
                             </Card.Header>
@@ -378,11 +378,17 @@ function mainGrid() {
                     {/* 이미지 배경사진(캐러셀) */}
                     <Col xs={12} sm={12} lg={6} className="my-2">
                         <Card
-                            style={{ width: '100%', height: '100%', overflow: 'visible' }}
+                            style={{ width: '100%', height: '100%', overflow: 'hidden' }}
                             className="border-0 m-0 p-0"
                         >
                             <Card.Body className="p-0">
-                                <Carousel variant="dark" className="mt-1 p-0" prevIcon={null} nextIcon={null}>
+                                <Carousel
+                                    variant="dark"
+                                    className="mt-1 p-0"
+                                    prevIcon={null}
+                                    nextIcon={null}
+                                    style={{ width: '100%', height: '100%', overflow: 'hidden' }}
+                                >
                                     <Carousel.Item className="m-0 p-0">
                                         <Row>
                                             <Col xs={6} sm={6} lg={6} style={{ paddingRight: '3px' }}>
@@ -391,7 +397,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -407,7 +413,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -424,7 +430,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -440,7 +446,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -460,7 +466,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -476,7 +482,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -493,7 +499,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -509,7 +515,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -529,7 +535,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -545,7 +551,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -562,7 +568,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -578,7 +584,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',

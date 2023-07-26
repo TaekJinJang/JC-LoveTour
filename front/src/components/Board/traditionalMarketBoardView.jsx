@@ -3,27 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
-import styled from 'styled-components';
-import {
-  ButtonGroup,
-  Button,
-  Card,
-  Stack,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from 'react-bootstrap';
 
-// 모바일 관련 코드
-import { BrowserView, MobileView } from 'react-device-detect';
+// 상단 그림
+import background2 from '../../assets/background2.png';
+
+// 준비중 그림
+import setting from '../../assets/setting.jpg';
 
 // 공통부분
-import { Container, Row, Col } from 'react-bootstrap';
-import Header from '../UI/header';
+import { Container, Row, Col, Figure } from 'react-bootstrap';
+import PageNav from '../UI/pageNav';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
-import Offcanvasnav from '../UI/offcanvasnav';
 
 // import GalleryBoardList from './galleryBoardList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -66,43 +57,44 @@ function traditionalMarketBoardView() {
 
   return (
     <>
-      {/* 데스크톱 */}
-      <BrowserView>
-        <Container style={{ fontFamily: 'Pretendard-Regular' }}>
-          <Header />
-          <Container className="mt-3">
-            <Row>
-              <Col md={3}>
-                <SideBar
-                  buttons={buttons}
-                  title={
-                    <div>
-                      제천의
-                      <br />
-                      이모저모
-                    </div>
-                  }
-                />
-              </Col>
-              <Col md={9} className="px-4">
-                <Row>
-                  <h3>전통시장</h3>
-                  <hr />
-                </Row>
-              </Col>
-            </Row>
-          </Container>
-          <Footer />
-        </Container>
-      </BrowserView>
-      {/* 모바일 */}
-      <MobileView>
-        <Row style={{ width: '100%' }} className="justify-content-center m-0">
-          <Offcanvasnav />
-          <Row>
-            <div style={{ height: '60px' }}></div>
-          </Row>
-          <Row className="mt-2">
+      {/* 네비바 수정 */}
+      <Container
+        fluid
+        style={{ height: '80px', width: '98vw' }}
+        className="container-fluid mx-0 px-0 "
+      >
+        <PageNav />
+      </Container>
+      {/* 상단이미지 */}
+      <Container
+        fluid
+        style={{ height: '40vh', width: '98vw', overflowX: 'hidden' }}
+        className="container-fluid m-0 p-0"
+      >
+        <div
+          style={{
+            backgroundImage: `url(${background2})`,
+            height: '37vh',
+            width: '100vw',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            display: 'flex',
+            justifyContent: 'center', // 가로 방향 가운데 정렬
+            alignItems: 'center', // 세로 방향 가운데 정렬
+          }}
+        >
+          <h1 style={{ color: 'white' }}>이모저모</h1>
+        </div>
+      </Container>
+      <Container
+        fluid
+        style={{ width: '98vw', overflowX: 'hidden' }}
+        className="container-fluid m-0 p-0"
+      >
+        <Row>
+          {/* 사이드바 */}
+          <Col xs={12} lg={3} sm={3} className="px-0">
             <SideBar
               buttons={buttons}
               title={
@@ -112,16 +104,31 @@ function traditionalMarketBoardView() {
                   이모저모
                 </div>
               }
-              style={{ Width: '100%' }}
             />
-          </Row>
-          <Row>
-            <h3 className="ps-0">전통시장</h3>
-            <hr />
-          </Row>
+          </Col>
+          {/* 제목 */}
+          <Col xs={12} lg={9} sm={9}>
+            <Col xs={12} lg={12} sm={12}>
+              <h3>전통시장</h3>
+              <hr />
+            </Col>
+
+            <Col xs={12} lg={12} sm={12}>
+              <Figure>
+                <Figure.Image src={setting} alt="Setting Image" />
+              </Figure>
+            </Col>
+          </Col>
         </Row>
-        <Row>{/* <Footer /> */}</Row>
-      </MobileView>
+      </Container>
+      {/* 푸터 */}
+      <Container
+        fluid
+        style={{ width: '98vw', overflowX: 'hidden' }}
+        className="container-fluid mx-0 p-0"
+      >
+        <Footer />
+      </Container>
     </>
   );
 }

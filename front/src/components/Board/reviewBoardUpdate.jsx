@@ -92,108 +92,6 @@ function reviewBoardUpdate() {
               </Row>
               <Row>
                 <Form onSubmit={onSubmitForm}>
-                  {/* 이름 */}
-                  <Form.Group as={Row} className="mb-3" controlId="title">
-                    <Col md={2}>
-                      <Card
-                        className="text-center"
-                        bg="success"
-                        border="success"
-                        text="white"
-                      >
-                        <Card.Header
-                          style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                        >
-                          이름
-                        </Card.Header>
-                      </Card>
-                    </Col>
-
-                    <Col md={10}>
-                      <Form.Control
-                        name="name"
-                        type="text"
-                        placeholder="이름을 입력해주세요. "
-                        value={name}
-                        onChange={onChangeName}
-                        style={{ backgroundColor: "#D9D9D9" }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  {/* 비밀번호 */}
-                  <Form.Group as={Row} className="mb-3" controlId="title">
-                    <Col md={2}>
-                      <Card
-                        className="text-center"
-                        bg="success"
-                        border="success"
-                        text="white"
-                      >
-                        <Card.Header
-                          style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                        >
-                          비밀번호
-                        </Card.Header>
-                      </Card>
-                    </Col>
-
-                    <Col md={10}>
-                      <Form.Control
-                        name="password"
-                        type="password"
-                        placeholder="예약 비밀번호를 입력해주세요 "
-                        value={password}
-                        onChange={onChangePassword}
-                        style={{ backgroundColor: "#D9D9D9" }}
-                      />
-                    </Col>
-                  </Form.Group>
-                  {/* 휴대폰번호
-                  <Form.Group as={Row} className="mb-3" controlId="title">
-                    <Col md={2}>
-                      <Card
-                        className="text-center"
-                        bg="success"
-                        border="success"
-                        text="white"
-                      >
-                        <Card.Header
-                          style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                        >
-                          휴대폰번호
-                        </Card.Header>
-                      </Card>
-                    </Col>
-
-                    <Col md={10}>
-                      <Form.Control
-                        name="phoneNum"
-                        type="phoneNum"
-                        placeholder="010-0000-0000"
-                        value={phoneNum}
-                        onChange={onChangePhoneNum}
-                        style={{ backgroundColor: "#D9D9D9" }}
-                      />
-                    </Col>
-                  </Form.Group> */}
                   {/* 제목 */}
                   <Form.Group as={Row} className="mb-3" controlId="title">
                     <Col md={2}>
@@ -228,8 +126,112 @@ function reviewBoardUpdate() {
                       />
                     </Col>
                   </Form.Group>
+
+                  {/* 이름 */}
+                  <Form.Group as={Row} className="mb-3" controlId="name">
+                    <Col md={2}>
+                      <Card
+                        className="text-center"
+                        bg="success"
+                        border="success"
+                        text="white"
+                      >
+                        <Card.Header
+                          style={{
+                            height: "35px",
+                            fontSize: "17px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          이름
+                        </Card.Header>
+                      </Card>
+                    </Col>
+
+                    <Col md={10}>
+                      <Form.Control
+                        name="name"
+                        type="text"
+                        placeholder="이름을 입력해주세요. "
+                        value={name}
+                        onChange={onChangeName}
+                        style={{ backgroundColor: "#D9D9D9" }}
+                      />
+                    </Col>
+                  </Form.Group>
+                  {/* 휴대폰번호 */}
+                  <Form.Group as={Row} className="mb-3" controlId="phoneNumber">
+                    <Col md={2}>
+                      <Card
+                        className="text-center"
+                        bg="success"
+                        border="success"
+                        text="white"
+                      >
+                        <Card.Header
+                          style={{
+                            height: "35px",
+                            fontSize: "17px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          번호
+                        </Card.Header>
+                      </Card>
+                    </Col>
+
+                    <Col md={10}>
+                      <Form.Control
+                        name="phoneNum"
+                        type="phoneNum"
+                        placeholder="010-0000-0000"
+                        value={phoneNum}
+                        onChange={onChangePhoneNum}
+                        style={{ backgroundColor: "#D9D9D9" }}
+                      />
+                    </Col>
+                  </Form.Group>
+                  {/* 비밀번호 */}
+                  <Form.Group as={Row} className="mb-3" controlId="password">
+                    <Col md={2}>
+                      <Card
+                        className="text-center"
+                        bg="success"
+                        border="success"
+                        text="white"
+                      >
+                        <Card.Header
+                          style={{
+                            height: "35px",
+                            fontSize: "17px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          비밀번호
+                        </Card.Header>
+                      </Card>
+                    </Col>
+
+                    <Col md={10}>
+                      <Form.Control
+                        name="password"
+                        type="password"
+                        placeholder="예약 비밀번호를 입력해주세요 "
+                        value={password}
+                        onChange={onChangePassword}
+                        style={{ backgroundColor: "#D9D9D9" }}
+                      />
+                    </Col>
+                  </Form.Group>
+
                   {/* 내용 */}
-                  <Form.Group as={Row} className="mb-3" controlId="title">
+                  <Form.Group as={Row} className="mb-3" controlId="content">
                     <Col md={2}>
                       <Card
                         className="text-center"

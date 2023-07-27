@@ -28,15 +28,15 @@ function Offcanvasnav() {
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-${expand}`}
                 placement="end"
-                style={{ fontFamily: 'SUITE-Regular' }} // 폰트 스타일 지정
+                style={{ fontFamily: 'SUITE-Regular', maxWidth: '250px' }} // 폰트 스타일 지정
               >
-                <Offcanvas.Header closeButton>
+                <Offcanvas.Header closeButton className="ps-2">
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                     러브투어 메뉴
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                  <Nav className="justify-content-end pe-3">
+                  <Nav className="justify-content-end pe-3 ps-2">
                     {/* 제천 러브투어 */}
                     <NavDropdown
                       title="제천 러브투어"

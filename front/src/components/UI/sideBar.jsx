@@ -11,14 +11,14 @@ import {
 function SideBar({ currentPage, setCurrentPage, buttons, title }) {
   return (
     <>
-      <Card bg="success" text="white" className="rounded-0 ps-0 pe-0">
-        <Card.Body className="pb-4 pt-4">
+      <Card bg="success" text="white" className="rounded-0 px-0">
+        <Card.Body className="pb-4 pt-4 px-0">
           <Card.Title style={{ textAlign: 'center' }}>
             <h3>{title}</h3>
           </Card.Title>
         </Card.Body>
       </Card>
-      <ButtonGroup vertical className="w-100 mt-2 me-1">
+      <ButtonGroup vertical className="w-100 mt-2 p-0">
         {buttons.map((button, index) => (
           <Button
             key={index}
@@ -26,8 +26,7 @@ function SideBar({ currentPage, setCurrentPage, buttons, title }) {
             variant={
               currentPage === button.label ? 'success' : 'outline-success'
             }
-            className="mb-2 p-2 rounded-0 "
-            size="lg"
+            className="mb-2 rounded-0 px-0"
             block
             onClick={() => setCurrentPage(button.label)}
           >

@@ -277,7 +277,10 @@ function reviewBoardUpdate() {
                           alt={`${image.src}`}
                         />
                         <div>
-                          <Button variant="danger" onClick={onRemoveImage(i)}>
+                          <Button
+                            variant="danger"
+                            onClick={onRemoveImage(image)}
+                          >
                             제거
                           </Button>
                         </div>

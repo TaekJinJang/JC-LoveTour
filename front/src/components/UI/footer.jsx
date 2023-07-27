@@ -14,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_MY_INFO_REQUEST } from '../../reducers/admin';
 function Footer() {
+
   const { mainPosts } = useSelector((state) => state.post);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -95,6 +96,7 @@ function Footer() {
       </Row>
     </Container>
   );
+
 }
 
 export default Footer;

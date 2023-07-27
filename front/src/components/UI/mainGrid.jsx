@@ -45,21 +45,21 @@ function mainGrid() {
     return (
         <>
             <Container
+                fluid="sm"
                 className="justify-content-center"
-                // fluid="xs"
                 style={{
                     fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정
                 }}
             >
-                <Row className="mx-0">
+                <Row xs="auto" className="mx-0">
                     {/* 지원혜택 */}
-                    <Col xs={6} sm={6} lg={4} className="my-2 mx-0 px-12">
+                    <Col xs={12} sm={12} lg={4} className="my-2 mx-0 px-12">
                         <Card style={{ height: '100%', overflow: 'visible' }} className="bg-light ">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">지원혜택</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goTosupportBenefit}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goTosupportBenefit}>
                                     +
                                 </Button>
                             </Card.Header>
@@ -78,18 +78,23 @@ function mainGrid() {
                     </Col>
 
                     {/* 공지사항 */}
-                    <Col xs={6} sm={6} lg={4} className="my-2 mx-0 px-12">
+                    <Col xs={12} sm={12} lg={4} className="my-2 mx-0 px-12">
                         <Card style={{ height: 'auto', overflow: 'visible' }} className="bg-light">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px', fontWeight: 'bold' }}>
                                     <h4>공지사항</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goToAnnounceBoard}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goToAnnounceBoard}>
                                     +
                                 </Button>
                             </Card.Header>
                             <Card.Body className="p-1">
-                                <ListGroup variant="flush" as="ol" onClick={goToAnnounceBoard}>
+                                <ListGroup
+                                    className="p-1 d-none d-lg-block " //모바일 상태일때 숨김
+                                    variant="flush"
+                                    as="ol"
+                                    onClick={goToAnnounceBoard}
+                                >
                                     <ListGroup.Item
                                         action
                                         variant="light"
@@ -162,12 +167,17 @@ function mainGrid() {
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">자주하는 질문</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goToFAQ}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goToFAQ}>
                                     +
                                 </Button>
                             </Card.Header>
                             <Card.Body className="p-1">
-                                <ListGroup variant="flush" as="ol" onClick={goToFAQ}>
+                                <ListGroup
+                                    className="p-1 d-none d-lg-block " //모바일 상태일때 숨김
+                                    variant="flush"
+                                    as="ol"
+                                    onClick={goToFAQ}
+                                >
                                     <ListGroup.Item
                                         action
                                         variant="light"
@@ -247,12 +257,12 @@ function mainGrid() {
                         </Figure>
 
                         {/* 축제/행사 */}
-                        <Card style={{ width: '100%', height: '300px', overflow: 'visible' }} className="bg-light mt-0">
+                        <Card style={{ width: '100%', overflow: 'visible' }} className="bg-light mt-0">
                             <Card.Header className="d-flex justify-content-between mt-1 border-0 bg-light">
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">축제/행사</h4>
                                 </div>
-                                <Button variant="outline-primary" className="ml-auto" onClick={goToFestival}>
+                                <Button variant="outline-success" className="ml-auto" onClick={goToFestival}>
                                     +
                                 </Button>
                             </Card.Header>
@@ -368,11 +378,17 @@ function mainGrid() {
                     {/* 이미지 배경사진(캐러셀) */}
                     <Col xs={12} sm={12} lg={6} className="my-2">
                         <Card
-                            style={{ width: '100%', height: '100%', overflow: 'visible' }}
+                            style={{ width: '100%', height: '100%', overflow: 'hidden' }}
                             className="border-0 m-0 p-0"
                         >
                             <Card.Body className="p-0">
-                                <Carousel variant="dark" className="mt-1 p-0" prevIcon={null} nextIcon={null}>
+                                <Carousel
+                                    variant="dark"
+                                    className="mt-1 p-0"
+                                    prevIcon={null}
+                                    nextIcon={null}
+                                    style={{ width: '100%', height: '100%', overflow: 'hidden' }}
+                                >
                                     <Carousel.Item className="m-0 p-0">
                                         <Row>
                                             <Col xs={6} sm={6} lg={6} style={{ paddingRight: '3px' }}>
@@ -381,7 +397,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -397,7 +413,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -414,7 +430,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -430,7 +446,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -450,7 +466,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -466,7 +482,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -483,7 +499,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -499,7 +515,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -519,7 +535,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -535,7 +551,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -552,7 +568,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -568,7 +584,7 @@ function mainGrid() {
                                                         fluid
                                                         className="p-0 m-0"
                                                         style={{
-                                                            width: 'auto',
+                                                            width: '309px',
                                                             height: '300px',
                                                             objectFit: 'cover',
                                                             borderRadius: '10px',
@@ -591,10 +607,10 @@ function mainGrid() {
                         <Card className="mt-1 mb-3">
                             <Card.Body>
                                 <Row>
-                                    <Col xs={8} sm={12} lg={4}>
+                                    <Col xs={12} sm={12} lg={4}>
                                         <iframe
                                             width="100%"
-                                            // height="300"
+                                            height="300"
                                             src="https://www.youtube.com/embed/3vCKaZLcWhY"
                                             title="YouTube video player"
                                             frameborder="0"
@@ -602,10 +618,10 @@ function mainGrid() {
                                             allowfullscreen
                                         ></iframe>
                                     </Col>
-                                    <Col xs={8} sm={12} lg={4}>
+                                    <Col xs={12} sm={12} lg={4}>
                                         <iframe
                                             width="100%"
-                                            // height="300"
+                                            height="300"
                                             src="https://www.youtube.com/embed/ElDsQj5frtY"
                                             title="YouTube video player"
                                             frameborder="0"
@@ -613,10 +629,10 @@ function mainGrid() {
                                             allowfullscreen
                                         ></iframe>
                                     </Col>
-                                    <Col xs={8} sm={12} lg={4}>
+                                    <Col xs={12} sm={12} lg={4}>
                                         <iframe
                                             width="100%"
-                                            // height="300"
+                                            height="300"
                                             src="https://www.youtube.com/embed/1xUIqj6-crg"
                                             title="YouTube video player"
                                             frameborder="0"

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Footer from "../components/UI/footer";
 
-import MainHeader from "../components/UI/mainHeader";
+import MainHeader from "../components/UI/mainheader";
 
 import MainGrid from "../components/UI/mainGrid";
 

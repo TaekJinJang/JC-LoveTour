@@ -66,7 +66,7 @@ app.use('/', express.static(path.join(__dirname, 'uploads'))); //프론트서버
 app.use(
   cors({
     // proxy방식으로 데이터를 넘겨줌 ( cors 문제 해결)
-    origin: ['http://localhost:3000', 'jc-lovetour', 'http://43.202.33.141'], // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
+    origin: ['http://lovetour.kr'], // 배포할땐 실제 url만 적어줘야함 안그러면 해킹해달라고 광고하는거임
     credentials: true, // 쿠키 전달
     optionsSuccessStatus: 200, // 응답 상태 200으로 설정
   })
@@ -77,6 +77,10 @@ app.use(
     saveUninitialized: false,
     resave: false,
     secret: process.env.COOKIE_SECRET,
+    cookie: {
+      httpOnly: true,
+      domain: process.env.NODE_ENV === 'production' && '.lovetour.kr',
+    },
   })
 ); // 로그인할 때 브라우저랑 서버랑 같은 정보를 가져야하는데 보안을 위해 쿠키,세션으로 암호화
 app.use(cookieParser(process.env.COOKIE_SECRET));

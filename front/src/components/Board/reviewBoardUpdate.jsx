@@ -253,6 +253,7 @@ function reviewBoardUpdate() {
                       </Card>
                     </Col>
 
+
                     <Col md={10}>
                       <Form.Control
                         name="text"
@@ -287,6 +288,7 @@ function reviewBoardUpdate() {
                 <Col>
                   <Button variant="primary" type="submit">
                     수정하기
+
                   </Button>
                 </Col>
               </Row>

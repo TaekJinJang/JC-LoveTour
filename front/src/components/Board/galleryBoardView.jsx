@@ -4,21 +4,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
 import styled from 'styled-components';
-import {
-  ButtonGroup,
-  Button,
-  Card,
-  Stack,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from 'react-bootstrap';
+
+// 상단 그림
+import background2 from '../../assets/background2.png';
 
 // 공통부분
-import { Container, Row, Col } from 'react-bootstrap';
-import Header from '../UI/header';
-import TopNavBar from '../UI/topNavBar';
+import {
+  Container,
+  Row,
+  Col,
+  Figure,
+  Button,
+  Stack,
+  Form,
+} from 'react-bootstrap';
+import PageNav from '../UI/pageNav';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
 
@@ -59,22 +59,55 @@ function galleryBoardView() {
   ];
   return (
     <>
-      <Container style={{fontFamily: 'Pretendard-Regular',}}>
-        <Header />
-        <Container>
-          <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
-            <TopNavBar />
-          </Row>
-          <Row className="mt-3 ps-1" style={{ width: '100%' }}>
-            <Col md={3}>
-              <SideBar buttons={buttons} title={'사진 갤러리'} />
+      {/* 네비바 수정 */}
+      <Container
+        fluid
+        style={{ height: '80px', width: '98vw' }}
+        className="container-fluid mx-0 px-0 "
+      >
+        <PageNav />
+      </Container>
+      {/* 상단이미지 */}
+      <Container
+        fluid
+        style={{ height: '40vh', width: '98vw', overflowX: 'hidden' }}
+        className="container-fluid m-0 p-0"
+      >
+        <div
+          style={{
+            backgroundImage: `url(${background2})`,
+            height: '37vh',
+            width: '100vw',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            display: 'flex',
+            justifyContent: 'center', // 가로 방향 가운데 정렬
+            alignItems: 'center', // 세로 방향 가운데 정렬
+          }}
+        >
+          <h1 style={{ color: 'white' }}>제천 러브투어</h1>
+        </div>
+      </Container>
+      <Container
+        fluid
+        style={{ width: '98vw', overflowX: 'hidden' }}
+        className="container-fluid m-0 p-0"
+      >
+        <Row>
+          {/* 사이드바 */}
+          <Col xs={12} lg={3} sm={3} className="px-0">
+            <SideBar buttons={buttons} title={'제천 러브투어'} />
+          </Col>
+          {/* 제목 */}
+          <Col xs={12} lg={9} sm={9}>
+            <Col xs={12} lg={12} sm={12}>
+              <h3>사진 갤러리</h3>
+              <hr />
             </Col>
-            <Col md={9}>
-              <Row className="mb-1">
-                <h3>사진 갤러리</h3>
-                <hr />
-              </Row>
-              <Row className="mt-2">
+
+            <Col xs={12} lg={12} sm={12}>
+              <Row className="mt-2 px-3">
                 <Col className="bg-light border pt-1">
                   <Col className="mb-1" style={{ float: 'right' }}>
                     <Stack direction="horizontal" gap={3}>
@@ -106,7 +139,7 @@ function galleryBoardView() {
                   )}
                 </Col>
               </Row>
-              <Row className="mt-2">
+              <Row className="mt-2 px-3">
                 {currentPosts.map((post, index) => (
                   <GalleryBoardList key={post.id} post={post} />
                 ))}
@@ -123,8 +156,15 @@ function galleryBoardView() {
                 />
               </Row>
             </Col>
-          </Row>
-        </Container>
+          </Col>
+        </Row>
+      </Container>
+      {/* 푸터 */}
+      <Container
+        fluid
+        style={{ width: '98vw', overflowX: 'hidden' }}
+        className="container-fluid mx-0 p-0"
+      >
         <Footer />
       </Container>
 

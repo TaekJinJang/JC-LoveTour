@@ -1,17 +1,26 @@
-import React, { useCallback, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Modal, Form, Button, Alert } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { INCREMENT_VIEWS_REQUEST } from '../../reducers/post';
-import useInput from '../../hooks/useInput';
+import React, { useCallback, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Table, Modal, Form, Button, Alert } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { INCREMENT_VIEWS_REQUEST } from "../../reducers/post";
+import useInput from "../../hooks/useInput";
+import styled from "styled-components";
+
+const Input_Tr = styled.tr`
+  height: 50px;
+`;
+const Input_Td = styled.td`
+  border-bottom: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+`;
 
 function reviewBoardList({ post }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [password, onChangePassword] = useInput('');
+  const [password, onChangePassword] = useInput("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -24,14 +33,13 @@ function reviewBoardList({ post }) {
 
   return (
     <>
-      <Table striped bordered hover>
+      {/* <Table striped bordered hover variant="dark">
         <thead>
           <tr>
             <th>글번호</th>
             <th>제목</th>
-            <th>예약일</th>
+            <th>작성자</th>
             <th>작성일</th>
-            <th>뭐넣지</th>
           </tr>
         </thead>
         <tbody>
@@ -40,10 +48,24 @@ function reviewBoardList({ post }) {
             <td>{post.title}</td>
             <td>{post.name}</td>
             <td>{post.date}</td>
-            <td></td>
           </tr>
         </tbody>
-      </Table>
+      </Table> */}
+      <Input_Tr onClick={handleShow}>
+        <Input_Td>{post.id}</Input_Td>
+        <Input_Td>{post.name}</Input_Td>
+        <Input_Td>{post.date}</Input_Td>
+        {/* <Input_Td>{post.titleDate}</Input_Td> */}
+        <Input_Td
+          style={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {post.content}
+        </Input_Td>
+      </Input_Tr>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>투어 후기</Modal.Title>

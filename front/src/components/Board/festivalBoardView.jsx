@@ -1,28 +1,28 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useNavigate } from 'react-router-dom';
-import Pagination from 'react-js-pagination';
-import '../UI/paging.css';
+import React, { useCallback, useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Link, useNavigate } from "react-router-dom";
+import Pagination from "react-js-pagination";
+import "../UI/paging.css";
 
 // 상단 그림
-import background2 from '../../assets/background2.png';
+import background2 from "../../assets/background2.png";
 // 공통부분
-import { Container, Row, Col, Figure } from 'react-bootstrap';
-import PageNav from '../UI/pageNav';
-import SideBar from '../UI/sideBar';
-import Footer from '../UI/footer';
+import { Container, Row, Col, Figure } from "react-bootstrap";
+import PageNav from "../UI/pageNav";
+import SideBar from "../UI/sideBar";
+import Footer from "../UI/footer";
 
 // 모바일 관련 코드
-import { BrowserView, MobileView } from 'react-device-detect';
+// import { BrowserView, MobileView } from 'react-device-detect';
 
 // import GalleryBoardList from './galleryBoardList';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
+import { LOAD_GALLERY_POSTS_REQUEST } from "../../reducers/post";
 
 function festivalBoardView() {
   // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('축제/행사'); // 현재 페이지 상태
+  const [currentPage, setCurrentPage] = useState("축제/행사"); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -51,11 +51,11 @@ function festivalBoardView() {
   };
 
   const buttons = [
-    { label: '관광지', href: '/board/touristSpot' },
-    { label: '전통시장', href: '/board/traditionalMarket' },
-    { label: '음식', href: '/board/food' },
-    { label: '숙박', href: '/board/accommodation' },
-    { label: '축제/행사', href: '/board/festival' },
+    { label: "관광지", href: "/board/touristSpot" },
+    { label: "전통시장", href: "/board/traditionalMarket" },
+    { label: "음식", href: "/board/food" },
+    { label: "숙박", href: "/board/accommodation" },
+    { label: "축제/행사", href: "/board/festival" },
   ];
 
   return (
@@ -64,9 +64,9 @@ function festivalBoardView() {
       <Container
         fluid
         style={{
-          height: '80px',
-          width: '98vw',
-          fontFamily: 'Pretendard-Regular',
+          height: "80px",
+          width: "98vw",
+          fontFamily: "Pretendard-Regular",
         }}
         className="container-fluid mx-0 px-0 "
       >
@@ -75,28 +75,28 @@ function festivalBoardView() {
       {/* 상단이미지 */}
       <Container
         fluid
-        style={{ height: '40vh', width: '98vw', overflowX: 'hidden' }}
+        style={{ height: "40vh", width: "98vw", overflowX: "hidden" }}
         className="container-fluid m-0 p-0"
       >
         <div
           style={{
             backgroundImage: `url(${background2})`,
-            height: '37vh',
-            width: '100vw',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            display: 'flex',
-            justifyContent: 'center', // 가로 방향 가운데 정렬
-            alignItems: 'center', // 세로 방향 가운데 정렬
+            height: "37vh",
+            width: "100vw",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            display: "flex",
+            justifyContent: "center", // 가로 방향 가운데 정렬
+            alignItems: "center", // 세로 방향 가운데 정렬
           }}
         >
-          <h1 style={{ color: 'white' }}>이모저모</h1>
+          <h1 style={{ color: "white" }}>이모저모</h1>
         </div>
       </Container>
       <Container
         fluid
-        style={{ width: '98vw', overflowX: 'hidden' }}
+        style={{ width: "98vw", overflowX: "hidden" }}
         className="container-fluid m-0 p-0"
       >
         <Row>
@@ -123,12 +123,12 @@ function festivalBoardView() {
               <table
                 bordered
                 className="table table-hover"
-                style={{ border: '1px solid #f2f2f2' }}
+                style={{ border: "1px solid #f2f2f2" }}
               >
                 <thead
                   style={{
-                    textAlign: 'center',
-                    backgroundColor: '#E0E0E0',
+                    textAlign: "center",
+                    backgroundColor: "#E0E0E0",
                   }}
                 >
                   <tr>
@@ -146,7 +146,7 @@ function festivalBoardView() {
                 <tbody
                   onClick={() =>
                     handleLinkClick(
-                      'http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491'
+                      "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=491"
                     )
                   }
                 >
@@ -165,7 +165,7 @@ function festivalBoardView() {
                 <tbody
                   onClick={() =>
                     handleLinkClick(
-                      'http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=501'
+                      "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=501"
                     )
                   }
                 >
@@ -184,7 +184,7 @@ function festivalBoardView() {
                 <tbody
                   onClick={() =>
                     handleLinkClick(
-                      'http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=502'
+                      "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=502"
                     )
                   }
                 >
@@ -203,7 +203,7 @@ function festivalBoardView() {
                 <tbody
                   onClick={() =>
                     handleLinkClick(
-                      'http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=492'
+                      "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=492"
                     )
                   }
                 >
@@ -222,7 +222,7 @@ function festivalBoardView() {
                 <tbody
                   onClick={() =>
                     handleLinkClick(
-                      'http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=505'
+                      "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=505"
                     )
                   }
                 >
@@ -241,7 +241,7 @@ function festivalBoardView() {
                 <tbody
                   onClick={() =>
                     handleLinkClick(
-                      'http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=493'
+                      "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=493"
                     )
                   }
                 >
@@ -260,7 +260,7 @@ function festivalBoardView() {
                 <tbody
                   onClick={() =>
                     handleLinkClick(
-                      'http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=508'
+                      "http://www.jccf.or.kr/bbs/board.php?bo_table=product&wr_id=508"
                     )
                   }
                 >
@@ -284,7 +284,7 @@ function festivalBoardView() {
       {/* 푸터 */}
       <Container
         fluid
-        style={{ width: '98vw', overflowX: 'hidden' }}
+        style={{ width: "98vw", overflowX: "hidden" }}
         className="container-fluid mx-0 p-0"
       >
         <Footer />

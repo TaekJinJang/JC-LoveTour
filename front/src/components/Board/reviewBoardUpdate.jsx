@@ -253,7 +253,6 @@ function reviewBoardUpdate() {
                       </Card>
                     </Col>
 
-
                     <Col md={10}>
                       <Form.Control
                         name="text"
@@ -270,12 +269,12 @@ function reviewBoardUpdate() {
               <Row>
                 <Col>
                   {post.Images &&
-                    post.Images.map((v, i) => (
-                      <div key={v} style={{ display: "inline-block" }}>
+                    post.Images.map((image, index) => (
+                      <div key={index} style={{ display: "inline-block" }}>
                         <img
-                          src={`http://localhost:3005/${v.src}`}
+                          src={`${image.src}`}
                           style={{ width: "200px" }}
-                          alt={v}
+                          alt={`${image.src}`}
                         />
                         <div>
                           <Button variant="danger" onClick={onRemoveImage(i)}>
@@ -288,7 +287,6 @@ function reviewBoardUpdate() {
                 <Col>
                   <Button variant="primary" type="submit">
                     수정하기
-
                   </Button>
                 </Col>
               </Row>

@@ -211,7 +211,7 @@ function reviewBoardWrite() {
                         name="name"
                         type="text"
                         placeholder="000-0000-0000 형태로 작성하세요. "
-                        value={name}
+                        value={phoneNum}
                         onChange={onChangePhoneNum}
                         style={{ backgroundColor: "#D9D9D9" }}
                       />

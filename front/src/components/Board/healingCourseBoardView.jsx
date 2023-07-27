@@ -1,35 +1,35 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useNavigate } from 'react-router-dom';
-import Pagination from 'react-js-pagination';
-import '../UI/paging.css';
+import React, { useCallback, useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Link, useNavigate } from "react-router-dom";
+import Pagination from "react-js-pagination";
+import "../UI/paging.css";
 
 // 컨텐츠 이미지
-import HealingImage1 from '../../assets/Healing/Healing1.jpg';
-import HealingImage2 from '../../assets/Healing/Healing2.jpg';
-import HealingImage3 from '../../assets/Healing/Healing3.jpg';
-import lunch1 from '../../assets/Healing/lunch1.jpg';
-import Market1 from '../../assets/Healing/Market1.jpg';
+import HealingImage1 from "../../assets/Healing/Healing1.jpg";
+import HealingImage2 from "../../assets/Healing/Healing2.jpg";
+import HealingImage3 from "../../assets/Healing/Healing3.jpg";
+import lunch1 from "../../assets/Healing/lunch1.jpg";
+import Market1 from "../../assets/Healing/Market1.jpg";
 
 // 상단 그림
-import background2 from '../../assets/background2.png';
+import background2 from "../../assets/background2.png";
 
 // 모바일 관련 코드
-import { BrowserView, MobileView } from 'react-device-detect';
+// import { BrowserView, MobileView } from 'react-device-detect';
 
 // 공통부분
-import { Container, Row, Col } from 'react-bootstrap';
-import PageNav from '../UI/pageNav';
-import SideBar from '../UI/sideBar';
-import Footer from '../UI/footer';
+import { Container, Row, Col } from "react-bootstrap";
+import PageNav from "../UI/pageNav";
+import SideBar from "../UI/sideBar";
+import Footer from "../UI/footer";
 
 // import GalleryBoardList from './galleryBoardList';
-import { useDispatch, useSelector } from 'react-redux';
-import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
+import { useDispatch, useSelector } from "react-redux";
+import { LOAD_GALLERY_POSTS_REQUEST } from "../../reducers/post";
 
 function healingCourseBoardView() {
   // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('힐링 코스'); // 현재 페이지 상태
+  const [currentPage, setCurrentPage] = useState("힐링 코스"); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();
@@ -54,11 +54,11 @@ function healingCourseBoardView() {
 
   // 사이드바 내용
   const buttons = [
-    { label: '옥순봉 코스', href: '/board/oksunbongPeakCourse' },
-    { label: '청풍호 코스', href: '/board/cheongpunghoCourse' },
-    { label: '박물관 코스', href: '/board/museumCourse' },
-    { label: '배론성지 코스', href: '/board/shrineOfBaeronCourse' },
-    { label: '힐링 코스', href: '/board/healingCourse' },
+    { label: "옥순봉 코스", href: "/board/oksunbongPeakCourse" },
+    { label: "청풍호 코스", href: "/board/cheongpunghoCourse" },
+    { label: "박물관 코스", href: "/board/museumCourse" },
+    { label: "배론성지 코스", href: "/board/shrineOfBaeronCourse" },
+    { label: "힐링 코스", href: "/board/healingCourse" },
   ];
 
   return (
@@ -67,7 +67,7 @@ function healingCourseBoardView() {
       {/* 네비바 수정 */}
       <Container
         fluid
-        style={{ height: '80px', width: '98vw' }}
+        style={{ height: "80px", width: "98vw" }}
         className="container-fluid mx-0 px-0 "
       >
         <PageNav />
@@ -75,34 +75,34 @@ function healingCourseBoardView() {
       {/* 상단이미지 */}
       <Container
         fluid
-        style={{ height: '40vh', width: '98vw', overflowX: 'hidden' }}
+        style={{ height: "40vh", width: "98vw", overflowX: "hidden" }}
         className="container-fluid m-0 p-0"
       >
         <div
           style={{
             backgroundImage: `url(${background2})`,
-            height: '37vh',
-            width: '100vw',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            display: 'flex',
-            justifyContent: 'center', // 가로 방향 가운데 정렬
-            alignItems: 'center', // 세로 방향 가운데 정렬
+            height: "37vh",
+            width: "100vw",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            display: "flex",
+            justifyContent: "center", // 가로 방향 가운데 정렬
+            alignItems: "center", // 세로 방향 가운데 정렬
           }}
         >
-          <h1 style={{ color: 'white' }}>테마/코스</h1>
+          <h1 style={{ color: "white" }}>테마/코스</h1>
         </div>
       </Container>
       <Container
         fluid
-        style={{ width: '98vw', overflowX: 'hidden' }}
+        style={{ width: "98vw", overflowX: "hidden" }}
         className="container-fluid m-0 p-0"
       >
         <Row>
           {/* 사이드바 */}
           <Col xs={12} lg={3} sm={3} className="px-0">
-            <SideBar buttons={buttons} title={'테마/코스'} />
+            <SideBar buttons={buttons} title={"테마/코스"} />
           </Col>
           {/* 제목 */}
           <Col xs={12} lg={9} sm={9}>
@@ -118,30 +118,30 @@ function healingCourseBoardView() {
                 <div
                   className="card-body mt-2"
                   style={{
-                    borderRadius: '15px',
-                    backgroundColor: '#fda172',
+                    borderRadius: "15px",
+                    backgroundColor: "#fda172",
                   }}
                 >
-                  <h4 className="card-title" style={{ fontWeight: 'bold' }}>
+                  <h4 className="card-title" style={{ fontWeight: "bold" }}>
                     청풍문화재단지
                   </h4>
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <img
                       src={HealingImage1}
                       class="img-fluid"
                       alt="청풍문화재단지"
-                      style={{ width: '550px', height: '370px' }}
+                      style={{ width: "550px", height: "370px" }}
                     ></img>
                   </div>
                   <p className="card-text">
                     청풍지역은 자연경관이 수려하고 문물이 번성 했던 곳으로 많은
-                    문화유적이 있었으나 충주 댐 건설로 수몰될 위기에 놓였다.{' '}
+                    문화유적이 있었으나 충주 댐 건설로 수몰될 위기에 놓였다.{" "}
                     <br />
                     1983년부터 3년간 수몰지역의 문화재를 원형대로 현재 위치에
                     이전 복원해 단지를 조성했다.
@@ -149,15 +149,15 @@ function healingCourseBoardView() {
                   <div
                     className="card"
                     style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <p>
                       <i
                         className="bi bi-house"
-                        style={{ fontSize: '1.5rem' }}
+                        style={{ fontSize: "1.5rem" }}
                       ></i>
                       주소: 제천시 청풍면 청풍호로 2048 &nbsp;&nbsp; 전화번호:
                       043)641-5532~5
@@ -168,9 +168,9 @@ function healingCourseBoardView() {
                 <div
                   className="mt-2"
                   style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   <svg
@@ -190,13 +190,13 @@ function healingCourseBoardView() {
                 {/* 중식시간 -------------------------------------------------------------------------*/}
                 <div
                   className="d-flex justify-content-center align-items-center mt-2"
-                  style={{ height: '100%' }}
+                  style={{ height: "100%" }}
                 >
-                  <div className="card text-center" style={{ width: '300px' }}>
+                  <div className="card text-center" style={{ width: "300px" }}>
                     <div className="card-body d-flex justify-content-between align-items-center">
                       <h5
                         className="card-title"
-                        style={{ marginBottom: '0', width: '50%' }}
+                        style={{ marginBottom: "0", width: "50%" }}
                       >
                         점심시간
                       </h5>
@@ -204,7 +204,7 @@ function healingCourseBoardView() {
                         src={lunch1}
                         className="img-fluid"
                         alt="점심시간 사진"
-                        style={{ width: '50%', marginRight: '10px' }}
+                        style={{ width: "50%", marginRight: "10px" }}
                       />
                     </div>
                   </div>
@@ -213,9 +213,9 @@ function healingCourseBoardView() {
                 <div
                   className="mt-2"
                   style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   <svg
@@ -236,26 +236,26 @@ function healingCourseBoardView() {
                 <div
                   className="card-body mt-2"
                   style={{
-                    borderRadius: '15px',
-                    backgroundColor: '#fda172',
-                    width: '100%',
+                    borderRadius: "15px",
+                    backgroundColor: "#fda172",
+                    width: "100%",
                   }}
                 >
-                  <h4 className="card-title" style={{ fontWeight: 'bold' }}>
+                  <h4 className="card-title" style={{ fontWeight: "bold" }}>
                     국립 제천 치유의 숲
                   </h4>
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <img
                       src={HealingImage2}
                       class="img-fluid"
                       alt="국립 제천 치유의 숲"
-                      style={{ width: '550px', height: '370px' }}
+                      style={{ width: "550px", height: "370px" }}
                     ></img>
                   </div>
                   <p className="card-text">
@@ -267,15 +267,15 @@ function healingCourseBoardView() {
                   <div
                     className="card"
                     style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <p>
                       <i
                         className="bi bi-house"
-                        style={{ fontSize: '1.5rem' }}
+                        style={{ fontSize: "1.5rem" }}
                       ></i>
                       주소: 제천시 청풍면 학현소야로 590 &nbsp;&nbsp; 전화번호:
                       043)653-9869
@@ -286,9 +286,9 @@ function healingCourseBoardView() {
                 <div
                   className="mt-2"
                   style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   <svg
@@ -309,26 +309,26 @@ function healingCourseBoardView() {
                 <div
                   className="card-body mt-2"
                   style={{
-                    borderRadius: '15px',
-                    backgroundColor: '#fda172',
-                    width: '100%',
+                    borderRadius: "15px",
+                    backgroundColor: "#fda172",
+                    width: "100%",
                   }}
                 >
-                  <h4 className="card-title" style={{ fontWeight: 'bold' }}>
+                  <h4 className="card-title" style={{ fontWeight: "bold" }}>
                     삼한의 초록길
                   </h4>
                   <div
                     style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <img
                       src={HealingImage3}
                       class="img-fluid"
                       alt="삼한의 초록길"
-                      style={{ width: '550px', height: '370px' }}
+                      style={{ width: "550px", height: "370px" }}
                     ></img>
                   </div>
                   <p className="card-text">
@@ -339,15 +339,15 @@ function healingCourseBoardView() {
                   <div
                     className="card"
                     style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <p>
                       <i
                         className="bi bi-house"
-                        style={{ fontSize: '1.5rem' }}
+                        style={{ fontSize: "1.5rem" }}
                       ></i>
                       주소: 충북 제천시 성봉로 30 일대
                     </p>
@@ -357,9 +357,9 @@ function healingCourseBoardView() {
                 <div
                   className="mt-2"
                   style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   <svg
@@ -379,16 +379,16 @@ function healingCourseBoardView() {
                 {/* 중식시간 -------------------------------------------------------------------------*/}
                 <div
                   className="d-flex justify-content-center align-items-center mt-2 mb-2"
-                  style={{ height: '100%' }}
+                  style={{ height: "100%" }}
                 >
-                  <div className="card text-center" style={{ width: '500px' }}>
+                  <div className="card text-center" style={{ width: "500px" }}>
                     <div className="card-body d-flex justify-content-between align-items-center">
                       <Col md={5}>
                         <h4
                           className="card-title"
                           style={{
-                            marginBottom: '0',
-                            width: '100%',
+                            marginBottom: "0",
+                            width: "100%",
                           }}
                         >
                           <b>전통시장</b>
@@ -397,7 +397,7 @@ function healingCourseBoardView() {
                           src={Market1}
                           className="img-fluid"
                           alt="시장 사진"
-                          style={{ width: '100%', marginRight: '10px' }}
+                          style={{ width: "100%", marginRight: "10px" }}
                         />
                       </Col>
                       <Col>
@@ -420,7 +420,7 @@ function healingCourseBoardView() {
       {/* 푸터 */}
       <Container
         fluid
-        style={{ width: '98vw', overflowX: 'hidden' }}
+        style={{ width: "98vw", overflowX: "hidden" }}
         className="container-fluid mx-0 p-0"
       >
         <Footer />

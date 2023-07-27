@@ -1,18 +1,18 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-import Footer from '../components/UI/footer';
+import Footer from "../components/UI/footer";
 
-import MainHeader from '../components/UI/mainHeader';
+import MainHeader from "../components/UI/mainHeader";
 
-import MainGrid from '../components/UI/mainGrid';
+import MainGrid from "../components/UI/mainGrid";
 
 function main() {
-    return (
-        <>
-            <MainHeader />
-            {/* <Container>
+  return (
+    <>
+      <MainHeader />
+      {/* <Container>
                 <Link to="/board/announce">
                     <button>게시판</button>
                 </Link>
@@ -26,9 +26,9 @@ function main() {
                     <button>관리자</button>
                 </Link>
             </Container> */}
-            <MainGrid />
-            <Footer />
-        </>
-    );
+      <MainGrid />
+      <Footer />
+    </>
+  );
 }
 export default main;

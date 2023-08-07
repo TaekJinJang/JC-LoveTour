@@ -59,7 +59,12 @@ function mainGrid() {
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">지원혜택</h4>
                                 </div>
-                                <Button variant="outline-success" className="ml-auto" onClick={goTosupportBenefit}>
+                                <Button
+                                    variant="outline-success"
+                                    className="ml-auto"
+                                    onClick={goTosupportBenefit}
+                                    style={{ borderColor: '#37ba86' }}
+                                >
                                     +
                                 </Button>
                             </Card.Header>

@@ -72,10 +72,15 @@ function MainHeader() {
         <>
             <Container
                 fluid
-                className="w-100 justify-content-center align-items-center container-fluid mx-0 px-0"
+                className=" justify-content-center align-items-center container-fluid mx-0 px-0"
                 style={{ fontFamily: 'SUITE-Regular', height: '70px', width: '100vw' }}
             >
-                <Navbar bg="white" className="w-100 p-0 text-center" expand="xl" style={{ zIndex: '30' }}>
+                <Navbar
+                    bg="white"
+                    className="w-100 p-0 text-center"
+                    expand="xl"
+                    style={{ zIndex: '30', width: '100vw' }}
+                >
                     <Row xxl={12} className="w-100">
                         <Col xs={10} sm={10} xl={4}>
                             <Figure
@@ -339,145 +344,149 @@ function MainHeader() {
             </Container>
 
             {/*  캐러셀 */}
-            <Container fluid className="px-0" style={{ fontFamily: 'SUITE-Regular', width: '100vw' }}>
-                <Carousel>
-                    <Carousel.Item>
-                        <img
-                            fluid
-                            className="d-block w-100"
-                            width="100%"
-                            height="auto"
-                            src={uirimji}
-                            alt="First slide"
-                            style={{ objectFit: 'cover' }}
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+            <Container fluid className="mx-0 px-0" style={{ fontFamily: 'SUITE-Regular', width: '100vw' }}>
+                <Row xl={12}>
+                    <Col xl={12} className="px-0">
+                        <Carousel>
+                            <Carousel.Item>
+                                <img
+                                    // fluid
+                                    className="d-block"
+                                    width="100%"
+                                    height="auto"
+                                    src={uirimji}
+                                    alt="First slide"
+                                    style={{ objectFit: 'cover' }}
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img className="d-block w-100" width="100%" height={400} src={Bakdaljae} alt="Second slide" />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={WoraksanMountain}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block" width="100%" height={400} src={Bakdaljae} alt="Second slide" />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={WoraksanMountain}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={CheongpungCultural}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={CheongpungCultural}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={GeumsusanMountain}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다 .</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={GeumsusanMountain}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다 .</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={YonghagugokValley}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={YonghagugokValley}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={SonggyeValley}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={SonggyeValley}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={OksunbongPeak}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={OksunbongPeak}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={TaksajeongPavilion}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={TaksajeongPavilion}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
 
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            width="100%"
-                            height={400}
-                            src={BaeronHolyGround}
-                            alt="Third slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
+                            <Carousel.Item>
+                                <img
+                                    className="d-block"
+                                    width="100%"
+                                    height={400}
+                                    src={BaeronHolyGround}
+                                    alt="Third slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>행사 혹은 안내 관련 광고 슬라이드 창입니다</h3>
 
-                            <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+                                    <p>제천 전통시장 러브투어 관련 광고를 올리는 공간입니다.</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        </Carousel>
+                    </Col>
+                </Row>
             </Container>
         </>
     );

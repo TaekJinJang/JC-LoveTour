@@ -15,8 +15,8 @@ function Footer() {
         });
     }, []);
     return (
-        <Container fluid className="w-100 px-0 mx-0 mt-5" style={{ fontFamily: 'SUITE-Regular', width: '100vw' }}>
-            <Row xl={12} className="w-100">
+        <Container fluid className="px-0 mx-0 mt-5" style={{ fontFamily: 'SUITE-Regular', width: '100vw' }}>
+            <Row xl={12}>
                 <Col xl={6} className="ms-5 pe-0">
                     <Row>
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
@@ -28,7 +28,7 @@ function Footer() {
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
                             저작권 보호
                         </Col>
-                        <hr style={{ width: '100%' }}></hr>
+                        <hr style={{ width: '60%' }}></hr>
 
                         <Col xs={12} md={6} xl={12} style={{ fontSize: '14px' }}>
                             (12345)충청북도 제천시 세명로

@@ -9,10 +9,10 @@ import MainHeader from '../components/UI/mainheader';
 import MainGrid from '../components/UI/mainGrid';
 
 function main() {
-    return (
-        <>
-            <MainHeader />
-            {/* <Container>
+  return (
+    <>
+      {/* <MainHeader /> */}
+      {/* <Container>
                 <Link to="/board/announce">
                     <button>게시판</button>
                 </Link>
@@ -26,9 +26,9 @@ function main() {
                     <button>관리자</button>
                 </Link>
             </Container> */}
-            <MainGrid />
-            <Footer />
-        </>
-    );
+      {/* <MainGrid /> */}
+      <Footer />
+    </>
+  );
 }
 export default main;

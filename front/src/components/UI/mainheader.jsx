@@ -75,6 +75,22 @@ function MainHeader() {
         className="justify-content-center align-items-center container-fluid mx-0 px-0"
         style={{ fontFamily: 'SUITE-Regular', height: '70px', width: '100vw' }}
       >
+        <Button href="https://www.jecheon.go.kr/www/index.do" variant="primary">
+          제천시청
+        </Button>
+        <Button
+          href="https://tour.jecheon.go.kr/base/main/view"
+          variant="primary"
+        >
+          제천관광포털
+        </Button>
+        <Button
+          href="http://citytour.jecheon.go.kr/index.php"
+          variant="primary"
+        >
+          제천택시투어
+        </Button>
+
         <Navbar
           bg="white"
           className="w-100 p-0 text-center"
@@ -174,7 +190,7 @@ function MainHeader() {
                           </div>
                         )}
                       </Col>
-                      <Col md={12} lg={3}>
+                      <Col md={12} xl={3}>
                         <Nav.Link
                           className="text-black"
                           href="/board/touristSpot"
@@ -183,7 +199,7 @@ function MainHeader() {
                             fontWeight: 'bold',
                           }}
                         >
-                          제천의 이모저모
+                          여행정보
                         </Nav.Link>
                         <hr className=" d-block d-md-none" />
                         {showMenu && (
@@ -200,7 +216,7 @@ function MainHeader() {
                               href="/board/touristSpot"
                               s
                             >
-                              관광지
+                              테마/코스
                             </Nav.Link>
                             <Nav.Link
                               className="text-black"
@@ -208,7 +224,7 @@ function MainHeader() {
                               onMouseLeave={handleMouseLeave}
                               href="/board/traditionalMarket"
                             >
-                              전통시장
+                              관광지
                             </Nav.Link>
                             <Nav.Link
                               className="text-black"
@@ -216,7 +232,7 @@ function MainHeader() {
                               onMouseLeave={handleMouseLeave}
                               href="/board/food"
                             >
-                              음식
+                              전통시장
                             </Nav.Link>
                             <Nav.Link
                               className="text-black"
@@ -237,7 +253,7 @@ function MainHeader() {
                           </div>
                         )}
                       </Col>
-                      <Col md={12} lg={3}>
+                      <Col md={12} xl={3}>
                         <Nav.Link
                           className="text-black"
                           href="/board/oksunbongPeakCourse"

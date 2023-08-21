@@ -24,7 +24,7 @@ function Footer() {
   return (
     <Container
       fluid
-      className="px-0 mx-0 mt-5"
+      className="mt-5"
       style={{ fontFamily: 'SUITE-Regular', width: '100vw' }}
     >
       <Row xl={12}>

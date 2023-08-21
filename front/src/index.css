@@ -29,7 +29,7 @@ body {
   min-width: 4px;
   min-height: 100vh;
   max-width: 100%;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 h1 {

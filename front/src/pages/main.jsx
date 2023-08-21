@@ -11,7 +11,7 @@ import MainGrid from '../components/UI/mainGrid';
 function main() {
   return (
     <>
-      {/* <MainHeader /> */}
+      <MainHeader />
       {/* <Container>
                 <Link to="/board/announce">
                     <button>게시판</button>
@@ -26,7 +26,7 @@ function main() {
                     <button>관리자</button>
                 </Link>
             </Container> */}
-      {/* <MainGrid /> */}
+      <MainGrid />
       <Footer />
     </>
   );

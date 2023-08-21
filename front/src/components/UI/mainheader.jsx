@@ -75,7 +75,7 @@ function MainHeader() {
         className="justify-content-center align-items-center container-fluid mx-0 px-0"
         style={{ fontFamily: 'SUITE-Regular', height: '70px', width: '100vw' }}
       >
-        <Button href="https://www.jecheon.go.kr/www/index.do" variant="primary">
+        <Button href="https://www.jecheon.go.kr/www/index.do" variant="success">
           제천시청
         </Button>
         <Button

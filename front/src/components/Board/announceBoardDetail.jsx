@@ -16,6 +16,7 @@ import { Container, Row, Col, Figure, Button } from 'react-bootstrap';
 import PageNav from '../UI/pageNav';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
+import Header from '../UI/header';
 
 import Pagination from 'react-js-pagination';
 import '../UI/paging.css';
@@ -52,14 +53,11 @@ function announceBoardDetail() {
 
     return (
         <>
-            {/* 네비바 수정 */}
-            <Container fluid style={{ height: '80px', width: '98vw' }} className="container-fluid mx-0 px-0 ">
-                <PageNav />
-            </Container>
+            <Header />
             {/* 상단이미지 */}
             <Container
                 fluid
-                style={{ height: '40vh', width: '98vw', overflowX: 'hidden' }}
+                style={{ height: '40vh', width: '100vw', overflowX: 'hidden' }}
                 className="container-fluid m-0 p-0"
             >
                 <div
@@ -78,7 +76,7 @@ function announceBoardDetail() {
                     <h1 style={{ color: 'white' }}>알림마당</h1>
                 </div>
             </Container>
-            <Container fluid style={{ width: '98vw', overflowX: 'hidden' }} className="container-fluid m-0 p-0">
+            <Container fluid="sm" className="mt-5">
                 <Row>
                     {/* 사이드바 */}
                     <Col xs={12} lg={3} sm={3} className="px-0">
@@ -134,7 +132,7 @@ function announceBoardDetail() {
                 </Row>
             </Container>
             {/* 푸터 */}
-            <Container fluid style={{ width: '98vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
+            <Container fluid style={{ width: '100vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
                 <Footer />
             </Container>
         </>

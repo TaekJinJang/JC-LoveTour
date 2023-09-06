@@ -33,7 +33,7 @@ import { LOAD_POSTS_REQUEST } from '../../reducers/post';
 
 function narratorBoardView() {
   // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('공지사항'); // 현재 페이지 상태
+  const [currentPage, setCurrentPage] = useState('자유게시판'); // 현재 페이지 상태
   const { mainPosts } = useSelector((state) => state.post);
   const dispatch = useDispatch();
   const { admin } = useSelector((state) => state.admin);

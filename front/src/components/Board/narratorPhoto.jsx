@@ -21,7 +21,7 @@ import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
 function narratorPhoto() {
   // 페이지 버튼 눌린 상태로 만드려고 생성
-  const [currentPage, setCurrentPage] = useState('옥순봉 코스'); // 현재 페이지 상태
+  const [currentPage, setCurrentPage] = useState('해설자 근무배정표'); // 현재 페이지 상태
   const { admin } = useSelector((state) => state.admin);
   const { gallery } = useSelector((state) => state.post);
   const dispatch = useDispatch();

@@ -59,7 +59,7 @@ function faqBoardView() {
             {/* 상단이미지 */}
             <Container
                 fluid
-                style={{ height: '40vh', width: '98vw', overflowX: 'hidden' }}
+                style={{ height: '40vh', width: '100vw', overflowX: 'hidden' }}
                 className="container-fluid m-0 p-0"
             >
                 <div
@@ -100,7 +100,7 @@ function faqBoardView() {
                 </Row>
             </Container>
             {/* 푸터 */}
-            <Container fluid style={{ width: '98vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
+            <Container fluid style={{ width: '100vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
                 <Footer />
             </Container>
         </>

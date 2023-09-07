@@ -239,7 +239,7 @@ function announceBoardUpdate() {
                 </Row>
             </Container>
             {/* 푸터 */}
-            <Container fluid style={{ width: '98vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
+            <Container fluid style={{ width: '100vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
                 <Footer />
             </Container>
         </>

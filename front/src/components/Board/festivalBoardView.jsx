@@ -80,7 +80,7 @@ function festivalBoardView() {
                         alignItems: 'center', // 세로 방향 가운데 정렬
                     }}
                 >
-                    <h1 style={{ color: 'white' }}>이모저모</h1>
+                    <h1 style={{ color: 'white' }}>여행정보</h1>
                 </div>
             </Container>
             <Container fluid="sm" className="mt-5">
@@ -254,7 +254,7 @@ function festivalBoardView() {
                 </Row>
             </Container>
             {/* 푸터 */}
-            <Container fluid style={{ width: '98vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
+            <Container fluid style={{ width: '100vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
                 <Footer />
             </Container>
         </>

@@ -47,10 +47,10 @@ function oksunbongPeakCourseBoardView() {
     // 사이드바 내용
     const buttons = [
         { label: '테마/코스', href: '/board/oksunbongPeakCourse' },
-        { label: '관광지', href: '/board/cheongpunghoCourse' },
-        { label: '전통시장', href: '/board/museumCourse' },
-        { label: '축제/행사', href: '/board/shrineOfBaeronCourse' },
-        { label: '힐링 코스', href: '/board/healingCourse' },
+        { label: '관광지', href: '/board/touristSpot' },
+        { label: '전통시장', href: '/board/traditionalMarket' },
+        { label: '축제/행사', href: '/board/festival' },
+        // { label: '힐링 코스', href: '/board/healingCourse' },
     ];
     return (
         <>
@@ -99,7 +99,7 @@ function oksunbongPeakCourseBoardView() {
                 </Row>
             </Container>
             {/* 푸터 */}
-            <Container fluid style={{ width: '98vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
+            <Container fluid style={{ width: '100vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
                 <Footer />
             </Container>
         </>

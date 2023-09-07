@@ -76,7 +76,7 @@ function traditionalMarketBoardView() {
                         alignItems: 'center', // 세로 방향 가운데 정렬
                     }}
                 >
-                    <h1 style={{ color: 'white' }}>이모저모</h1>
+                    <h1 style={{ color: 'white' }}>여행정보</h1>
                 </div>
             </Container>
             <Container fluid="sm" className="mt-5">

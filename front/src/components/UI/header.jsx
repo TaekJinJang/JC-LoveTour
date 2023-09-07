@@ -57,7 +57,7 @@ function header() {
                             관리자 로그인
                         </Button>
                         <Button href="/admin" variant="light">
-                            관리자 로그인
+                            관리자 페이지
                         </Button>
                     </Col>
                 </Row>

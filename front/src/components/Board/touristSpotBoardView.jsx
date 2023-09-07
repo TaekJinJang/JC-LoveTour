@@ -8,10 +8,10 @@ import '../UI/paging.css';
 import background2 from '../../assets/background2.png';
 
 // 준비중 그림
-import setting from '../../assets/setting.jpg';
+import Tour from '../../assets/Tour/Touruirimji.png';
 
 // 공통부분
-import { Container, Row, Col, Figure } from 'react-bootstrap';
+import { Container, Row, Col, Figure, Card, Button } from 'react-bootstrap';
 import PageNav from '../UI/pageNav';
 import SideBar from '../UI/sideBar';
 import Footer from '../UI/footer';
@@ -60,7 +60,7 @@ function touristSpotBoardView() {
             {/* 상단이미지 */}
             <Container
                 fluid
-                style={{ height: '40vh', width: '100vw', overflowX: 'hidden' }}
+                style={{ height: '40vh', width: '100vw', overflowX: 'hidden', fontFamily: 'SUITE-Regular' }}
                 className="container-fluid m-0 p-0"
             >
                 <div
@@ -88,15 +88,22 @@ function touristSpotBoardView() {
                     {/* 제목 */}
                     <Col xs={12} lg={9} sm={9}>
                         <Col xs={12} lg={12} sm={12}>
-                            <h3>관광지</h3>
+                            <h2>관광지</h2>
                             <hr />
                         </Col>
-
-                        <Col xs={12} lg={12} sm={12}>
-                            <Figure>
-                                <Figure.Image src={setting} alt="Setting Image" />
-                            </Figure>
-                        </Col>
+                        <Row>
+                            <Card style={{ width: '25rem' }}>
+                                <Card.Img className="mt-3" variant="top" src={Tour} />
+                                <Card.Body>
+                                    <Card.Title>의림지</Card.Title>
+                                    <Card.Text>
+                                        제천10경 중 제1경인 의림지는 삼한시대에 축조된 김제 벽골제, 밀양 수산제와 함께
+                                        우리나라 최고의 저수지로 본래 ‘임지’라 하였다.
+                                    </Card.Text>
+                                    <Button variant="success">자세히 보기</Button>
+                                </Card.Body>
+                            </Card>
+                        </Row>
                     </Col>
                 </Row>
             </Container>

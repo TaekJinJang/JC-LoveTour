@@ -94,7 +94,7 @@ function MainHeader() {
                     </Col>
                 </Row>
 
-                <Navbar bg="white" className="px-0 text-center" expand="xl" style={{ zIndex: '30' }}>
+                <Navbar sticky="top" className="px-0" bg="white" expand="xl" style={{ zIndex: '30' }}>
                     <Row className="vw-100 px-0">
                         <Col xs={10} sm={10} xl={4} className="px-0">
                             <Figure

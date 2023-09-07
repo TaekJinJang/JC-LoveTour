@@ -94,8 +94,8 @@ function MainHeader() {
                     </Col>
                 </Row>
 
-                <Navbar sticky="top" className="px-0" bg="white" expand="xl" style={{ zIndex: '30' }}>
-                    <Row className="w-100 px-0">
+                <Navbar bg="white" className="px-0 text-center" expand="xl" style={{ zIndex: '30' }}>
+                    <Row className="vw-100 px-0">
                         <Col xs={10} sm={10} xl={4} className="px-0">
                             <Figure
                                 style={{
@@ -283,7 +283,7 @@ function MainHeader() {
                                             <Col md={12} xl={3}>
                                                 <Nav.Link
                                                     className="text-black "
-                                                    href="#"
+                                                    href="/board/narrator"
                                                     style={{
                                                         fontSize: '25px',
                                                         fontWeight: 'bold',
@@ -303,7 +303,7 @@ function MainHeader() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="#"
+                                                            href="/board/narrator"
                                                         >
                                                             자유게시판
                                                         </Nav.Link>
@@ -311,7 +311,7 @@ function MainHeader() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="#"
+                                                            href="/board/tourReservation"
                                                         >
                                                             투어예약 현황
                                                         </Nav.Link>
@@ -319,7 +319,7 @@ function MainHeader() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="#"
+                                                            href="/board/narratorSchedule"
                                                         >
                                                             해설사 근무배정표
                                                         </Nav.Link>
@@ -327,7 +327,7 @@ function MainHeader() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="#"
+                                                            href="/board/narratorPhoto"
                                                         >
                                                             해설사 사진방
                                                         </Nav.Link>
@@ -335,7 +335,7 @@ function MainHeader() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="#"
+                                                            href="/board/narratorCS"
                                                         >
                                                             해설사 현황
                                                         </Nav.Link>
@@ -343,7 +343,7 @@ function MainHeader() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="#"
+                                                            href="/board/statisticalData"
                                                         >
                                                             통계자료방
                                                         </Nav.Link>

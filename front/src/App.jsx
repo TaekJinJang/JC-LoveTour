@@ -1,40 +1,53 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import AnnounceBoard from "./pages/announceBoard";
-import AnnounceBoardAdd from "./pages/announceBoardAdd";
-import AnnounceBoardPost from "./pages/announceBoardPost";
-import AnnounceBoardUpdate from "./components/Board/announceBoardUpdate";
-import GalleryBoard from "./pages/galleryBoard";
-import GalleryBoardAdd from "./pages/galleryBoardAdd";
-import AnnounceBoardSearch from "./components/Board/announceBoardSearch";
-import ReviewBoard from "./pages/reviewBoard";
-import ReviewBoardWrite from "./components/Board/reviewBoardWrite";
-import ReviewBoardDetail from "./components/Board/reviewBoardDetail";
-import ReviewBoardUpdate from "./components/Board/reviewBoardUpdate";
-import BoardUI from "./components/UI/boardUI";
-import Main from "./pages/main";
-import Admin from "./pages/admin";
-import React from "react";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import reactLogo from './assets/react.svg';
+import AnnounceBoard from './pages/announceBoard';
+import AnnounceBoardAdd from './pages/announceBoardAdd';
+import AnnounceBoardPost from './pages/announceBoardPost';
+import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
+import GalleryBoard from './pages/galleryBoard';
+import GalleryBoardAdd from './pages/galleryBoardAdd';
+import AnnounceBoardSearch from './components/Board/announceBoardSearch';
+import ReviewBoard from './pages/reviewBoard';
+import ReviewBoardWrite from './components/Board/reviewBoardWrite';
+import ReviewBoardDetail from './components/Board/reviewBoardDetail';
+import ReviewBoardUpdate from './components/Board/reviewBoardUpdate';
+import BoardUI from './components/UI/boardUI';
+import Main from './pages/main';
+import Admin from './pages/admin';
+import React from 'react';
 
-import IntroduceBoard from "./pages/introduceBoard";
+import IntroduceBoard from './pages/introduceBoard';
 
-import AccommodationBoard from "./pages/accommodationBoard";
-import CheongpunghoCourseBoard from "./pages/cheongpunghoCourseBoard";
-import MuseumCourseBoard from "./pages/museumCourseBoard";
-import FaqBoard from "./pages/faqBoard";
-import FestivalBoard from "./pages/festivalBoard";
-import FoodBoard from "./pages/foodBoard";
-import OksunbongPeakCourseBoard from "./pages/oksunbongPeakCourseBoard";
-import ShrineOfBaeronCourseBoard from "./pages/shrineOfBaeronCourseBoard";
-import HealingCourseBoard from "./pages/healingCourseBoard";
-import SupportBenefitBoard from "./pages/supportBenefitBoard";
-import TouristSpotBoard from "./pages/touristSpotBoard";
-import TraditionalMarketBoard from "./pages/traditionalMarketBoard";
-import ReviewBoardAdd from "./pages/reviewBoardAdd";
+import AccommodationBoard from './pages/accommodationBoard';
+import CheongpunghoCourseBoard from './pages/cheongpunghoCourseBoard';
+import MuseumCourseBoard from './pages/museumCourseBoard';
+import FaqBoard from './pages/faqBoard';
+import FestivalBoard from './pages/festivalBoard';
+import FoodBoard from './pages/foodBoard';
+import OksunbongPeakCourseBoard from './pages/oksunbongPeakCourseBoard';
+import ShrineOfBaeronCourseBoard from './pages/shrineOfBaeronCourseBoard';
+import HealingCourseBoard from './pages/healingCourseBoard';
+import SupportBenefitBoard from './pages/supportBenefitBoard';
+import TouristSpotBoard from './pages/touristSpotBoard';
+import TraditionalMarketBoard from './pages/traditionalMarketBoard';
+import ReviewBoardAdd from './pages/reviewBoardAdd';
 
-import "./index.css"; //폰트설정을 위한 css 임포트
+// 해설자방 임포트
+import NarratorBoard from './pages/narratorBoard';
+import NarratorPhoto from './pages/narratorPhoto';
+import NarratorWorkSchedule from './pages/narratorWorkSchedule';
+import StatisticalData from './pages/statisticalData';
+import TourReservation from './pages/tourReservation';
+import NarratorCurrentSituation from './pages/narratorCurrentSituation';
+
+import './index.css'; //폰트설정을 위한 css 임포트
+
+const Container = styled.div`
+  margin: 10px auto;
+  // width: 370px;
+`;
 
 function App() {
   return (
@@ -100,6 +113,19 @@ function App() {
             path="/board/shrineOfBaeronCourse"
             element={<ShrineOfBaeronCourseBoard />}
           />
+          {/* 해설자방 */}
+          <Route path="/board/narrator" element={<NarratorBoard />} />
+          <Route
+            path="/board/narratorCS"
+            element={<NarratorCurrentSituation />}
+          />
+          <Route path="/board/narratorPhoto" element={<NarratorPhoto />} />
+          <Route
+            path="/board/narratorSchedule"
+            element={<NarratorWorkSchedule />}
+          />
+          <Route path="/board/statisticalData" element={<StatisticalData />} />
+          <Route path="/board/tourReservation" element={<TourReservation />} />
         </Routes>
       </BrowserRouter>
     </>

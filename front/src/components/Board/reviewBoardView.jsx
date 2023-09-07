@@ -23,9 +23,6 @@ import {
 // 상단 그림
 import background2 from '../../assets/background2.png';
 
-// 상단 그림
-import background2 from '../../assets/background2.png';
-
 // 공통부분
 import { Container, Row, Col } from 'react-bootstrap';
 import Header from '../UI/header';

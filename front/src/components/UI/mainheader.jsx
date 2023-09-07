@@ -73,7 +73,7 @@ function MainHeader() {
             <Container
                 fluid
                 className="justify-content-center align-items-center mx-0 px-0"
-                style={{ fontFamily: 'SUITE-Regular', height: '70px' }}
+                style={{ fontFamily: 'SUITE-Regular', height: '90px' }}
             >
                 <Row className="vw-100">
                     <Col xs={12} sm={6} xl={4}>
@@ -91,10 +91,14 @@ function MainHeader() {
                         <Button href="/admin" variant="light">
                             관리자 로그인
                         </Button>
+
+                        <Button href="/admin" variant="light">
+                            관리자 페이지
+                        </Button>
                     </Col>
                 </Row>
 
-                <Navbar sticky="top" className="px-0" bg="white" expand="xl" style={{ zIndex: '30' }}>
+                <Navbar className="px-0" bg="white" expand="lg" style={{ zIndex: '30' }}>
                     <Row className="vw-100 px-0">
                         <Col xs={10} sm={10} xl={4} className="px-0">
                             <Figure
@@ -106,7 +110,7 @@ function MainHeader() {
                                 className="mb-0 px-0"
                             >
                                 <a href="/">
-                                    <Figure.Image className="mb-0" width={300} height={50} src={logo} alt="logo" />
+                                    <Figure.Image className="mb-0" width={280} height={50} src={logo} alt="logo" />
                                 </a>
                             </Figure>
                         </Col>
@@ -361,7 +365,7 @@ function MainHeader() {
 
             {/*  캐러셀 */}
             <Container fluid className="mx-0 px-0" style={{ fontFamily: 'SUITE-Regular' }}>
-                <Row xl={12} className="vw-99 px-0 mx-0">
+                <Row xl={12} className="vw-100 px-0 mx-0">
                     <Col xl={12} className="px-0">
                         <Carousel style={{ fontFamily: 'SUITE-Regular' }}>
                             <Carousel.Item>

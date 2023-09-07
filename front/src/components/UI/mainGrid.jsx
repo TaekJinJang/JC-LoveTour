@@ -59,12 +59,17 @@ function mainGrid() {
                                 <div style={{ paddingInline: '10px' }}>
                                     <h4 className="fw-bold">지원혜택</h4>
                                 </div>
-                                <Button variant="outline-success" className="ml-auto" onClick={goTosupportBenefit}>
+                                <Button
+                                    variant="outline-success"
+                                    className="ml-auto"
+                                    onClick={goTosupportBenefit}
+                                    style={{ borderColor: '#37ba86' }}
+                                >
                                     +
                                 </Button>
                             </Card.Header>
                             <Card.Body
-                                style={{ backgroundColor: 'white', fontSize: '0.9em' }}
+                                style={{ backgroundColor: 'white', fontSize: '1.1em' }}
                                 className="p-1 m-1 fw-bold"
                             >
                                 <p className="m-1"> ● 거주지에서 관광버스를 임차해올 경우 버스 1대당 35만원 지원 </p>
@@ -102,10 +107,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'blue' }}>
                                                 {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {mainPosts.length > 0 && mainPosts[mainPosts.length - 1].date}
                                             </div>
                                         </div>
@@ -117,10 +122,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'blue' }}>
                                                 {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {mainPosts.length > 1 && mainPosts[mainPosts.length - 2].date}
                                             </div>
                                         </div>
@@ -132,10 +137,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'blue' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 3].date}
                                             </div>
                                         </div>
@@ -147,10 +152,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'blue' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'blue' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {mainPosts.length > 2 && mainPosts[mainPosts.length - 4].date}
                                             </div>
                                         </div>
@@ -185,10 +190,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'green' }}>
                                                 {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {reviewPosts.length > 0 && reviewPosts[reviewPosts.length - 1].date}
                                             </div>
                                         </div>
@@ -200,10 +205,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'green' }}>
                                                 {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {reviewPosts.length > 1 && reviewPosts[reviewPosts.length - 2].date}
                                             </div>
                                         </div>
@@ -215,10 +220,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'green' }}>
                                                 {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 3].date}
                                             </div>
                                         </div>
@@ -231,10 +236,10 @@ function mainGrid() {
                                         className="d-flex justify-content-between align-items-start"
                                     >
                                         <div className="ms-2 me-auto">
-                                            <div className="fw-bold" style={{ fontSize: '0.9em', color: 'green' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em', color: 'green' }}>
                                                 {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 4].title}
                                             </div>
-                                            <div style={{ fontSize: '0.7em' }}>
+                                            <div style={{ fontSize: '1.0em' }}>
                                                 {reviewPosts.length > 2 && reviewPosts[reviewPosts.length - 4].date}
                                             </div>
                                         </div>
@@ -273,14 +278,14 @@ function mainGrid() {
                                             <div
                                                 className="fw-bold"
                                                 style={{
-                                                    fontSize: '0.9em',
+                                                    fontSize: '1.1em',
                                                     marginRight: '0.5rem',
                                                     color: 'green',
                                                 }}
                                             >
                                                 2023-06-16
                                             </div>
-                                            <div className="fw-bold" style={{ fontSize: '0.9em' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em' }}>
                                                 2023 육성지원사업(겨자씨친구들)
                                             </div>
                                         </div>
@@ -290,14 +295,14 @@ function mainGrid() {
                                             <div
                                                 className="fw-bold"
                                                 style={{
-                                                    fontSize: '0.9em',
+                                                    fontSize: '1.1em',
                                                     marginRight: '0.5rem',
                                                     color: 'green',
                                                 }}
                                             >
                                                 2023-06-16
                                             </div>
-                                            <div className="fw-bold" style={{ fontSize: '0.9em' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em' }}>
                                                 제천영상미디어센터 정기상영 '길버트 그레이프'
                                             </div>
                                         </div>
@@ -307,14 +312,14 @@ function mainGrid() {
                                             <div
                                                 className="fw-bold"
                                                 style={{
-                                                    fontSize: '0.9em',
+                                                    fontSize: '1.1em',
                                                     marginRight: '0.5rem',
                                                     color: 'green',
                                                 }}
                                             >
                                                 2023-06-17
                                             </div>
-                                            <div className="fw-bold" style={{ fontSize: '0.9em' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em' }}>
                                                 제천영상미디어센터 정기상영 '라따뚜이'
                                             </div>
                                         </div>
@@ -324,14 +329,14 @@ function mainGrid() {
                                             <div
                                                 className="fw-bold"
                                                 style={{
-                                                    fontSize: '0.9em',
+                                                    fontSize: '1.1em',
                                                     marginRight: '0.5rem',
                                                     color: 'green',
                                                 }}
                                             >
                                                 2023-06-18
                                             </div>
-                                            <div className="fw-bold" style={{ fontSize: '0.9em' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em' }}>
                                                 2023 육성지원사업(제천문화홍보단)
                                             </div>
                                         </div>
@@ -341,14 +346,14 @@ function mainGrid() {
                                             <div
                                                 className="fw-bold"
                                                 style={{
-                                                    fontSize: '0.9em',
+                                                    fontSize: '1.1em',
                                                     marginRight: '0.5rem',
                                                     color: 'green',
                                                 }}
                                             >
                                                 2023-06-20
                                             </div>
-                                            <div className="fw-bold" style={{ fontSize: '0.9em' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em' }}>
                                                 2023 육성지원사업(한국연예예술단)
                                             </div>
                                         </div>
@@ -358,14 +363,14 @@ function mainGrid() {
                                             <div
                                                 className="fw-bold"
                                                 style={{
-                                                    fontSize: '0.9em',
+                                                    fontSize: '1.1em',
                                                     marginRight: '0.5rem',
                                                     color: 'green',
                                                 }}
                                             >
                                                 2023-06-24
                                             </div>
-                                            <div className="fw-bold" style={{ fontSize: '0.9em' }}>
+                                            <div className="fw-bold" style={{ fontSize: '1.1em' }}>
                                                 2023 육성지원사업(제천연주인협회)
                                             </div>
                                         </div>
@@ -385,8 +390,8 @@ function mainGrid() {
                                 <Carousel
                                     variant="dark"
                                     className="mt-1 p-0"
-                                    prevIcon={null}
-                                    nextIcon={null}
+                                    // prevIcon={null}
+                                    // nextIcon={null}
                                     style={{ width: '100%', height: '100%', overflow: 'hidden' }}
                                 >
                                     <Carousel.Item className="m-0 p-0">

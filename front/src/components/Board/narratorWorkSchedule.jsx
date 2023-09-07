@@ -6,10 +6,8 @@ import '../UI/paging.css';
 
 // 상단 그림
 import background2 from '../../assets/background2.png';
-
 // 준비중 그림
 import setting from '../../assets/setting.jpg';
-
 // 공통부분
 import { Container, Row, Col, Figure } from 'react-bootstrap';
 import PageNav from '../UI/pageNav';
@@ -21,9 +19,9 @@ import Header from '../UI/header';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_GALLERY_POSTS_REQUEST } from '../../reducers/post';
 
-function touristSpotBoardView() {
+function narratorWorkSchedule() {
     // 페이지 버튼 눌린 상태로 만드려고 생성
-    const [currentPage, setCurrentPage] = useState('관광지'); // 현재 페이지 상태
+    const [currentPage, setCurrentPage] = useState('해설자 근무배정표'); // 현재 페이지 상태
     const { admin } = useSelector((state) => state.admin);
     const { gallery } = useSelector((state) => state.post);
     const dispatch = useDispatch();
@@ -48,10 +46,12 @@ function touristSpotBoardView() {
 
     // 사이드바 내용
     const buttons = [
-        { label: '테마/코스', href: '/board/oksunbongPeakCourse' },
-        { label: '관광지', href: '/board/touristSpot' },
-        { label: '전통시장', href: '/board/traditionalMarket' },
-        { label: '축제/행사', href: '/board/festival' },
+        { label: '자유게시판', href: '/board/narrator' },
+        { label: '투어예약 현황', href: '/board/tourReservation' },
+        { label: '해설자 근무배정표', href: '/board/narratorSchedule' },
+        { label: '해설자 사진방', href: '/board/narratorPhoto' },
+        { label: '해설자 현황', href: '/board/narratorCS' },
+        { label: '통계 자료방', href: '/board/statisticalData' },
     ];
 
     return (
@@ -60,7 +60,7 @@ function touristSpotBoardView() {
             {/* 상단이미지 */}
             <Container
                 fluid
-                style={{ height: '40vh', width: '100vw', overflowX: 'hidden' }}
+                style={{ height: '40vh', width: '98vw', overflowX: 'hidden' }}
                 className="container-fluid m-0 p-0"
             >
                 <div
@@ -76,19 +76,19 @@ function touristSpotBoardView() {
                         alignItems: 'center', // 세로 방향 가운데 정렬
                     }}
                 >
-                    <h1 style={{ color: 'white' }}>여행정보</h1>
+                    <h1 style={{ color: 'white' }}>해설자방</h1>
                 </div>
             </Container>
             <Container fluid="sm" className="mt-5">
                 <Row>
                     {/* 사이드바 */}
                     <Col xs={12} lg={3} sm={3} className="px-0">
-                        <SideBar buttons={buttons} title={<div>여행정보</div>} />
+                        <SideBar buttons={buttons} title={'해설자방'} />
                     </Col>
                     {/* 제목 */}
                     <Col xs={12} lg={9} sm={9}>
                         <Col xs={12} lg={12} sm={12}>
-                            <h3>관광지</h3>
+                            <h3>해설사 근무배정표</h3>
                             <hr />
                         </Col>
 
@@ -101,11 +101,11 @@ function touristSpotBoardView() {
                 </Row>
             </Container>
             {/* 푸터 */}
-            <Container fluid style={{ width: '100vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
+            <Container fluid style={{ width: '98vw', overflowX: 'hidden' }} className="container-fluid mx-0 p-0">
                 <Footer />
             </Container>
         </>
     );
 }
 
-export default touristSpotBoardView;
+export default narratorWorkSchedule;

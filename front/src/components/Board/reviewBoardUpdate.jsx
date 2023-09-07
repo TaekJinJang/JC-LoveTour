@@ -1,20 +1,20 @@
-import React, { useCallback, useEffect, useRef } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useCallback, useEffect, useRef } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Form from "react-bootstrap/Form";
 // import Button from "react-bootstrap/Button";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card } from 'react-bootstrap';
 
-import useInput from "../../hooks/useInput";
-import { useLocation, useNavigate } from "react-router-dom";
-import { REMOVE_IMAGE, UPDATE_REVIEW_REQUEST } from "../../reducers/post";
-import { useDispatch, useSelector } from "react-redux";
+import useInput from '../../hooks/useInput';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { REMOVE_IMAGE, UPDATE_REVIEW_REQUEST } from '../../reducers/post';
+import { useDispatch, useSelector } from 'react-redux';
 
 // 공통부분
-import { Container, Row, Col } from "react-bootstrap";
-import Header from "../UI/header";
-import TopNavBar from "../UI/topNavBar";
-import SideBar from "../UI/sideBar";
-import Footer from "../UI/footer";
+import { Container, Row, Col } from 'react-bootstrap';
+import Header from '../UI/header';
+import TopNavBar from '../UI/topNavBar';
+import SideBar from '../UI/sideBar';
+import Footer from '../UI/footer';
 
 function reviewBoardUpdate() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function reviewBoardUpdate() {
   const [text, onChangeText] = useInput(post.content);
   useEffect(() => {
     if (post?.Images) {
-      console.log("object");
+      console.log('object');
       const newImagePaths = [...imagePaths]; // 새로운 배열 생성
       post.Images.forEach((v) => newImagePaths.push(v.src));
       // imagePaths를 직접 수정하지 않고 새로운 배열에 값을 추가
@@ -42,9 +42,9 @@ function reviewBoardUpdate() {
     (e) => {
       e.preventDefault();
       if (!text || !text.trim()) {
-        return alert("게시글을 작성하세요");
+        return alert('게시글을 작성하세요');
       }
-      navigate("/board/review/"); // 이전페이지로 이동
+      navigate('/board/review/'); // 이전페이지로 이동
       return dispatch({
         type: UPDATE_REVIEW_REQUEST,
         data: {
@@ -68,22 +68,22 @@ function reviewBoardUpdate() {
 
   // 사이드바 내용
   const buttons = [
-    { label: "공지사항", href: "/board/announce" },
-    { label: "자주하는 질문", href: "/board/faq" },
-    { label: "투어 후기", href: "/board/review" },
+    { label: '공지사항', href: '/board/announce' },
+    { label: '자주하는 질문', href: '/board/faq' },
+    { label: '투어 후기', href: '/board/review' },
   ];
 
   return (
     <>
-      <Container style={{ fontFamily: "Pretendard-Regular" }}>
+      <Container style={{ fontFamily: 'Pretendard-Regular' }}>
         <Header />
         <Container>
-          <Row style={{ width: "100%", marginLeft: 0, marginRight: 0 }}>
+          <Row style={{ width: '100%', marginLeft: 0, marginRight: 0 }}>
             <TopNavBar />
           </Row>
-          <Row className="mt-3 ps-1" style={{ width: "100%" }}>
+          <Row className="mt-3 ps-1" style={{ width: '100%' }}>
             <Col md={3}>
-              <SideBar buttons={buttons} title={"투어 후기"} />
+              <SideBar buttons={buttons} title={'투어 후기'} />
             </Col>
             <Col md={9}>
               <Row>
@@ -103,11 +103,11 @@ function reviewBoardUpdate() {
                       >
                         <Card.Header
                           style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            height: '35px',
+                            fontSize: '17px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                           }}
                         >
                           제목
@@ -122,7 +122,7 @@ function reviewBoardUpdate() {
                         placeholder="제목을 입력해주세요."
                         value={title}
                         onChange={onChangeTitle}
-                        style={{ backgroundColor: "#D9D9D9" }}
+                        style={{ backgroundColor: '#D9D9D9' }}
                       />
                     </Col>
                   </Form.Group>
@@ -138,11 +138,11 @@ function reviewBoardUpdate() {
                       >
                         <Card.Header
                           style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            height: '35px',
+                            fontSize: '17px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                           }}
                         >
                           이름
@@ -157,7 +157,7 @@ function reviewBoardUpdate() {
                         placeholder="이름을 입력해주세요. "
                         value={name}
                         onChange={onChangeName}
-                        style={{ backgroundColor: "#D9D9D9" }}
+                        style={{ backgroundColor: '#D9D9D9' }}
                       />
                     </Col>
                   </Form.Group>
@@ -172,11 +172,11 @@ function reviewBoardUpdate() {
                       >
                         <Card.Header
                           style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            height: '35px',
+                            fontSize: '17px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                           }}
                         >
                           번호
@@ -191,7 +191,7 @@ function reviewBoardUpdate() {
                         placeholder="010-0000-0000"
                         value={phoneNum}
                         onChange={onChangePhoneNum}
-                        style={{ backgroundColor: "#D9D9D9" }}
+                        style={{ backgroundColor: '#D9D9D9' }}
                       />
                     </Col>
                   </Form.Group>
@@ -206,11 +206,11 @@ function reviewBoardUpdate() {
                       >
                         <Card.Header
                           style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            height: '35px',
+                            fontSize: '17px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                           }}
                         >
                           비밀번호
@@ -225,7 +225,7 @@ function reviewBoardUpdate() {
                         placeholder="예약 비밀번호를 입력해주세요 "
                         value={password}
                         onChange={onChangePassword}
-                        style={{ backgroundColor: "#D9D9D9" }}
+                        style={{ backgroundColor: '#D9D9D9' }}
                       />
                     </Col>
                   </Form.Group>
@@ -241,11 +241,11 @@ function reviewBoardUpdate() {
                       >
                         <Card.Header
                           style={{
-                            height: "35px",
-                            fontSize: "17px",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            height: '35px',
+                            fontSize: '17px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                           }}
                         >
                           내용
@@ -260,7 +260,7 @@ function reviewBoardUpdate() {
                         placeholder="내용을 입력해주세요. "
                         value={text}
                         onChange={onChangeText}
-                        style={{ backgroundColor: "#D9D9D9", height: "600px" }}
+                        style={{ backgroundColor: '#D9D9D9', height: '600px' }}
                       />
                     </Col>
                   </Form.Group>
@@ -269,18 +269,15 @@ function reviewBoardUpdate() {
               <Row>
                 <Col>
                   {post.Images &&
-                    post.Images.map((image, index) => (
-                      <div key={index} style={{ display: "inline-block" }}>
+                    post.Images.map((v, i) => (
+                      <div key={v} style={{ display: 'inline-block' }}>
                         <img
-                          src={`${image.src}`}
-                          style={{ width: "200px" }}
-                          alt={`${image.src}`}
+                          src={`http://localhost:3005/${v.src}`}
+                          style={{ width: '200px' }}
+                          alt={v}
                         />
                         <div>
-                          <Button
-                            variant="danger"
-                            onClick={onRemoveImage(image)}
-                          >
+                          <Button variant="danger" onClick={onRemoveImage(i)}>
                             제거
                           </Button>
                         </div>

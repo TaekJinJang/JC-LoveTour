@@ -28,7 +28,7 @@ function Footer() {
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
                             저작권 보호
                         </Col>
-                        <hr style={{ width: '80%' }}></hr>
+                        <hr style={{ width: '60%' }}></hr>
 
                         <Col xs={12} md={6} xl={12} style={{ fontSize: '14px' }}>
                             (12345)충청북도 제천시 세명로
@@ -41,7 +41,7 @@ function Footer() {
                     <Image
                         fluid
                         style={{ opacity: '0.5' }}
-                        className="mt-1 px-0"
+                        // className="mt-1"
                         width={350}
                         height="auto"
                         src={footerlogo}

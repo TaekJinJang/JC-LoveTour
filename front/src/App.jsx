@@ -1,48 +1,47 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import reactLogo from './assets/react.svg';
-import AnnounceBoard from './pages/announceBoard';
-import AnnounceBoardAdd from './pages/announceBoardAdd';
-import AnnounceBoardPost from './pages/announceBoardPost';
-import AnnounceBoardUpdate from './components/Board/announceBoardUpdate';
-import GalleryBoard from './pages/galleryBoard';
-import GalleryBoardAdd from './pages/galleryBoardAdd';
-import AnnounceBoardSearch from './components/Board/announceBoardSearch';
-import ReviewBoard from './pages/reviewBoard';
-import ReviewBoardWrite from './components/Board/reviewBoardWrite';
-import ReviewBoardDetail from './components/Board/reviewBoardDetail';
-import ReviewBoardUpdate from './components/Board/reviewBoardUpdate';
-import BoardUI from './components/UI/boardUI';
-import Main from './pages/main';
-import Admin from './pages/admin';
-import React from 'react';
+import { useState } from "react";
+import React from "react";
+import styled from "styled-components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import reactLogo from "./assets/react.svg";
+import BoardUI from "./components/UI/boardUI";
 
-import IntroduceBoard from './pages/introduceBoard';
+// 메인페이지 + 관리자 페이지
+import Main from "./pages/main";
+import Admin from "./pages/admin";
 
-import AccommodationBoard from './pages/accommodationBoard';
-import CheongpunghoCourseBoard from './pages/cheongpunghoCourseBoard';
-import MuseumCourseBoard from './pages/museumCourseBoard';
-import FaqBoard from './pages/faqBoard';
-import FestivalBoard from './pages/festivalBoard';
-import FoodBoard from './pages/foodBoard';
-import OksunbongPeakCourseBoard from './pages/oksunbongPeakCourseBoard';
-import ShrineOfBaeronCourseBoard from './pages/shrineOfBaeronCourseBoard';
-import HealingCourseBoard from './pages/healingCourseBoard';
-import SupportBenefitBoard from './pages/supportBenefitBoard';
-import TouristSpotBoard from './pages/touristSpotBoard';
-import TraditionalMarketBoard from './pages/traditionalMarketBoard';
-import ReviewBoardAdd from './pages/reviewBoardAdd';
+// 리뉴얼
+// 투어소개 TourIntroduction
 
-// 해설자방 임포트
-import NarratorBoard from './pages/narratorBoard';
-import NarratorPhoto from './pages/narratorPhoto';
-import NarratorWorkSchedule from './pages/narratorWorkSchedule';
-import StatisticalData from './pages/statisticalData';
-import TourReservation from './pages/tourReservation';
-import NarratorCurrentSituation from './pages/narratorCurrentSituation';
+import IntroduceBoard from "./pages/TourIntroductionPages/introduceBoard"; // 러브투어 소개
+import GalleryBoard from "./pages/TourIntroductionPages/galleryBoard"; // 사진갤러리 <홍보물로 수정 예정>
+import GalleryBoardAdd from "./pages/TourIntroductionPages/galleryBoardAdd";
 
-import './index.css'; //폰트설정을 위한 css 임포트
+import ReviewBoard from "./pages/TourIntroductionPages/reviewBoard"; // 투어 후기
+
+import ReviewBoardDetail from "./components/Board/TourIntroduction/reviewBoardDetail";
+import ReviewBoardUpdate from "./components/Board/TourIntroduction/reviewBoardUpdate";
+import ReviewBoardAdd from "./pages/TourIntroductionPages/reviewBoardAdd";
+
+// 예약
+import SupportBenefitBoard from "./pages/ReservationPages/supportBenefitBoard"; // 지원혜택
+import TourReservation from "./pages/ReservationPages/tourReservation"; // 투어 예약 현황
+import ReservationInquiry from "./pages/ReservationPages/reservationInquiry"; // 예약 문의
+
+// 여행 정보
+import TouristSpot from "./pages/TravelInformationPages/touristSpot"; // 관광지
+import TraditionalMarket from "./pages/TravelInformationPages/traditionalMarket"; // 전통 시장
+import FestivalBoard from "./pages/TravelInformationPages/festivalBoard"; // 축제 / 행사
+
+// 고객센터
+import AnnounceBoard from "./pages/CustomerServicePages/announceBoard"; // 공지사항
+import AnnounceBoardAdd from "./pages/CustomerServicePages/announceBoardAdd";
+import AnnounceBoardPost from "./pages/CustomerServicePages/announceBoardPost";
+import AnnounceBoardUpdate from "./components/Board/CustomerService/announceBoardUpdate";
+import AnnounceBoardSearch from "./components/Board/CustomerService/announceBoardSearch";
+import FaqBoard from "./pages/CustomerServicePages/faqBoard"; // 1:1 문의 <수정예정>
+import NarratorBoard from "./pages/CustomerServicePages/narratorBoard"; // 해설사 게시판
+
+import "./index.css"; //폰트설정을 위한 css 임포트
 
 const Container = styled.div`
   margin: 10px auto;
@@ -54,8 +53,50 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          {/* 메인 페이지 */}
           <Route path="/" exact={true} element={<Main />} />
-          <Route path="/board/accommodation" element={<AccommodationBoard />} />
+          {/* 투어소개 */}
+          {/* 러브투어 소개 */}
+          <Route path="/board/introduce" element={<IntroduceBoard />} />
+          {/* 홍보물 */}
+          <Route path="/board/gallery" element={<GalleryBoard />} />
+          <Route path="/board/gallery/add" element={<GalleryBoardAdd />} />
+          {/* 투어 후기 */}
+          <Route path="/board/review" element={<ReviewBoard />} />
+          <Route path="/board/review/add" element={<ReviewBoardAdd />} />
+          <Route
+            path="/board/review/:boardid"
+            element={<ReviewBoardDetail />}
+          />
+          <Route
+            path="/board/review/:boardid/update"
+            element={<ReviewBoardUpdate />}
+          />
+          {/* 예약 */}
+          {/* 지원혜택 */}
+          <Route
+            path="/board/supportBenefit"
+            element={<SupportBenefitBoard />}
+          />
+          {/* 예약 현황 */}
+          <Route path="/board/tourReservation" element={<TourReservation />} />
+          {/* 예약 문의 */}
+          <Route
+            path="/board/reservationInquiry"
+            element={<ReservationInquiry />}
+          />
+          {/* 여행정보 */}
+          {/* 관광지 */}
+          <Route path="/board/touristSpot" element={<TouristSpot />} />
+          {/* 전통시장 */}
+          <Route
+            path="/board/traditionalMarketBoard"
+            element={<TraditionalMarket />}
+          />
+          {/* 축제/행사 */}
+          <Route path="/board/festival" element={<FestivalBoard />} />
+          {/* 고객센터 */}
+          {/* 공지사항 */}
           <Route path="/board/announce" element={<AnnounceBoard />} />
           <Route
             path="/board/announce/:boardid"
@@ -70,62 +111,13 @@ function App() {
             path="/board/announce/search/:search"
             element={<AnnounceBoardSearch />}
           />
-          <Route path="/board/gallery" element={<GalleryBoard />} />
-          <Route path="/board/gallery/add" element={<GalleryBoardAdd />} />
-          <Route path="/board/introduce" element={<IntroduceBoard />} />
-          <Route path="/board/review" element={<ReviewBoard />} />
-          <Route path="/board/review/add" element={<ReviewBoardAdd />} />
-          <Route
-            path="/board/review/:boardid"
-            element={<ReviewBoardDetail />}
-          />
-          <Route
-            path="/board/review/:boardid/update"
-            element={<ReviewBoardUpdate />}
-          />
+          {/* 1:1 문의 */}
+          <Route path="/board/faq" element={<FaqBoard />} />
+          {/* 해설사 게시판*/}
+          <Route path="/board/narrator" element={<NarratorBoard />} />
+          {/* 관리자 및 테스트 */}
           <Route path="/admin" element={<Admin />} />
           <Route path="/test" element={<BoardUI />} />
-
-          <Route path="/board/faq" element={<FaqBoard />} />
-          <Route path="/board/festival" element={<FestivalBoard />} />
-          <Route path="/board/food" element={<FoodBoard />} />
-          <Route path="/board/healingCourse" element={<HealingCourseBoard />} />
-          <Route
-            path="/board/supportBenefit"
-            element={<SupportBenefitBoard />}
-          />
-          <Route path="/board/touristSpot" element={<TouristSpotBoard />} />
-          <Route
-            path="/board/traditionalMarket"
-            element={<TraditionalMarketBoard />}
-          />
-
-          <Route
-            path="/board/cheongpunghoCourse"
-            element={<CheongpunghoCourseBoard />}
-          />
-          <Route path="/board/museumCourse" element={<MuseumCourseBoard />} />
-          <Route
-            path="/board/oksunbongPeakCourse"
-            element={<OksunbongPeakCourseBoard />}
-          />
-          <Route
-            path="/board/shrineOfBaeronCourse"
-            element={<ShrineOfBaeronCourseBoard />}
-          />
-          {/* 해설자방 */}
-          <Route path="/board/narrator" element={<NarratorBoard />} />
-          <Route
-            path="/board/narratorCS"
-            element={<NarratorCurrentSituation />}
-          />
-          <Route path="/board/narratorPhoto" element={<NarratorPhoto />} />
-          <Route
-            path="/board/narratorSchedule"
-            element={<NarratorWorkSchedule />}
-          />
-          <Route path="/board/statisticalData" element={<StatisticalData />} />
-          <Route path="/board/tourReservation" element={<TourReservation />} />
         </Routes>
       </BrowserRouter>
     </>

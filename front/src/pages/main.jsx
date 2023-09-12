@@ -27,7 +27,7 @@ function main() {
                 </Link>
             </Container> */}
             <MainGrid />
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 }

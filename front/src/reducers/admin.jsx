@@ -10,11 +10,11 @@ export const initialState = {
     loadMyInfoLoading: false, // 로그인쿠키 시도중
     loadMyInfoDone: false,
     loadMyInfoError: null,
-    admin: null,
-    // admin: {
-    //     id: 'admin',
-    //     password: '123',
-    // },
+    // admin: null,
+    admin: {
+        id: 'admin',
+        password: '123',
+    },
     signUpData: {},
     loginData: {},
 };

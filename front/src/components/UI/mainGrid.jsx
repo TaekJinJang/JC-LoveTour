@@ -45,7 +45,6 @@ function mainGrid() {
     return (
         <>
             <Container
-                fluid="sm"
                 className="justify-content-center"
                 style={{
                     fontFamily: 'Pretendard-Regular', // 폰트 스타일 지정

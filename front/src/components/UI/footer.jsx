@@ -20,15 +20,15 @@ function Footer() {
                 <Col xl={6} className="ms-5 pe-0">
                     <Row>
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
-                            개인정보처리방침
+                            <a href="#">개인정보처리방침</a>
                         </Col>
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
-                            영상정보처리기기전리방침
+                            영상정보 처리기기전리방침
                         </Col>
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
                             저작권 보호
                         </Col>
-                        <hr style={{ width: '60%' }}></hr>
+                        <hr style={{ width: '80%' }}></hr>
 
                         <Col xs={12} md={6} xl={12} style={{ fontSize: '14px' }}>
                             (12345)충청북도 제천시 세명로

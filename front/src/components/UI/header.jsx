@@ -38,7 +38,7 @@ function header() {
             <Container
                 fluid
                 className="justify-content-center align-items-center mx-0 px-0"
-                style={{ fontFamily: 'SUITE-Regular', height: '90px' }}
+                style={{ fontFamily: 'SUITE-Regular', height: '150px' }}
             >
                 <Row className="vw-100">
                     <Col xs={12} sm={6} xl={4}>

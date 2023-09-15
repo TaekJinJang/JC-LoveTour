@@ -20,10 +20,10 @@ function Footer() {
                 <Col xl={6} className="ms-5 pe-0">
                     <Row>
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
-                            개인정보처리방침
+                            <a href="#">개인정보처리방침</a>
                         </Col>
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
-                            영상정보처리기기전리방침
+                            영상정보 처리기기전리방침
                         </Col>
                         <Col xs={12} md={6} xl={4} style={{ fontSize: '14px' }}>
                             저작권 보호
@@ -41,7 +41,7 @@ function Footer() {
                     <Image
                         fluid
                         style={{ opacity: '0.5' }}
-                        className="mt-1 px-0"
+                        // className="mt-1"
                         width={350}
                         height="auto"
                         src={footerlogo}

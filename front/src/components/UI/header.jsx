@@ -37,8 +37,8 @@ function header() {
             > */}
             <Container
                 fluid
-                className="mx-0 px-0"
-                style={{ fontFamily: 'SUITE-Regular', height: '100px', width: '100vw' }}
+                className="justify-content-center align-items-center mx-0 px-0"
+                style={{ fontFamily: 'SUITE-Regular', height: '150px' }}
             >
                 <Row className="vw-100">
                     <Col xs={12} sm={6} xl={4}>
@@ -56,30 +56,26 @@ function header() {
                         <Button href="/admin" variant="light">
                             관리자 로그인
                         </Button>
+
                         <Button href="/admin" variant="light">
-                            관리자 로그인
+                            관리자 페이지
                         </Button>
                     </Col>
                 </Row>
 
-                <Navbar
-                    bg="white"
-                    className="w-100 p-0 text-center"
-                    expand="xl"
-                    style={{ zIndex: '30', fontFamily: 'SUITE-Regular' }}
-                >
-                    <Row xxl={12} className="w-100">
-                        <Col xs={10} sm={10} xl={4}>
+                <Navbar className="px-0" bg="white" expand="lg" style={{ zIndex: '30' }}>
+                    <Row className="vw-100 px-0">
+                        <Col xs={10} sm={10} xl={4} className="px-0">
                             <Figure
                                 style={{
                                     display: 'flex',
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                 }}
-                                className="mb-0"
+                                className="mb-0 px-0"
                             >
                                 <a href="/">
-                                    <Figure.Image className="mb-0" width={300} height={50} src={logo} alt="logo" />
+                                    <Figure.Image className="mb-0" width={280} height={50} src={logo} alt="logo" />
                                 </a>
                             </Figure>
                         </Col>
@@ -116,7 +112,7 @@ function header() {
                                                         fontWeight: 'bold',
                                                     }}
                                                 >
-                                                    제천 러브투어
+                                                    투어소개
                                                 </Nav.Link>
                                                 <hr className="d-block d-md-none" />
                                                 {showMenu && (
@@ -138,17 +134,17 @@ function header() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="/board/supportBenefit"
+                                                            href="/board/gallery"
                                                         >
-                                                            지원 혜택
+                                                            홍보물
                                                         </Nav.Link>
                                                         <Nav.Link
                                                             className="text-black "
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="/board/gallery"
+                                                            href="/board/review"
                                                         >
-                                                            사진 갤러리
+                                                            투어후기
                                                         </Nav.Link>
                                                     </div>
                                                 )}
@@ -176,14 +172,6 @@ function header() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="/board/oksunbongPeakCourse"
-                                                        >
-                                                            테마/코스
-                                                        </Nav.Link>
-                                                        <Nav.Link
-                                                            className="text-black"
-                                                            onMouseEnter={handleMouseEnter}
-                                                            onMouseLeave={handleMouseLeave}
                                                             href="/board/touristSpot"
                                                         >
                                                             관광지
@@ -192,7 +180,7 @@ function header() {
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
-                                                            href="/board/traditionalMarket"
+                                                            href="/board/traditionalMarketBoard"
                                                         >
                                                             전통시장
                                                         </Nav.Link>
@@ -210,13 +198,59 @@ function header() {
                                             <Col md={12} xl={3}>
                                                 <Nav.Link
                                                     className="text-black"
+                                                    href="/board/tourReservation"
+                                                    style={{
+                                                        fontSize: '25px',
+                                                        fontWeight: 'bold',
+                                                    }}
+                                                >
+                                                    예약
+                                                </Nav.Link>
+                                                <hr className="d-block d-md-none" />
+                                                {showMenu && (
+                                                    <div
+                                                        className="d-none d-lg-block " // 모바일 화면에서 숨김
+                                                        style={{
+                                                            fontSize: '20px',
+                                                        }}
+                                                    >
+                                                        <Nav.Link
+                                                            className="text-black"
+                                                            onMouseEnter={handleMouseEnter}
+                                                            onMouseLeave={handleMouseLeave}
+                                                            href="/board/supportBenefit"
+                                                        >
+                                                            지원혜택
+                                                        </Nav.Link>
+                                                        <Nav.Link
+                                                            className="text-black"
+                                                            onMouseEnter={handleMouseEnter}
+                                                            onMouseLeave={handleMouseLeave}
+                                                            href="/board/tourReservation"
+                                                        >
+                                                            예약현황
+                                                        </Nav.Link>
+                                                        <Nav.Link
+                                                            className="text-black"
+                                                            onMouseEnter={handleMouseEnter}
+                                                            onMouseLeave={handleMouseLeave}
+                                                            href="/board/reservationInquiry"
+                                                        >
+                                                            예약문의
+                                                        </Nav.Link>
+                                                    </div>
+                                                )}
+                                            </Col>
+                                            <Col md={12} xl={3}>
+                                                <Nav.Link
+                                                    className="text-black "
                                                     href="/board/announce"
                                                     style={{
                                                         fontSize: '25px',
                                                         fontWeight: 'bold',
                                                     }}
                                                 >
-                                                    알림마당
+                                                    고객센터
                                                 </Nav.Link>
                                                 <hr className="d-block d-md-none" />
                                                 {showMenu && (
@@ -240,85 +274,15 @@ function header() {
                                                             onMouseLeave={handleMouseLeave}
                                                             href="/board/faq"
                                                         >
-                                                            질문게시판
+                                                            1:1문의
                                                         </Nav.Link>
-                                                        <Nav.Link
-                                                            className="text-black"
-                                                            onMouseEnter={handleMouseEnter}
-                                                            onMouseLeave={handleMouseLeave}
-                                                            href="/board/review"
-                                                        >
-                                                            투어후기
-                                                        </Nav.Link>
-                                                    </div>
-                                                )}
-                                            </Col>
-                                            <Col md={12} xl={3}>
-                                                <Nav.Link
-                                                    className="text-black "
-                                                    href="/board/narrator"
-                                                    style={{
-                                                        fontSize: '25px',
-                                                        fontWeight: 'bold',
-                                                    }}
-                                                >
-                                                    해설자방
-                                                </Nav.Link>
-                                                <hr className="d-block d-md-none" />
-                                                {showMenu && (
-                                                    <div
-                                                        className="d-none d-lg-block " // 모바일 화면에서 숨김
-                                                        style={{
-                                                            fontSize: '20px',
-                                                        }}
-                                                    >
                                                         <Nav.Link
                                                             className="text-black"
                                                             onMouseEnter={handleMouseEnter}
                                                             onMouseLeave={handleMouseLeave}
                                                             href="/board/narrator"
                                                         >
-                                                            자유게시판
-                                                        </Nav.Link>
-                                                        <Nav.Link
-                                                            className="text-black"
-                                                            onMouseEnter={handleMouseEnter}
-                                                            onMouseLeave={handleMouseLeave}
-                                                            href="/board/tourReservation"
-                                                        >
-                                                            투어예약 현황
-                                                        </Nav.Link>
-                                                        <Nav.Link
-                                                            className="text-black"
-                                                            onMouseEnter={handleMouseEnter}
-                                                            onMouseLeave={handleMouseLeave}
-                                                            href="/board/narratorSchedule"
-                                                        >
-                                                            해설사 근무배정표
-                                                        </Nav.Link>
-                                                        <Nav.Link
-                                                            className="text-black"
-                                                            onMouseEnter={handleMouseEnter}
-                                                            onMouseLeave={handleMouseLeave}
-                                                            href="/board/narratorPhoto"
-                                                        >
-                                                            해설사 사진방
-                                                        </Nav.Link>
-                                                        <Nav.Link
-                                                            className="text-black"
-                                                            onMouseEnter={handleMouseEnter}
-                                                            onMouseLeave={handleMouseLeave}
-                                                            href="/board/narratorCS"
-                                                        >
-                                                            해설사 현황
-                                                        </Nav.Link>
-                                                        <Nav.Link
-                                                            className="text-black"
-                                                            onMouseEnter={handleMouseEnter}
-                                                            onMouseLeave={handleMouseLeave}
-                                                            href="/board/statisticalData"
-                                                        >
-                                                            통계자료방
+                                                            해설사방
                                                         </Nav.Link>
                                                     </div>
                                                 )}
@@ -331,7 +295,6 @@ function header() {
                     </Row>
                 </Navbar>
             </Container>
-            {/* </Container> */}
         </>
     );
 }

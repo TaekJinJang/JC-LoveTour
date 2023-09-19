@@ -54,15 +54,3 @@
 |                                           리뷰(`/board/review`)                                            |                                          갤러리(`/board/gallery`)                                           |                                          관리자 권한(`/board/gallery`)                                          |
 | :--------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------: |
 | ![review](https://github.com/TaekJinJang/JC-LoveTour/assets/93184838/d3ab1a7b-2e8f-4b21-a296-18ec8a49e3c0) | ![gallery](https://github.com/TaekJinJang/JC-LoveTour/assets/93184838/89dae63a-be1c-47b7-8606-a19f305aa0bd) | ![uploadAdmin](https://github.com/TaekJinJang/JC-LoveTour/assets/93184838/19663083-e731-441d-b467-ed8adfca1c6d) |
-
-## Installation ( 예시 )
-
-```
- > git clone https://github.com/TaekJinJang/JC-LoveTour.git
-
- > cd front
-
- > npm i
-
- > npm run start
-```
